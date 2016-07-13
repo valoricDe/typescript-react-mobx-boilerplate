@@ -1,4 +1,4 @@
-@import 'font';
+@import 'fonts';
 
 $font: 'OpenSansRegular';
 $color-1: #fff;
@@ -24,7 +24,6 @@ body,
 		display: inline-block;
 		font-size: 20px;
 		line-height: 1.8;
-		margin: 0 10px 0 0;
 		padding: 15px 45px;
 
 		&:focus {
@@ -47,10 +46,13 @@ body,
 		}
 	}
 
-	.output {
-		display: block;
-		font-size: 19px;
-		padding-bottom: 20px;
+	.group {
+		.output {
+			display: block;
+			font-size: 42px;
+			padding-bottom: 20px;
+			text-align: center;
+		}
 	}
 
 	.center {

@@ -1,6 +1,6 @@
 declare namespace Props {
 	interface IApp {
-		store: Store.IStore;
+		tickStore?: Tick.ITick;
 	}
 
 	interface IButton {

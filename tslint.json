@@ -76,7 +76,16 @@
 			}
 		],
 		"triple-equals": [true],
-		"typedef": [false],
+		"typedef": [
+			true,
+			"call-signature",
+			"variable-declaration",
+			"arrow-call-signature",
+			"parameter",
+			"arrow-parameter",
+			"property-declaration",
+			"member-variable-declaration"
+		],
 		"typedef-whitespace": [
 			true,
 			{

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const Label = (props: Props.ILabel): JSX.Element => {
+const Label: (props: Props.ILabel) => JSX.Element = (props: Props.ILabel): JSX.Element => {
 	return (
 		<label className='output'>{props.value}</label>
 	);

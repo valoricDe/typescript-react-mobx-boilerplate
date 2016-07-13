@@ -1,6 +1,6 @@
 import { observable } from 'mobx';
 
-export default class Store implements Store.IStore {
+export default class TickStore implements Tick.ITick {
 	@observable
 	public tick: number;
 
