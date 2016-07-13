@@ -1,0 +1,60 @@
+{
+  "name": "typescript-react-mobx-boilerplate",
+  "version": "1.0.0",
+  "description": "typescript-react-mobx-boilerplate",
+  "main": "source/index.ts",
+  "scripts": {
+    "start": "node ./misc/start.js",
+    "server": "webpack-dev-server --progress --colors --config ./misc/webpack.config.js",
+    "dev-build": "webpack --progress --colors --config ./misc/webpack.config.js",
+    "prod-build": "webpack --progress --colors -p --config ./misc/webpack.config.js",
+    "remove-build": "rm -rf build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lozinsky/typescript-react-mobx-boilerplate.git"
+  },
+  "keywords": [
+    "react",
+    "mobx",
+    "react-mobx",
+    "boilerplate",
+    "typescript"
+  ],
+  "bugs": {
+    "url": "https://github.com/lozinsky/typescript-react-mobx-boilerplate/issues"
+  },
+  "homepage": "https://github.com/lozinsky/typescript-react-mobx-boilerplate#readme",
+  "author": "Pavel Lozinsky <jingle@live.com> (http://github.com/lozinsky)",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.3.7",
+    "css-loader": "^0.23.1",
+    "empty-module": "0.0.2",
+    "eslint": "^3.0.1",
+    "eslint-plugin-node": "^2.0.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.21.0",
+    "mobx-react-devtools": "^4.2.0",
+    "node-sass": "^3.8.0",
+    "postcss-loader": "^0.9.1",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "stylelint": "^6.8.0",
+    "stylelint-scss": "^1.2.1",
+    "ts-loader": "^0.8.2",
+    "tslint": "^3.13.0",
+    "typescript": "^1.8.10",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.0"
+  },
+  "dependencies": {
+    "mobx": "^2.3.5",
+    "mobx-react": "^3.4.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1"
+  }
+}

@@ -1,0 +1,62 @@
+@import 'font';
+
+$font: 'OpenSansRegular';
+$color-1: #fff;
+$color-2: #333;
+
+html,
+body,
+#root,
+.wrapper {
+	height: 100%;
+	margin: 0;
+	width: 100%;
+}
+
+.wrapper {
+	background-color: $color-1;
+	color: $color-2;
+	font-family: $font;
+
+	button {
+		border-radius: 0;
+		box-shadow: none;
+		display: inline-block;
+		font-size: 20px;
+		line-height: 1.8;
+		margin: 0 10px 0 0;
+		padding: 15px 45px;
+
+		&:focus {
+			outline: none;
+		}
+
+		&.flat {
+			background-color: #6496c8;
+			border: none;
+			border-radius: 5px;
+			color: $color-1;
+
+			&:hover {
+				background-color: #346392;
+			}
+
+			&:active {
+				background-color: #27496d;
+			}
+		}
+	}
+
+	.output {
+		display: block;
+		font-size: 19px;
+		padding-bottom: 20px;
+	}
+
+	.center {
+		align-items: center;
+		display: flex;
+		height: 100%;
+		justify-content: center;
+	}
+}
