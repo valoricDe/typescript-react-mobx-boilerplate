@@ -10,6 +10,6 @@ declare namespace Props {
 	interface ICenter extends __React.HTMLProps<HTMLDivElement> {}
 
 	interface ILabel {
-		value: number;
+		tickStore: Tick.ITick;
 	}
 }

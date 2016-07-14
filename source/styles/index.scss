@@ -18,10 +18,12 @@ body,
 	color: $color-2;
 	font-family: $font;
 
-	button {
-		border-radius: 0;
+	.flat {
+		background-color: #6496c8;
+		border: none;
+		border-radius: 5px;
 		box-shadow: none;
-		display: inline-block;
+		color: $color-1;
 		font-size: 20px;
 		line-height: 1.8;
 		padding: 15px 45px;
@@ -30,19 +32,12 @@ body,
 			outline: none;
 		}
 
-		&.flat {
-			background-color: #6496c8;
-			border: none;
-			border-radius: 5px;
-			color: $color-1;
+		&:hover {
+			background-color: #346392;
+		}
 
-			&:hover {
-				background-color: #346392;
-			}
-
-			&:active {
-				background-color: #27496d;
-			}
+		&:active {
+			background-color: #27496d;
 		}
 	}
 

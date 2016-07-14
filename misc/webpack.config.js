@@ -81,7 +81,11 @@ if (TARGET === 'dev-build') {
 
 if (TARGET === 'prod-build') {
 	module.exports = merge(common, {
-		postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
+		postcss: [
+			autoprefixer({
+				browsers: ['last 2 versions'],
+			}),
+		],
 		plugins: [
 			new webpack.optimize.DedupePlugin(),
 			new webpack.DefinePlugin({

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { observer, inject } from 'mobx-react';
+import { inject } from 'mobx-react';
 import DevTools from 'mobx-react-devtools';
 
 import Center from './common/center';
@@ -7,7 +7,6 @@ import Label from './common/label';
 import Button from './common/button';
 
 @inject((stores: IStores): Props.IApp => (stores))
-@observer
 export default class App extends React.Component<Props.IApp, {}> {
 	private renderDevTools(): JSX.Element | number {
 		if (process.env.NODE_ENV !== 'production') {
@@ -22,13 +21,11 @@ export default class App extends React.Component<Props.IApp, {}> {
 	}
 
 	public render(): JSX.Element {
-		const { tick }: { tick: number } = this.props.tickStore;
-
 		return (
 			<div className='wrapper'>
 				{this.renderDevTools()}
 				<Center>
-					<Label value={tick} />
+					<Label {...this.props} />
 					<Button onClick={this.buttonOnClick} />
 				</Center>
 			</div>

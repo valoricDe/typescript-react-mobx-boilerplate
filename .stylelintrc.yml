@@ -155,8 +155,6 @@
 
     "custom-media-pattern": null,
 
-    "media-query-parentheses-space-inside": "never",
-
     "media-query-list-comma-newline-after": null,
     "media-query-list-comma-newline-before": null,
     "media-query-list-comma-space-after": "always",
@@ -182,9 +180,7 @@
     "comment-whitespace-inside": "always",
     "comment-word-blacklist": null,
 
-    "indentation": ["tab", {
-        indentInsideParens: "once"
-    }],
+    "indentation": ["tab"],
     "max-empty-lines": 1,
     "max-line-length": 120,
     "max-nesting-depth": null,
@@ -195,7 +191,6 @@
     "no-extra-semicolons": true,
     "no-indistinguishable-colors": null,
     "no-invalid-double-slash-comments": null,
-    "no-missing-eof-newline": null,
     "no-unknown-animations": true,
     "no-unsupported-browser-features": null
 }

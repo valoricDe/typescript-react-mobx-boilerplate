@@ -67,7 +67,7 @@ function run(cmd) {
 	});
 
 	action.stdout.on('end', () => {
-		exit(action);
+		exit(this);
 	});
 }
 
