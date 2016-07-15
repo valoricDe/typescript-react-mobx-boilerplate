@@ -1,6 +1,6 @@
-@import 'fonts';
+@import '~/npm-font-open-sans/open-sans.css';
 
-$font: 'OpenSansRegular';
+$font: 'Open Sans';
 $color-1: #fff;
 $color-2: #333;
 
@@ -17,6 +17,8 @@ body,
 	background-color: $color-1;
 	color: $color-2;
 	font-family: $font;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
 
 	.flat {
 		background-color: #6496c8;

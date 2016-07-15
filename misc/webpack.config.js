@@ -7,7 +7,10 @@ const autoprefixer = require('autoprefixer');
 
 const TARGET = process.env.npm_lifecycle_event;
 
-const PROJECT_TITLE = 'typescript-react-mobx-boilerplate';
+const HTML = {
+	title: 'typescript-react-mobx-boilerplate',
+	renderId: 'root',
+};
 
 const PATHS = {
 	misc: __dirname,
@@ -51,10 +54,11 @@ const common = {
 			allChunks: true,
 		}),
 		new HtmlWebpackPlugin({
-			title: PROJECT_TITLE,
+			title: HTML.title,
 			favicon: `${PATHS.misc}/favicon.ico`,
 			template: `${PATHS.misc}/template.ejs`,
 			inject: 'body',
+			renderId: HTML.renderId,
 		}),
 	],
 };

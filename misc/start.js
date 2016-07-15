@@ -32,7 +32,7 @@ if (fs.existsSync(PATHS.node) && fs.existsSync(PATHS.typings)) {
 			run(cmd[answer]);
 		} else {
 			console.log(red('\nError, please enter the action number.\n'));
-			exit();
+			process.exit(0);
 		}
 
 		rl.close();
@@ -50,7 +50,7 @@ if (fs.existsSync(PATHS.node) && fs.existsSync(PATHS.typings)) {
 			run(cmd);
 		} else {
 			console.log(red('\nAborted\n'));
-			exit();
+			process.exit(0);
 		}
 
 		rl.close();
@@ -66,8 +66,8 @@ function run(cmd) {
 		console.log(data);
 	});
 
-	action.stdout.on('end', () => {
-		exit();
+	process.on('exit', () => {
+		exit(action);
 	});
 }
 
@@ -83,6 +83,6 @@ function red(text) {
 	return `\x1b[31m${text}\x1b[0m`;
 }
 
-function exit() {
-	process.exit(0);
+function exit(action) {
+	action.kill();
 }

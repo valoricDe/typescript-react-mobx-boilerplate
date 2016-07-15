@@ -1,5 +1,6 @@
 # TypeScript react-mobx boilerplate
 ![Pic](http://i.imgur.com/v9P70Mp.jpg)
+Simple boilerplate for single page applications.
 ___
 
 ## Install
@@ -74,3 +75,4 @@ ___
 - [React-DOM](https://www.npmjs.com/package/react-dom)
 - [MobX](https://github.com/mobxjs/mobx)
 - [MobX-react](https://github.com/mobxjs/mobx-react)
+- [npm-font-open-sans](https://www.npmjs.com/package/npm-font-open-sans)
