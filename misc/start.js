@@ -67,7 +67,7 @@ function run(cmd) {
 	});
 
 	action.stdout.on('end', () => {
-		exit(this);
+		exit();
 	});
 }
 
@@ -83,10 +83,6 @@ function red(text) {
 	return `\x1b[31m${text}\x1b[0m`;
 }
 
-function exit(action) {
-	if (action) {
-		action.kill();
-	}
-
+function exit() {
 	process.exit(0);
 }
