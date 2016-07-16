@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx';
 
-export default class TickStore implements Tick.ITick {
+export default class TickStore implements Store.ITick {
 	@observable
 	private tick: number;
 

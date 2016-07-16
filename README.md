@@ -75,4 +75,3 @@ ___
 - [React-DOM](https://www.npmjs.com/package/react-dom)
 - [MobX](https://github.com/mobxjs/mobx)
 - [MobX-react](https://github.com/mobxjs/mobx-react)
-- [npm-font-open-sans](https://www.npmjs.com/package/npm-font-open-sans)

@@ -1,15 +1,17 @@
 declare namespace Props {
 	interface IApp {
-		tickStore?: Tick.ITick;
+		tickStore?: Store.ITick;
 	}
 
-	interface IButton {
-		onClick(): void;
-	}
+	namespace Common {
+		interface IButton {
+			onClick(): void;
+		}
 
-	interface ICenter extends __React.HTMLProps<HTMLDivElement> {}
+		interface ICenter extends __React.HTMLProps<HTMLDivElement> {}
 
-	interface ILabel {
-		tickStore: Tick.ITick;
+		interface ILabel {
+			tickStore: Store.ITick;
+		}
 	}
 }

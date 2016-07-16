@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const Center: (props: Props.ICenter) => JSX.Element = (props: Props.ICenter): JSX.Element => {
+const Center: (props: Props.Common.ICenter) => JSX.Element = (props: Props.Common.ICenter): JSX.Element => {
 	return (
 		<div className='center'>
 			<div className='group'>
