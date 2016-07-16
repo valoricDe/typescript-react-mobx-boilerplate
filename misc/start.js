@@ -66,8 +66,12 @@ function run(cmd) {
 		console.log(data);
 	});
 
+	action.stdout.on('end', () => {
+		process.exit(0);
+	});
+
 	process.on('exit', () => {
-		exit(action);
+		action.kill();
 	});
 }
 
@@ -81,8 +85,4 @@ function green(text) {
 
 function red(text) {
 	return `\x1b[31m${text}\x1b[0m`;
-}
-
-function exit(action) {
-	action.kill();
 }
