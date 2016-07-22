@@ -1,0 +1,22 @@
+@mixin button($background, $color: #fff) {
+	background-color: $background;
+	border: none;
+	border-radius: 5px;
+	box-shadow: none;
+	color: $color;
+	font-size: 20px;
+	line-height: 1.8;
+	padding: 10px 45px;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover {
+		background-color: darken($background, 10%);
+	}
+
+	&:active {
+		background-color: darken($background, 20%);
+	}
+}

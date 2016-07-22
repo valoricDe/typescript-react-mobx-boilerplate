@@ -1,9 +1,13 @@
 import * as React from 'react';
 
-const Button: (props: Props.Common.IButton) => JSX.Element = (props: Props.Common.IButton): JSX.Element => {
-	return (
-		<button className='flat' {...props}>Click</button>
-	);
-};
+export default class Button extends React.Component<Props.Common.IButton, {}> {
+	private shouldComponentUpdate(nextProps: Props.Common.IButton): boolean {
+		return this.props.caption !== nextProps.caption;
+	}
 
-export default Button;
+	public render(): JSX.Element {
+		const { caption, className, onClick }: Props.Common.IButton = this.props;
+
+		return <button {...{className, onClick}}>{caption}</button>;
+	}
+}

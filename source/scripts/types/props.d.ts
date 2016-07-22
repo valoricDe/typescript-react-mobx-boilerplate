@@ -5,13 +5,15 @@ declare namespace Props {
 
 	namespace Common {
 		interface IButton {
+			className: string;
+			caption: string;
 			onClick(): void;
 		}
 
 		interface ICenter extends __React.HTMLProps<HTMLDivElement> {}
 
 		interface ILabel {
-			tickStore: Store.ITick;
+			value: string | number;
 		}
 	}
 }

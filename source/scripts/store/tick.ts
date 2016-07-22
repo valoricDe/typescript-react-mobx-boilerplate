@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx';
 
-export default class TickStore implements Store.ITick {
+export default class Tick implements Store.ITick {
 	@observable
 	private tick: number;
 
@@ -9,11 +9,20 @@ export default class TickStore implements Store.ITick {
 	}
 
 	@action
-	public increment(): void {
+	private increment(): void {
 		this.tick = this.tick + 1;
 	}
 
-	public get value(): number {
-		return this.tick;
+	@action
+	private decrement(): void {
+		this.tick = this.tick - 1;
+	}
+
+	public get model(): Store.Tick.IModel {
+		return {
+			increment: this.increment.bind(this),
+			decrement: this.decrement.bind(this),
+			value: this.tick,
+		};
 	}
 }

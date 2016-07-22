@@ -1,7 +1,7 @@
-import TickStore from '../store/tick';
+import Tick from '../store/tick';
 
 export default function createStores(num: number): Store.IStores {
 	return {
-		tickStore: new TickStore(num),
+		tickStore: new Tick(num),
 	};
 }

@@ -1,6 +1,5 @@
-$font: 'Arial';
-$color-1: #fff;
-$color-2: #333;
+@import 'partials/mixins';
+@import 'partials/variables';
 
 html,
 body,
@@ -18,27 +17,12 @@ body,
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 
-	.flat {
-		background-color: #6496c8;
-		border: none;
-		border-radius: 5px;
-		box-shadow: none;
-		color: $color-1;
-		font-size: 20px;
-		line-height: 1.8;
-		padding: 15px 45px;
+	.increment {
+		@include button($increment-background);
+	}
 
-		&:focus {
-			outline: none;
-		}
-
-		&:hover {
-			background-color: #346392;
-		}
-
-		&:active {
-			background-color: #27496d;
-		}
+	.decrement {
+		@include button($decrement-background);
 	}
 
 	.group {
@@ -48,6 +32,14 @@ body,
 			padding-bottom: 20px;
 			text-align: center;
 		}
+
+		button {
+			margin-right: 15px;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
 	}
 
 	.center {
@@ -55,5 +47,13 @@ body,
 		display: flex;
 		height: 100%;
 		justify-content: center;
+	}
+
+	.footer {
+		color: #333;
+		font-size: 15px;
+		font-style: italic;
+		margin-top: 40px;
+		text-align: center;
 	}
 }

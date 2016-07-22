@@ -14,12 +14,13 @@ const HTML = {
 
 const PATHS = {
 	misc: __dirname,
-	source: path.join(__dirname, '../source'),
+	scripts: path.join(__dirname, '../source/scripts'),
+	styles: path.join(__dirname, '../source/styles'),
 	build: path.join(__dirname, '../build'),
 };
 
 const common = {
-	entry: PATHS.source,
+	entry: [PATHS.scripts, PATHS.styles],
 	output: {
 		path: PATHS.build,
 		filename: 'js/bundle.js',

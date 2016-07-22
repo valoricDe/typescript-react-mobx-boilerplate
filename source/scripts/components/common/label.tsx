@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { observer } from 'mobx-react';
 
-@observer
-export default class Label extends React.Component<Props.Common.ILabel, {}> {
-	public render(): JSX.Element {
-		return <label className='output'>{this.props.tickStore.value}</label>;
-	}
-}
+const Label: (props: Props.Common.ILabel) => JSX.Element = (props: Props.Common.ILabel): JSX.Element => {
+	return <label className='output'>{props.value}</label>;
+};
+
+export default Label;

@@ -4,7 +4,14 @@ declare namespace Store {
 	}
 
 	interface ITick {
-		increment(): void;
-		value: number;
+		model: Tick.IModel;
+	}
+
+	namespace Tick {
+		interface IModel {
+			increment(): void;
+			decrement(): void;
+			value: number;
+		}
 	}
 }

@@ -14,7 +14,7 @@ const PATHS = {
 };
 
 if (fs.existsSync(PATHS.node) && fs.existsSync(PATHS.typings)) {
-	const menu = green('Sup, what do you want?') + '\n\n' +
+	const menu = green('Sup, what do you want?\n\n') +
 				'1) Run development server\n' +
 				'2) Development build\n' +
 				'3) Production build\n' +
@@ -38,7 +38,7 @@ if (fs.existsSync(PATHS.node) && fs.existsSync(PATHS.typings)) {
 		rl.close();
 	});
 } else {
-	const install = green('Sup, bro.') + '\n\n' +
+	const install = green('Sup, bro.\n\n') +
 				'Install all dependencies? (yes) ';
 	const cmd = 'npm install && typings install';
 
