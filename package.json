@@ -2,7 +2,7 @@
   "name": "typescript-react-mobx-boilerplate",
   "version": "1.0.0",
   "description": "typescript-react-mobx-boilerplate",
-  "main": "source/index.ts",
+  "main": "source/scripts/index.tsx",
   "scripts": {
     "start": "node ./misc/start.js",
     "server": "webpack-dev-server --progress --colors --config ./misc/webpack.config.js",
