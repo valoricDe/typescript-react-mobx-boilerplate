@@ -32,10 +32,6 @@ Run server:
 ```sh
 npm run server
 ```
-Development build with watch:
-```sh
-npm run dev-build
-```
 Production build:
 ```sh
 npm run prod-build

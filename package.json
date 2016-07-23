@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node ./misc/start.js",
     "server": "webpack-dev-server --progress --colors --config ./misc/webpack.config.js",
-    "dev-build": "webpack --progress --colors --config ./misc/webpack.config.js",
     "prod-build": "webpack --progress --colors -p --config ./misc/webpack.config.js",
     "remove-build": "rm -rf build"
   },

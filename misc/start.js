@@ -16,16 +16,14 @@ const PATHS = {
 if (fs.existsSync(PATHS.node) && fs.existsSync(PATHS.typings)) {
 	const menu = green('Sup, what do you want?\n\n') +
 				'1) Run development server\n' +
-				'2) Development build\n' +
-				'3) Production build\n' +
-				'4) Remove build folder\nEnter number: ';
+				'2) Production build\n' +
+				'3) Remove build folder\nEnter number: ';
 
 	rl.question(menu, answer => {
 		const cmd = {
 			1: 'npm run server',
-			2: 'npm run dev-build',
-			3: 'npm run prod-build',
-			4: 'npm run remove-build',
+			2: 'npm run prod-build',
+			3: 'npm run remove-build',
 		};
 
 		if (isFinite(answer) && answer <= Object.keys(cmd).length) {

@@ -9,7 +9,7 @@ const TARGET = process.env.npm_lifecycle_event;
 
 const HTML = {
 	title: 'typescript-react-mobx-boilerplate',
-	renderId: 'root',
+	root: 'root',
 };
 
 const PATHS = {
@@ -54,12 +54,17 @@ const common = {
 		new ExtractTextPlugin('css/style.css', {
 			allChunks: true,
 		}),
+		new webpack.DefinePlugin({
+			'process.env': {
+				root: JSON.stringify(HTML.root),
+			},
+		}),
 		new HtmlWebpackPlugin({
 			title: HTML.title,
 			favicon: `${PATHS.misc}/favicon.ico`,
 			template: `${PATHS.misc}/template.ejs`,
 			inject: 'body',
-			renderId: HTML.renderId,
+			root: HTML.root,
 		}),
 	],
 };
