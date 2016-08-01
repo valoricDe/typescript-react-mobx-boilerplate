@@ -121,7 +121,7 @@ const start = {
 	},
 };
 
-if (!fs.existsSync(PATHS.node) && !fs.existsSync(PATHS.typings)) {
+if (!fs.existsSync(PATHS.node) || !fs.existsSync(PATHS.typings)) {
 	start.dependenciesWizard();
 } else if (!fs.existsSync(PATHS.project)) {
 	start.projectWizard();
