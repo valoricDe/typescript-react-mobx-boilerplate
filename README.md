@@ -65,6 +65,7 @@ ___
 - [Stylelint-scss](https://www.npmjs.com/package/stylelint-scss)
 - [MobX-react devtools](https://github.com/mobxjs/mobx-react-devtools)
 - [Empty-module](https://github.com/Calvein/empty-module)
+- [Readline-sync](https://www.npmjs.com/package/readline-sync)
 
 # dependencies:
 - [React](https://facebook.github.io/react/)

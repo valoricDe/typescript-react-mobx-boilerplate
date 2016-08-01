@@ -1,9 +1,10 @@
 @import 'partials/mixins';
 @import 'partials/variables';
+@import 'partials/content';
 
 html,
 body,
-#root,
+body > div,
 .wrapper {
 	height: 100%;
 	margin: 0;
@@ -16,44 +17,11 @@ body,
 	font-family: $font;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
+}
 
-	.increment {
-		@include button($increment-background);
-	}
-
-	.decrement {
-		@include button($decrement-background);
-	}
-
-	.group {
-		.output {
-			display: block;
-			font-size: 42px;
-			padding-bottom: 20px;
-			text-align: center;
-		}
-
-		button {
-			margin-right: 15px;
-
-			&:last-of-type {
-				margin-right: 0;
-			}
-		}
-	}
-
-	.center {
-		align-items: center;
-		display: flex;
-		height: 100%;
-		justify-content: center;
-	}
-
-	.footer {
-		color: #333;
-		font-size: 15px;
-		font-style: italic;
-		margin-top: 40px;
-		text-align: center;
-	}
+.center {
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
 }

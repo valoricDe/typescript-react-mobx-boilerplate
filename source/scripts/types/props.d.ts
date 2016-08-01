@@ -3,17 +3,23 @@ declare namespace Props {
 		tickStore?: Store.ITick;
 	}
 
-	namespace Common {
+	interface IContent {
+		model: Store.Tick.IModel;
+	}
+
+	namespace Content {
 		interface IButton {
 			className: string;
 			caption: string;
 			onClick(): void;
 		}
 
-		interface ICenter extends __React.HTMLProps<HTMLDivElement> {}
-
 		interface ILabel {
 			value: string | number;
 		}
+	}
+
+	namespace Common {
+		interface ICenter extends __React.HTMLProps<HTMLDivElement> {}
 	}
 }

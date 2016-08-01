@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
@@ -7,16 +8,19 @@ const autoprefixer = require('autoprefixer');
 
 const TARGET = process.env.npm_lifecycle_event;
 
-const HTML = {
-	title: 'typescript-react-mobx-boilerplate',
-	root: 'root',
-};
-
 const PATHS = {
 	misc: __dirname,
 	scripts: path.join(__dirname, '../source/scripts'),
 	styles: path.join(__dirname, '../source/styles'),
 	build: path.join(__dirname, '../build'),
+	project: path.join(__dirname, './project.json'),
+};
+
+const project = JSON.parse(fs.readFileSync(PATHS.project, 'utf8'));
+
+const HTML = {
+	title: project.title || 'ts-react-mobx-boilerplate',
+	root: project.root || 'root',
 };
 
 const common = {
