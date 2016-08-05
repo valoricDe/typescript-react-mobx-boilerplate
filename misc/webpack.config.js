@@ -69,6 +69,9 @@ const common = {
 			template: `${PATHS.misc}/template.ejs`,
 			inject: 'body',
 			root: HTML.root,
+			minify: {
+				collapseWhitespace: true,
+			},
 		}),
 	],
 };
@@ -84,12 +87,6 @@ if (TARGET === 'server') {
 			inline: true,
 			contentBase: PATHS.build,
 		},
-	});
-}
-
-if (TARGET === 'dev-build') {
-	module.exports = merge(common, {
-		watch: true,
 	});
 }
 
