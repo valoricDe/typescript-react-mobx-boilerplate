@@ -63,23 +63,22 @@ const common = {
 				root: JSON.stringify(HTML.root),
 			},
 		}),
-		new HtmlWebpackPlugin({
-			title: HTML.title,
-			favicon: `${PATHS.misc}/favicon.ico`,
-			template: `${PATHS.misc}/template.ejs`,
-			inject: 'body',
-			root: HTML.root,
-			minify: {
-				collapseWhitespace: true,
-			},
-		}),
 	],
+};
+
+const htmlSettings = {
+	title: HTML.title,
+	favicon: `${PATHS.misc}/favicon.ico`,
+	template: `${PATHS.misc}/template.ejs`,
+	inject: 'body',
+	root: HTML.root,
 };
 
 if (TARGET === 'server') {
 	module.exports = merge(common, {
 		plugins: [
 			new webpack.HotModuleReplacementPlugin(),
+			new HtmlWebpackPlugin(htmlSettings),
 		],
 		devServer: {
 			host: 'localhost',
@@ -117,6 +116,13 @@ if (TARGET === 'prod-build') {
 					comments: false,
 				},
 			}),
+			new HtmlWebpackPlugin(
+				Object.assign(htmlSettings, {
+					minify: {
+						collapseWhitespace: true,
+					},
+				})
+			),
 		],
 	});
 }
