@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lozinsky/typescript-react-mobx-boilerplate.git"
+    "url": "https://github.com/lozinsky/typescript-react-mobx-boilerplate.git"
   },
   "keywords": [
     "react",
@@ -27,34 +27,34 @@
   "author": "Pavel Lozinsky <jingle@live.com> (http://github.com/lozinsky)",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^6.3.7",
+    "autoprefixer": "^6.4.0",
     "css-loader": "^0.23.1",
     "empty-module": "0.0.2",
-    "eslint": "^3.1.1",
+    "eslint": "^3.2.2",
     "eslint-plugin-node": "^2.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
-    "mobx-react-devtools": "^4.2.3",
+    "mobx-react-devtools": "^4.2.4",
     "node-sass": "^3.8.0",
     "postcss-loader": "^0.9.1",
     "readline-sync": "^1.4.4",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
-    "stylelint": "^7.0.3",
-    "stylelint-scss": "^1.2.1",
+    "stylelint": "^7.1.0",
+    "stylelint-scss": "^1.3.4",
     "ts-loader": "^0.8.2",
-    "tslint": "^3.13.0",
+    "tslint": "^3.14.0",
     "typescript": "^2.0.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
-    "webpack-merge": "^0.14.0"
+    "webpack-merge": "^0.14.1"
   },
   "dependencies": {
-    "mobx": "^2.4.0",
-    "mobx-react": "^3.5.1",
-    "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "mobx": "^2.4.1",
+    "mobx-react": "^3.5.3",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0"
   }
 }
