@@ -14,6 +14,8 @@ const PATHS = {
 	project: path.join(__dirname, './project.json'),
 };
 
+const project = fs.existsSync(PATHS.project) ? JSON.parse(fs.readFileSync(PATHS.project, 'utf8')) : null;
+
 const start = {
 	projectWizard() {
 		const project = {
@@ -29,10 +31,11 @@ const start = {
 		};
 
 		rl.question(questions.title, answer => {
-			project.title = answer;
+			project.title = !this._isEmpty(answer) ? answer : project.title;
 
 			rl.question(questions.root, answer => {
-				project.root = answer.toLowerCase().replace(new RegExp(' ', 'g'), '-');
+				const kebab = answer.toLowerCase().replace(new RegExp(' ', 'g'), '-');
+				project.root = !this._isEmpty(answer) ? kebab : project.root;
 
 				fs.writeFile(PATHS.project, JSON.stringify(project));
 
@@ -68,16 +71,35 @@ const start = {
 					this._text.green('Sup, what do you want?\n\n') +
 					'1) Run development server\n' +
 					'2) Production build\n' +
-					'3) Remove build folder\nEnter number: ';
+					'3) Remove build folder\n' +
+					'4) Edit project settings\nEnter number: ';
 		const cmd = {
-			1: 'npm run server',
-			2: 'npm run prod-build',
-			3: 'npm run remove-build',
+			server: 'npm run server',
+			prod: 'npm run prod-build',
+			remove: 'npm run remove-build',
+			project: this.projectWizard.bind(this),
 		};
 
 		rl.question(menu, answer => {
 			if (isFinite(answer) && answer <= Object.keys(cmd).length) {
-				this._run(cmd[answer]);
+				switch (answer) {
+					case '1': {
+						this._run(cmd.server);
+						break;
+					}
+					case '2': {
+						this._run(cmd.prod);
+						break;
+					}
+					case '3': {
+						this._run(cmd.remove);
+						break;
+					}
+					case '4': {
+						cmd.project();
+						break;
+					}
+				}
 			} else {
 				console.log(this._text.red('\nError, please enter the action number.\n'));
 
@@ -125,13 +147,13 @@ const start = {
 	},
 
 	get _title() {
-		return JSON.parse(fs.readFileSync(PATHS.project, 'utf8')).title || 'none';
+		return project.title || 'none';
 	},
 };
 
 if (!fs.existsSync(PATHS.node) || !fs.existsSync(PATHS.typings)) {
 	start.dependenciesWizard();
-} else if (!fs.existsSync(PATHS.project)) {
+} else if (project === null || (project.title === null && project.root === null)) {
 	start.projectWizard();
 } else {
 	start.menuWizard();
