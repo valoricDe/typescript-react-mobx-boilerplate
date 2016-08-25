@@ -76,6 +76,7 @@ const htmlSettings = {
 
 if (TARGET === 'server') {
 	module.exports = merge(common, {
+		devtool: 'eval',
 		plugins: [
 			new webpack.HotModuleReplacementPlugin(),
 			new HtmlWebpackPlugin(htmlSettings),
