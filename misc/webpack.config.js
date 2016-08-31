@@ -1,10 +1,12 @@
-const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackNotifier = require('webpack-notifier');
 const autoprefixer = require('autoprefixer');
+
+const project = require('./start/utils/project');
 
 const TARGET = process.env.npm_lifecycle_event;
 
@@ -13,18 +15,13 @@ const PATHS = {
 	scripts: path.join(__dirname, '../source/scripts'),
 	styles: path.join(__dirname, '../source/styles'),
 	build: path.join(__dirname, '../build'),
-	project: path.join(__dirname, './project.json'),
-};
-
-const project = JSON.parse(fs.readFileSync(PATHS.project, 'utf8'));
-
-const HTML = {
-	title: project.title || 'ts-react-mobx-boilerplate',
-	root: project.root || 'root',
 };
 
 const common = {
-	entry: [PATHS.scripts, PATHS.styles],
+	entry: [
+		PATHS.scripts,
+		PATHS.styles,
+	],
 	output: {
 		path: PATHS.build,
 		filename: 'js/bundle.js',
@@ -38,7 +35,7 @@ const common = {
 			{
 				test: /\.(tsx|ts)$/,
 				exclude: /node_modules/,
-				loader: 'ts-loader',
+				loaders: ['babel', 'ts'],
 			},
 			{
 				test: /\.scss$/,
@@ -46,11 +43,11 @@ const common = {
 			},
 			{
 				test: /\.(woff|woff2|eot|ttf)$/,
-				loader: 'url-loader?limit=100000&name=./css/fonts/font-[hash].[ext]',
+				loader: 'url?limit=100000&name=./css/fonts/font-[hash].[ext]',
 			},
 			{
 				test: /\.(png|svg)$/,
-				loader: 'url-loader?limit=100000&name=./images/[ext]/img-[hash].[ext]',
+				loader: 'url?limit=100000&name=./images/[ext]/img-[hash].[ext]',
 			},
 		],
 	},
@@ -60,23 +57,26 @@ const common = {
 		}),
 		new webpack.DefinePlugin({
 			'process.env': {
-				root: JSON.stringify(HTML.root),
+				root: JSON.stringify(project.root),
 			},
+		}),
+		new WebpackNotifier({
+			title: project.title,
 		}),
 	],
 };
 
 const htmlSettings = {
-	title: HTML.title,
+	title: project.title,
 	favicon: `${PATHS.misc}/favicon.ico`,
 	template: `${PATHS.misc}/template.ejs`,
 	inject: 'body',
-	root: HTML.root,
+	root: project.root,
 };
 
 if (TARGET === 'server') {
 	module.exports = merge(common, {
-		devtool: 'eval',
+		devtool: 'source-map',
 		plugins: [
 			new webpack.HotModuleReplacementPlugin(),
 			new HtmlWebpackPlugin(htmlSettings),

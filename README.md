@@ -4,7 +4,7 @@ Simple boilerplate for single page applications.
 ___
 
 ## Install
-You should have git, node, npm, webpack, typescript and typings global packages.
+You should have git, node, npm, webpack, typescript global packages.
 
 Fork this repository, and run:
 ```sh
@@ -22,10 +22,16 @@ and follow the instructions.
 ___
 ## Manual using
 
+Write in ```misc/project.json``` file.
+
+```title``` — your awesome app title.
+
+```root``` — root where your react app will be rendered.
+
 Install dependencies:
 
 ```sh
-npm install && typings install
+npm install
 ```
 
 Run server:
@@ -54,6 +60,7 @@ ___
 - [Style Loader](https://github.com/webpack/style-loader)
 - [Stylelint](https://github.com/stylelint/stylelint)
 - [TS Loader](https://github.com/TypeStrong/ts-loader)
+- [Babel](https://babeljs.io/)
 - [TSlint](https://palantir.github.io/tslint/)
 - [TypeScript](https://www.npmjs.com/package/typescript)
 - [Url Loader](https://github.com/webpack/url-loader)
@@ -65,6 +72,7 @@ ___
 - [Stylelint-scss](https://www.npmjs.com/package/stylelint-scss)
 - [MobX-react devtools](https://github.com/mobxjs/mobx-react-devtools)
 - [Empty-module](https://github.com/Calvein/empty-module)
+- [Webpack-notifier](https://www.npmjs.com/package/webpack-notifier)
 
 # dependencies:
 - [React](https://facebook.github.io/react/)

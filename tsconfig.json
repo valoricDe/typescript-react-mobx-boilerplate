@@ -1,11 +1,21 @@
 {
-	"version": "1.0.0",
 	"compileOnSave": false,
 	"compilerOptions": {
-		"module": "commonjs",
-		"target": "es5",
+		"module": "es6",
+		"target": "es6",
 		"jsx": "react",
-		"experimentalDecorators": true
+		"experimentalDecorators": true,
+		"strictNullChecks": true,
+		"sourceMap": true,
+		"allowSyntheticDefaultImports": true,
+		"noImplicitAny": true,
+		"noFallthroughCasesInSwitch": true,
+		"moduleResolution": "node",
+		"types": [
+			"node",
+			"react",
+			"react-dom"
+		]
 	},
 	"exclude": [
 		"node_modules",

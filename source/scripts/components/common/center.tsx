@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 const Center: (props: Props.Common.ICenter) => JSX.Element = (props: Props.Common.ICenter): JSX.Element => {
 	return (

@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 
 import Center from './common/center';
 
@@ -6,31 +7,28 @@ import Label from './content/label';
 import Button from './content/button';
 import Footer from './content/footer';
 
-export default class Content extends React.Component<Props.IContent, {}> {
-	private incrementButtonOnClick = (): void => {
-		this.props.model.increment();
-	}
+@observer
+export default class Content extends Component<Props.IContent, {}> {
+	private handleIncrement = (): void => this.props.tick.increment();
 
-	private decrementButtonOnClick = (): void => {
-		this.props.model.decrement();
-	}
+	private handleDecrement = (): void => this.props.tick.decrement();
 
 	public render(): JSX.Element {
 		return (
 			<div className='content'>
 				<Center>
-					<Label value={this.props.model.value} />
+					<Label value={this.props.tick.value} />
 					<Button
-						className='content__button content__button--increment'
+						type='increment'
 						caption='++'
-						onClick={this.incrementButtonOnClick} />
+						onClick={this.handleIncrement} />
 					<Button
-						className='content__button content__button--decrement'
+						type='decrement'
 						caption='--'
-						onClick={this.decrementButtonOnClick} />
+						onClick={this.handleDecrement} />
 					<Footer />
 				</Center>
 			</div>
 		);
-	}
-}
+	};
+};

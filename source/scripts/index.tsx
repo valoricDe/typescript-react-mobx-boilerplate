@@ -1,16 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'mobx-react';
 
 import App from './components/app';
 
 import createStores from './main/create-stores';
 
-const stores: Store.IStores = createStores(0);
+const stores: Store.IStores = createStores();
 
 render(
-	<Provider {...stores}>
-		<App />
-	</Provider>,
+	<App {...stores} />,
 	document.getElementById(process.env.root)
 );

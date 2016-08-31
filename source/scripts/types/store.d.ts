@@ -1,10 +1,12 @@
 declare namespace Store {
 	interface IStores {
-		tickStore: ITick;
+		tick: ITick;
 	}
 
 	interface ITick {
-		model: Tick.IModel;
+		value: number;
+		increment(): void;
+		decrement(): void;
 	}
 
 	namespace Tick {

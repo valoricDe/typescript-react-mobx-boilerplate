@@ -19,7 +19,9 @@
 			true,
 			"tabs"
 		],
-		"interface-name": false,
+		"interface-name": [
+			false
+		],
 		"jsdoc-format": true,
 		"label-position": true,
 		"label-undefined": true,
@@ -34,7 +36,9 @@
 		"no-bitwise": true,
 		"no-conditional-assignment": true,
 		"no-consecutive-blank-lines": true,
-		"no-console": [false],
+		"no-console": [
+			false
+		],
 		"no-construct": false,
 		"no-constructor-vars": true,
 		"no-debugger": true,
@@ -66,7 +70,10 @@
 			"avoid-escape"
 		],
 		"radix": false,
-		"semicolon": true,
+		"semicolon": [
+			true,
+			"always"
+		],
 		"switch-default": false,
 		"trailing-comma": [
 			true,
@@ -80,7 +87,7 @@
 			true,
 			"call-signature",
 			"variable-declaration",
-			"arrow-call-signature",
+			"arrow-parameter",
 			"parameter",
 			"arrow-parameter",
 			"property-declaration",

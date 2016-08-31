@@ -2,27 +2,19 @@ import { observable, action } from 'mobx';
 
 export default class Tick implements Store.ITick {
 	@observable
-	private tick: number;
+	public value: number;
 
-	constructor(tick: number) {
-		this.tick = tick;
-	}
-
-	@action
-	private increment(): void {
-		this.tick = this.tick + 1;
-	}
+	constructor(value: number) {
+		this.value = value;
+	};
 
 	@action
-	private decrement(): void {
-		this.tick = this.tick - 1;
-	}
+	public increment(): void {
+		this.value = this.value + 1;
+	};
 
-	public get model(): Store.Tick.IModel {
-		return {
-			increment: this.increment.bind(this),
-			decrement: this.decrement.bind(this),
-			value: this.tick,
-		};
-	}
-}
+	@action
+	public decrement(): void {
+		this.value = this.value - 1;
+	};
+};
