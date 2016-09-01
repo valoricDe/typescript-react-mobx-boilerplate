@@ -1,10 +1,10 @@
 # TypeScript react-mobx boilerplate
-![Pic](http://i.imgur.com/v9P70Mp.jpg)
+![Pic](http://i.imgur.com/uB7Dtbc.jpg)
 Simple boilerplate for single page applications.
 ___
 
 ## Install
-You should have git, node, npm, webpack, typescript global packages.
+You should have git, node, npm, and webpack, typescript global packages.
 
 Fork this repository, and run:
 ```sh
@@ -13,20 +13,7 @@ git clone https://github.com/<account>/typescript-react-mobx-boilerplate.git
 where ```<account>``` is your github username.
 
 ___
-## Start menu using
-Simply run:
-```sh
-npm start
-```
-and follow the instructions.
-___
-## Manual using
-
-Write in ```misc/project.json``` file.
-
-```title``` — your awesome app title.
-
-```root``` — root where your react app will be rendered.
+## Using
 
 Install dependencies:
 
@@ -34,17 +21,19 @@ Install dependencies:
 npm install
 ```
 
+Edit ```misc/settings.js```, and run commands:
+
 Run server:
 ```sh
 npm run server
 ```
 Production build:
 ```sh
-npm run prod-build
+npm run build
 ```
 Delete build folder:
 ```sh
-npm run remove-build
+npm run remove
 ```
 ___
 
@@ -61,6 +50,7 @@ ___
 - [Stylelint](https://github.com/stylelint/stylelint)
 - [TS Loader](https://github.com/TypeStrong/ts-loader)
 - [Babel](https://babeljs.io/)
+- [del](https://www.npmjs.com/package/del)
 - [TSlint](https://palantir.github.io/tslint/)
 - [TypeScript](https://www.npmjs.com/package/typescript)
 - [Url Loader](https://github.com/webpack/url-loader)

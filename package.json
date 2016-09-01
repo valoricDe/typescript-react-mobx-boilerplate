@@ -4,10 +4,9 @@
   "description": "typescript-react-mobx-boilerplate",
   "main": "source/scripts/index.tsx",
   "scripts": {
-    "start": "node ./misc/start",
-    "server": "webpack-dev-server --progress --colors --config ./misc/webpack.config.js",
-    "prod-build": "webpack --progress --colors -p --config ./misc/webpack.config.js",
-    "remove-build": "rm -rf build"
+    "server": "webpack-dev-server --progress --colors --config ./misc/start",
+    "build": "webpack --progress --colors -p --config ./misc/start",
+    "remove": "node ./misc/utils/remove"
   },
   "repository": {
     "type": "git",
@@ -37,6 +36,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "css-loader": "^0.24.0",
+    "del": "^2.2.2",
     "empty-module": "0.0.2",
     "eslint": "^3.4.0",
     "eslint-plugin-node": "^2.0.0",
