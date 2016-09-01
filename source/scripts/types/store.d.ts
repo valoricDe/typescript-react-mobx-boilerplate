@@ -8,12 +8,4 @@ declare namespace Store {
 		increment(): void;
 		decrement(): void;
 	}
-
-	namespace Tick {
-		interface IModel {
-			increment(): void;
-			decrement(): void;
-			value: number;
-		}
-	}
 }
