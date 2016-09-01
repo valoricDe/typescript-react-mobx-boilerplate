@@ -8,7 +8,7 @@ import Button from './content/button';
 import Footer from './content/footer';
 
 @observer
-export default class Content extends Component<Props.IContent, {}> {
+export default class Content extends Component<Props.Content.IContent, {}> {
 	private handleIncrement = (): void => this.props.tick.increment();
 
 	private handleDecrement = (): void => this.props.tick.decrement();

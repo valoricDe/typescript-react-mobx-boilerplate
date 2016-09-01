@@ -1,9 +1,9 @@
 declare namespace Props {
 	interface IApp extends Store.IStores {}
 
-	interface IContent extends IApp {}
-
 	namespace Content {
+		interface IContent extends IApp {}
+
 		interface IButton {
 			type: string;
 			caption: string;
