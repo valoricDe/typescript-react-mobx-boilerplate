@@ -12,7 +12,7 @@ module.exports = (paths, server, html) => {
 			host: server.host,
 			port: server.port,
 			inline: true,
-			contentBase: paths.build,
+			contentBase: paths.build.path,
 		},
 	};
 };

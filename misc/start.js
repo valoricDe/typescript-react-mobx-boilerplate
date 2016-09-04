@@ -15,12 +15,14 @@ const config = {
 
 const TARGET = process.env.npm_lifecycle_event;
 
+const base = config.base(
+	project,
+	paths
+);
+
 if (TARGET === 'server') {
 	module.exports = merge(
-		config.base(
-			project,
-			paths
-		),
+		base,
 		config.dev(
 			paths,
 			server,
@@ -29,10 +31,7 @@ if (TARGET === 'server') {
 	);
 } else if (TARGET === 'build') {
 	module.exports = merge(
-		config.base(
-			project,
-			paths
-		),
+		base,
 		config.prod(
 			html
 		)

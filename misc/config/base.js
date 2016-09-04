@@ -34,7 +34,7 @@ module.exports = (project, paths) => {
 				},
 				{
 					test: /\.(png|svg)$/,
-					loader: 'url?limit=100000&name=./images/[ext]/img-[hash].[ext]',
+					loader: 'url?limit=100000&name=./img/[ext]/img-[hash].[ext]',
 				},
 			],
 		},
