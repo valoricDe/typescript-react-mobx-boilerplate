@@ -3,7 +3,7 @@
 Simple boilerplate for single page applications.
 ___
 
-## Install
+## Installation
 You should have git, node, npm, and webpack, typescript global packages.
 
 Fork this repository, and run:
@@ -12,8 +12,11 @@ git clone https://github.com/<account>/typescript-react-mobx-boilerplate.git
 ```
 where ```<account>``` is your github username.
 
-___
-## Using
+Go to dir:
+
+```
+cd typescript-react-mobx-boilerplate/
+```
 
 Install dependencies:
 
@@ -21,8 +24,10 @@ Install dependencies:
 npm install
 ```
 
-Edit ```misc/settings.js```, and run commands:
+Edit ```misc/settings.js``` as you need.
 
+___
+## Using
 Run server:
 ```sh
 npm run server
