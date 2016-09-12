@@ -4,7 +4,7 @@ Simple boilerplate for single page applications.
 ___
 
 ## Installation
-You should have git, node, npm, and webpack, typescript global packages.
+You should have git, node, npm, and webpack, typescript@2.0.2 global packages.
 
 Fork this repository, and run:
 ```sh
