@@ -40,11 +40,7 @@ Run server:
 npm start
 ```
 
-or
-
-```sh
-npm run server
-```
+> **Note:** or you can use ```npm run server```
 
 Production build:
 
@@ -66,20 +62,8 @@ npm test
 
 Lint project:
 
-- All:
+```sh
+npm run lint
+```
 
-	```sh
-	npm run lint
-	```
-
-- Scripts:
-
-	```sh
-	npm run lint:scripts
-	```
-
-- Styles:
-
-	```sh
-	npm run lint:styles
-	```
+> **Note:** or you can use ```npm run lint:scripts``` and ```npm run lint:styles```
