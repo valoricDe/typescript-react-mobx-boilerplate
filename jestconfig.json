@@ -1,0 +1,10 @@
+{
+	"scriptPreprocessor": "<rootDir>/node_modules/typescript-babel-jest",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "json",
+      "js"
+    ],
+    "testRegex": "/__tests__/.*\\.(ts|tsx)$"
+}

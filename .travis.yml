@@ -1,0 +1,9 @@
+sudo: required
+language: node_js
+node_js:
+  - "6"
+install:
+    - npm i -g webpack stylelint eslint eslint-plugin-node jest-cli tslint typescript@2.0.3
+    - npm install
+script:
+    - npm run travis

@@ -13,6 +13,7 @@
 		"moduleResolution": "node",
 		"types": [
 			"node",
+			"jest",
 			"react",
 			"react-dom"
 		]

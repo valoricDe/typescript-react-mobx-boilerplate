@@ -3,7 +3,7 @@ import DevTools from 'mobx-react-devtools';
 
 import Content from './content';
 
-export default class App extends Component<Props.IApp, {}> {
+export default class App extends Component<Props.IApp, void> {
 	private renderDevTools(): JSX.Element | null {
 		if (process.env.NODE_ENV !== 'production') {
 			return <DevTools />;

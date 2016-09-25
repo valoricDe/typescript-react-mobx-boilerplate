@@ -8,10 +8,14 @@ import Button from './content/button';
 import Footer from './content/footer';
 
 @observer
-export default class Content extends Component<Props.Content.IContent, {}> {
-	private handleIncrement = (): void => this.props.tick.increment();
+export default class Content extends Component<Props.Content.IContent, void> {
+	private handleIncrement: Types.THandle = (): void => {
+		this.props.tick.increment();
+	};
 
-	private handleDecrement = (): void => this.props.tick.decrement();
+	private handleDecrement: Types.THandle = (): void => {
+		this.props.tick.decrement();
+	};
 
 	public render(): JSX.Element {
 		return (

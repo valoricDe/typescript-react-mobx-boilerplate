@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Footer: () => JSX.Element = (): JSX.Element => {
+type TFooter = () => JSX.Element;
+
+const Footer: TFooter = (): JSX.Element => {
 	return (
 		<div className='content__footer'>
 			<label>The project is successfully built.</label>

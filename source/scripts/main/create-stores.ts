@@ -1,7 +1,9 @@
 import Tick from '../store/tick';
 
-export default function createStores(): Store.IStores {
-	return {
-		tick: new Tick(0),
-	};
-}
+type TCreateStores = () => Store.IStores;
+
+const createStore: TCreateStores = (): Store.IStores => ({
+	tick: new Tick(),
+});
+
+export default createStore;

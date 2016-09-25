@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 
-export default class Button extends Component<Props.Content.IButton, {}> {
-	private shouldComponentUpdate(nextProps: Props.Content.IButton): boolean {
-		return this.props.caption !== nextProps.caption;
-	};
+type TButton = (props: Props.Content.IButton) => JSX.Element;
 
-	public render(): JSX.Element {
-		const { caption, type, onClick }: Props.Content.IButton = this.props;
+const Button: TButton = (props: Props.Content.IButton): JSX.Element => {
+	const { caption, type, onClick }: Props.Content.IButton = props;
 
-		return (
-			<button
-				className={`content__button content__button--${type}`}
-				onClick={onClick}>
-				{caption}
-			</button>
-		);
-	};
+	return (
+		<button
+			className={`content__button content__button--${type}`}
+			onClick={onClick}>
+			{caption}
+		</button>
+	);
 };
+
+export default Button;
