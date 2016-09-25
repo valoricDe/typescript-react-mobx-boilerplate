@@ -1,4 +1,4 @@
-# TypeScript react-mobx boilerplate
+# TypeScript react-mobx boilerplate [![Build Status](https://travis-ci.org/lozinsky/typescript-react-mobx-boilerplate.svg?branch=master)](https://travis-ci.org/lozinsky/typescript-react-mobx-boilerplate)
 ![Pic](http://i.imgur.com/uB7Dtbc.jpg)
 Simple boilerplate for single page applications.
 ___
@@ -66,20 +66,20 @@ npm test
 
 Lint project:
 
-All:
+- All:
 
-```sh
-npm run lint
-```
+	```sh
+	npm run lint
+	```
 
-Scripts:
+- Scripts:
 
-```sh
-npm run lint:scripts
-```
+	```sh
+	npm run lint:scripts
+	```
 
-Styles:
+- Styles:
 
-```sh
-npm run lint:styles
-```
+	```sh
+	npm run lint:styles
+	```
