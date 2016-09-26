@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/lozinsky/typescript-react-mobx-boilerplate.svg?branch=master)](https://travis-ci.org/lozinsky/typescript-react-mobx-boilerplate)
-![Pic](http://i.imgur.com/uB7Dtbc.jpg)
 # TypeScript react-mobx boilerplate
+![Pic](http://i.imgur.com/uB7Dtbc.jpg)
 Simple boilerplate for single page applications.
 ___
 
