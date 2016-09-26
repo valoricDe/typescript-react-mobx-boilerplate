@@ -1,5 +1,6 @@
-# TypeScript react-mobx boilerplate [![Build Status](https://travis-ci.org/lozinsky/typescript-react-mobx-boilerplate.svg?branch=master)](https://travis-ci.org/lozinsky/typescript-react-mobx-boilerplate)
+[![Build Status](https://travis-ci.org/lozinsky/typescript-react-mobx-boilerplate.svg?branch=master)](https://travis-ci.org/lozinsky/typescript-react-mobx-boilerplate)
 ![Pic](http://i.imgur.com/uB7Dtbc.jpg)
+# TypeScript react-mobx boilerplate
 Simple boilerplate for single page applications.
 ___
 
@@ -40,7 +41,7 @@ Run server:
 npm start
 ```
 
-> **Note:** or you can use ```npm run server```
+> **Note:** you can use ```npm run server```
 
 Production build:
 
@@ -66,4 +67,4 @@ Lint project:
 npm run lint
 ```
 
-> **Note:** or you can use ```npm run lint:scripts``` and ```npm run lint:styles```
+> **Note:** you can use ```npm run lint:scripts``` and ```npm run lint:styles```
