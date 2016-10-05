@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 type TButton = (props: Props.Content.IButton) => JSX.Element;
 
