@@ -1,11 +1,13 @@
 {
-  "name": "typescript-react-mobx-boilerplate",
-  "version": "2.0.0",
-  "description": "typescript-react-mobx-boilerplate",
+  "name": "politbase",
+  "version": "0.0.1",
+  "description": "prototype",
   "main": "build/index.html",
   "scripts": {
     "start": "npm run server",
     "server": "webpack-dev-server --progress --colors --config ./misc/start",
+    "watch": "webpack --watch --progress --colors --config ./misc/start",
+    "hz": "hz serve --dev --serve-static=build",
     "build": "npm run clean && webpack --progress --colors -p --config ./misc/start",
     "test": "jest --config .jestrc --no-cache",
     "clean": "node ./misc/utils/clean",
