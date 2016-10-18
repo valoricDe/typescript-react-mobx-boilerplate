@@ -1,14 +1,14 @@
 import createStores from '../create-stores';
 
-import Tick from '../../store/tick';
+import TickStore from "../../stores/tick";
 
 describe('Create stores', () => {
-	const all: Store.IStores = {
-		tick: new Tick(),
+	const all: Stores.IStores = {
+		tickStore: new TickStore(null),
 	};
 
 	it('should return all stores', () => {
-		const stores: Store.IStores = createStores();
+		const stores: Stores.IStores = createStores();
 
 		expect(stores).toEqual(all);
 	});

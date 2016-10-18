@@ -1,5 +1,5 @@
 declare namespace Props {
-	interface IApp extends Store.IStores {}
+	interface IApp extends Stores.IStores {}
 
 	namespace Content {
 		interface IContent extends IApp {}

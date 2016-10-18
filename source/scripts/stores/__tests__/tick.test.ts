@@ -1,7 +1,10 @@
-import Tick from '../tick';
+import TickStore from "../tick";
 
 describe('Tick store', () => {
-	const tick: Store.Tick.ITick = new Tick();
+	const store: Stores.Ticks.ITicks = new TickStore(null);
+	store.createTick(0);
+
+	let tick = store.models.values()[0];
 
 	it('value should be zero', () => {
 		expect(tick.value).toBe(0);

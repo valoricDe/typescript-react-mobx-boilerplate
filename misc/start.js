@@ -10,7 +10,6 @@ const {
 const config = {
 	base: require('./config/base'),
 	dev: require('./config/dev'),
-	devServer: require('./config/dev-s'),
 	prod: require('./config/prod'),
 };
 
@@ -21,19 +20,10 @@ const base = config.base(
 	paths
 );
 
-if (TARGET === 'watch') {
+if (TARGET === 'server') {
 	module.exports = merge(
 		base,
 		config.dev(
-			paths,
-			server,
-			html
-		)
-	);
-} else if (TARGET === 'server') {
-	module.exports = merge(
-		base,
-		config.devServer(
 			paths,
 			server,
 			html

@@ -8,14 +8,14 @@
 		"strictNullChecks": true,
 		"sourceMap": true,
 		"allowSyntheticDefaultImports": true,
-		"noImplicitAny": true,
 		"noFallthroughCasesInSwitch": true,
 		"moduleResolution": "node",
 		"types": [
 			"node",
 			"jest",
 			"react",
-			"react-dom"
+			"react-dom",
+            "mobx"
 		]
 	},
 	"exclude": [

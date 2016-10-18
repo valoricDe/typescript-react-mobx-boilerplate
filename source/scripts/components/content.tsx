@@ -10,18 +10,25 @@ import Footer from './content/footer';
 @observer
 export default class Content extends Component<Props.Content.IContent, void> {
 	private handleIncrement: Types.THandle = (): void => {
-		this.props.tick.increment();
+		let tick = this.props.tickStore.models.values().next().value;
+		if(tick) {
+			tick.increment();
+		}
 	};
 
 	private handleDecrement: Types.THandle = (): void => {
-		this.props.tick.decrement();
+		let tick = this.props.tickStore.models.values().next().value;
+		if(tick) {
+			tick.decrement();
+		}
 	};
 
 	public render(): JSX.Element {
+		let ticks = this.props.tickStore.models.values().next();
 		return (
 			<div className='content'>
 				<Center>
-					<Label value={this.props.tick.value} />
+					<Label value={ticks.value ? ticks.value.value : ""} />
 					<Button
 						type='increment'
 						caption='++'
