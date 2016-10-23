@@ -1,5 +1,6 @@
 declare namespace Stores {
 	interface IStores {
+		questions: any;
 		users: IUsers;
 	}
 
@@ -20,7 +21,7 @@ declare namespace Stores {
 	}
 
 	interface IUsers extends IStore {
-		
+
 	}
 
 	interface IQuestions extends IStore {

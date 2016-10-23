@@ -13,17 +13,9 @@ module.exports = (paths, server, html) => {
 			port: server.port,
 			inline: true,
 			contentBase: paths.build.path,
-			proxyTable: {
-				'/horizon': {
-					target: 'ws://127.0.0.1:8181',
-					changeOrigin: true,
-					ws: true
-				},
-				'/horizon/*': {
-					target: 'http://127.0.0.1:8181',
-					changeOrigin: true
-				}
-			},
+			proxy: {
+				'/graphql' : 'http://localhost:3000'
+			}
 		},
 	};
 };

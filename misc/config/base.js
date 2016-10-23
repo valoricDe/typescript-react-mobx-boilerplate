@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const WebpackNotifier = require('webpack-notifier');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const babelRelayPlugin = path.join(__dirname, '../utils/babel-relay-plugin');
+
 module.exports = (project, paths) => {
 	return {
 		entry: [
@@ -22,7 +24,13 @@ module.exports = (project, paths) => {
 				{
 					test: /\.(tsx|ts)$/,
 					exclude: /node_modules/,
-					loaders: ['babel', 'ts'],
+					// transformation order is from down to up
+					loaders: [
+						'babel?'+JSON.stringify({
+							presets: ['es2015', 'react', 'stage-0'],
+							plugins: [babelRelayPlugin],
+						}),
+						'ts'],
 				},
 				{
 					test: /\.scss$/,

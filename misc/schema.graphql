@@ -1,0 +1,253 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+input CreateQuestionInput {
+  clientMutationId: String
+  question: QuestionInput!
+}
+
+type CreateQuestionPayload {
+  clientMutationId: String
+  question: Question
+  questionEdge(orderBy: QuestionsOrderBy = PRIMARY_KEY_ASC): QuestionsEdge
+  userByAuthor: User
+  query: Query
+}
+
+input CreateUserInput {
+  clientMutationId: String
+  user: UserInput!
+}
+
+type CreateUserPayload {
+  clientMutationId: String
+  user: User
+  userEdge(orderBy: UsersOrderBy = PRIMARY_KEY_ASC): UsersEdge
+  query: Query
+}
+
+scalar Cursor
+
+input DeleteQuestionByRowIdInput {
+  clientMutationId: String
+  rowId: Int!
+}
+
+input DeleteQuestionInput {
+  clientMutationId: String
+  id: ID!
+}
+
+type DeleteQuestionPayload {
+  clientMutationId: String
+  question: Question
+  deletedQuestionId: ID
+  userByAuthor: User
+  query: Query
+}
+
+input DeleteUserByRowIdInput {
+  clientMutationId: String
+  rowId: Int!
+}
+
+input DeleteUserByUsernameInput {
+  clientMutationId: String
+  username: String!
+}
+
+input DeleteUserInput {
+  clientMutationId: String
+  id: ID!
+}
+
+type DeleteUserPayload {
+  clientMutationId: String
+  user: User
+  deletedUserId: ID
+  query: Query
+}
+
+type Mutation {
+  createQuestion(input: CreateQuestionInput!): CreateQuestionPayload
+  updateQuestion(input: UpdateQuestionInput!): UpdateQuestionPayload
+  updateQuestionByRowId(input: UpdateQuestionByRowIdInput!): UpdateQuestionPayload
+  deleteQuestion(input: DeleteQuestionInput!): DeleteQuestionPayload
+  deleteQuestionByRowId(input: DeleteQuestionByRowIdInput!): DeleteQuestionPayload
+  createUser(input: CreateUserInput!): CreateUserPayload
+  updateUser(input: UpdateUserInput!): UpdateUserPayload
+  updateUserByRowId(input: UpdateUserByRowIdInput!): UpdateUserPayload
+  updateUserByUsername(input: UpdateUserByUsernameInput!): UpdateUserPayload
+  deleteUser(input: DeleteUserInput!): DeleteUserPayload
+  deleteUserByRowId(input: DeleteUserByRowIdInput!): DeleteUserPayload
+  deleteUserByUsername(input: DeleteUserByUsernameInput!): DeleteUserPayload
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: Cursor
+  endCursor: Cursor
+}
+
+type Query implements Node {
+  node(id: ID!): Node
+  allQuestions(orderBy: QuestionsOrderBy = PRIMARY_KEY_ASC, before: Cursor, after: Cursor, first: Int, last: Int, offset: Int, condition: QuestionCondition): QuestionsConnection
+  question(id: ID!): Question
+  questionByRowId(rowId: Int!): Question
+  allUsers(orderBy: UsersOrderBy = PRIMARY_KEY_ASC, before: Cursor, after: Cursor, first: Int, last: Int, offset: Int, condition: UserCondition): UsersConnection
+  user(id: ID!): User
+  userByRowId(rowId: Int!): User
+  userByUsername(username: String!): User
+  query: Query!
+  id: ID!
+}
+
+type Question implements Node {
+  id: ID!
+  rowId: Int!
+  title: String!
+  description: String!
+  author: Int!
+  userByAuthor: User
+}
+
+input QuestionCondition {
+  rowId: Int
+  title: String
+  description: String
+  author: Int
+}
+
+input QuestionInput {
+  rowId: Int
+  title: String!
+  description: String!
+  author: Int!
+}
+
+input QuestionPatch {
+  rowId: Int
+  title: String
+  description: String
+  author: Int
+}
+
+type QuestionsConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [QuestionsEdge]
+  nodes: [Question!]
+}
+
+type QuestionsEdge {
+  cursor: Cursor
+  node: Question!
+}
+
+enum QuestionsOrderBy {
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  NATURAL
+  ID_ASC
+  ID_DESC
+  TITLE_ASC
+  TITLE_DESC
+  DESCRIPTION_ASC
+  DESCRIPTION_DESC
+  AUTHOR_ASC
+  AUTHOR_DESC
+}
+
+input UpdateQuestionByRowIdInput {
+  clientMutationId: String
+  rowId: Int!
+  questionPatch: QuestionPatch!
+}
+
+input UpdateQuestionInput {
+  clientMutationId: String
+  id: ID!
+  questionPatch: QuestionPatch!
+}
+
+type UpdateQuestionPayload {
+  clientMutationId: String
+  question: Question
+  userByAuthor: User
+  query: Query
+}
+
+input UpdateUserByRowIdInput {
+  clientMutationId: String
+  rowId: Int!
+  userPatch: UserPatch!
+}
+
+input UpdateUserByUsernameInput {
+  clientMutationId: String
+  username: String!
+  userPatch: UserPatch!
+}
+
+input UpdateUserInput {
+  clientMutationId: String
+  id: ID!
+  userPatch: UserPatch!
+}
+
+type UpdateUserPayload {
+  clientMutationId: String
+  user: User
+  query: Query
+}
+
+type User implements Node {
+  id: ID!
+  rowId: Int!
+  username: String
+  questionsByAuthor(orderBy: QuestionsOrderBy = PRIMARY_KEY_ASC, before: Cursor, after: Cursor, first: Int, last: Int, offset: Int): QuestionsConnection
+}
+
+input UserCondition {
+  rowId: Int
+  username: String
+}
+
+input UserInput {
+  rowId: Int
+  username: String
+}
+
+input UserPatch {
+  rowId: Int
+  username: String
+}
+
+type UsersConnection {
+  pageInfo: PageInfo!
+  totalCount: Int
+  edges: [UsersEdge]
+  nodes: [User!]
+}
+
+type UsersEdge {
+  cursor: Cursor
+  node: User!
+}
+
+enum UsersOrderBy {
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  NATURAL
+  ID_ASC
+  ID_DESC
+  USERNAME_ASC
+  USERNAME_DESC
+}

@@ -4,10 +4,11 @@ declare namespace Props {
 	namespace Content {
 		interface IContent extends IApp {}
 
-		interface IButton {
-			type: string;
-			caption: string;
-			onClick(): void;
+		interface IQuestion {
+			id: string
+			title: string
+			description: string
+			rowId: number
 		}
 
 		interface ILabel {

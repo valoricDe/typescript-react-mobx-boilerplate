@@ -29,6 +29,19 @@ const server = {
 	port: 8080,
 };
 
+const graphqlServer = {
+	host: 'localhost',
+	port: 3000
+};
+
+const postgresServer = {
+	host: 'localhost',
+	port: '5432',
+	user: 'admin',
+	password: '1234',
+	db: 'admin',
+};
+
 const html = {
 	title: project.title,
 	favicon: path.join(paths.misc, 'favicon.ico'),
@@ -40,4 +53,6 @@ const html = {
 module.exports.project = project;
 module.exports.paths = paths;
 module.exports.server = server;
+module.exports.graphql = graphqlServer;
+module.exports.postgres = postgresServer;
 module.exports.html = html;
