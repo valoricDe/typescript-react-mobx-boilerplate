@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import DevTools from 'mobx-react-devtools';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import lightBaseTheme from "material-ui/styles/baseThemes/lightBaseTheme";
+
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+// Needed for onTouchTap, Check this repo:
+// https://github.com/zilverline/react-tap-event-plugin
+injectTapEventPlugin();
+
+const lightMuiTheme = getMuiTheme(lightBaseTheme);
+
 //import Content from './content';
 import Relay from 'react-relay';
 import Question from "./content/question";
@@ -20,6 +32,7 @@ class AppClass extends Component<Props.IApp, void> {
 		);
 
 		return (
+			<MuiThemeProvider muiTheme={lightMuiTheme}>
 			<div className='wrapper'>
 				{this.renderDevTools()}
 				<div>
@@ -27,6 +40,7 @@ class AppClass extends Component<Props.IApp, void> {
 					<p>With a total of {this.props.store.totalCount}</p>
 				</div>
 			</div>
+			</MuiThemeProvider>
 		);
 	};
 };

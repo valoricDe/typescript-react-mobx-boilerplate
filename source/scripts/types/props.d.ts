@@ -9,6 +9,13 @@ declare namespace Props {
 			title: string
 			description: string
 			rowId: number
+			author: IUser
+		}
+
+		interface IUser {
+			id: string
+			rowId: number
+			username: string
 		}
 
 		interface ILabel {
