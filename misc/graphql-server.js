@@ -9,7 +9,7 @@ import {graphql} from 'settings'
 import {postgres} from 'settings'
 const p = postgres;
 
-http.createServer(postgraphql('postgres://'+p.user+':'+p.password+'@'+p.host+':'+p.port+'/'+p.db)).listen(graphql.port)
+http.createServer(postgraphql('postgres://'+p.user+':'+p.password+'@'+p.host+':'+p.port+'/'+p.db, 'public', {'classicIds': true})).listen(graphql.port)
 
 // TODO use koa
 /*

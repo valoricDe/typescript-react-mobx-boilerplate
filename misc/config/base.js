@@ -23,7 +23,7 @@ module.exports = (project, paths) => {
 			loaders: [
 				{
 					test: /\.(tsx|ts)$/,
-					exclude: /node_modules/,
+					exclude: [/node_modules/, /vendor/],
 					// transformation order is from down to up
 					loaders: [
 						'babel?'+JSON.stringify({

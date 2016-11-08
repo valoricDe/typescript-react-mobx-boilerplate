@@ -1,156 +1,476 @@
-schema {
-  query: Query
-  mutation: Mutation
+# All input for the `authenticate` mutation.
+input AuthenticateInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  email: String!
+  password: String!
 }
 
-input CreateQuestionInput {
+# The output of our `authenticate` mutation.
+type AuthenticatePayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
   clientMutationId: String
+  jwtToken: JwtToken
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `createQuestion` mutation.
+input CreateQuestionInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The `Question` to be created by this mutation.
   question: QuestionInput!
 }
 
+# The output of our `createQuestion` mutation.
 type CreateQuestionPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
   clientMutationId: String
+
+  # The `Question` that was created by this mutation.
   question: Question
-  questionEdge(orderBy: QuestionsOrderBy = PRIMARY_KEY_ASC): QuestionsEdge
+
+  # An edge for our `Question`. May be used by Relay 1.
+  questionEdge(
+    # The method to use when ordering `Question`.
+    orderBy: QuestionsOrderBy = PRIMARY_KEY_ASC
+  ): QuestionsEdge
+
+  # Reads a single `User` that is related to this `Question`.
   userByAuthor: User
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
 }
 
+# All input for the `createUser` mutation.
 input CreateUserInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
   clientMutationId: String
+
+  # The `User` to be created by this mutation.
   user: UserInput!
 }
 
+# The output of our `createUser` mutation.
 type CreateUserPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
   clientMutationId: String
+
+  # The `User` that was created by this mutation.
   user: User
-  userEdge(orderBy: UsersOrderBy = PRIMARY_KEY_ASC): UsersEdge
+
+  # An edge for our `User`. May be used by Relay 1.
+  userEdge(
+    # The method to use when ordering `User`.
+    orderBy: UsersOrderBy = PRIMARY_KEY_ASC
+  ): UsersEdge
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
 }
 
+# A location in a connection that can be used for resuming pagination.
 scalar Cursor
 
+# A point in time as described by the [ISO
+# 8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.
+scalar Datetime
+
+# All input for the `deleteQuestionByRowId` mutation.
 input DeleteQuestionByRowIdInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
   clientMutationId: String
   rowId: Int!
 }
 
+# All input for the `deleteQuestion` mutation.
 input DeleteQuestionInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
   clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `Question` to be deleted.
   id: ID!
 }
 
+# The output of our `deleteQuestion` mutation.
 type DeleteQuestionPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
   clientMutationId: String
   question: Question
   deletedQuestionId: ID
+
+  # Reads a single `User` that is related to this `Question`.
   userByAuthor: User
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
 }
 
+# All input for the `deleteUserByRowId` mutation.
 input DeleteUserByRowIdInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
   clientMutationId: String
   rowId: Int!
 }
 
+# All input for the `deleteUserByUsername` mutation.
 input DeleteUserByUsernameInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
   clientMutationId: String
-  username: String!
+  username: NonEmptyText!
 }
 
+# All input for the `deleteUser` mutation.
 input DeleteUserInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
   clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `User` to be deleted.
   id: ID!
 }
 
+# The output of our `deleteUser` mutation.
 type DeleteUserPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
   clientMutationId: String
   user: User
   deletedUserId: ID
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
 }
 
-type Mutation {
-  createQuestion(input: CreateQuestionInput!): CreateQuestionPayload
-  updateQuestion(input: UpdateQuestionInput!): UpdateQuestionPayload
-  updateQuestionByRowId(input: UpdateQuestionByRowIdInput!): UpdateQuestionPayload
-  deleteQuestion(input: DeleteQuestionInput!): DeleteQuestionPayload
-  deleteQuestionByRowId(input: DeleteQuestionByRowIdInput!): DeleteQuestionPayload
-  createUser(input: CreateUserInput!): CreateUserPayload
-  updateUser(input: UpdateUserInput!): UpdateUserPayload
-  updateUserByRowId(input: UpdateUserByRowIdInput!): UpdateUserPayload
-  updateUserByUsername(input: UpdateUserByUsernameInput!): UpdateUserPayload
-  deleteUser(input: DeleteUserInput!): DeleteUserPayload
-  deleteUserByRowId(input: DeleteUserByRowIdInput!): DeleteUserPayload
-  deleteUserByUsername(input: DeleteUserByUsernameInput!): DeleteUserPayload
+# All input for the `genRandomBytes` mutation.
+input GenRandomBytesInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  arg0: Int!
 }
 
+# The output of our `genRandomBytes` mutation.
+type GenRandomBytesPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  string: String
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `genRandomUuid` mutation.
+input GenRandomUuidInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+}
+
+# The output of our `genRandomUuid` mutation.
+type GenRandomUuidPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  uuid: Uuid
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# A JSON Web Token defined by [RFC 7519](https://tools.ietf.org/html/rfc7519)
+# which securely represents claims between two parties.
+scalar JwtToken
+
+# The root mutation type which contains root level fields which mutate data.
+type Mutation {
+  authenticate(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: AuthenticateInput!
+  ): AuthenticatePayload
+  genRandomBytes(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: GenRandomBytesInput!
+  ): GenRandomBytesPayload
+  genRandomUuid(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: GenRandomUuidInput!
+  ): GenRandomUuidPayload
+  registerUser(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: RegisterUserInput!
+  ): RegisterUserPayload
+
+  # Creates a single `Question`.
+  createQuestion(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: CreateQuestionInput!
+  ): CreateQuestionPayload
+
+  # Updates a single `Question` using its globally unique id and a patch.
+  updateQuestion(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateQuestionInput!
+  ): UpdateQuestionPayload
+
+  # Updates a single `Question` using a unique key and a patch.
+  updateQuestionByRowId(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateQuestionByRowIdInput!
+  ): UpdateQuestionPayload
+
+  # Deletes a single `Question` using its globally unique id.
+  deleteQuestion(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteQuestionInput!
+  ): DeleteQuestionPayload
+
+  # Deletes a single `Question` using a unique key.
+  deleteQuestionByRowId(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteQuestionByRowIdInput!
+  ): DeleteQuestionPayload
+
+  # Creates a single `User`.
+  createUser(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: CreateUserInput!
+  ): CreateUserPayload
+
+  # Updates a single `User` using its globally unique id and a patch.
+  updateUser(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateUserInput!
+  ): UpdateUserPayload
+
+  # Updates a single `User` using a unique key and a patch.
+  updateUserByRowId(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateUserByRowIdInput!
+  ): UpdateUserPayload
+
+  # Updates a single `User` using a unique key and a patch.
+  updateUserByUsername(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateUserByUsernameInput!
+  ): UpdateUserPayload
+
+  # Deletes a single `User` using its globally unique id.
+  deleteUser(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteUserInput!
+  ): DeleteUserPayload
+
+  # Deletes a single `User` using a unique key.
+  deleteUserByRowId(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteUserByRowIdInput!
+  ): DeleteUserPayload
+
+  # Deletes a single `User` using a unique key.
+  deleteUserByUsername(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteUserByUsernameInput!
+  ): DeleteUserPayload
+}
+
+# An object with a globally unique `ID`.
 interface Node {
+  # A globally unique identifier. Can be used in various places throughout the system to identify this single value.
   id: ID!
 }
 
+scalar NonEmptyText
+
+# Information about pagination in a connection.
 type PageInfo {
+  # When paginating forwards, are there more items?
   hasNextPage: Boolean!
+
+  # When paginating backwards, are there more items?
   hasPreviousPage: Boolean!
+
+  # When paginating backwards, the cursor to continue.
   startCursor: Cursor
+
+  # When paginating forwards, the cursor to continue.
   endCursor: Cursor
 }
 
+# The root query type which gives access points into the data universe.
 type Query implements Node {
-  node(id: ID!): Node
-  allQuestions(orderBy: QuestionsOrderBy = PRIMARY_KEY_ASC, before: Cursor, after: Cursor, first: Int, last: Int, offset: Int, condition: QuestionCondition): QuestionsConnection
-  question(id: ID!): Question
+  # Fetches an object given its globally unique `ID`.
+  node(
+    # The globally unique `ID`.
+    id: ID!
+  ): Node
+  crypt(arg0: String!, arg1: String!): String
+  currentUser: User
+  dearmor(arg0: String!): String
+  decrypt(arg0: String!, arg1: String!, arg2: String!): String
+  decryptIv(arg0: String!, arg1: String!, arg2: String!, arg3: String!): String
+  encrypt(arg0: String!, arg1: String!, arg2: String!): String
+  encryptIv(arg0: String!, arg1: String!, arg2: String!, arg3: String!): String
+  pgpKeyId(arg0: String!): String
+  userFullname(users: UserInput): String
+
+  # Reads and enables paginatation through a set of `Question`.
+  allQuestions(
+    # The method to use when ordering `Question`.
+    orderBy: QuestionsOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: QuestionCondition
+  ): QuestionsConnection
+
+  # Reads a single `Question` using its globally unique `ID`.
+  question(
+    # The globally unique `ID` to be used in selecting a single `Question`.
+    id: ID!
+  ): Question
   questionByRowId(rowId: Int!): Question
-  allUsers(orderBy: UsersOrderBy = PRIMARY_KEY_ASC, before: Cursor, after: Cursor, first: Int, last: Int, offset: Int, condition: UserCondition): UsersConnection
-  user(id: ID!): User
+
+  # Reads and enables paginatation through a set of `User`.
+  allUsers(
+    # The method to use when ordering `User`.
+    orderBy: UsersOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: UserCondition
+  ): UsersConnection
+
+  # Reads a single `User` using its globally unique `ID`.
+  user(
+    # The globally unique `ID` to be used in selecting a single `User`.
+    id: ID!
+  ): User
   userByRowId(rowId: Int!): User
-  userByUsername(username: String!): User
+  userByUsername(username: NonEmptyText!): User
+
+  # Exposes the root query type nested one level down. This is helpful for Relay 1
+  # which can only query top level fields if they are in a particular form.
   query: Query!
+
+  # The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`.
   id: ID!
 }
 
 type Question implements Node {
+  # A globally unique identifier. Can be used in various places throughout the system to identify this single value.
   id: ID!
   rowId: Int!
-  title: String!
-  description: String!
+  title: NonEmptyText!
+  description: NonEmptyText!
   author: Int!
+
+  # Reads a single `User` that is related to this `Question`.
   userByAuthor: User
 }
 
+# A condition to be used against `Question` object types. All fields are tested
+# for equality and combined with a logical ‘and.’
 input QuestionCondition {
+  # Checks for equality with the object’s `rowId` field.
   rowId: Int
-  title: String
-  description: String
+
+  # Checks for equality with the object’s `title` field.
+  title: NonEmptyText
+
+  # Checks for equality with the object’s `description` field.
+  description: NonEmptyText
+
+  # Checks for equality with the object’s `author` field.
   author: Int
 }
 
 input QuestionInput {
   rowId: Int
-  title: String!
-  description: String!
+  title: NonEmptyText!
+  description: NonEmptyText!
   author: Int!
 }
 
+# Represents an update to a `Question`. Fields that are set will be updated.
 input QuestionPatch {
   rowId: Int
-  title: String
-  description: String
+  title: NonEmptyText
+  description: NonEmptyText
   author: Int
 }
 
+# A connection to a list of `Question` values.
 type QuestionsConnection {
+  # Information to aid in pagination.
   pageInfo: PageInfo!
+
+  # The count of *all* `Question` you could get from the connection.
   totalCount: Int
+
+  # A list of edges which contains the `Question` and cursor to aid in pagination.
   edges: [QuestionsEdge]
+
+  # A list of `Question` objects.
   nodes: [Question!]
 }
 
+# A `Question` edge in the connection.
 type QuestionsEdge {
+  # A cursor for use in pagination.
   cursor: Cursor
+
+  # The `Question` at the end of the edge.
   node: Question!
 }
 
+# Methods to use when ordering `Question`.
 enum QuestionsOrderBy {
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
@@ -165,83 +485,205 @@ enum QuestionsOrderBy {
   AUTHOR_DESC
 }
 
-input UpdateQuestionByRowIdInput {
+# All input for the `registerUser` mutation.
+input RegisterUserInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
   clientMutationId: String
-  rowId: Int!
-  questionPatch: QuestionPatch!
+  firstName: String!
+  lastName: String!
+  username: String!
+  email: String!
+  password: String!
 }
 
-input UpdateQuestionInput {
+# The output of our `registerUser` mutation.
+type RegisterUserPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
   clientMutationId: String
-  id: ID!
-  questionPatch: QuestionPatch!
-}
+  user: User
 
-type UpdateQuestionPayload {
-  clientMutationId: String
-  question: Question
-  userByAuthor: User
+  # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
 }
 
-input UpdateUserByRowIdInput {
+# All input for the `updateQuestionByRowId` mutation.
+input UpdateQuestionByRowIdInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
   clientMutationId: String
   rowId: Int!
-  userPatch: UserPatch!
+
+  # An object where the defined keys will be set on the `Question` identified by our unique key.
+  questionPatch: QuestionPatch!
 }
 
-input UpdateUserByUsernameInput {
+# All input for the `updateQuestion` mutation.
+input UpdateQuestionInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
   clientMutationId: String
-  username: String!
-  userPatch: UserPatch!
-}
 
-input UpdateUserInput {
-  clientMutationId: String
+  # The globally unique `ID` which will identify a single `Question` to be updated.
   id: ID!
+
+  # An object where the defined keys will be set on the `Question` identified by our globally unique `ID`.
+  questionPatch: QuestionPatch!
+}
+
+# The output of our `updateQuestion` mutation.
+type UpdateQuestionPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  question: Question
+
+  # Reads a single `User` that is related to this `Question`.
+  userByAuthor: User
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `updateUserByRowId` mutation.
+input UpdateUserByRowIdInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  rowId: Int!
+
+  # An object where the defined keys will be set on the `User` identified by our unique key.
   userPatch: UserPatch!
 }
 
+# All input for the `updateUserByUsername` mutation.
+input UpdateUserByUsernameInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  username: NonEmptyText!
+
+  # An object where the defined keys will be set on the `User` identified by our unique key.
+  userPatch: UserPatch!
+}
+
+# All input for the `updateUser` mutation.
+input UpdateUserInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `User` to be updated.
+  id: ID!
+
+  # An object where the defined keys will be set on the `User` identified by our globally unique `ID`.
+  userPatch: UserPatch!
+}
+
+# The output of our `updateUser` mutation.
 type UpdateUserPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
   clientMutationId: String
   user: User
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
 }
 
 type User implements Node {
+  # A globally unique identifier. Can be used in various places throughout the system to identify this single value.
   id: ID!
   rowId: Int!
-  username: String
-  questionsByAuthor(orderBy: QuestionsOrderBy = PRIMARY_KEY_ASC, before: Cursor, after: Cursor, first: Int, last: Int, offset: Int): QuestionsConnection
+  username: NonEmptyText
+  firstName: String
+  lastName: String
+  createdAt: Datetime
+
+  # Reads and enables paginatation through a set of `Question`.
+  questionsByAuthor(
+    # The method to use when ordering `Question`.
+    orderBy: QuestionsOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+  ): QuestionsConnection
 }
 
+# A condition to be used against `User` object types. All fields are tested for equality and combined with a logical ‘and.’
 input UserCondition {
+  # Checks for equality with the object’s `rowId` field.
   rowId: Int
-  username: String
+
+  # Checks for equality with the object’s `username` field.
+  username: NonEmptyText
+
+  # Checks for equality with the object’s `firstName` field.
+  firstName: String
+
+  # Checks for equality with the object’s `lastName` field.
+  lastName: String
+
+  # Checks for equality with the object’s `createdAt` field.
+  createdAt: Datetime
 }
 
 input UserInput {
   rowId: Int
-  username: String
+  username: NonEmptyText
+  firstName: String
+  lastName: String
+  createdAt: Datetime
 }
 
+# Represents an update to a `User`. Fields that are set will be updated.
 input UserPatch {
   rowId: Int
-  username: String
+  username: NonEmptyText
+  firstName: String
+  lastName: String
+  createdAt: Datetime
 }
 
+# A connection to a list of `User` values.
 type UsersConnection {
+  # Information to aid in pagination.
   pageInfo: PageInfo!
+
+  # The count of *all* `User` you could get from the connection.
   totalCount: Int
+
+  # A list of edges which contains the `User` and cursor to aid in pagination.
   edges: [UsersEdge]
+
+  # A list of `User` objects.
   nodes: [User!]
 }
 
+# A `User` edge in the connection.
 type UsersEdge {
+  # A cursor for use in pagination.
   cursor: Cursor
+
+  # The `User` at the end of the edge.
   node: User!
 }
 
+# Methods to use when ordering `User`.
 enum UsersOrderBy {
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
@@ -250,4 +692,13 @@ enum UsersOrderBy {
   ID_DESC
   USERNAME_ASC
   USERNAME_DESC
+  FIRST_NAME_ASC
+  FIRST_NAME_DESC
+  LAST_NAME_ASC
+  LAST_NAME_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
 }
+
+# A universally unique identifier as defined by [RFC 4122](https://tools.ietf.org/html/rfc4122).
+scalar Uuid

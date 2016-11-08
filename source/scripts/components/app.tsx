@@ -1,60 +1,67 @@
 import React, { Component } from 'react';
 import DevTools from 'mobx-react-devtools';
-
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import lightBaseTheme from "material-ui/styles/baseThemes/lightBaseTheme";
-
-import injectTapEventPlugin from 'react-tap-event-plugin';
-
-// Needed for onTouchTap, Check this repo:
-// https://github.com/zilverline/react-tap-event-plugin
-injectTapEventPlugin();
-
-const lightMuiTheme = getMuiTheme(lightBaseTheme);
-
-//import Content from './content';
 import Relay from 'react-relay';
-import Question from "./content/question";
+import {observer} from "mobx-react";
+import {observable} from "mobx";
+import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
 
-class AppClass extends Component<Props.IApp, void> {
+import QuestionList, {QuestionListState} from "./content/questionList";
+import Link from "react-router/lib/Link";
+
+export class AppState {
+}
+
+class AppClass extends Component<Props.IAppProps, void> {
+
 	private renderDevTools(): JSX.Element | null {
-		if (process.env.NODE_ENV !== 'production') {
+		/*if (process.env.NODE_ENV !== 'production') {
 			return <DevTools />;
-		}
-
+		}*/
 		return null;
 	};
 
 	public render(): JSX.Element {
-		let items = this.props.store.nodes.map(
-			(store, idx) => <Question store={store} key={idx} />
-		);
-
+		console.log('rendering App');
 		return (
-			<MuiThemeProvider muiTheme={lightMuiTheme}>
-			<div className='wrapper'>
-				{this.renderDevTools()}
-				<div>
-					{ items }
-					<p>With a total of {this.props.store.totalCount}</p>
+				<div className='wrapper'>
+					{this.renderDevTools()}
+					<Navbar staticTop>
+						<Navbar.Header>
+							<Navbar.Brand>
+								<a href="#">PolitBase</a>
+							</Navbar.Brand>
+						</Navbar.Header>
+						<Nav className="pull-right">
+							<NavItem href="/questions">Questions</NavItem>
+							<NavItem eventKey={2} onClick={() => this.props._state.questionList.addQuestion = true}>Ask Question</NavItem>
+							<NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+								<MenuItem eventKey={3.1}>Action</MenuItem>
+								<MenuItem eventKey={3.2}>Another action</MenuItem>
+								<MenuItem eventKey={3.3}>Something else here</MenuItem>
+								<MenuItem divider />
+								<MenuItem eventKey={3.3}>Separated link</MenuItem>
+							</NavDropdown>
+							{this.props.store.currentUser == null ?
+								<NavItem>
+									<Link to="/register">Register</Link>
+									<span> / </span>
+									<Link to="/login">Log in</Link>
+								</NavItem> :
+								<NavItem><Link to="/user">User: {this.props.store.currentUser.username}</Link></NavItem>
+							}
+						</Nav>
+					</Navbar>
+					{this.props.children}
 				</div>
-			</div>
-			</MuiThemeProvider>
 		);
 	};
 };
 
 const App = Relay.createContainer(AppClass, {
 	fragments: {
-		// The property name here reflects what is added to `this.props` above.
-		// This template string will be parsed by babel-relay-plugin when we browserify.
 		store: () => Relay.QL`
-    		fragment on QuestionsConnection {
-    			totalCount
-				nodes {
-					${Question.getFragment('store')}
-				}
+    		fragment on Query {
+    			currentUser
 			}`,
 	},
 });
@@ -64,6 +71,6 @@ export default App;
 export class AppQueries extends Relay.Route {
 	static routeName = 'AppQueries';
 	static queries = {
-		store: (Component) => Relay.QL`query { allQuestions { ${App.getFragment('store')} } }`,
+		store: (Component) => Relay.QL`query { query { ${Component.getFragment('store')} } }`,
 	};
 }

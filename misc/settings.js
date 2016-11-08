@@ -7,6 +7,12 @@ const project = {
 
 const paths = {
 	misc: __dirname,
+	node_modules: {
+		path: path.join(__dirname, '../node_modules'),
+	},
+	sources: {
+		path: path.join(__dirname, '../source'),
+	},
 	scripts: {
 		path: path.join(__dirname, '../source/scripts'),
 		file: 'index.tsx',
@@ -31,7 +37,8 @@ const server = {
 
 const graphqlServer = {
 	host: 'localhost',
-	port: 3000
+	port: 3000,
+	schemaLocation: {json: path.join(paths.misc, 'schema.json'), graphql: path.join(paths.misc, 'schema.graphql')},
 };
 
 const postgresServer = {

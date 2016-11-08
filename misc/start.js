@@ -20,6 +20,9 @@ const base = config.base(
 	paths
 );
 
+const path = require('path');
+//require(path.join(__dirname, 'utils/graphqlToTS'));
+
 if (TARGET === 'server') {
 	module.exports = merge(
 		base,

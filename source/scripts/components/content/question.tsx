@@ -1,33 +1,28 @@
 import React, {Component} from 'react';
 import Relay from 'react-relay';
-import Author from "./author";
-import {Toolbar, ToolbarGroup, RaisedButton, ToolbarTitle, TextField} from "material-ui";
 import {observer} from "mobx-react";
 import {observable} from "mobx";
-import IQuestion = Props.Content.IQuestion;
+import Formsy from 'formsy-react';
+import { Input, Textarea } from 'formsy-react-components';
+import { Panel, ButtonToolbar, Button } from 'react-bootstrap';
+import AuthorProfile from "./authorProfile";
+import User from "./user";
 import UpdateQuestionMutation from '../../mutations/updateQuestion'
 
-class QuestionClass extends Component<IQuestion, void> {
-	isEditing = true;
-	titleField: TextField;
-	descriptionField;
+@observer
+class QuestionClass extends Component<Props.IQuestionProps, void> {
+	@observable isEditing = false;
+	@observable isValidInput = false;
 
 	edit = () => {
 		this.isEditing = true;
 	};
 
-	save = () => {
-		const item: IQuestion = Object.assign({}, this.props.store);
-		item.title = this.titleField.getValue();
-		item.description = this.descriptionField.getValue();
-		this.isEditing = false;
-		Relay.Store.commitUpdate(
-			new UpdateQuestionMutation({store: item}),
+	save = (item) => {
+		this.props.relay.commitUpdate(
+			new UpdateQuestionMutation({store: this.props.store, patch: item})
 		);
-
-		/*this.props.relay.commitUpdate(
-			new UpdateQuestionMutation({store: item})
-		);*/
+		this.isEditing = false;
 	};
 
 	cancel = () => {
@@ -35,58 +30,68 @@ class QuestionClass extends Component<IQuestion, void> {
 	};
 
 	public render(): JSX.Element {
-		console.log(this.props);
-
 		const item = this.props.store;
-		console.log(this.props.store.title);
 		let style = {};
 		if (this.props.relay.hasOptimisticUpdate(this.props.store)) {
-			style.border = '1px solid red';
+			style['border'] = '1px solid red';
 		}
+
+		const titleFieldStyles = {"paddingRight":"16px","lineHeight":"56px","fontSize":"20px","position":"relative","textOverflow":"ellipsis","whiteSpace":"nowrap","overflow":"hidden","color":"rgba(0, 0, 0, 0.4)"};
 
 		return (
 			<div style={style}>
-				<Toolbar className="content__customToolbar">
-					<ToolbarGroup>
-						<ToolbarTitle text={item.title} className="content__customToolbarTitle"/>
+				<Formsy.Form onValidSubmit={(item) => this.save(item)} onValid={() => this.isValidInput = true} onInvalid={() => this.isValidInput = false}>
+					<fieldset>
+				<Panel
+					   header={
+							[<ButtonToolbar className="content__panelButtonToolbar pull-right" key="buttonToolbar">
+							{!this.isEditing ?
+								<Button onClick={this.edit} bsStyle="primary">Edit</Button> :
+								[<Button bsStyle="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>, <Button onClick={this.cancel} bsStyle="danger" key="cancel">Cancel</Button>]
+							}
+							</ButtonToolbar>,
+							<h2 role="presentation" className="content__panelTitle" key="title">{item.title}</h2>]
+					   }
+						footer="Test Footer">
 						{!this.isEditing ?
-							<ToolbarTitle text={item.title} className="content__customToolbarTitle"/> :
-							<TextField ref={c => this.titleField = c } defaultValue={item.title} onKeyDown={event => {if(event.keyCode == 13) { this.save() }}} errorText="This field is required" floatingLabelText={"Title"} />
+							<h1 className="content__customToolbarTitle">{item.title}</h1> :
+							<Input label="Title" value={item.title} placeholder={item.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
 						}
-					</ToolbarGroup>
-					<ToolbarGroup>
-						{!this.isEditing ?
-							<RaisedButton onTouchTap={this.edit} label="Edit" primary={true} /> :
-							<div><RaisedButton onTouchTap={this.save} label="Save" primary={true} /> <RaisedButton onTouchTap={this.cancel} label="Cancel" secondary={true} /></div>
-						}
-					</ToolbarGroup>
-				</Toolbar>
 				{!this.isEditing ?
 					<p>{item.description}</p> :
-					<TextField ref={c => this.descriptionField = c } defaultValue={item.description} errorText="This field is required" floatingLabelText={"Description"}/>
+					<Textarea
+						label="Description"
+						name="description"
+						value={item.description}
+						validationError="Description field is required"
+						placeholder="This field requires 10 characters."
+						help="This is some help text for the textarea."
+						required
+					/>
 				}
-				<Author store={item.userByAuthor} />
-				<hr />
+				<User store={item.userByAuthor} />
+				</Panel>
+			</fieldset>
+			</Formsy.Form>
 			</div>
 		);
 	}
 }
 
-const Question = Relay.createContainer(QuestionClass, {
-	fragments: {
-		// The property name here reflects what is added to `this.props` above.
-		// This template string will be parsed by babel-relay-plugin.
-		store: () => Relay.QL`
-    		fragment on Question {
-				id
-				rowId
-				title
-				description
-				userByAuthor {
-					${Author.getFragment('store')}
-				}
-			}`,
-	},
-});
+	const Question = Relay.createContainer(QuestionClass, {
+		fragments: {
+			// The property name here reflects what is added to `this.props` above.
+			// This template string will be parsed by babel-relay-plugin.
+			store: () => Relay.QL`
+				fragment on Question {
+					${UpdateQuestionMutation.getFragment('store')}
+					title
+					description
+					userByAuthor {
+						${User.getFragment('store')}
+					}
+				}`,
+		},
+	});
 
 export default Question;
