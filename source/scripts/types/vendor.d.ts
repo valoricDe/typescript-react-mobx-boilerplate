@@ -45,3 +45,28 @@ declare module "react-relay/lib/RelayRootContainer" {
 	import Relay from "react-relay";
 	export = Relay.RootContainer;
 }
+
+declare module "react-bootstrap/lib/Navbar" {
+	import {Navbar} from "react-bootstrap";
+	export = Navbar;
+}
+
+declare module "react-bootstrap/lib/Nav" {
+	import {Nav} from "react-bootstrap";
+	export = Nav;
+}
+
+declare module "react-bootstrap/lib/NavItem" {
+	import {NavItem} from "react-bootstrap";
+	export = NavItem;
+}
+
+declare module "react-bootstrap/lib/Panel" {
+	import {Panel} from "react-bootstrap";
+	export = Panel;
+}
+
+declare module "react-bootstrap/lib/ButtonGroup" {
+	import {ButtonGroup} from "react-bootstrap";
+	export = ButtonGroup;
+}

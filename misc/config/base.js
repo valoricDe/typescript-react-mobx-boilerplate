@@ -22,8 +22,8 @@ module.exports = (project, paths) => {
 		module: {
 			loaders: [
 				{
-					test: /\.(tsx|ts)$/,
-					exclude: [/node_modules/, /vendor/],
+					test: /\.(js|tsx|ts)$/,
+					exclude: [/node_modules/, /vendor/], // exlude also in tsconfig
 					// transformation order is from down to up
 					loaders: [
 						'babel?'+JSON.stringify({

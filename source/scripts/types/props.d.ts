@@ -1,3 +1,4 @@
+
 declare namespace Props {
 	import IQuestion = GQL.IQuestion;
 	import IUser = GQL.IUser;
@@ -12,7 +13,12 @@ declare namespace Props {
 		_state: Object
 	}
 
-	interface IComponent extends IRelayComponent, IMobxStateComponent {}
+	interface IRouterComponent {
+		router: any
+		location: any
+	}
+
+	interface IComponent extends IRelayComponent, IMobxStateComponent, IRouterComponent {}
 
 	interface IAppStateProps {
 		questionList: IQuestionListStateProps
@@ -59,6 +65,15 @@ declare namespace Props {
 
 	interface IRegisterUserProps extends IComponent {
 		_state: IRegisterUserStateProps
+	}
+
+	interface ILoginUserStateProps {
+		show: boolean
+		isValidInput: boolean
+	}
+
+	interface ILoginUserProps extends IComponent {
+		_state: ILoginUserStateProps
 	}
 
 	interface IUserProps extends IComponent {

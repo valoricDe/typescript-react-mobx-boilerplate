@@ -5,7 +5,8 @@ import {observable} from "mobx";
 import Formsy from 'formsy-react';
 import { Input, Textarea } from 'formsy-react-components';
 import { ButtonToolbar, Button, Modal } from 'react-bootstrap';
-import RegisterUserMutation from "../../mutations/registerUser";
+
+const Auth = require('../../lib/auth');
 import LoginUserMutation from "../../mutations/loginUser";
 
 export class LoginUserState {
@@ -16,21 +17,24 @@ export default class LoginUser extends Component<Props.ILoginUserProps, void> {
 	@observable isValidInput = false;
 
 	save = (item) => {
-
-		let onFailure = (transaction) => {
-			var error = transaction.getError() || new Error('Mutation failed.');
-			console.error(error);
-		};
-
-		let onSuccess = (response) => {
-			const jwtToken = response.authenticate.jwtToken;
-			localStorage.setItem('jwtToken', jwtToken);
-			window.location.reload();
-		};
-
-		Relay.Store.commitUpdate(
+		Auth.getEnvironment().commitUpdate(
 			new LoginUserMutation({email: item.email, password: item.password}),
-			{onFailure, onSuccess}
+			{
+				onSuccess: (response: GQL.IMutation) => {
+					Auth.login(response.authenticate.jwtToken);
+					const { location, router } = this.props;
+
+					if (location.state && location.state.nextPathname) {
+						router.replace(location.state.nextPathname)
+					} else {
+						router.replace('/')
+					}
+				},
+				onFailure: transaction => {
+					var error = transaction.getError() || new Error('Mutation failed.');
+					console.error(error);
+				}
+			}
 		);
 
 		this.close();

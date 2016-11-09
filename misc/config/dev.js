@@ -13,9 +13,7 @@ module.exports = (paths, server, html) => {
 			port: server.port,
 			inline: true,
 			contentBase: paths.build.path,
-			proxy: {
-				'/graphql' : 'http://localhost:3000'
-			}
+			historyApiFallback: true,
 		},
 	};
 };

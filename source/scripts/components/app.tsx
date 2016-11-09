@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import DevTools from 'mobx-react-devtools';
 import Relay from 'react-relay';
-import {observer} from "mobx-react";
-import {observable} from "mobx";
-import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
+import Navbar from 'react-bootstrap/lib/Navbar';
+import Nav from 'react-bootstrap/lib/Nav';
+import NavItem from 'react-bootstrap/lib/NavItem';
+import Link from "react-router/lib/Link";
 
 import QuestionList, {QuestionListState} from "./content/questionList";
-import Link from "react-router/lib/Link";
+
 
 export class AppState {
 }
@@ -25,33 +26,29 @@ class AppClass extends Component<Props.IAppProps, void> {
 		return (
 				<div className='wrapper'>
 					{this.renderDevTools()}
-					<Navbar staticTop>
+					<Navbar staticTop collapseOnSelect>
 						<Navbar.Header>
 							<Navbar.Brand>
 								<a href="#">PolitBase</a>
 							</Navbar.Brand>
+							<Navbar.Toggle />
 						</Navbar.Header>
-						<Nav className="pull-right">
-							<NavItem href="/questions">Questions</NavItem>
-							<NavItem eventKey={2} onClick={() => this.props._state.questionList.addQuestion = true}>Ask Question</NavItem>
-							<NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-								<MenuItem eventKey={3.1}>Action</MenuItem>
-								<MenuItem eventKey={3.2}>Another action</MenuItem>
-								<MenuItem eventKey={3.3}>Something else here</MenuItem>
-								<MenuItem divider />
-								<MenuItem eventKey={3.3}>Separated link</MenuItem>
-							</NavDropdown>
-							{this.props.store.currentUser == null ?
-								<NavItem>
-									<Link to="/register">Register</Link>
-									<span> / </span>
-									<Link to="/login">Log in</Link>
-								</NavItem> :
-								<NavItem><Link to="/user">User: {this.props.store.currentUser.username}</Link></NavItem>
-							}
-						</Nav>
+						<Navbar.Collapse>
+							<Nav pullRight>
+								<NavItem href="/questions">Questions</NavItem>
+								{this.props.store.currentUser == null ?
+									<Navbar.Text>
+										<Link to="/register">Register</Link>
+										<span> / </span>
+										<Link to="/login">Log in</Link>
+									</Navbar.Text> :
+									<Navbar.Text><Link to="/user">User: {this.props.store.currentUser.username}</Link></Navbar.Text>
+								}
+							</Nav>
+						</Navbar.Collapse>
 					</Navbar>
-					{this.props.children}
+
+					<div className="content">{this.props.children}</div>
 				</div>
 		);
 	};

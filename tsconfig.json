@@ -1,6 +1,7 @@
 {
 	"compileOnSave": false,
 	"compilerOptions": {
+        "allowJs": true,
 		"module": "es6",
 		"target": "es6",
 		"jsx": "react",
@@ -10,6 +11,8 @@
 		"allowSyntheticDefaultImports": true,
 		"noFallthroughCasesInSwitch": true,
 		"moduleResolution": "node",
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
 		"types": [
 			"node",
 			"jest",
