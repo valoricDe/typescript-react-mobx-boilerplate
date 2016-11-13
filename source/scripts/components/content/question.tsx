@@ -69,7 +69,7 @@ class QuestionClass extends Component<Props.IQuestionProps, void> {
 						required
 					/>
 				}
-				<User store={item.userByAuthor} />
+				<User store={item.userByAuthor} details={false} />
 				</Panel>
 			</fieldset>
 			</Formsy.Form>

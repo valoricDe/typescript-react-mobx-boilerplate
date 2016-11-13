@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DevTools from 'mobx-react-devtools';
-import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
+import { Button, Jumbotron } from 'react-bootstrap';
 
 //import Content from './content';
 import Relay from 'react-relay';
@@ -13,17 +13,16 @@ export class HomePageState {
 }
 
 @observer
-class HomePageClass extends Component<Props.IUserListProps, void> {
-
-	cancelNewEntry = () => {
-		this.props._state.addEntry = false;
-	};
-
+class HomePageClass extends Component<Props.IHomePageProps, void> {
 	public render(): JSX.Element {
 		console.log('rendering HomePage');
 		return (
 			<div>
-				hello
+				<Jumbotron>
+					<h1>Hello, world!</h1>
+					<p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+					<p><Button bsStyle="primary">Learn more</Button></p>
+				</Jumbotron>
 			</div>
 		);
 	};

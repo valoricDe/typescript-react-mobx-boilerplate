@@ -32,7 +32,6 @@ class UserListClass extends Component<Props.IUserListProps, void> {
 
 		return (
 			<div>
-				<RegisterUser _state={this.props._state.registerUser}/>
 				{ items }
 				<p>With a total of {this.props.store.allUsers.totalCount}</p>
 			</div>

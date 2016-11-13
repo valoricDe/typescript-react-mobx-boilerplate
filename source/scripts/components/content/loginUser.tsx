@@ -45,8 +45,6 @@ export default class LoginUser extends Component<Props.ILoginUserProps, void> {
 	};
 
 	public render(): JSX.Element {
-		console.log(this.props);
-
 		const item = {email: '', password: ''};
 		let style = {};
 

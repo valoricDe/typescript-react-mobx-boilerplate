@@ -46,7 +46,7 @@ class Application extends React.Component<any, any> {
 				render={applyRouterMiddleware(useRelayRouter)}
 				environment={this.state.environment}
 			>
-				{routeProvider({})}
+				{routeProvider(this.state)}
 			</RelayRouter>
 		);
 	}

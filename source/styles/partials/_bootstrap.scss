@@ -1,3 +1,34 @@
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+.page-header {
+	margin-top: 3px;
+	margin-bottom: 1em;
+}
+
 .navbar-text {
 	margin: 15px;
+}
+
+.navbar-nav {
+	> li.highlight > a {
+		color: $link-color;
+	}
+
+	> li.highlight.left > a {
+		padding-right: 0.5em;
+	}
+
+	> li.highlight.right > a {
+		padding-left: 0.5em;
+	}
+
+	> li p {
+		padding-top:    15px;
+		padding-bottom: 15px;
+		line-height: $line-height-computed;
+	}
+}
+
+.navbar + .content {
+	padding-top: 0;
 }

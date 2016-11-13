@@ -28,7 +28,7 @@ export default class CreateQuestionMutation extends Relay.Mutation<any, any> {
 	}
 
 	getConfigs() {
-		console.log(this.props);
+		console.log('CreateQuestionMutation::getConfigs', this.props);
 
 		return [{
 			type: 'RANGE_ADD',

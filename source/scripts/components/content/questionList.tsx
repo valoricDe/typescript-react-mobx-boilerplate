@@ -9,6 +9,11 @@ import CreateQuestion from "./createQuestion";
 import CreateQuestionMutation from "../../mutations/createQuestion";
 import {observable} from "mobx";
 import {observer} from "mobx-react";
+import {Input} from "formsy-react-components";
+import ButtonToolbar from "react-bootstrap/lib/ButtonToolbar";
+import Button from "react-bootstrap/lib/Button";
+import Formsy from 'formsy-react';
+import {Grid, Row, Col, Clearfix} from "react-bootstrap";
 
 export class QuestionListState {
 	@observable addQuestion = false;
@@ -17,38 +22,56 @@ export class QuestionListState {
 @observer
 class QuestionListClass extends Component<Props.IQuestionListProps, void> {
 
-	cancelNewQuestion = () => {
-		this.props._state.addQuestion = false;
-	};
-
-	createQuestion = (item) => {
-		this.props.relay.commitUpdate(
-			new CreateQuestionMutation({store: this.props.store, newItem: item})
-		);
-	};
-
 	public render(): JSX.Element {
-		let items = this.props.store.allQuestions.edges.map(
+		const query = this.props.relay.variables.query;
+		const querySearch = !!this.props.store.searchQuestions;
+		const questions = this.props.store.searchQuestions ? this.props.store.searchQuestions : this.props.store.allQuestions;
+
+		let items = questions.edges.map(
 			(edge, idx) => <Question store={edge.node} key={idx} />
 		);
 
 		return (
 			<div>
-				{this.props._state.addQuestion ? <CreateQuestion save={this.createQuestion} close={this.cancelNewQuestion}/> : null}
+				<h2>{querySearch ? 'Questions with "'+query+'" in title or description' : 'Newest Questions'}</h2>
+				<Formsy.Form className="col-md-4 input-group pull-right" onValidSubmit={(item) => this.props.relay.setVariables({query: item.query})}>
+					<Input label="Search for: " name="query" value="" layout="elementOnly" />
+					<span className="input-group-btn">
+						<input type="submit" className="btn btn-default btn-group" name="submit_search" value="Search" />
+					</span>
+				</Formsy.Form>
+				<Clearfix />
+				<p>&nbsp;</p>
 				{ items }
-				<p>With a total of {this.props.store.allQuestions.totalCount}</p>
+				<p>With a total of {questions.totalCount}</p>
 			</div>
 		);
 	};
 };
 
 const QuestionList = Relay.createContainer(QuestionListClass, {
+	initialVariables: {
+		query: null
+	},
+	prepareVariables: vars => {
+		vars['queryIsTruthy'] = !!vars['query'];
+		return vars;
+	},
 	fragments: {
 		// The property name here reflects what is added to `this.props` above.
 		// This template string will be parsed by babel-relay-plugin when we browserify.
-		store: () => Relay.QL`
+		store: (vars) => {
+			return Relay.QL`
     		fragment on Query {
-				allQuestions(last: 1) {
+    			searchQuestions(search: $query, first: 20) @include(if: $queryIsTruthy) {
+    				totalCount
+					edges {
+						node {
+							${Question.getFragment('store')}
+						}
+					}
+    			}
+				allQuestions(last: 20) {
 					totalCount
 					edges {
 						node {
@@ -57,7 +80,8 @@ const QuestionList = Relay.createContainer(QuestionListClass, {
 					}
 				}
 				${CreateQuestionMutation.getFragment('store')}
-			}`,
+			}`
+		},
 	},
 });
 

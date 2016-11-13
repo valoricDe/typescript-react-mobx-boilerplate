@@ -5,15 +5,17 @@ import {observable} from "mobx";
 import Formsy from 'formsy-react';
 import { Input, Textarea } from 'formsy-react-components';
 import { Panel, ButtonToolbar, Button, Modal } from 'react-bootstrap';
+import CreateQuestionMutation from "../../mutations/createQuestion";
 
 @observer
-export default class CreateQuestion extends Component<Props.ICreateQuestionProps, void> {
+export default class CreateQuestionComponent extends Component<Props.ICreateQuestionProps, void> {
 	@observable isValidInput = false;
 
 	save = (item) => {
-		item.author = 1;
-		console.log(item);
-		this.props.save(item);
+		console.log('CreateQuestion::save', item);
+		this.props.relay.commitUpdate(
+			new CreateQuestionMutation({store: this.props.store, newItem: item})
+		);
 		this.props.close();
 	};
 
@@ -22,8 +24,7 @@ export default class CreateQuestion extends Component<Props.ICreateQuestionProps
 	};
 
 	public render(): JSX.Element {
-		console.log(this.props);
-
+		console.log(this.props.relay);
 		const item = {title: '', description: '', author: 1};
 		let style = {};
 
@@ -31,6 +32,7 @@ export default class CreateQuestion extends Component<Props.ICreateQuestionProps
 
 		return (
 			<div style={style}>
+				<h2 className="page-header">Create Question</h2>
 				<Formsy.Form ref="form" onValidSubmit={(item) => this.save(item)} onValid={() => this.isValidInput = true} onInvalid={() => this.isValidInput = false}>
 					<fieldset>
 						<Input label="Title" value={item.title} placeholder={item.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
@@ -43,14 +45,25 @@ export default class CreateQuestion extends Component<Props.ICreateQuestionProps
 							help="This is some help text for the textarea."
 							required
 						/>
-										<ButtonToolbar className="content__panelButtonToolbar pull-right" key="buttonToolbar">
-											<Button bsStyle="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>
-											<Button onClick={this.cancel} bsStyle="danger" key="cancel">Cancel</Button>
-										</ButtonToolbar>
-
+						<ButtonToolbar className="content__panelButtonToolbar pull-right" key="buttonToolbar">
+							<Button bsStyle="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>
+							<Button onClick={this.cancel} bsStyle="danger" key="cancel">Cancel</Button>
+						</ButtonToolbar>
 					</fieldset>
 				</Formsy.Form>
 			</div>
 		);
 	}
 }
+
+
+const CreateQuestion = Relay.createContainer(CreateQuestionComponent, {
+	fragments: {
+		store: () => Relay.QL`
+    		fragment on Query {
+    			currentUser {
+    				username
+    			}
+			}`,
+	},
+});

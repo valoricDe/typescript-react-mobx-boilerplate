@@ -34,7 +34,13 @@ module.exports = (project, paths) => {
 				},
 				{
 					test: /\.scss$/,
-					loader: ExtractTextPlugin.extract('style', ['css', 'postcss', 'sass']),
+					loader: ExtractTextPlugin.extract('style', [
+						'css',
+						'postcss',
+						'sass?'+JSON.stringify({
+							precision: 8
+						})
+					]),
 				},
 				{
 					test: /\.(woff|woff2|eot|ttf)$/,

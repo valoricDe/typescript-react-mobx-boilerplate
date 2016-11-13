@@ -31,6 +31,7 @@ declare namespace GQL {
     encrypt: string;
     encryptIv: string;
     pgpKeyId: string;
+    searchQuestions: ISearchQuestionsConnection;
     userFullname: string;
     allQuestions: IQuestionsConnection;
     question: IQuestion;
@@ -117,6 +118,31 @@ declare namespace GQL {
     description: any;
     author: number;
     userByAuthor: IUser;
+  }
+
+  /*
+    description: Methods to use when ordering `Question`.
+  */
+  type ISearchQuestionsOrderByEnum = "NATURAL";
+
+  /*
+    description: A connection to a list of `Question` values.
+  */
+  interface ISearchQuestionsConnection {
+    __typename: string;
+    pageInfo: IPageInfo;
+    totalCount: number;
+    edges: Array<ISearchQuestionsEdge>;
+    nodes: Array<IQuestion>;
+  }
+
+  /*
+    description: A `Question` edge in the connection.
+  */
+  interface ISearchQuestionsEdge {
+    __typename: string;
+    cursor: any;
+    node: IQuestion;
   }
 
   /*

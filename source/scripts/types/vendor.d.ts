@@ -66,7 +66,27 @@ declare module "react-bootstrap/lib/Panel" {
 	export = Panel;
 }
 
+declare module "react-bootstrap/lib/Button" {
+	import {Button} from "react-bootstrap";
+	export = Button;
+}
+
 declare module "react-bootstrap/lib/ButtonGroup" {
 	import {ButtonGroup} from "react-bootstrap";
 	export = ButtonGroup;
+}
+
+declare module "react-bootstrap/lib/ButtonToolbar" {
+	import {ButtonToolbar} from "react-bootstrap";
+	export = ButtonToolbar;
+}
+
+declare module "react-bootstrap/lib/NavDropdown" {
+	import {NavDropdown} from "react-bootstrap";
+	export = NavDropdown;
+}
+
+declare module "react-bootstrap/lib/MenuItem" {
+	import {MenuItem} from "react-bootstrap";
+	export = MenuItem;
 }

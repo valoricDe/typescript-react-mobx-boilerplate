@@ -4,12 +4,17 @@ import Relay from 'react-relay';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
-import Link from "react-router/lib/Link";
-
-import QuestionList, {QuestionListState} from "./content/questionList";
-
+import NavDropdown from 'react-bootstrap/lib/NavDropdown';
+import MenuItem from 'react-bootstrap/lib/MenuItem';
+import IRelayComponent = Props.IRelayComponent;
 
 export class AppState {
+}
+
+class Li extends Component<any, void> {
+	public render(): JSX.Element {
+		return <li>{this.props.children}</li>
+	}
 }
 
 class AppClass extends Component<Props.IAppProps, void> {
@@ -22,27 +27,37 @@ class AppClass extends Component<Props.IAppProps, void> {
 	};
 
 	public render(): JSX.Element {
-		console.log('rendering App');
+		const {router} = this.props;
+
+		const href = function(target) {
+			return {onClick: () => this.props.router.push(target), href: target, key: target};
+		};
+
 		return (
 				<div className='wrapper'>
 					{this.renderDevTools()}
 					<Navbar staticTop collapseOnSelect>
 						<Navbar.Header>
 							<Navbar.Brand>
-								<a href="#">PolitBase</a>
+								<a href="/home">PolitBase</a>
 							</Navbar.Brand>
 							<Navbar.Toggle />
 						</Navbar.Header>
 						<Navbar.Collapse>
 							<Nav pullRight>
-								<NavItem href="/questions">Questions</NavItem>
-								{this.props.store.currentUser == null ?
-									<Navbar.Text>
-										<Link to="/register">Register</Link>
-										<span> / </span>
-										<Link to="/login">Log in</Link>
-									</Navbar.Text> :
-									<Navbar.Text><Link to="/user">User: {this.props.store.currentUser.username}</Link></Navbar.Text>
+								<NavItem {...href('/questions/add')}>Ask Question</NavItem>
+								<NavItem {...href('/questions')}>Questions</NavItem>
+								{!this.props.store.currentUser ?
+									[
+										<NavItem {...href('/register')} className="highlight left">Register</NavItem>,
+										<Li className="divider" key="divider"><p> / </p></Li>,
+										<NavItem {...href('/login')} className="highlight right">Log in</NavItem>
+									] :
+									<NavDropdown title={'User: '+this.props.store.currentUser.username} id="userDropdown">
+										<MenuItem {...href('/user')}>User profile</MenuItem>
+										<MenuItem divider />
+										<MenuItem {...href('/logout')}>Logout</MenuItem>
+									</NavDropdown>
 								}
 							</Nav>
 						</Navbar.Collapse>
@@ -58,7 +73,9 @@ const App = Relay.createContainer(AppClass, {
 	fragments: {
 		store: () => Relay.QL`
     		fragment on Query {
-    			currentUser
+    			currentUser {
+    				username
+    			}
 			}`,
 	},
 });

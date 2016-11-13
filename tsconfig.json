@@ -11,8 +11,6 @@
 		"allowSyntheticDefaultImports": true,
 		"noFallthroughCasesInSwitch": true,
 		"moduleResolution": "node",
-        "skipLibCheck": true,
-        "skipDefaultLibCheck": true,
 		"types": [
 			"node",
 			"jest",

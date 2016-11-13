@@ -14,8 +14,8 @@ declare namespace Props {
 	}
 
 	interface IRouterComponent {
-		router: any
-		location: any
+		router?: any
+		location?: any
 	}
 
 	interface IComponent extends IRelayComponent, IMobxStateComponent, IRouterComponent {}
@@ -53,7 +53,8 @@ declare namespace Props {
 		store: IQuestion
 	}
 
-	interface ICreateQuestionProps {
+	interface ICreateQuestionProps extends IComponent {
+		store: IQuery
 		save(JSON): void
 		close(): void
 	}
@@ -77,6 +78,10 @@ declare namespace Props {
 	}
 
 	interface IUserProps extends IComponent {
+		store: IUser
+	}
+
+	interface IHomePageProps extends IComponent {
 		store: IUser
 	}
 

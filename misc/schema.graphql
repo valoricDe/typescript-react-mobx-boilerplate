@@ -328,6 +328,29 @@ type Query implements Node {
   encrypt(arg0: String!, arg1: String!, arg2: String!): String
   encryptIv(arg0: String!, arg1: String!, arg2: String!, arg3: String!): String
   pgpKeyId(arg0: String!): String
+
+  # Reads and enables paginatation through a set of `Question`.
+  searchQuestions(
+    # The method to use when ordering `Question`.
+    orderBy: SearchQuestionsOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+    search: String
+  ): SearchQuestionsConnection
   userFullname(users: UserInput): String
 
   # Reads and enables paginatation through a set of `Question`.
@@ -506,6 +529,35 @@ type RegisterUserPayload {
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
+}
+
+# A connection to a list of `Question` values.
+type SearchQuestionsConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `Question` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `Question` and cursor to aid in pagination.
+  edges: [SearchQuestionsEdge]
+
+  # A list of `Question` objects.
+  nodes: [Question]
+}
+
+# A `Question` edge in the connection.
+type SearchQuestionsEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `Question` at the end of the edge.
+  node: Question
+}
+
+# Methods to use when ordering `Question`.
+enum SearchQuestionsOrderBy {
+  NATURAL
 }
 
 # All input for the `updateQuestionByRowId` mutation.

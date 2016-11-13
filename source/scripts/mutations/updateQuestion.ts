@@ -9,7 +9,7 @@ export default class UpdateQuestionMutation extends Relay.Mutation<any, any> {
 	}
 
 	getVariables() {
-		console.log(this.props);
+		console.log('UpdateQuestionMutation', this.props);
 		return {
 			id: this.props.store.id,
 			questionPatch: this.props.patch

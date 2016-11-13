@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Relay from 'react-relay';
+import Link from "react-router/lib/Link";
 
 class UserComponent extends Component<Props.IUserProps, void> {
 	public render(): JSX.Element {
@@ -7,7 +8,7 @@ class UserComponent extends Component<Props.IUserProps, void> {
 
 		return (
 			<div>
-				Username: <u>{item.username}</u>
+				Username: <Link to={'/user/'+item.username}>{item.username}</Link>
 				<ul>
 					{item.questionsByAuthor.edges.map(edge => <li key={edge.node.id}>{edge.node.title}</li>)}
 				</ul>
@@ -36,5 +37,12 @@ const User = Relay.createContainer(UserComponent, {
 			}`,
 	},
 });
+
+export class UserQueries extends Relay.Route {
+	static routeName = 'UserQueries';
+	static queries = {
+		store: (Component) => Relay.QL`query { currentUser { ${Component.getFragment('store')} } }`,
+	};
+}
 
 export default User;

@@ -25,7 +25,7 @@ export default class RegisterUserMutation extends Relay.Mutation<any, any> {
 	}
 
 	getConfigs() {
-		console.log(this.props);
+		console.log('RegisterUserMutation', this.props);
 
 		return [{
 			type: 'REQUIRED_CHILDREN',

@@ -83,6 +83,7 @@ export default function fetchWithRetries(
 						// Got a response code that indicates success, resolve the promise.
 						resolve(response);
 					} else if (shouldRetry(requestsAttempted)) {
+						response.json().then(console.error);
 						// Fetch was not successful, retrying.
 						// TODO(#7595849): Only retry on transient HTTP errors.
 						warning(false, 'fetchWithRetries: HTTP error, retrying.'),
