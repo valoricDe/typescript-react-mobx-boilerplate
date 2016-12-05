@@ -5,7 +5,6 @@ import Formsy from 'formsy-react';
 import { Input, Textarea } from 'formsy-react-components';
 import { ButtonToolbar, Button, Modal } from 'react-bootstrap';
 import RegisterUserMutation from "../../mutations/registerUser";
-import {Router, IRouterContext} from "../../lib/routerContext";
 
 const Auth = require('../../lib/auth');
 

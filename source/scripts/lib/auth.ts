@@ -12,6 +12,7 @@ class Auth {
 	afterLogin;
 	afterLogout;
 	onTokenError;
+	currentUser = null;
 
 
 	constructor() {
@@ -33,6 +34,10 @@ class Auth {
 		if (this.afterLogin) this.afterLogin();
 	}
 
+	deleteAccessToken() {
+		delete localStorageX.accessToken;
+	}
+
 	logout(callback) {
 		// delete token from localStorage
 		delete localStorageX.accessToken;
@@ -49,6 +54,14 @@ class Auth {
 
 	getEnvironment(){
 		return this.environment;
+	}
+
+	setCurrentUser(user) {
+		this.currentUser = user;
+	}
+
+	getCurrentUser() {
+		return this.currentUser;
 	}
 
 	_buildNetworkLayer(){

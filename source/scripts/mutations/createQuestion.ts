@@ -13,7 +13,7 @@ export default class CreateQuestionMutation extends Relay.Mutation<any, any> {
 			question: {
 				title: this.props.newItem.title,
 				description: this.props.newItem.description,
-				author: this.props.store.user.rowId,
+				author: this.props.store.currentUser.rowId
 			}
 		}
 	}
@@ -69,11 +69,7 @@ export default class CreateQuestionMutation extends Relay.Mutation<any, any> {
 		store: () => Relay.QL`
 		  fragment on Query {
 		    id
-		    allQuestions(last: 100) {
-				totalCount
-				edges
-			}
-			user: userByRowId(rowId: 1) {
+			currentUser {
 				rowId
 			}
 		  }

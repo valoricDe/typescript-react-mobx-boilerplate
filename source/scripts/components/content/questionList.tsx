@@ -1,25 +1,10 @@
 import React, { Component } from 'react';
-import DevTools from 'mobx-react-devtools';
-import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
-
-//import Content from './content';
 import Relay from 'react-relay';
-import Question from "./question";
-import CreateQuestion from "./createQuestion";
-import CreateQuestionMutation from "../../mutations/createQuestion";
-import {observable} from "mobx";
-import {observer} from "mobx-react";
 import {Input} from "formsy-react-components";
-import ButtonToolbar from "react-bootstrap/lib/ButtonToolbar";
-import Button from "react-bootstrap/lib/Button";
 import Formsy from 'formsy-react';
-import {Grid, Row, Col, Clearfix} from "react-bootstrap";
+import Clearfix from "react-bootstrap/lib/Clearfix";
+import QuestionBox from "./questionBox";
 
-export class QuestionListState {
-	@observable addQuestion = false;
-}
-
-@observer
 class QuestionListClass extends Component<Props.IQuestionListProps, void> {
 
 	public render(): JSX.Element {
@@ -28,12 +13,12 @@ class QuestionListClass extends Component<Props.IQuestionListProps, void> {
 		const questions = this.props.store.searchQuestions ? this.props.store.searchQuestions : this.props.store.allQuestions;
 
 		let items = questions.edges.map(
-			(edge, idx) => <Question store={edge.node} key={idx} />
+			(edge, idx) => <QuestionBox store={edge.node} user={this.props.store} key={idx} />
 		);
 
 		return (
 			<div>
-				<h2>{querySearch ? 'Questions with "'+query+'" in title or description' : 'Newest Questions'}</h2>
+				<h2 className="page-header">{querySearch ? 'Questions with "'+query+'" in title or description' : 'Newest Questions'}</h2>
 				<Formsy.Form className="col-md-4 input-group pull-right" onValidSubmit={(item) => this.props.relay.setVariables({query: item.query})}>
 					<Input label="Search for: " name="query" value="" layout="elementOnly" />
 					<span className="input-group-btn">
@@ -67,19 +52,19 @@ const QuestionList = Relay.createContainer(QuestionListClass, {
     				totalCount
 					edges {
 						node {
-							${Question.getFragment('store')}
+							${QuestionBox.getFragment('store')}
 						}
 					}
     			}
-				allQuestions(last: 20) {
+				allQuestions(first: 20) {
 					totalCount
 					edges {
 						node {
-							${Question.getFragment('store')}
+							${QuestionBox.getFragment('store')}
 						}
 					}
 				}
-				${CreateQuestionMutation.getFragment('store')}
+                ${QuestionBox.getFragment('user')}
 			}`
 		},
 	},

@@ -5,18 +5,21 @@ import Route from 'react-router/lib/Route';
 const Auth = require('./lib/auth');
 import App, {AppQueries} from "./components/app";
 import QuestionList from "./components/content/questionList";
-import {QuestionListState} from "./components/content/questionList";
 import HomePage from "./components/pages/homePage";
-import {HomePageState} from "./components/pages/homePage";
 import RegisterUser from "./components/content/registerUser";
 import LoginUser from "./components/content/loginUser";
 import CreateQuestion from "./components/content/createQuestion";
 import User from "./components/content/user";
 import {UserQueries} from "./components/content/user";
 import Component = React.Component;
+import {CurrentUserQueries} from "./components/content/user";
+import {QuestionQueries, default as Question} from "./components/content/question";
+import CreateAnswer from "./components/content/createAnswer";
 
 const queries = AppQueries.queries;
 const userQueries = UserQueries.queries;
+const currentUserQueries = CurrentUserQueries.queries;
+const questionQueries = QuestionQueries.queries;
 
 // function requireAuth(prevState, nextState, replace) {
 function requireAuth(nextState, replace) {
@@ -39,7 +42,7 @@ function requireAuthToHomepage(nextState, replace) {
 
 function verifySession(nextState, replace){
 	if(Auth.loggedIn())
-		replace({ pathname: "/admin" })
+		replace({ pathname: "/home" })
 }
 
 function logout(nextState, replace){
@@ -55,23 +58,20 @@ function logComponent(Component) {
 	return Component;
 }
 
-export default (state) => (
+export default ({environment}) => (
 	<RelayRoute
 		path="/" component={App} queries={queries}
-		render={({ props }) => props ? logComponent(<App {...props} relay={state.environment} />) : <div>Loading ...</div>} >
-		<RelayIndexRoute
-			component={QuestionList} queries={queries} onEnter={requireAuthToHomepage}
-			render={({ props }) => props ? logComponent(<QuestionList {...props} relay={state.environment} _state={new QuestionListState()} />) : <div>Loading...</div>} />
-		<RelayRoute path="/home" component={HomePage} queries={queries}
-					render={({ props }) => props ? logComponent(<HomePage {...props} _state={new HomePageState()} />) : <div>Loading...</div>} />
-		<RelayRoute path="/questions" component={QuestionList} queries={queries} onEnter={requireAuth}
-					render={({ props }) => props ? logComponent(<QuestionList {...props} relay={state.environment} _state={new QuestionListState()} />) : <div>Loading...</div>} />
-		<RelayRoute path="/questions/add" component={CreateQuestion} questies={queries} onEnter={requireAuth} />
-		<RelayRoute path="/register" component={RegisterUser}
-					render={({ props }) => props ? logComponent(<RegisterUser {...props} relay={state.environment} />) : <div>Loading...</div>} />
-		<RelayRoute path="/login" component={LoginUser} onEnter={verifySession}
-					render={({ props }) => props ? logComponent(<LoginUser {...props} relay={state.environment} />) : <div>Loading...</div>} />
-		<RelayRoute path="/logout" onEnter={logout} />
-		<RelayRoute path="/user" component={User} queries={userQueries} />
+		render={({ props }) => {document.body.className = props ? 'auto' : 'wait'; return props ? <App {...props} /> : undefined} }>
+		<RelayIndexRoute component={QuestionList} queries={queries} onEnter={requireAuthToHomepage} />
+		<RelayRoute path="home" component={HomePage} queries={queries} />
+		<RelayRoute path="questions" component={QuestionList} queries={queries} onEnter={requireAuth} />
+		<RelayRoute path="questions/add" component={CreateQuestion} queries={queries} onEnter={requireAuth} />
+		<RelayRoute path="questions/:id" component={Question} queries={questionQueries} onEnter={requireAuth} />
+		<RelayRoute path="questions/:id/addAnswer" component={CreateAnswer} queries={queries} onEnter={requireAuth} />
+		<RelayRoute path="register" component={RegisterUser} />
+		<RelayRoute path="login" component={LoginUser} onEnter={verifySession} />
+		<RelayRoute path="logout" onEnter={logout} />
+		<RelayRoute path="user" component={User} queries={currentUserQueries} />
+		<RelayRoute path="user/:username" component={User} queries={userQueries} />
 	</RelayRoute>
 );

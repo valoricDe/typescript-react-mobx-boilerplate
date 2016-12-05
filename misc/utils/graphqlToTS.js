@@ -7,7 +7,7 @@ const path = require('path');
 const interfaceUtils = require('gql2ts/util/interface');
 
 // Module Utils
-const moduleUtils = require('gql2ts/util/module');
+const moduleUtils = require('gql2ts/util/namespace');
 
 const settings = require('../settings');
 const schema = require(settings.graphql.schemaLocation.json);
@@ -18,5 +18,5 @@ options['moduleName'] = 'GQL';
 options['ignoredTypes'] = [];
 
 let interfaces = interfaceUtils.schemaToInterfaces(schema, options);
-let transformed = moduleUtils.generateModule(options.moduleName, interfaces);
-moduleUtils.writeModuleToFile(options.outputFile, transformed);
+let transformed = moduleUtils.generateNamespace(options.moduleName, interfaces);
+moduleUtils.writeNamespaceToFile(options.outputFile, transformed);

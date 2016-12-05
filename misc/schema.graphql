@@ -1,3 +1,253 @@
+type Answer implements Node {
+  # A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  id: ID!
+  rowId: Int!
+  text: NonEmptyText!
+  question: Int!
+  author: Int!
+  answerVoteByCurrentUser: AnswerVote
+  vote: Int
+
+  # Reads a single `User` that is related to this `Answer`.
+  userByAuthor: User
+
+  # Reads a single `Question` that is related to this `Answer`.
+  questionByQuestion: Question
+
+  # Reads and enables paginatation through a set of `AnswerVote`.
+  answerVotesByAnswer(
+    # The method to use when ordering `AnswerVote`.
+    orderBy: AnswerVotesOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: AnswerVoteCondition
+  ): AnswerVotesConnection
+}
+
+# All input for the `answerAnswerVoteCount` mutation.
+input AnswerAnswerVoteCountInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  questionId: Int
+  answerId: Int
+  value: Int
+  subscribe: Boolean
+}
+
+# The output of our `answerAnswerVoteCount` mutation.
+type AnswerAnswerVoteCountPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  string: String
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `answerAnswerVote` mutation.
+input AnswerAnswerVoteInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  answer: AnswerInput
+  value: Int
+  subscribe: Boolean
+}
+
+# The output of our `answerAnswerVote` mutation.
+type AnswerAnswerVotePayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  string: String
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# A condition to be used against `Answer` object types. All fields are tested for equality and combined with a logical ‘and.’
+input AnswerCondition {
+  # Checks for equality with the object’s `rowId` field.
+  rowId: Int
+
+  # Checks for equality with the object’s `text` field.
+  text: NonEmptyText
+
+  # Checks for equality with the object’s `question` field.
+  question: Int
+
+  # Checks for equality with the object’s `author` field.
+  author: Int
+}
+
+input AnswerInput {
+  rowId: Int
+  text: NonEmptyText!
+  question: Int!
+  author: Int!
+}
+
+# Represents an update to a `Answer`. Fields that are set will be updated.
+input AnswerPatch {
+  rowId: Int
+  text: NonEmptyText
+  question: Int
+  author: Int
+}
+
+# A connection to a list of `Answer` values.
+type AnswersConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `Answer` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `Answer` and cursor to aid in pagination.
+  edges: [AnswersEdge]
+
+  # A list of `Answer` objects.
+  nodes: [Answer!]
+}
+
+# A `Answer` edge in the connection.
+type AnswersEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `Answer` at the end of the edge.
+  node: Answer!
+}
+
+# Methods to use when ordering `Answer`.
+enum AnswersOrderBy {
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  NATURAL
+  ID_ASC
+  ID_DESC
+  TEXT_ASC
+  TEXT_DESC
+  QUESTION_ASC
+  QUESTION_DESC
+  AUTHOR_ASC
+  AUTHOR_DESC
+}
+
+type AnswerVote implements Node {
+  # A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  id: ID!
+  user: Int!
+  question: Int!
+  answer: Int!
+  subscribe: Boolean
+  value: PositiveOrNegativeOne
+
+  # Reads a single `Answer` that is related to this `AnswerVote`.
+  answerByAnswer: Answer
+
+  # Reads a single `Question` that is related to this `AnswerVote`.
+  questionByQuestion: Question
+
+  # Reads a single `User` that is related to this `AnswerVote`.
+  userByUser: User
+}
+
+# A condition to be used against `AnswerVote` object types. All fields are tested
+# for equality and combined with a logical ‘and.’
+input AnswerVoteCondition {
+  # Checks for equality with the object’s `user` field.
+  user: Int
+
+  # Checks for equality with the object’s `question` field.
+  question: Int
+
+  # Checks for equality with the object’s `answer` field.
+  answer: Int
+
+  # Checks for equality with the object’s `subscribe` field.
+  subscribe: Boolean
+
+  # Checks for equality with the object’s `value` field.
+  value: PositiveOrNegativeOne
+}
+
+input AnswerVoteInput {
+  user: Int!
+  question: Int!
+  answer: Int!
+  subscribe: Boolean
+  value: PositiveOrNegativeOne
+}
+
+# Represents an update to a `AnswerVote`. Fields that are set will be updated.
+input AnswerVotePatch {
+  user: Int
+  question: Int
+  answer: Int
+  subscribe: Boolean
+  value: PositiveOrNegativeOne
+}
+
+# A connection to a list of `AnswerVote` values.
+type AnswerVotesConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `AnswerVote` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `AnswerVote` and cursor to aid in pagination.
+  edges: [AnswerVotesEdge]
+
+  # A list of `AnswerVote` objects.
+  nodes: [AnswerVote!]
+}
+
+# A `AnswerVote` edge in the connection.
+type AnswerVotesEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `AnswerVote` at the end of the edge.
+  node: AnswerVote!
+}
+
+# Methods to use when ordering `AnswerVote`.
+enum AnswerVotesOrderBy {
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  NATURAL
+  USER_ASC
+  USER_DESC
+  QUESTION_ASC
+  QUESTION_DESC
+  ANSWER_ASC
+  ANSWER_DESC
+  SUBSCRIBE_ASC
+  SUBSCRIBE_DESC
+  VALUE_ASC
+  VALUE_DESC
+}
+
 # All input for the `authenticate` mutation.
 input AuthenticateInput {
   # An arbitrary string value with no semantic meaning. Will be included in the
@@ -13,6 +263,79 @@ type AuthenticatePayload {
   # unchanged and unused. May be used by a client to track mutations.
   clientMutationId: String
   jwtToken: JwtToken
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `createAnswer` mutation.
+input CreateAnswerInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The `Answer` to be created by this mutation.
+  answer: AnswerInput!
+}
+
+# The output of our `createAnswer` mutation.
+type CreateAnswerPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+
+  # The `Answer` that was created by this mutation.
+  answer: Answer
+
+  # An edge for our `Answer`. May be used by Relay 1.
+  answerEdge(
+    # The method to use when ordering `Answer`.
+    orderBy: AnswersOrderBy = PRIMARY_KEY_ASC
+  ): AnswersEdge
+
+  # Reads a single `User` that is related to this `Answer`.
+  userByAuthor: User
+
+  # Reads a single `Question` that is related to this `Answer`.
+  questionByQuestion: Question
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `createAnswerVote` mutation.
+input CreateAnswerVoteInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The `AnswerVote` to be created by this mutation.
+  answerVote: AnswerVoteInput!
+}
+
+# The output of our `createAnswerVote` mutation.
+type CreateAnswerVotePayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+
+  # The `AnswerVote` that was created by this mutation.
+  answerVote: AnswerVote
+
+  # An edge for our `AnswerVote`. May be used by Relay 1.
+  answerVoteEdge(
+    # The method to use when ordering `AnswerVote`.
+    orderBy: AnswerVotesOrderBy = PRIMARY_KEY_ASC
+  ): AnswerVotesEdge
+
+  # Reads a single `Answer` that is related to this `AnswerVote`.
+  answerByAnswer: Answer
+
+  # Reads a single `Question` that is related to this `AnswerVote`.
+  questionByQuestion: Question
+
+  # Reads a single `User` that is related to this `AnswerVote`.
+  userByUser: User
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -45,6 +368,105 @@ type CreateQuestionPayload {
 
   # Reads a single `User` that is related to this `Question`.
   userByAuthor: User
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `createQuestionTag` mutation.
+input CreateQuestionTagInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The `QuestionTag` to be created by this mutation.
+  questionTag: QuestionTagInput!
+}
+
+# The output of our `createQuestionTag` mutation.
+type CreateQuestionTagPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+
+  # The `QuestionTag` that was created by this mutation.
+  questionTag: QuestionTag
+
+  # An edge for our `QuestionTag`. May be used by Relay 1.
+  questionTagEdge(
+    # The method to use when ordering `QuestionTag`.
+    orderBy: QuestionTagsOrderBy = NATURAL
+  ): QuestionTagsEdge
+
+  # Reads a single `Question` that is related to this `QuestionTag`.
+  questionByQuestion: Question
+
+  # Reads a single `Tag` that is related to this `QuestionTag`.
+  tagByTag: Tag
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `createQuestionVote` mutation.
+input CreateQuestionVoteInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The `QuestionVote` to be created by this mutation.
+  questionVote: QuestionVoteInput!
+}
+
+# The output of our `createQuestionVote` mutation.
+type CreateQuestionVotePayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+
+  # The `QuestionVote` that was created by this mutation.
+  questionVote: QuestionVote
+
+  # An edge for our `QuestionVote`. May be used by Relay 1.
+  questionVoteEdge(
+    # The method to use when ordering `QuestionVote`.
+    orderBy: QuestionVotesOrderBy = PRIMARY_KEY_ASC
+  ): QuestionVotesEdge
+
+  # Reads a single `Question` that is related to this `QuestionVote`.
+  questionByQuestion: Question
+
+  # Reads a single `User` that is related to this `QuestionVote`.
+  userByUser: User
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `createTag` mutation.
+input CreateTagInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The `Tag` to be created by this mutation.
+  tag: TagInput!
+}
+
+# The output of our `createTag` mutation.
+type CreateTagPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+
+  # The `Tag` that was created by this mutation.
+  tag: Tag
+
+  # An edge for our `Tag`. May be used by Relay 1.
+  tagEdge(
+    # The method to use when ordering `Tag`.
+    orderBy: TagsOrderBy = PRIMARY_KEY_ASC
+  ): TagsEdge
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -86,6 +508,83 @@ scalar Cursor
 # 8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.
 scalar Datetime
 
+# All input for the `deleteAnswerByRowId` mutation.
+input DeleteAnswerByRowIdInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  rowId: Int!
+}
+
+# All input for the `deleteAnswer` mutation.
+input DeleteAnswerInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `Answer` to be deleted.
+  id: ID!
+}
+
+# The output of our `deleteAnswer` mutation.
+type DeleteAnswerPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  answer: Answer
+  deletedAnswerId: ID
+
+  # Reads a single `User` that is related to this `Answer`.
+  userByAuthor: User
+
+  # Reads a single `Question` that is related to this `Answer`.
+  questionByQuestion: Question
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `deleteAnswerVoteByUserAndQuestionAndAnswer` mutation.
+input DeleteAnswerVoteByUserAndQuestionAndAnswerInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  user: Int!
+  question: Int!
+  answer: Int!
+}
+
+# All input for the `deleteAnswerVote` mutation.
+input DeleteAnswerVoteInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `AnswerVote` to be deleted.
+  id: ID!
+}
+
+# The output of our `deleteAnswerVote` mutation.
+type DeleteAnswerVotePayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  answerVote: AnswerVote
+  deletedAnswerVoteId: ID
+
+  # Reads a single `Answer` that is related to this `AnswerVote`.
+  answerByAnswer: Answer
+
+  # Reads a single `Question` that is related to this `AnswerVote`.
+  questionByQuestion: Question
+
+  # Reads a single `User` that is related to this `AnswerVote`.
+  userByUser: User
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
 # All input for the `deleteQuestionByRowId` mutation.
 input DeleteQuestionByRowIdInput {
   # An arbitrary string value with no semantic meaning. Will be included in the
@@ -114,6 +613,73 @@ type DeleteQuestionPayload {
 
   # Reads a single `User` that is related to this `Question`.
   userByAuthor: User
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `deleteQuestionVoteByUserAndQuestion` mutation.
+input DeleteQuestionVoteByUserAndQuestionInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  user: Int!
+  question: Int!
+}
+
+# All input for the `deleteQuestionVote` mutation.
+input DeleteQuestionVoteInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `QuestionVote` to be deleted.
+  id: ID!
+}
+
+# The output of our `deleteQuestionVote` mutation.
+type DeleteQuestionVotePayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  questionVote: QuestionVote
+  deletedQuestionVoteId: ID
+
+  # Reads a single `Question` that is related to this `QuestionVote`.
+  questionByQuestion: Question
+
+  # Reads a single `User` that is related to this `QuestionVote`.
+  userByUser: User
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `deleteTagByRowId` mutation.
+input DeleteTagByRowIdInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  rowId: Int!
+}
+
+# All input for the `deleteTag` mutation.
+input DeleteTagInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `Tag` to be deleted.
+  id: ID!
+}
+
+# The output of our `deleteTag` mutation.
+type DeleteTagPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  tag: Tag
+  deletedTagId: ID
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -200,6 +766,14 @@ scalar JwtToken
 
 # The root mutation type which contains root level fields which mutate data.
 type Mutation {
+  answerAnswerVote(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: AnswerAnswerVoteInput!
+  ): AnswerAnswerVotePayload
+  answerAnswerVoteCount(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: AnswerAnswerVoteCountInput!
+  ): AnswerAnswerVoteCountPayload
   authenticate(
     # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     input: AuthenticateInput!
@@ -216,6 +790,74 @@ type Mutation {
     # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     input: RegisterUserInput!
   ): RegisterUserPayload
+  upsertAnswerVoteByQuestionAndAnswer(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpsertAnswerVoteByQuestionAndAnswerInput!
+  ): UpsertAnswerVoteByQuestionAndAnswerPayload
+  upsertTest(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpsertTestInput!
+  ): UpsertTestPayload
+
+  # Creates a single `Answer`.
+  createAnswer(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: CreateAnswerInput!
+  ): CreateAnswerPayload
+
+  # Updates a single `Answer` using its globally unique id and a patch.
+  updateAnswer(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateAnswerInput!
+  ): UpdateAnswerPayload
+
+  # Updates a single `Answer` using a unique key and a patch.
+  updateAnswerByRowId(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateAnswerByRowIdInput!
+  ): UpdateAnswerPayload
+
+  # Deletes a single `Answer` using its globally unique id.
+  deleteAnswer(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteAnswerInput!
+  ): DeleteAnswerPayload
+
+  # Deletes a single `Answer` using a unique key.
+  deleteAnswerByRowId(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteAnswerByRowIdInput!
+  ): DeleteAnswerPayload
+
+  # Creates a single `AnswerVote`.
+  createAnswerVote(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: CreateAnswerVoteInput!
+  ): CreateAnswerVotePayload
+
+  # Updates a single `AnswerVote` using its globally unique id and a patch.
+  updateAnswerVote(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateAnswerVoteInput!
+  ): UpdateAnswerVotePayload
+
+  # Updates a single `AnswerVote` using a unique key and a patch.
+  updateAnswerVoteByUserAndQuestionAndAnswer(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateAnswerVoteByUserAndQuestionAndAnswerInput!
+  ): UpdateAnswerVotePayload
+
+  # Deletes a single `AnswerVote` using its globally unique id.
+  deleteAnswerVote(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteAnswerVoteInput!
+  ): DeleteAnswerVotePayload
+
+  # Deletes a single `AnswerVote` using a unique key.
+  deleteAnswerVoteByUserAndQuestionAndAnswer(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteAnswerVoteByUserAndQuestionAndAnswerInput!
+  ): DeleteAnswerVotePayload
 
   # Creates a single `Question`.
   createQuestion(
@@ -246,6 +888,72 @@ type Mutation {
     # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     input: DeleteQuestionByRowIdInput!
   ): DeleteQuestionPayload
+
+  # Creates a single `QuestionTag`.
+  createQuestionTag(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: CreateQuestionTagInput!
+  ): CreateQuestionTagPayload
+
+  # Creates a single `QuestionVote`.
+  createQuestionVote(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: CreateQuestionVoteInput!
+  ): CreateQuestionVotePayload
+
+  # Updates a single `QuestionVote` using its globally unique id and a patch.
+  updateQuestionVote(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateQuestionVoteInput!
+  ): UpdateQuestionVotePayload
+
+  # Updates a single `QuestionVote` using a unique key and a patch.
+  updateQuestionVoteByUserAndQuestion(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateQuestionVoteByUserAndQuestionInput!
+  ): UpdateQuestionVotePayload
+
+  # Deletes a single `QuestionVote` using its globally unique id.
+  deleteQuestionVote(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteQuestionVoteInput!
+  ): DeleteQuestionVotePayload
+
+  # Deletes a single `QuestionVote` using a unique key.
+  deleteQuestionVoteByUserAndQuestion(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteQuestionVoteByUserAndQuestionInput!
+  ): DeleteQuestionVotePayload
+
+  # Creates a single `Tag`.
+  createTag(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: CreateTagInput!
+  ): CreateTagPayload
+
+  # Updates a single `Tag` using its globally unique id and a patch.
+  updateTag(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateTagInput!
+  ): UpdateTagPayload
+
+  # Updates a single `Tag` using a unique key and a patch.
+  updateTagByRowId(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateTagByRowIdInput!
+  ): UpdateTagPayload
+
+  # Deletes a single `Tag` using its globally unique id.
+  deleteTag(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteTagInput!
+  ): DeleteTagPayload
+
+  # Deletes a single `Tag` using a unique key.
+  deleteTagByRowId(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteTagByRowIdInput!
+  ): DeleteTagPayload
 
   # Creates a single `User`.
   createUser(
@@ -313,6 +1021,8 @@ type PageInfo {
   endCursor: Cursor
 }
 
+scalar PositiveOrNegativeOne
+
 # The root query type which gives access points into the data universe.
 type Query implements Node {
   # Fetches an object given its globally unique `ID`.
@@ -322,12 +1032,37 @@ type Query implements Node {
   ): Node
   crypt(arg0: String!, arg1: String!): String
   currentUser: User
+  currentUserId: Int
   dearmor(arg0: String!): String
   decrypt(arg0: String!, arg1: String!, arg2: String!): String
   decryptIv(arg0: String!, arg1: String!, arg2: String!, arg3: String!): String
   encrypt(arg0: String!, arg1: String!, arg2: String!): String
   encryptIv(arg0: String!, arg1: String!, arg2: String!, arg3: String!): String
   pgpKeyId(arg0: String!): String
+
+  # Reads and enables paginatation through a set of `Answer`.
+  searchAnswers(
+    # The method to use when ordering `Answer`.
+    orderBy: SearchAnswersOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+    questionId: Int
+    search: String
+  ): SearchAnswersConnection
 
   # Reads and enables paginatation through a set of `Question`.
   searchQuestions(
@@ -351,7 +1086,70 @@ type Query implements Node {
     offset: Int
     search: String
   ): SearchQuestionsConnection
-  userFullname(users: UserInput): String
+
+  # Reads and enables paginatation through a set of `Answer`.
+  allAnswers(
+    # The method to use when ordering `Answer`.
+    orderBy: AnswersOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: AnswerCondition
+  ): AnswersConnection
+
+  # Reads a single `Answer` using its globally unique `ID`.
+  answer(
+    # The globally unique `ID` to be used in selecting a single `Answer`.
+    id: ID!
+  ): Answer
+  answerByRowId(rowId: Int!): Answer
+
+  # Reads and enables paginatation through a set of `AnswerVote`.
+  allAnswerVotes(
+    # The method to use when ordering `AnswerVote`.
+    orderBy: AnswerVotesOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: AnswerVoteCondition
+  ): AnswerVotesConnection
+
+  # Reads a single `AnswerVote` using its globally unique `ID`.
+  answerVote(
+    # The globally unique `ID` to be used in selecting a single `AnswerVote`.
+    id: ID!
+  ): AnswerVote
+  answerVoteByUserAndQuestionAndAnswer(user: Int!, question: Int!, answer: Int!): AnswerVote
 
   # Reads and enables paginatation through a set of `Question`.
   allQuestions(
@@ -384,6 +1182,95 @@ type Query implements Node {
     id: ID!
   ): Question
   questionByRowId(rowId: Int!): Question
+
+  # Reads and enables paginatation through a set of `QuestionTag`.
+  allQuestionTags(
+    # The method to use when ordering `QuestionTag`.
+    orderBy: QuestionTagsOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: QuestionTagCondition
+  ): QuestionTagsConnection
+
+  # Reads and enables paginatation through a set of `QuestionVote`.
+  allQuestionVotes(
+    # The method to use when ordering `QuestionVote`.
+    orderBy: QuestionVotesOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: QuestionVoteCondition
+  ): QuestionVotesConnection
+
+  # Reads a single `QuestionVote` using its globally unique `ID`.
+  questionVote(
+    # The globally unique `ID` to be used in selecting a single `QuestionVote`.
+    id: ID!
+  ): QuestionVote
+  questionVoteByUserAndQuestion(user: Int!, question: Int!): QuestionVote
+
+  # Reads and enables paginatation through a set of `Tag`.
+  allTags(
+    # The method to use when ordering `Tag`.
+    orderBy: TagsOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: TagCondition
+  ): TagsConnection
+
+  # Reads a single `Tag` using its globally unique `ID`.
+  tag(
+    # The globally unique `ID` to be used in selecting a single `Tag`.
+    id: ID!
+  ): Tag
+  tagByRowId(rowId: Int!): Tag
 
   # Reads and enables paginatation through a set of `User`.
   allUsers(
@@ -433,9 +1320,213 @@ type Question implements Node {
   title: NonEmptyText!
   description: NonEmptyText!
   author: Int!
+  vote: Int!
+
+  # Reads and enables paginatation through a set of `Answer`.
+  answerSearch(
+    # The method to use when ordering `Answer`.
+    orderBy: QuestionAnswerSearchOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+    search: String
+  ): QuestionAnswerSearchConnection
+
+  # Reads and enables paginatation through a set of `Answer`.
+  answersOrderedByVote(
+    # The method to use when ordering `Answer`.
+    orderBy: QuestionAnswersOrderedByVoteOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+  ): QuestionAnswersOrderedByVoteConnection
 
   # Reads a single `User` that is related to this `Question`.
   userByAuthor: User
+
+  # Reads and enables paginatation through a set of `Answer`.
+  answersByQuestion(
+    # The method to use when ordering `Answer`.
+    orderBy: AnswersOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: AnswerCondition
+  ): AnswersConnection
+
+  # Reads and enables paginatation through a set of `AnswerVote`.
+  answerVotesByQuestion(
+    # The method to use when ordering `AnswerVote`.
+    orderBy: AnswerVotesOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: AnswerVoteCondition
+  ): AnswerVotesConnection
+
+  # Reads and enables paginatation through a set of `QuestionVote`.
+  questionVotesByQuestion(
+    # The method to use when ordering `QuestionVote`.
+    orderBy: QuestionVotesOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: QuestionVoteCondition
+  ): QuestionVotesConnection
+
+  # Reads and enables paginatation through a set of `QuestionTag`.
+  questionTagsByQuestion(
+    # The method to use when ordering `QuestionTag`.
+    orderBy: QuestionTagsOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: QuestionTagCondition
+  ): QuestionTagsConnection
+}
+
+# A connection to a list of `Answer` values.
+type QuestionAnswerSearchConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `Answer` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `Answer` and cursor to aid in pagination.
+  edges: [QuestionAnswerSearchEdge]
+
+  # A list of `Answer` objects.
+  nodes: [Answer]
+}
+
+# A `Answer` edge in the connection.
+type QuestionAnswerSearchEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `Answer` at the end of the edge.
+  node: Answer
+}
+
+# Methods to use when ordering `Answer`.
+enum QuestionAnswerSearchOrderBy {
+  NATURAL
+}
+
+# A connection to a list of `Answer` values.
+type QuestionAnswersOrderedByVoteConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `Answer` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `Answer` and cursor to aid in pagination.
+  edges: [QuestionAnswersOrderedByVoteEdge]
+
+  # A list of `Answer` objects.
+  nodes: [Answer]
+}
+
+# A `Answer` edge in the connection.
+type QuestionAnswersOrderedByVoteEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `Answer` at the end of the edge.
+  node: Answer
+}
+
+# Methods to use when ordering `Answer`.
+enum QuestionAnswersOrderedByVoteOrderBy {
+  NATURAL
 }
 
 # A condition to be used against `Question` object types. All fields are tested
@@ -452,6 +1543,9 @@ input QuestionCondition {
 
   # Checks for equality with the object’s `author` field.
   author: Int
+
+  # Checks for equality with the object’s `vote` field.
+  vote: Int
 }
 
 input QuestionInput {
@@ -459,6 +1553,7 @@ input QuestionInput {
   title: NonEmptyText!
   description: NonEmptyText!
   author: Int!
+  vote: Int
 }
 
 # Represents an update to a `Question`. Fields that are set will be updated.
@@ -467,6 +1562,7 @@ input QuestionPatch {
   title: NonEmptyText
   description: NonEmptyText
   author: Int
+  vote: Int
 }
 
 # A connection to a list of `Question` values.
@@ -506,6 +1602,152 @@ enum QuestionsOrderBy {
   DESCRIPTION_DESC
   AUTHOR_ASC
   AUTHOR_DESC
+  VOTE_ASC
+  VOTE_DESC
+}
+
+type QuestionTag {
+  question: Int
+  tag: Int
+
+  # Reads a single `Question` that is related to this `QuestionTag`.
+  questionByQuestion: Question
+
+  # Reads a single `Tag` that is related to this `QuestionTag`.
+  tagByTag: Tag
+}
+
+# A condition to be used against `QuestionTag` object types. All fields are tested
+# for equality and combined with a logical ‘and.’
+input QuestionTagCondition {
+  # Checks for equality with the object’s `question` field.
+  question: Int
+
+  # Checks for equality with the object’s `tag` field.
+  tag: Int
+}
+
+input QuestionTagInput {
+  question: Int
+  tag: Int
+}
+
+# A connection to a list of `QuestionTag` values.
+type QuestionTagsConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `QuestionTag` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `QuestionTag` and cursor to aid in pagination.
+  edges: [QuestionTagsEdge]
+
+  # A list of `QuestionTag` objects.
+  nodes: [QuestionTag!]
+}
+
+# A `QuestionTag` edge in the connection.
+type QuestionTagsEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `QuestionTag` at the end of the edge.
+  node: QuestionTag!
+}
+
+# Methods to use when ordering `QuestionTag`.
+enum QuestionTagsOrderBy {
+  NATURAL
+  QUESTION_ASC
+  QUESTION_DESC
+  TAG_ASC
+  TAG_DESC
+}
+
+type QuestionVote implements Node {
+  # A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  id: ID!
+  user: Int!
+  question: Int!
+  subscribe: Boolean
+  value: PositiveOrNegativeOne
+
+  # Reads a single `Question` that is related to this `QuestionVote`.
+  questionByQuestion: Question
+
+  # Reads a single `User` that is related to this `QuestionVote`.
+  userByUser: User
+}
+
+# A condition to be used against `QuestionVote` object types. All fields are
+# tested for equality and combined with a logical ‘and.’
+input QuestionVoteCondition {
+  # Checks for equality with the object’s `user` field.
+  user: Int
+
+  # Checks for equality with the object’s `question` field.
+  question: Int
+
+  # Checks for equality with the object’s `subscribe` field.
+  subscribe: Boolean
+
+  # Checks for equality with the object’s `value` field.
+  value: PositiveOrNegativeOne
+}
+
+input QuestionVoteInput {
+  user: Int!
+  question: Int!
+  subscribe: Boolean
+  value: PositiveOrNegativeOne
+}
+
+# Represents an update to a `QuestionVote`. Fields that are set will be updated.
+input QuestionVotePatch {
+  user: Int
+  question: Int
+  subscribe: Boolean
+  value: PositiveOrNegativeOne
+}
+
+# A connection to a list of `QuestionVote` values.
+type QuestionVotesConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `QuestionVote` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `QuestionVote` and cursor to aid in pagination.
+  edges: [QuestionVotesEdge]
+
+  # A list of `QuestionVote` objects.
+  nodes: [QuestionVote!]
+}
+
+# A `QuestionVote` edge in the connection.
+type QuestionVotesEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `QuestionVote` at the end of the edge.
+  node: QuestionVote!
+}
+
+# Methods to use when ordering `QuestionVote`.
+enum QuestionVotesOrderBy {
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  NATURAL
+  USER_ASC
+  USER_DESC
+  QUESTION_ASC
+  QUESTION_DESC
+  SUBSCRIBE_ASC
+  SUBSCRIBE_DESC
+  VALUE_ASC
+  VALUE_DESC
 }
 
 # All input for the `registerUser` mutation.
@@ -529,6 +1771,35 @@ type RegisterUserPayload {
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
+}
+
+# A connection to a list of `Answer` values.
+type SearchAnswersConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `Answer` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `Answer` and cursor to aid in pagination.
+  edges: [SearchAnswersEdge]
+
+  # A list of `Answer` objects.
+  nodes: [Answer]
+}
+
+# A `Answer` edge in the connection.
+type SearchAnswersEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `Answer` at the end of the edge.
+  node: Answer
+}
+
+# Methods to use when ordering `Answer`.
+enum SearchAnswersOrderBy {
+  NATURAL
 }
 
 # A connection to a list of `Question` values.
@@ -558,6 +1829,188 @@ type SearchQuestionsEdge {
 # Methods to use when ordering `Question`.
 enum SearchQuestionsOrderBy {
   NATURAL
+}
+
+type Tag implements Node {
+  # A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  id: ID!
+  rowId: Int!
+  name: String
+  description: String
+
+  # Reads and enables paginatation through a set of `QuestionTag`.
+  questionTagsByTag(
+    # The method to use when ordering `QuestionTag`.
+    orderBy: QuestionTagsOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: QuestionTagCondition
+  ): QuestionTagsConnection
+}
+
+# A condition to be used against `Tag` object types. All fields are tested for equality and combined with a logical ‘and.’
+input TagCondition {
+  # Checks for equality with the object’s `rowId` field.
+  rowId: Int
+
+  # Checks for equality with the object’s `name` field.
+  name: String
+
+  # Checks for equality with the object’s `description` field.
+  description: String
+}
+
+input TagInput {
+  rowId: Int
+  name: String
+  description: String
+}
+
+# Represents an update to a `Tag`. Fields that are set will be updated.
+input TagPatch {
+  rowId: Int
+  name: String
+  description: String
+}
+
+# A connection to a list of `Tag` values.
+type TagsConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `Tag` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `Tag` and cursor to aid in pagination.
+  edges: [TagsEdge]
+
+  # A list of `Tag` objects.
+  nodes: [Tag!]
+}
+
+# A `Tag` edge in the connection.
+type TagsEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `Tag` at the end of the edge.
+  node: Tag!
+}
+
+# Methods to use when ordering `Tag`.
+enum TagsOrderBy {
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  NATURAL
+  ID_ASC
+  ID_DESC
+  NAME_ASC
+  NAME_DESC
+  DESCRIPTION_ASC
+  DESCRIPTION_DESC
+}
+
+# All input for the `updateAnswerByRowId` mutation.
+input UpdateAnswerByRowIdInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  rowId: Int!
+
+  # An object where the defined keys will be set on the `Answer` identified by our unique key.
+  answerPatch: AnswerPatch!
+}
+
+# All input for the `updateAnswer` mutation.
+input UpdateAnswerInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `Answer` to be updated.
+  id: ID!
+
+  # An object where the defined keys will be set on the `Answer` identified by our globally unique `ID`.
+  answerPatch: AnswerPatch!
+}
+
+# The output of our `updateAnswer` mutation.
+type UpdateAnswerPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  answer: Answer
+
+  # Reads a single `User` that is related to this `Answer`.
+  userByAuthor: User
+
+  # Reads a single `Question` that is related to this `Answer`.
+  questionByQuestion: Question
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `updateAnswerVoteByUserAndQuestionAndAnswer` mutation.
+input UpdateAnswerVoteByUserAndQuestionAndAnswerInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  user: Int!
+  question: Int!
+  answer: Int!
+
+  # An object where the defined keys will be set on the `AnswerVote` identified by our unique key.
+  answerVotePatch: AnswerVotePatch!
+}
+
+# All input for the `updateAnswerVote` mutation.
+input UpdateAnswerVoteInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `AnswerVote` to be updated.
+  id: ID!
+
+  # An object where the defined keys will be set on the `AnswerVote` identified by our globally unique `ID`.
+  answerVotePatch: AnswerVotePatch!
+}
+
+# The output of our `updateAnswerVote` mutation.
+type UpdateAnswerVotePayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  answerVote: AnswerVote
+
+  # Reads a single `Answer` that is related to this `AnswerVote`.
+  answerByAnswer: Answer
+
+  # Reads a single `Question` that is related to this `AnswerVote`.
+  questionByQuestion: Question
+
+  # Reads a single `User` that is related to this `AnswerVote`.
+  userByUser: User
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
 }
 
 # All input for the `updateQuestionByRowId` mutation.
@@ -593,6 +2046,83 @@ type UpdateQuestionPayload {
 
   # Reads a single `User` that is related to this `Question`.
   userByAuthor: User
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `updateQuestionVoteByUserAndQuestion` mutation.
+input UpdateQuestionVoteByUserAndQuestionInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  user: Int!
+  question: Int!
+
+  # An object where the defined keys will be set on the `QuestionVote` identified by our unique key.
+  questionVotePatch: QuestionVotePatch!
+}
+
+# All input for the `updateQuestionVote` mutation.
+input UpdateQuestionVoteInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `QuestionVote` to be updated.
+  id: ID!
+
+  # An object where the defined keys will be set on the `QuestionVote` identified by our globally unique `ID`.
+  questionVotePatch: QuestionVotePatch!
+}
+
+# The output of our `updateQuestionVote` mutation.
+type UpdateQuestionVotePayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  questionVote: QuestionVote
+
+  # Reads a single `Question` that is related to this `QuestionVote`.
+  questionByQuestion: Question
+
+  # Reads a single `User` that is related to this `QuestionVote`.
+  userByUser: User
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `updateTagByRowId` mutation.
+input UpdateTagByRowIdInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  rowId: Int!
+
+  # An object where the defined keys will be set on the `Tag` identified by our unique key.
+  tagPatch: TagPatch!
+}
+
+# All input for the `updateTag` mutation.
+input UpdateTagInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `Tag` to be updated.
+  id: ID!
+
+  # An object where the defined keys will be set on the `Tag` identified by our globally unique `ID`.
+  tagPatch: TagPatch!
+}
+
+# The output of our `updateTag` mutation.
+type UpdateTagPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  tag: Tag
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -644,6 +2174,56 @@ type UpdateUserPayload {
   query: Query
 }
 
+# All input for the `upsertAnswerVoteByQuestionAndAnswer` mutation.
+input UpsertAnswerVoteByQuestionAndAnswerInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  questionId: Int
+  answerId: Int
+  value: Int
+  subscribe: Boolean
+}
+
+# The output of our `upsertAnswerVoteByQuestionAndAnswer` mutation.
+type UpsertAnswerVoteByQuestionAndAnswerPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  answer: Answer
+
+  # Reads a single `User` that is related to this `Answer`.
+  userByAuthor: User
+
+  # Reads a single `Question` that is related to this `Answer`.
+  questionByQuestion: Question
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `upsertTest` mutation.
+input UpsertTestInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  questionId: Int
+  answerId: Int
+  value: Int
+  subscribe: Boolean
+}
+
+# The output of our `upsertTest` mutation.
+type UpsertTestPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  boolean: Boolean
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
 type User implements Node {
   # A globally unique identifier. Can be used in various places throughout the system to identify this single value.
   id: ID!
@@ -652,6 +2232,7 @@ type User implements Node {
   firstName: String
   lastName: String
   createdAt: Datetime
+  fullName: String
 
   # Reads and enables paginatation through a set of `Question`.
   questionsByAuthor(
@@ -673,7 +2254,85 @@ type User implements Node {
     # Skip the first `n` values from our `after` cursor, an alternative to cursor
     # based pagination. May not be used with `last`.
     offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: QuestionCondition
   ): QuestionsConnection
+
+  # Reads and enables paginatation through a set of `Answer`.
+  answersByAuthor(
+    # The method to use when ordering `Answer`.
+    orderBy: AnswersOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: AnswerCondition
+  ): AnswersConnection
+
+  # Reads and enables paginatation through a set of `AnswerVote`.
+  answerVotesByUser(
+    # The method to use when ordering `AnswerVote`.
+    orderBy: AnswerVotesOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: AnswerVoteCondition
+  ): AnswerVotesConnection
+
+  # Reads and enables paginatation through a set of `QuestionVote`.
+  questionVotesByUser(
+    # The method to use when ordering `QuestionVote`.
+    orderBy: QuestionVotesOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: QuestionVoteCondition
+  ): QuestionVotesConnection
 }
 
 # A condition to be used against `User` object types. All fields are tested for equality and combined with a logical ‘and.’

@@ -22,7 +22,7 @@ const UserBox = Relay.createContainer(UserBoxComponent, {
 		store: () => Relay.QL`
     		fragment on User {
 				username
-				questionsByAuthor() {
+				questionsByAuthor {
 					totalCount
 				}
 			}`,

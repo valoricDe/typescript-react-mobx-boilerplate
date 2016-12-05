@@ -90,3 +90,13 @@ declare module "react-bootstrap/lib/MenuItem" {
 	import {MenuItem} from "react-bootstrap";
 	export = MenuItem;
 }
+
+declare module "react-bootstrap/lib/Clearfix" {
+	import {Clearfix} from "react-bootstrap";
+	export = Clearfix;
+}
+
+declare module "react-bootstrap/lib/Glyphicon" {
+	import {Glyphicon} from "react-bootstrap";
+	export = Glyphicon;
+}

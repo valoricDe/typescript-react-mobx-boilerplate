@@ -5,9 +5,10 @@ import {observable} from "mobx";
 import Formsy from 'formsy-react';
 import { Input, Textarea } from 'formsy-react-components';
 import { Panel, ButtonToolbar, Button } from 'react-bootstrap';
-import AuthorProfile from "./authorProfile";
-import User from "./user";
 import UpdateQuestionMutation from '../../mutations/updateQuestion'
+import UserBox from "./userBox";
+import AnswersList from "./answerList";
+import Link from "react-router/lib/Link";
 
 @observer
 class QuestionClass extends Component<Props.IQuestionProps, void> {
@@ -31,6 +32,7 @@ class QuestionClass extends Component<Props.IQuestionProps, void> {
 
 	public render(): JSX.Element {
 		const item = this.props.store;
+		const questionId = this.props.store.rowId;
 		let style = {};
 		if (this.props.relay.hasOptimisticUpdate(this.props.store)) {
 			style['border'] = '1px solid red';
@@ -50,26 +52,28 @@ class QuestionClass extends Component<Props.IQuestionProps, void> {
 								[<Button bsStyle="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>, <Button onClick={this.cancel} bsStyle="danger" key="cancel">Cancel</Button>]
 							}
 							</ButtonToolbar>,
-							<h2 role="presentation" className="content__panelTitle" key="title">{item.title}</h2>]
+							<Link to={"/questions/"+questionId} key="title"><h2 role="presentation" className="content__panelTitle">{item.title}</h2></Link>]
 					   }
-						footer="Test Footer">
-						{!this.isEditing ?
-							<h1 className="content__customToolbarTitle">{item.title}</h1> :
-							<Input label="Title" value={item.title} placeholder={item.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
-						}
-				{!this.isEditing ?
-					<p>{item.description}</p> :
-					<Textarea
-						label="Description"
-						name="description"
-						value={item.description}
-						validationError="Description field is required"
-						placeholder="This field requires 10 characters."
-						help="This is some help text for the textarea."
-						required
-					/>
-				}
-				<User store={item.userByAuthor} details={false} />
+					   footer="Test Footer"
+				>
+					{!this.isEditing ?
+						null :
+						<Input label="Title" value={item.title} placeholder={item.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
+					}
+					{!this.isEditing ?
+						<p>{item.description}</p> :
+						<Textarea
+							label="Description"
+							name="description"
+							value={item.description}
+							validationError="Description field is required"
+							placeholder="This field requires 10 characters."
+							help="This is some help text for the textarea."
+							required
+						/>
+					}
+					<UserBox store={item.userByAuthor} details={false} />
+					<AnswersList store={this.props.store}/>
 				</Panel>
 			</fieldset>
 			</Formsy.Form>
@@ -78,20 +82,29 @@ class QuestionClass extends Component<Props.IQuestionProps, void> {
 	}
 }
 
-	const Question = Relay.createContainer(QuestionClass, {
-		fragments: {
-			// The property name here reflects what is added to `this.props` above.
-			// This template string will be parsed by babel-relay-plugin.
-			store: () => Relay.QL`
-				fragment on Question {
-					${UpdateQuestionMutation.getFragment('store')}
-					title
-					description
-					userByAuthor {
-						${User.getFragment('store')}
-					}
-				}`,
-		},
-	});
+const Question = Relay.createContainer(QuestionClass, {
+	fragments: {
+		// The property name here reflects what is added to `this.props` above.
+		// This template string will be parsed by babel-relay-plugin.
+		store: () => Relay.QL`
+			fragment on Question {
+				${UpdateQuestionMutation.getFragment('store')}
+				rowId
+				title
+				description
+				userByAuthor {
+					${UserBox.getFragment('store')}
+				}
+				${AnswersList.getFragment('store')}
+			}`,
+	},
+});
+
+export class QuestionQueries extends Relay.Route {
+	static routeName = 'QuestionQueries';
+	static queries = {
+		store: (Component) => Relay.QL`query { questionByRowId(rowId: $id) { ${Component.getFragment('store')} } }`,
+	};
+}
 
 export default Question;

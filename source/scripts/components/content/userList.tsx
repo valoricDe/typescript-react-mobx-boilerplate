@@ -45,7 +45,7 @@ const UserList = Relay.createContainer(UserListClass, {
 		// This template string will be parsed by babel-relay-plugin when we browserify.
 		store: () => Relay.QL`
     		fragment on Query {
-				allUsers(last: 1) {
+				allUsers(first: 20) {
 					totalCount
 					edges {
 						node {

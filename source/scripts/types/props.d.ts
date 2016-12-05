@@ -1,93 +1,124 @@
+import Relay = require('react-relay');
+import Router from "react-router/lib/Router";
 
-declare namespace Props {
-	import IQuestion = GQL.IQuestion;
-	import IUser = GQL.IUser;
-	import IQuestionsConnection = GQL.IQuestionsConnection;
-	import IQuery = GQL.IQuery;
+declare global {
+	namespace Props {
+		import IQuestion = GQL.IQuestion;
+		import IUser = GQL.IUser;
+		import IQuestionsConnection = GQL.IQuestionsConnection;
+		import IQuery = GQL.IQuery;
+		import IAnswer = GQL.IAnswer;
+		import InjectedRouter = Router.InjectedRouter;
 
-	interface IRelayComponent {
-		relay: any
-	}
+		interface IRelayProps {
+			relay: Relay.Store & Relay.RelayProp & any
+		}
 
-	interface IMobxStateComponent {
-		_state: Object
-	}
+		interface IMobxStateProps {
+			_state: Object
+		}
 
-	interface IRouterComponent {
-		router?: any
-		location?: any
-	}
+		interface IRouterProps {
+			router: InjectedRouter
+			location?: any
+		}
 
-	interface IComponent extends IRelayComponent, IMobxStateComponent, IRouterComponent {}
+		interface IProps extends IRelayProps, IMobxStateProps, IRouterProps {
+		}
 
-	interface IAppStateProps {
-		questionList: IQuestionListStateProps
-	}
+		interface IAppStateProps {
+			questionList: IQuestionListStateProps
+		}
 
-	interface IAppProps extends IComponent {
-		store: IQuery
-		_state: IAppStateProps
-	}
+		interface IAppProps extends IProps {
+			store: IQuery
+			_state: IAppStateProps
+		}
 
-	interface IQuestionListStateProps {
-		addQuestion: boolean
-	}
+		interface IQuestionListStateProps {
+			addQuestion: boolean
+		}
 
-	interface IQuestionListProps extends IComponent {
-		store: IQuery
-		_state: IQuestionListStateProps
-		close(): void
-	}
+		interface IQuestionListProps extends IProps {
+			store: IQuery
+			_state: IQuestionListStateProps
+			user: IQuery
+			close(): void
+		}
 
-	interface IUserListStateProps {
-		addEntry: boolean
-	}
+		interface IUserListStateProps {
+			addEntry: boolean
+		}
 
-	interface IUserListProps extends IComponent {
-		store: IQuery
-		_state: IUserListStateProps
-		close(): void
-	}
+		interface IUserListProps extends IProps {
+			store: IQuery
+			_state: IUserListStateProps
+			close(): void
+		}
 
-	interface IQuestionProps extends IComponent {
-		store: IQuestion
-	}
+		interface IQuestionProps extends IProps {
+			store: IQuestion
+			user: IQuery
+		}
 
-	interface ICreateQuestionProps extends IComponent {
-		store: IQuery
-		save(JSON): void
-		close(): void
-	}
+		interface ICreateQuestionProps extends IProps {
+			store: IQuery
+			save(JSON): void
+			close(): void
+		}
 
-	interface IRegisterUserStateProps {
-		show: boolean
-		isValidInput: boolean
-	}
+		interface IAnswerProps extends IProps {
+			store: IAnswer
+			questionId: number
+		}
 
-	interface IRegisterUserProps extends IComponent {
-		_state: IRegisterUserStateProps
-	}
+		interface IAnswerListProps extends IProps {
+			store: IQuestion
+		}
 
-	interface ILoginUserStateProps {
-		show: boolean
-		isValidInput: boolean
-	}
+		interface IAnswerVoteProps extends IProps {
+			store: IAnswer
+		}
 
-	interface ILoginUserProps extends IComponent {
-		_state: ILoginUserStateProps
-	}
+		interface ICreateAnswerProps extends IProps {
+			id: number
+			store: IQuestion
+			save(JSON): void
+			close(): void
+		}
 
-	interface IUserProps extends IComponent {
-		store: IUser
-	}
+		interface IRegisterUserStateProps {
+			show: boolean
+			isValidInput: boolean
+		}
 
-	interface IHomePageProps extends IComponent {
-		store: IUser
-	}
+		interface IRegisterUserProps extends IProps {
+			_state: IRegisterUserStateProps
+		}
 
-	interface IAuthorProfileProps extends IUserProps {}
+		interface ILoginUserStateProps {
+			show: boolean
+			isValidInput: boolean
+		}
 
-	namespace Common {
-		interface ICenter extends React.HTMLProps<HTMLDivElement> {}
+		interface ILoginUserProps extends IProps {
+			_state: ILoginUserStateProps
+		}
+
+		interface IUserProps extends IProps {
+			store: IUser
+		}
+
+		interface IHomePageProps extends IProps {
+			store: IUser
+		}
+
+		interface IAuthorProfileProps extends IUserProps {
+		}
+
+		namespace Common {
+			interface ICenter extends React.HTMLProps<HTMLDivElement> {
+			}
+		}
 	}
 }

@@ -38,11 +38,18 @@ const User = Relay.createContainer(UserComponent, {
 	},
 });
 
+export default User;
+
 export class UserQueries extends Relay.Route {
 	static routeName = 'UserQueries';
+	static queries = {
+		store: (Component) => Relay.QL`query { userByUsername(username: $username) { ${Component.getFragment('store')} } }`,
+	};
+}
+
+export class CurrentUserQueries extends Relay.Route {
+	static routeName = 'CurrentUserQueries';
 	static queries = {
 		store: (Component) => Relay.QL`query { currentUser { ${Component.getFragment('store')} } }`,
 	};
 }
-
-export default User;

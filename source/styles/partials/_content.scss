@@ -10,6 +10,25 @@
 	width: 100%;
 	padding: 15px;
 
+	&__subscribe {
+		padding: 5px;
+		font-size: 18px;
+		width: 100%;
+		display: block;
+
+		span {
+			display: block;
+			width: 18px;
+			margin: 0 auto;
+		}
+	}
+
+	&__voteBox {
+		padding-right: 5px;
+		width: 50px;
+		float: left;
+	}
+
 	&__panelButtonToolbar {
 		margin-top: -6px;
 	}

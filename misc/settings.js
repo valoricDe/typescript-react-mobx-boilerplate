@@ -32,7 +32,7 @@ const paths = {
 
 const server = {
 	host: 'localhost',
-	port: 8080,
+	port: 7070,
 };
 
 const graphqlServer = {

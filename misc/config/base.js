@@ -43,7 +43,7 @@ module.exports = (project, paths) => {
 					]),
 				},
 				{
-					test: /\.(woff|woff2|eot|ttf)$/,
+					test: /\.(woff|woff2|eot|ttf)(\?.*)?$/,
 					loader: 'url?limit=100000&name=./css/fonts/font-[hash].[ext]',
 				},
 				{

@@ -1,7 +1,6 @@
 version: '2'
 
 services:
-
  postgres:
   image: library/postgres
   environment:

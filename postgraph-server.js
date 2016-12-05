@@ -2,7 +2,7 @@
  * Created by velten on 18.10.16.
  */
 const express = require('express');
-const postgraphql = require('./vendor/postgraphql/build/postgraphql').postgraphql;
+const postgraphql = require('./vendor/postgraphql-test/build/postgraphql').postgraphql;
 
 const app = express();
 
@@ -13,7 +13,8 @@ app.use(postgraphql('http://forum_example_postgraphql:xyz@localhost:5432/admin',
 	'pgDefaultRole': 'forum_example_anonymous',
 	'jwtSecret': 'myspecialunknowablesecret',
 	'jwtPgTypeIdentifier': 'public.jwt_token',
-	'enableCors': true
+	'enableCors': true,
+	//'dynamicJson': true,
 }));
 
 app.listen(3000, function (error) {

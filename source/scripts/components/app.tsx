@@ -6,16 +6,8 @@ import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
 import NavDropdown from 'react-bootstrap/lib/NavDropdown';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
-import IRelayComponent = Props.IRelayComponent;
-
-export class AppState {
-}
-
-class Li extends Component<any, void> {
-	public render(): JSX.Element {
-		return <li>{this.props.children}</li>
-	}
-}
+import PlainLi from "./helpers/PlainLi";
+const Auth = require('../lib/auth');
 
 class AppClass extends Component<Props.IAppProps, void> {
 
@@ -27,10 +19,15 @@ class AppClass extends Component<Props.IAppProps, void> {
 	};
 
 	public render(): JSX.Element {
-		const {router} = this.props;
+		Auth.setCurrentUser(this.props.store.currentUser);
 
-		const href = function(target) {
-			return {onClick: () => this.props.router.push(target), href: target, key: target};
+		const href = (target) => {
+			return {onClick: (event) => {
+				event.preventDefault();
+				event.stopPropagation();
+				this.props.router.push(target);
+				return false;
+			}, href: target, key: target};
 		};
 
 		return (
@@ -50,7 +47,7 @@ class AppClass extends Component<Props.IAppProps, void> {
 								{!this.props.store.currentUser ?
 									[
 										<NavItem {...href('/register')} className="highlight left">Register</NavItem>,
-										<Li className="divider" key="divider"><p> / </p></Li>,
+										<PlainLi className="divider" key="divider"><p> / </p></PlainLi>,
 										<NavItem {...href('/login')} className="highlight right">Log in</NavItem>
 									] :
 									<NavDropdown title={'User: '+this.props.store.currentUser.username} id="userDropdown">
@@ -74,6 +71,7 @@ const App = Relay.createContainer(AppClass, {
 		store: () => Relay.QL`
     		fragment on Query {
     			currentUser {
+					rowId
     				username
     			}
 			}`,
@@ -85,6 +83,8 @@ export default App;
 export class AppQueries extends Relay.Route {
 	static routeName = 'AppQueries';
 	static queries = {
-		store: (Component) => Relay.QL`query { query { ${Component.getFragment('store')} } }`,
+		store: (Component) => Relay.QL`query { query { 
+			${Component.getFragment('store')}
+		} }`,
 	};
 }

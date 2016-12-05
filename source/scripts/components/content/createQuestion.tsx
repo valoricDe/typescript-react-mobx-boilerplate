@@ -6,32 +6,33 @@ import Formsy from 'formsy-react';
 import { Input, Textarea } from 'formsy-react-components';
 import { Panel, ButtonToolbar, Button, Modal } from 'react-bootstrap';
 import CreateQuestionMutation from "../../mutations/createQuestion";
+import Link from "react-router/lib/Link";
 
 @observer
-export default class CreateQuestionComponent extends Component<Props.ICreateQuestionProps, void> {
+class CreateQuestionComponent extends Component<Props.ICreateQuestionProps, void> {
 	@observable isValidInput = false;
 
 	save = (item) => {
 		console.log('CreateQuestion::save', item);
+		const onSuccess = () => this.props.router.push('/questions');
 		this.props.relay.commitUpdate(
-			new CreateQuestionMutation({store: this.props.store, newItem: item})
+			new CreateQuestionMutation({store: this.props.store, newItem: item}),
+			{onSuccess: onSuccess, onFailure: console.error}
 		);
-		this.props.close();
 	};
 
 	cancel = () => {
-		this.props.close();
+		this.props.router.push('/questions');
 	};
 
 	public render(): JSX.Element {
 		console.log(this.props.relay);
-		const item = {title: '', description: '', author: 1};
-		let style = {};
+		const item = {title: '', description: ''};
 
 		const titleFieldStyles = {"paddingRight":"16px","lineHeight":"56px","fontSize":"20px","position":"relative","textOverflow":"ellipsis","whiteSpace":"nowrap","overflow":"hidden","color":"rgba(0, 0, 0, 0.4)"};
 
 		return (
-			<div style={style}>
+			<div>
 				<h2 className="page-header">Create Question</h2>
 				<Formsy.Form ref="form" onValidSubmit={(item) => this.save(item)} onValid={() => this.isValidInput = true} onInvalid={() => this.isValidInput = false}>
 					<fieldset>
@@ -61,9 +62,9 @@ const CreateQuestion = Relay.createContainer(CreateQuestionComponent, {
 	fragments: {
 		store: () => Relay.QL`
     		fragment on Query {
-    			currentUser {
-    				username
-    			}
+    			${CreateQuestionMutation.getFragment('store')}
 			}`,
 	},
 });
+
+export default CreateQuestion;
