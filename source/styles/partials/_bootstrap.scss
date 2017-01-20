@@ -5,6 +5,12 @@
 	margin-bottom: 1em;
 }
 
+.panel-body, .btn {
+	& > :last-child {
+		margin-bottom: 0;
+	}
+}
+
 .navbar-text {
 	margin: 15px;
 }
@@ -31,4 +37,11 @@
 
 .navbar + .content {
 	padding-top: 0;
+}
+
+.bootstrap-tokenizer .token {
+	border-radius: $border-radius-small;
+	font-size: $font-size-small;
+	border: 1px solid $brand-primary;
+	padding: 2px 4px;
 }

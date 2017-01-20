@@ -24,6 +24,7 @@ const questionQueries = QuestionQueries.queries;
 // function requireAuth(prevState, nextState, replace) {
 function requireAuth(nextState, replace) {
 	if (!Auth.loggedIn()) {
+		Auth.logout();
 		replace({
 			pathname: "/login",
 			state: { nextPathname: nextState.location.pathname }
@@ -33,8 +34,9 @@ function requireAuth(nextState, replace) {
 
 function requireAuthToHomepage(nextState, replace) {
 	if (!Auth.loggedIn()) {
+		Auth.logout();
 		replace({
-			pathname: "/login",
+			pathname: "/home",
 			state: { nextPathname: nextState.location.pathname }
 		})
 	}
@@ -46,7 +48,7 @@ function verifySession(nextState, replace){
 }
 
 function logout(nextState, replace){
-	Auth.logout(replace({ pathname: "/" }));
+	Auth.logout(() => replace({ pathname: "/" }));
 }
 
 

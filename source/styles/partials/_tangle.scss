@@ -1,0 +1,29 @@
+.adjustable-number {
+	color: #0dbe04;
+	white-space: pre-wrap;
+	cursor: col-resize;
+}
+.adjustable-number:hover {
+	background-color: #e4ffed;
+	color: #0cb304;
+}
+.adjustable-number.dragging {
+	background-color: #66c563;
+	color: #fff;
+}
+
+.calculated-result {
+	color: #2695fd;
+	cursor:pointer;
+	white-space: pre-wrap;
+}
+.calculated-result:hover {
+	background-color: #e1eef3;
+}
+.calculated-result.locked {
+	background-color: #4eabff;
+	color: #fff;
+}
+.calculated-result.locked:hover {
+	background-color: #529cdf;
+}

@@ -7,10 +7,14 @@ $font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+@import "../../node_modules/react-bootstrap-typeahead/css/Typeahead.css";
+@import "../../node_modules/react-bootstrap-typeahead/css/Token.css";
+
 @import 'partials/mixins';
 @import 'partials/variables';
 @import 'partials/content';
 @import 'partials/bootstrap';
+@import 'partials/tangle';
 
 div > h1:first-child {
 	margin-top: 0;
@@ -28,7 +32,7 @@ body > div,
 .wrapper {
 	background-color: $color-1;
 	color: $color-2;
-	font-family: $font;
+	font: $font;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 }

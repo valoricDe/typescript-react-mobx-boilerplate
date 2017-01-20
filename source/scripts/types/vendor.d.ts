@@ -100,3 +100,39 @@ declare module "react-bootstrap/lib/Glyphicon" {
 	import {Glyphicon} from "react-bootstrap";
 	export = Glyphicon;
 }
+
+
+declare module 'react-bootstrap-typeahead' {
+	import React = require('react')
+	interface TypeaheadProps extends React.HTMLProps<Typeahead> {
+		align?: string;
+		allowNew?: boolean;
+		defaultSelected?: any[];
+		disabled?: boolean;
+		emptyLabel?: string;
+		labelKey?: string;
+		maxHeight?: number;
+		minLength?: number;
+		multiple?: boolean;
+		name?: string;
+		newSelectionPrefix?: string;
+		onBlur?(event: React.FocusEvent<Typeahead>): void;
+		onChange?(event: React.FormEvent<Typeahead>): void;
+		onInputChange?(event: React.KeyboardEvent<Typeahead>): void;
+		options: any[];
+		paginateResults?: number;
+		paginationText?: string;
+		placeholder?: string;
+		renderMenuItemChildren?(): any;
+	}
+	export class Typeahead extends React.Component<TypeaheadProps, any> {
+	}
+}
+
+declare module 'draft-js-export-html' {
+	export function stateToHTML(state: any): any
+}
+
+declare module 'react-touch' {
+	export class Draggable extends React.Component<any, any> {}
+}

@@ -5,22 +5,21 @@ import Relay from 'react-relay';
 
 export default class CreateQuestionMutation extends Relay.Mutation<any, any> {
 	getMutation() {
-		return Relay.QL `mutation { createQuestion }`
+		return Relay.QL `mutation { createQuestionWithTags }`
 	}
 
 	getVariables() {
 		return {
-			question: {
-				title: this.props.newItem.title,
-				description: this.props.newItem.description,
-				author: this.props.store.currentUser.rowId
-			}
+			title: this.props.newItem.title,
+			description: this.props.newItem.description,
+			author: this.props.store.currentUser.rowId,
+			tagIds: this.props.newItem.tagIds,
 		}
 	}
 
 	getFatQuery() {
-		return Relay.QL `fragment on CreateQuestionPayload {
-			questionEdge
+		return Relay.QL `fragment on CreateQuestionWithTagsPayload {
+			question
 			query {
 				allQuestions
 			}

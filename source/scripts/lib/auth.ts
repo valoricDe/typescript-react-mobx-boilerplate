@@ -34,10 +34,6 @@ class Auth {
 		if (this.afterLogin) this.afterLogin();
 	}
 
-	deleteAccessToken() {
-		delete localStorageX.accessToken;
-	}
-
 	logout(callback) {
 		// delete token from localStorage
 		delete localStorageX.accessToken;

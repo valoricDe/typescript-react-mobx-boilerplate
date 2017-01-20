@@ -2,7 +2,7 @@
  * Created by velten on 18.10.16.
  */
 const express = require('express');
-const postgraphql = require('./vendor/postgraphql-test/build/postgraphql').postgraphql;
+const postgraphql = require('./vendor/postgraphql/build/postgraphql').postgraphql;
 
 const app = express();
 

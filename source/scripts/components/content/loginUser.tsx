@@ -46,6 +46,7 @@ export default class LoginUser extends Component<Props.ILoginUserProps, void> {
 				onFailure: transaction => {
 					var error = transaction.getError() || new Error('Mutation failed.');
 					console.error(error);
+					this.loginError = LoginError.MALFORMED_JWT;
 				}
 			}
 		);
@@ -68,7 +69,7 @@ export default class LoginUser extends Component<Props.ILoginUserProps, void> {
 						<h4>Oh snap! You got one of the following errors!</h4>
 						<ul>
 							<li>Your login credentials were wrong</li>
-							<li>An API login error occured if your absolutely sure your login credentials are correct contact info@developer.org</li>
+							<li>An API login error occured if your absolutely sure your login credentials are correct contact dev@valoric.de</li>
 						</ul>
 					</Alert> : null}
 				<Formsy.Form ref="form" onValidSubmit={(item) => this.save(item)} onValid={() => this.isValidInput = true} onInvalid={() => this.isValidInput = false}>

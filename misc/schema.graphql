@@ -443,6 +443,37 @@ type CreateQuestionVotePayload {
   query: Query
 }
 
+# All input for the `createQuestionWithTags` mutation.
+input CreateQuestionWithTagsInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  title: NonEmptyText
+  description: NonEmptyText
+  author: Int
+  tagIds: [Int]
+}
+
+# The output of our `createQuestionWithTags` mutation.
+type CreateQuestionWithTagsPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  question: Question
+
+  # An edge for our `Question`. May be used by Relay 1.
+  questionEdge(
+    # The method to use when ordering `Question`.
+    orderBy: QuestionsOrderBy = PRIMARY_KEY_ASC
+  ): QuestionsEdge
+
+  # Reads a single `User` that is related to this `Question`.
+  userByAuthor: User
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
 # All input for the `createTag` mutation.
 input CreateTagInput {
   # An arbitrary string value with no semantic meaning. Will be included in the
@@ -467,6 +498,41 @@ type CreateTagPayload {
     # The method to use when ordering `Tag`.
     orderBy: TagsOrderBy = PRIMARY_KEY_ASC
   ): TagsEdge
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `createTagRelation` mutation.
+input CreateTagRelationInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The `TagRelation` to be created by this mutation.
+  tagRelation: TagRelationInput!
+}
+
+# The output of our `createTagRelation` mutation.
+type CreateTagRelationPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+
+  # The `TagRelation` that was created by this mutation.
+  tagRelation: TagRelation
+
+  # An edge for our `TagRelation`. May be used by Relay 1.
+  tagRelationEdge(
+    # The method to use when ordering `TagRelation`.
+    orderBy: TagRelationsOrderBy = PRIMARY_KEY_ASC
+  ): TagRelationsEdge
+
+  # Reads a single `Tag` that is related to this `TagRelation`.
+  tagByTag1: Tag
+
+  # Reads a single `Tag` that is related to this `TagRelation`.
+  tagByTag2: Tag
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -685,6 +751,42 @@ type DeleteTagPayload {
   query: Query
 }
 
+# All input for the `deleteTagRelationByTag1` mutation.
+input DeleteTagRelationByTag1Input {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  tag1: Int!
+}
+
+# All input for the `deleteTagRelation` mutation.
+input DeleteTagRelationInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `TagRelation` to be deleted.
+  id: ID!
+}
+
+# The output of our `deleteTagRelation` mutation.
+type DeleteTagRelationPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  tagRelation: TagRelation
+  deletedTagRelationId: ID
+
+  # Reads a single `Tag` that is related to this `TagRelation`.
+  tagByTag1: Tag
+
+  # Reads a single `Tag` that is related to this `TagRelation`.
+  tagByTag2: Tag
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
 # All input for the `deleteUserByRowId` mutation.
 input DeleteUserByRowIdInput {
   # An arbitrary string value with no semantic meaning. Will be included in the
@@ -764,6 +866,10 @@ type GenRandomUuidPayload {
 # which securely represents claims between two parties.
 scalar JwtToken
 
+enum LinkType {
+  RELATES_TO
+}
+
 # The root mutation type which contains root level fields which mutate data.
 type Mutation {
   answerAnswerVote(
@@ -778,6 +884,10 @@ type Mutation {
     # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     input: AuthenticateInput!
   ): AuthenticatePayload
+  createQuestionWithTags(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: CreateQuestionWithTagsInput!
+  ): CreateQuestionWithTagsPayload
   genRandomBytes(
     # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     input: GenRandomBytesInput!
@@ -955,6 +1065,36 @@ type Mutation {
     input: DeleteTagByRowIdInput!
   ): DeleteTagPayload
 
+  # Creates a single `TagRelation`.
+  createTagRelation(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: CreateTagRelationInput!
+  ): CreateTagRelationPayload
+
+  # Updates a single `TagRelation` using its globally unique id and a patch.
+  updateTagRelation(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateTagRelationInput!
+  ): UpdateTagRelationPayload
+
+  # Updates a single `TagRelation` using a unique key and a patch.
+  updateTagRelationByTag1(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateTagRelationByTag1Input!
+  ): UpdateTagRelationPayload
+
+  # Deletes a single `TagRelation` using its globally unique id.
+  deleteTagRelation(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteTagRelationInput!
+  ): DeleteTagRelationPayload
+
+  # Deletes a single `TagRelation` using a unique key.
+  deleteTagRelationByTag1(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteTagRelationByTag1Input!
+  ): DeleteTagRelationPayload
+
   # Creates a single `User`.
   createUser(
     # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -1086,6 +1226,29 @@ type Query implements Node {
     offset: Int
     search: String
   ): SearchQuestionsConnection
+
+  # Reads and enables paginatation through a set of `Tag`.
+  searchTags(
+    # The method to use when ordering `Tag`.
+    orderBy: SearchTagsOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+    search: String
+  ): SearchTagsConnection
 
   # Reads and enables paginatation through a set of `Answer`.
   allAnswers(
@@ -1272,6 +1435,38 @@ type Query implements Node {
   ): Tag
   tagByRowId(rowId: Int!): Tag
 
+  # Reads and enables paginatation through a set of `TagRelation`.
+  allTagRelations(
+    # The method to use when ordering `TagRelation`.
+    orderBy: TagRelationsOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: TagRelationCondition
+  ): TagRelationsConnection
+
+  # Reads a single `TagRelation` using its globally unique `ID`.
+  tagRelation(
+    # The globally unique `ID` to be used in selecting a single `TagRelation`.
+    id: ID!
+  ): TagRelation
+  tagRelationByTag1(tag1: Int!): TagRelation
+
   # Reads and enables paginatation through a set of `User`.
   allUsers(
     # The method to use when ordering `User`.
@@ -1320,7 +1515,6 @@ type Question implements Node {
   title: NonEmptyText!
   description: NonEmptyText!
   author: Int!
-  vote: Int!
 
   # Reads and enables paginatation through a set of `Answer`.
   answerSearch(
@@ -1366,6 +1560,7 @@ type Question implements Node {
     # based pagination. May not be used with `last`.
     offset: Int
   ): QuestionAnswersOrderedByVoteConnection
+  vote: Int
 
   # Reads a single `User` that is related to this `Question`.
   userByAuthor: User
@@ -1543,9 +1738,6 @@ input QuestionCondition {
 
   # Checks for equality with the object’s `author` field.
   author: Int
-
-  # Checks for equality with the object’s `vote` field.
-  vote: Int
 }
 
 input QuestionInput {
@@ -1553,7 +1745,6 @@ input QuestionInput {
   title: NonEmptyText!
   description: NonEmptyText!
   author: Int!
-  vote: Int
 }
 
 # Represents an update to a `Question`. Fields that are set will be updated.
@@ -1562,7 +1753,6 @@ input QuestionPatch {
   title: NonEmptyText
   description: NonEmptyText
   author: Int
-  vote: Int
 }
 
 # A connection to a list of `Question` values.
@@ -1602,8 +1792,6 @@ enum QuestionsOrderBy {
   DESCRIPTION_DESC
   AUTHOR_ASC
   AUTHOR_DESC
-  VOTE_ASC
-  VOTE_DESC
 }
 
 type QuestionTag {
@@ -1769,6 +1957,12 @@ type RegisterUserPayload {
   clientMutationId: String
   user: User
 
+  # An edge for our `User`. May be used by Relay 1.
+  userEdge(
+    # The method to use when ordering `User`.
+    orderBy: UsersOrderBy = PRIMARY_KEY_ASC
+  ): UsersEdge
+
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
 }
@@ -1831,6 +2025,35 @@ enum SearchQuestionsOrderBy {
   NATURAL
 }
 
+# A connection to a list of `Tag` values.
+type SearchTagsConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `Tag` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `Tag` and cursor to aid in pagination.
+  edges: [SearchTagsEdge]
+
+  # A list of `Tag` objects.
+  nodes: [Tag]
+}
+
+# A `Tag` edge in the connection.
+type SearchTagsEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `Tag` at the end of the edge.
+  node: Tag
+}
+
+# Methods to use when ordering `Tag`.
+enum SearchTagsOrderBy {
+  NATURAL
+}
+
 type Tag implements Node {
   # A globally unique identifier. Can be used in various places throughout the system to identify this single value.
   id: ID!
@@ -1862,6 +2085,56 @@ type Tag implements Node {
     # A condition to be used in determining which values should be returned by the collection.
     condition: QuestionTagCondition
   ): QuestionTagsConnection
+
+  # Reads and enables paginatation through a set of `TagRelation`.
+  tagRelationsByTag1(
+    # The method to use when ordering `TagRelation`.
+    orderBy: TagRelationsOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: TagRelationCondition
+  ): TagRelationsConnection
+
+  # Reads and enables paginatation through a set of `TagRelation`.
+  tagRelationsByTag2(
+    # The method to use when ordering `TagRelation`.
+    orderBy: TagRelationsOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: TagRelationCondition
+  ): TagRelationsConnection
 }
 
 # A condition to be used against `Tag` object types. All fields are tested for equality and combined with a logical ‘and.’
@@ -1887,6 +2160,83 @@ input TagPatch {
   rowId: Int
   name: String
   description: String
+}
+
+type TagRelation implements Node {
+  # A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  id: ID!
+  tag1: Int!
+  linkType: LinkType
+  tag2: Int
+
+  # Reads a single `Tag` that is related to this `TagRelation`.
+  tagByTag1: Tag
+
+  # Reads a single `Tag` that is related to this `TagRelation`.
+  tagByTag2: Tag
+}
+
+# A condition to be used against `TagRelation` object types. All fields are tested
+# for equality and combined with a logical ‘and.’
+input TagRelationCondition {
+  # Checks for equality with the object’s `tag1` field.
+  tag1: Int
+
+  # Checks for equality with the object’s `linkType` field.
+  linkType: LinkType
+
+  # Checks for equality with the object’s `tag2` field.
+  tag2: Int
+}
+
+input TagRelationInput {
+  tag1: Int!
+  linkType: LinkType
+  tag2: Int
+}
+
+# Represents an update to a `TagRelation`. Fields that are set will be updated.
+input TagRelationPatch {
+  tag1: Int
+  linkType: LinkType
+  tag2: Int
+}
+
+# A connection to a list of `TagRelation` values.
+type TagRelationsConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `TagRelation` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `TagRelation` and cursor to aid in pagination.
+  edges: [TagRelationsEdge]
+
+  # A list of `TagRelation` objects.
+  nodes: [TagRelation!]
+}
+
+# A `TagRelation` edge in the connection.
+type TagRelationsEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `TagRelation` at the end of the edge.
+  node: TagRelation!
+}
+
+# Methods to use when ordering `TagRelation`.
+enum TagRelationsOrderBy {
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  NATURAL
+  TAG1_ASC
+  TAG1_DESC
+  LINK_TYPE_ASC
+  LINK_TYPE_DESC
+  TAG2_ASC
+  TAG2_DESC
 }
 
 # A connection to a list of `Tag` values.
@@ -2128,6 +2478,47 @@ type UpdateTagPayload {
   query: Query
 }
 
+# All input for the `updateTagRelationByTag1` mutation.
+input UpdateTagRelationByTag1Input {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  tag1: Int!
+
+  # An object where the defined keys will be set on the `TagRelation` identified by our unique key.
+  tagRelationPatch: TagRelationPatch!
+}
+
+# All input for the `updateTagRelation` mutation.
+input UpdateTagRelationInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `TagRelation` to be updated.
+  id: ID!
+
+  # An object where the defined keys will be set on the `TagRelation` identified by our globally unique `ID`.
+  tagRelationPatch: TagRelationPatch!
+}
+
+# The output of our `updateTagRelation` mutation.
+type UpdateTagRelationPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  tagRelation: TagRelation
+
+  # Reads a single `Tag` that is related to this `TagRelation`.
+  tagByTag1: Tag
+
+  # Reads a single `Tag` that is related to this `TagRelation`.
+  tagByTag2: Tag
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
 # All input for the `updateUserByRowId` mutation.
 input UpdateUserByRowIdInput {
   # An arbitrary string value with no semantic meaning. Will be included in the
@@ -2191,6 +2582,12 @@ type UpsertAnswerVoteByQuestionAndAnswerPayload {
   # unchanged and unused. May be used by a client to track mutations.
   clientMutationId: String
   answer: Answer
+
+  # An edge for our `Answer`. May be used by Relay 1.
+  answerEdge(
+    # The method to use when ordering `Answer`.
+    orderBy: AnswersOrderBy = PRIMARY_KEY_ASC
+  ): AnswersEdge
 
   # Reads a single `User` that is related to this `Answer`.
   userByAuthor: User

@@ -9,6 +9,7 @@ import UpdateQuestionMutation from '../../mutations/updateQuestion'
 import UserBox from "./userBox";
 import AnswersList from "./answerList";
 import Link from "react-router/lib/Link";
+import QuestionTagList from "./questionTagList";
 
 @observer
 class QuestionClass extends Component<Props.IQuestionProps, void> {
@@ -32,6 +33,7 @@ class QuestionClass extends Component<Props.IQuestionProps, void> {
 
 	public render(): JSX.Element {
 		const item = this.props.store;
+		const store = this.props.store;
 		const questionId = this.props.store.rowId;
 		let style = {};
 		if (this.props.relay.hasOptimisticUpdate(this.props.store)) {
@@ -72,6 +74,7 @@ class QuestionClass extends Component<Props.IQuestionProps, void> {
 							required
 						/>
 					}
+					<QuestionTagList store={store} />
 					<UserBox store={item.userByAuthor} details={false} />
 					<AnswersList store={this.props.store}/>
 				</Panel>
@@ -89,6 +92,7 @@ const Question = Relay.createContainer(QuestionClass, {
 		store: () => Relay.QL`
 			fragment on Question {
 				${UpdateQuestionMutation.getFragment('store')}
+                ${QuestionTagList.getFragment('store')}
 				rowId
 				title
 				description

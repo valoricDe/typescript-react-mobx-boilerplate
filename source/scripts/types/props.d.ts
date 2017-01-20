@@ -9,6 +9,7 @@ declare global {
 		import IQuery = GQL.IQuery;
 		import IAnswer = GQL.IAnswer;
 		import InjectedRouter = Router.InjectedRouter;
+		import ITag = GQL.ITag;
 
 		interface IRelayProps {
 			relay: Relay.Store & Relay.RelayProp & any
@@ -107,6 +108,7 @@ declare global {
 
 		interface IUserProps extends IProps {
 			store: IUser
+			className: string
 		}
 
 		interface IHomePageProps extends IProps {
@@ -114,6 +116,18 @@ declare global {
 		}
 
 		interface IAuthorProfileProps extends IUserProps {
+		}
+
+		interface ITagProps extends IProps {
+			store: ITag
+		}
+
+		interface ITagListProps extends IProps {
+			store: IQuery
+		}
+
+		interface IQuestionTagListProps extends IProps {
+			store: IQuestion
 		}
 
 		namespace Common {

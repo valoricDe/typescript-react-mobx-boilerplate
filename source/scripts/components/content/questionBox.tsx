@@ -7,8 +7,8 @@ import { Input, Textarea } from 'formsy-react-components';
 import { Panel, ButtonToolbar, Button } from 'react-bootstrap';
 import UpdateQuestionMutation from '../../mutations/updateQuestion'
 import UserBox from "./userBox";
-import AnswersList from "./answerList";
 import Link from "react-router/lib/Link";
+import QuestionTagList from "./questionTagList";
 
 @observer
 class QuestionBoxClass extends Component<Props.IQuestionProps, void> {
@@ -31,7 +31,7 @@ class QuestionBoxClass extends Component<Props.IQuestionProps, void> {
 	};
 
 	public render(): JSX.Element {
-		const item = this.props.store;
+		const store = this.props.store;
 		const questionId = this.props.store.rowId;
 		let style = {};
 		if (this.props.relay.hasOptimisticUpdate(this.props.store)) {
@@ -47,34 +47,45 @@ class QuestionBoxClass extends Component<Props.IQuestionProps, void> {
 				<Panel
 					   header={
 							[<ButtonToolbar className="content__panelButtonToolbar pull-right" key="buttonToolbar">
-							{this.props.user.currentUserId === item.userByAuthor.rowId ? (!this.isEditing ?
+							{this.props.user.currentUserId === store.userByAuthor.rowId ? (!this.isEditing ?
 								<Button onClick={this.edit} bsStyle="primary">Edit</Button> :
 								[<Button bsStyle="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>, <Button onClick={this.cancel} bsStyle="danger" key="cancel">Cancel</Button>])
 								: null
 							}
 							</ButtonToolbar>,
-							<Link to={"/questions/"+questionId} key="title"><h2 role="presentation" className="content__panelTitle">{item.title}</h2></Link>]
+							<Link to={"/questions/"+questionId} key="title"><h2 role="presentation" className="content__panelTitle">{store.title}</h2></Link>]
 					   }
-					   footer="Test Footer"
 				>
+					<UserBox store={store.userByAuthor} details={false} className="pull-right"/>
+					<p className="pull-right"> . </p>
+					<Button bsStyle={store.answersByQuestion.totalCount > 0 ? "success" : "warning"} className="pull-right" style={{"text-align": "center", padding: "15px"}} title={"This question has "+store.answersByQuestion.totalCount+" answers."}>
+						<small>Answers</small>
+						<p>{store.answersByQuestion.totalCount}</p>
+					</Button>
+					<Button bsStyle={store.answersByQuestion.totalCount > 0 ? "success" : "warning"} className="pull-right" style={{"text-align": "center", padding: "15px"}} title={"This question has "+store.answersByQuestion.totalCount+" answers."}>
+						<small>Answers</small>
+						<p>{store.answersByQuestion.totalCount}</p>
+					</Button>
+
 					{!this.isEditing ?
 						null :
-						<Input label="Title" value={item.title} placeholder={item.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
+						<Input label="Title" value={store.title} placeholder={store.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
 					}
 					{!this.isEditing ?
-						<p>{item.description}</p> :
+						<p>{store.description}</p> :
 						<Textarea
 							label="Description"
 							name="description"
-							value={item.description}
+							value={store.description}
 							validationError="Description field is required"
 							placeholder="This field requires 10 characters."
 							help="This is some help text for the textarea."
 							required
 						/>
+
 					}
-					<UserBox store={item.userByAuthor} details={false} />
-					<div>The question has {item.answersByQuestion.totalCount}</div>
+					<QuestionTagList store={store} />
+					<p>Viewed {Math.floor((Math.random() * 100) + 1)} times.</p>
 				</Panel>
 			</fieldset>
 			</Formsy.Form>
@@ -90,9 +101,20 @@ const QuestionBox = Relay.createContainer(QuestionBoxClass, {
 		store: () => Relay.QL`
 			fragment on Question {
 				${UpdateQuestionMutation.getFragment('store')}
+				${QuestionTagList.getFragment('store')}
 				rowId
 				title
 				description
+				vote
+				questionTagsByQuestion(first: 20) {
+					edges {
+                        node {
+                            tagByTag {
+                                name
+                            }
+                        }	
+					}
+				}
 				userByAuthor {
 					rowId
 					${UserBox.getFragment('store')}
