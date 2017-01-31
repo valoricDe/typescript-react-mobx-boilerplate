@@ -14,15 +14,10 @@ import {Draggable} from "react-touch";
 import defaultRegExp from "../../lib/defaultRegExp";
 
 //const HANDLE_REGEX = new RegExp('\\[\\s(['+defaultRegExp+'\\s]*?)\\s\\]\\(\\|\\)', 'g');
-const HANDLE_REGEX = /\[\s([^\]]*)\s\]\(([^\|\)]*)\|?([^\)]*)\)/g;
-const HASHTAG_REGEX = /#[\w\u0590-\u05ff]+/g;
+const MODEL_REGEX = /\[\s*([^\]]*?)\s*\]/g; // \(([^\|\)]*)\|?([^\)]*)\)
 
-function handleStrategy(contentBlock, callback) {
-	findWithRegex(HANDLE_REGEX, contentBlock, callback);
-}
-
-function hashtagStrategy(contentBlock, callback) {
-	findWithRegex(HASHTAG_REGEX, contentBlock, callback);
+function modelStrategy(contentBlock, callback) {
+	findWithRegex(MODEL_REGEX, contentBlock, callback);
 }
 
 function findWithRegex(regex, contentBlock, callback) {
@@ -34,10 +29,6 @@ function findWithRegex(regex, contentBlock, callback) {
 	}
 }
 
-const HashtagSpan = (props) => {
-	return <span {...props} className="calculated-result">{props.children}</span>;
-};
-
 @observer
 class CreateQuestionComponent extends Component<Props.ICreateQuestionProps, void> {
 	@observable isValidInput = false;
@@ -45,7 +36,7 @@ class CreateQuestionComponent extends Component<Props.ICreateQuestionProps, void
 	selectedTagIds = [];
 	editorDecorators = new CompositeDecorator([
 			{
-				strategy: handleStrategy,
+				strategy: modelStrategy,
 				component: (props) => {
 					console.log(props);
 					return <span {...props} className="adjustable-number">{props.children}</span>
@@ -60,7 +51,6 @@ class CreateQuestionComponent extends Component<Props.ICreateQuestionProps, void
 					</Draggable>;*/
 				}
 			},
-			{ strategy: hashtagStrategy, component: HashtagSpan },
 		]);
 	editorState = EditorState.createEmpty(this.editorDecorators);
 

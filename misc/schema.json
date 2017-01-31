@@ -1107,6 +1107,89 @@
               "deprecationReason": null
             },
             {
+              "name": "allQuestionModels",
+              "description": "Reads and enables paginatation through a set of `QuestionModel`.",
+              "args": [
+                {
+                  "name": "orderBy",
+                  "description": "The method to use when ordering `QuestionModel`.",
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "QuestionModelsOrderBy",
+                    "ofType": null
+                  },
+                  "defaultValue": "NATURAL"
+                },
+                {
+                  "name": "before",
+                  "description": "Read all values in the set before (above) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "after",
+                  "description": "Read all values in the set after (below) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "first",
+                  "description": "Only read the first `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "last",
+                  "description": "Only read the last `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "offset",
+                  "description": "Skip the first `n` values from our `after` cursor, an alternative to cursor based pagination. May not be used with `last`.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "condition",
+                  "description": "A condition to be used in determining which values should be returned by the collection.",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "QuestionModelCondition",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "QuestionModelsConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "allQuestionTags",
               "description": "Reads and enables paginatation through a set of `QuestionTag`.",
               "args": [
@@ -3302,6 +3385,89 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "QuestionTagsConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "questionModelsByQuestionid",
+              "description": "Reads and enables paginatation through a set of `QuestionModel`.",
+              "args": [
+                {
+                  "name": "orderBy",
+                  "description": "The method to use when ordering `QuestionModel`.",
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "QuestionModelsOrderBy",
+                    "ofType": null
+                  },
+                  "defaultValue": "NATURAL"
+                },
+                {
+                  "name": "before",
+                  "description": "Read all values in the set before (above) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "after",
+                  "description": "Read all values in the set after (below) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "first",
+                  "description": "Only read the first `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "last",
+                  "description": "Only read the last `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "offset",
+                  "description": "Skip the first `n` values from our `after` cursor, an alternative to cursor based pagination. May not be used with `last`.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "condition",
+                  "description": "A condition to be used in determining which values should be returned by the collection.",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "QuestionModelCondition",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "QuestionModelsConnection",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -5708,6 +5874,423 @@
         },
         {
           "kind": "ENUM",
+          "name": "QuestionModelsOrderBy",
+          "description": "Methods to use when ordering `QuestionModel`.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NATURAL",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "QUESTIONID_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "QUESTIONID_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VALUE_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VALUE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SOURCE_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SOURCE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MIN_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MIN_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MAX_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "STEP_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "STEP_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "QuestionModelCondition",
+          "description": "A condition to be used against `QuestionModel` object types. All fields are tested for equality and combined with a logical ‘and.’",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "questionid",
+              "description": "Checks for equality with the object’s `questionid` field.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "name",
+              "description": "Checks for equality with the object’s `name` field.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "value",
+              "description": "Checks for equality with the object’s `value` field.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "source",
+              "description": "Checks for equality with the object’s `source` field.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "min",
+              "description": "Checks for equality with the object’s `min` field.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "max",
+              "description": "Checks for equality with the object’s `max` field.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "step",
+              "description": "Checks for equality with the object’s `step` field.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Float",
+          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "QuestionModelsConnection",
+          "description": "A connection to a list of `QuestionModel` values.",
+          "fields": [
+            {
+              "name": "pageInfo",
+              "description": "Information to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalCount",
+              "description": "The count of *all* `QuestionModel` you could get from the connection.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "edges",
+              "description": "A list of edges which contains the `QuestionModel` and cursor to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "QuestionModelsEdge",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nodes",
+              "description": "A list of `QuestionModel` objects.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "QuestionModel",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "QuestionModelsEdge",
+          "description": "A `QuestionModel` edge in the connection.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "A cursor for use in pagination.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Cursor",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The `QuestionModel` at the end of the edge.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "QuestionModel",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "QuestionModel",
+          "description": null,
+          "fields": [
+            {
+              "name": "questionid",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "name",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "value",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "source",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "min",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "max",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "step",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "questionByQuestionid",
+              "description": "Reads a single `Question` that is related to this `QuestionModel`.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Question",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
           "name": "SearchAnswersOrderBy",
           "description": "Methods to use when ordering `Answer`.",
           "fields": null,
@@ -7207,6 +7790,33 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "DeleteQuestionPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createQuestionModel",
+              "description": "Creates a single `QuestionModel`.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": "The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateQuestionModelInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateQuestionModelPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -10650,6 +11260,204 @@
             }
           ],
           "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateQuestionModelInput",
+          "description": "All input for the `createQuestionModel` mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "clientMutationId",
+              "description": "An arbitrary string value with no semantic meaning. Will be included in the payload verbatim. May be used to track mutations by the client.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "questionModel",
+              "description": "The `QuestionModel` to be created by this mutation.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "QuestionModelInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "QuestionModelInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "questionid",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "name",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "value",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "source",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "min",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "max",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "step",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateQuestionModelPayload",
+          "description": "The output of our `createQuestionModel` mutation.",
+          "fields": [
+            {
+              "name": "clientMutationId",
+              "description": "The exact same `clientMutationId` that was provided in the mutation input, unchanged and unused. May be used by a client to track mutations.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "questionModel",
+              "description": "The `QuestionModel` that was created by this mutation.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "QuestionModel",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "questionModelEdge",
+              "description": "An edge for our `QuestionModel`. May be used by Relay 1.",
+              "args": [
+                {
+                  "name": "orderBy",
+                  "description": "The method to use when ordering `QuestionModel`.",
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "QuestionModelsOrderBy",
+                    "ofType": null
+                  },
+                  "defaultValue": "NATURAL"
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "QuestionModelsEdge",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "questionByQuestionid",
+              "description": "Reads a single `Question` that is related to this `QuestionModel`.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Question",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "query",
+              "description": "Our root query field type. Allows us to run any query from our mutation payload.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Query",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },

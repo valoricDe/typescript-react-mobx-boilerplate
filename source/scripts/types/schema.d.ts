@@ -44,6 +44,7 @@ declare namespace GQL {
     allQuestions: IQuestionsConnection;
     question: IQuestion;
     questionByRowId: IQuestion;
+    allQuestionModels: IQuestionModelsConnection;
     allQuestionTags: IQuestionTagsConnection;
     allQuestionVotes: IQuestionVotesConnection;
     questionVote: IQuestionVote;
@@ -70,7 +71,7 @@ declare namespace GQL {
   /*
     description: An object with a globally unique `ID`.
   */
-  interface INode {
+  interface INode extends IQuery, IUser, IQuestion, IAnswer, IAnswerVote, IQuestionVote, ITag, ITagRelation {
     __typename: string;
     id: string;
   }
@@ -157,6 +158,7 @@ declare namespace GQL {
     answerVotesByQuestion: IAnswerVotesConnection;
     questionVotesByQuestion: IQuestionVotesConnection;
     questionTagsByQuestion: IQuestionTagsConnection;
+    questionModelsByQuestionid: IQuestionModelsConnection;
   }
 
   /*
@@ -473,6 +475,59 @@ declare namespace GQL {
   }
 
   /*
+    description: Methods to use when ordering `QuestionModel`.
+  */
+  type IQuestionModelsOrderByEnum = "NATURAL" | "QUESTIONID_ASC" | "QUESTIONID_DESC" | "NAME_ASC" | "NAME_DESC" | "VALUE_ASC" | "VALUE_DESC" | "SOURCE_ASC" | "SOURCE_DESC" | "MIN_ASC" | "MIN_DESC" | "MAX_ASC" | "MAX_DESC" | "STEP_ASC" | "STEP_DESC";
+
+  /*
+    description: A condition to be used against `QuestionModel` object types. All fields are tested for equality and combined with a logical ‘and.’
+  */
+  interface IQuestionModelCondition {
+    questionid?: number;
+    name?: string;
+    value?: string;
+    source?: string;
+    min?: number;
+    max?: number;
+    step?: number;
+  }
+
+  /*
+    description: A connection to a list of `QuestionModel` values.
+  */
+  interface IQuestionModelsConnection {
+    __typename: string;
+    pageInfo: IPageInfo;
+    totalCount: number;
+    edges: Array<IQuestionModelsEdge>;
+    nodes: Array<IQuestionModel>;
+  }
+
+  /*
+    description: A `QuestionModel` edge in the connection.
+  */
+  interface IQuestionModelsEdge {
+    __typename: string;
+    cursor: any;
+    node: IQuestionModel;
+  }
+
+  /*
+    description: null
+  */
+  interface IQuestionModel {
+    __typename: string;
+    questionid: number;
+    name: string;
+    value: string;
+    source: string;
+    min: number;
+    max: number;
+    step: number;
+    questionByQuestionid: IQuestion;
+  }
+
+  /*
     description: Methods to use when ordering `Answer`.
   */
   type ISearchAnswersOrderByEnum = "NATURAL";
@@ -646,6 +701,7 @@ declare namespace GQL {
     updateQuestionByRowId: IUpdateQuestionPayload;
     deleteQuestion: IDeleteQuestionPayload;
     deleteQuestionByRowId: IDeleteQuestionPayload;
+    createQuestionModel: ICreateQuestionModelPayload;
     createQuestionTag: ICreateQuestionTagPayload;
     createQuestionVote: ICreateQuestionVotePayload;
     updateQuestionVote: IUpdateQuestionVotePayload;
@@ -1161,6 +1217,39 @@ declare namespace GQL {
   interface IDeleteQuestionByRowIdInput {
     clientMutationId?: string;
     rowId: number;
+  }
+
+  /*
+    description: All input for the `createQuestionModel` mutation.
+  */
+  interface ICreateQuestionModelInput {
+    clientMutationId?: string;
+    questionModel: IQuestionModelInput;
+  }
+
+  /*
+    description: null
+  */
+  interface IQuestionModelInput {
+    questionid?: number;
+    name?: string;
+    value?: string;
+    source?: string;
+    min?: number;
+    max?: number;
+    step?: number;
+  }
+
+  /*
+    description: The output of our `createQuestionModel` mutation.
+  */
+  interface ICreateQuestionModelPayload {
+    __typename: string;
+    clientMutationId: string;
+    questionModel: IQuestionModel;
+    questionModelEdge: IQuestionModelsEdge;
+    questionByQuestionid: IQuestion;
+    query: IQuery;
   }
 
   /*

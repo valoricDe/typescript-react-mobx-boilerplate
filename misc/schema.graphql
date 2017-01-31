@@ -351,6 +351,38 @@ input CreateQuestionInput {
   question: QuestionInput!
 }
 
+# All input for the `createQuestionModel` mutation.
+input CreateQuestionModelInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The `QuestionModel` to be created by this mutation.
+  questionModel: QuestionModelInput!
+}
+
+# The output of our `createQuestionModel` mutation.
+type CreateQuestionModelPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+
+  # The `QuestionModel` that was created by this mutation.
+  questionModel: QuestionModel
+
+  # An edge for our `QuestionModel`. May be used by Relay 1.
+  questionModelEdge(
+    # The method to use when ordering `QuestionModel`.
+    orderBy: QuestionModelsOrderBy = NATURAL
+  ): QuestionModelsEdge
+
+  # Reads a single `Question` that is related to this `QuestionModel`.
+  questionByQuestionid: Question
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
 # The output of our `createQuestion` mutation.
 type CreateQuestionPayload {
   # The exact same `clientMutationId` that was provided in the mutation input,
@@ -999,6 +1031,12 @@ type Mutation {
     input: DeleteQuestionByRowIdInput!
   ): DeleteQuestionPayload
 
+  # Creates a single `QuestionModel`.
+  createQuestionModel(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: CreateQuestionModelInput!
+  ): CreateQuestionModelPayload
+
   # Creates a single `QuestionTag`.
   createQuestionTag(
     # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -1346,6 +1384,31 @@ type Query implements Node {
   ): Question
   questionByRowId(rowId: Int!): Question
 
+  # Reads and enables paginatation through a set of `QuestionModel`.
+  allQuestionModels(
+    # The method to use when ordering `QuestionModel`.
+    orderBy: QuestionModelsOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: QuestionModelCondition
+  ): QuestionModelsConnection
+
   # Reads and enables paginatation through a set of `QuestionTag`.
   allQuestionTags(
     # The method to use when ordering `QuestionTag`.
@@ -1664,6 +1727,31 @@ type Question implements Node {
     # A condition to be used in determining which values should be returned by the collection.
     condition: QuestionTagCondition
   ): QuestionTagsConnection
+
+  # Reads and enables paginatation through a set of `QuestionModel`.
+  questionModelsByQuestionid(
+    # The method to use when ordering `QuestionModel`.
+    orderBy: QuestionModelsOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: QuestionModelCondition
+  ): QuestionModelsConnection
 }
 
 # A connection to a list of `Answer` values.
@@ -1745,6 +1833,97 @@ input QuestionInput {
   title: NonEmptyText!
   description: NonEmptyText!
   author: Int!
+}
+
+type QuestionModel {
+  questionid: Int!
+  name: String
+  value: String
+  source: String
+  min: Int
+  max: Int
+  step: Float
+
+  # Reads a single `Question` that is related to this `QuestionModel`.
+  questionByQuestionid: Question
+}
+
+# A condition to be used against `QuestionModel` object types. All fields are
+# tested for equality and combined with a logical ‘and.’
+input QuestionModelCondition {
+  # Checks for equality with the object’s `questionid` field.
+  questionid: Int
+
+  # Checks for equality with the object’s `name` field.
+  name: String
+
+  # Checks for equality with the object’s `value` field.
+  value: String
+
+  # Checks for equality with the object’s `source` field.
+  source: String
+
+  # Checks for equality with the object’s `min` field.
+  min: Int
+
+  # Checks for equality with the object’s `max` field.
+  max: Int
+
+  # Checks for equality with the object’s `step` field.
+  step: Float
+}
+
+input QuestionModelInput {
+  questionid: Int
+  name: String
+  value: String
+  source: String
+  min: Int
+  max: Int
+  step: Float
+}
+
+# A connection to a list of `QuestionModel` values.
+type QuestionModelsConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `QuestionModel` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `QuestionModel` and cursor to aid in pagination.
+  edges: [QuestionModelsEdge]
+
+  # A list of `QuestionModel` objects.
+  nodes: [QuestionModel!]
+}
+
+# A `QuestionModel` edge in the connection.
+type QuestionModelsEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `QuestionModel` at the end of the edge.
+  node: QuestionModel!
+}
+
+# Methods to use when ordering `QuestionModel`.
+enum QuestionModelsOrderBy {
+  NATURAL
+  QUESTIONID_ASC
+  QUESTIONID_DESC
+  NAME_ASC
+  NAME_DESC
+  VALUE_ASC
+  VALUE_DESC
+  SOURCE_ASC
+  SOURCE_DESC
+  MIN_ASC
+  MIN_DESC
+  MAX_ASC
+  MAX_DESC
+  STEP_ASC
+  STEP_DESC
 }
 
 # Represents an update to a `Question`. Fields that are set will be updated.

@@ -1,16 +1,26 @@
 import React from 'react';
-import {Editor, RichUtils, Modifier, EditorState, SelectionState, DraftHandleValue} from 'draft-js';
+import {RichUtils, Modifier, EditorState, SelectionState} from 'draft-js';
 import Button from "react-bootstrap/lib/Button";
 import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
 import ButtonToolbar from "react-bootstrap/lib/ButtonToolbar";
-import DraftDragType = Draft.Model.Constants.DraftDragType;
-import {Input} from "formsy-react-components";
+const Editor = require('draft-js-plugins-editor').default;
+const createHashtagPlugin = require('draft-js-hashtag-plugin').default;
+import 'draft-js-hashtag-plugin/lib/plugin.css';
+const draftJsModelPlugin = require('../../lib/draft-js-model-plugin');
+const createMentionPlugin = draftJsModelPlugin.default;
+const defaultSuggestionsFilter = draftJsModelPlugin.defaultSuggestionsFilter;
+
+import mentions from '../../lib/mention';
+
+const mentionPlugin = createMentionPlugin({mentionTrigger: '[ ', mentionRegExp: '[\\s\\w\u4e00-\u9eff\u3040-\u309F\u30A0-\u30FF\uAC00-\uD7A3\u3130-\u318F]*', mentionTriggerSuffix: ' ]'});
+const { MentionSuggestions } = mentionPlugin;
+const plugins = [mentionPlugin];
 
 export class MyEditor extends React.Component<any, any> {
 
 	constructor(props) {
 		super(props);
-		this.state = {editorState: props.editorState};
+		this.state = {editorState: props.editorState, suggestions: mentions};
 	}
 
 	onChange = (editorState) => this.setState({editorState});
@@ -33,6 +43,16 @@ export class MyEditor extends React.Component<any, any> {
 		this.onChange(RichUtils.toggleInlineStyle(this.state.editorState,'UNDERLINE'))
 	};
 
+	onSearchChange = ({ value }) => {
+		this.setState({
+			suggestions: defaultSuggestionsFilter(value, mentions),
+		});
+	};
+
+	onAddMention = () => {
+		// get the mention object selected
+	}
+
 	render() {
 		const {readOnly} = this.props;
 
@@ -48,6 +68,7 @@ export class MyEditor extends React.Component<any, any> {
 					<Editor
 						editorState={this.state.editorState}
 						onChange={this.onChange}
+						plugins={plugins}
 						handleKeyCommand={this.handleKeyCommand}
 						spellCheck={true}
 						readOnly={readOnly}
@@ -73,8 +94,8 @@ export class MyEditor extends React.Component<any, any> {
 
 								const selectionAfter = contentReplaced.getSelectionAfter();
 								const contentReplaced2 = contentReplaced.set('selectionAfter', selectionAfter.merge({
-											anchorOffset: selectionAfter.getAnchorOffset(),
-											focusOffset: selectionAfter.getFocusOffset()
+											anchorOffset: selectionAfter.getAnchorOffset()-2,
+											focusOffset: selectionAfter.getFocusOffset()-2
 										}));
 								const editorStateModified = EditorState.push(
 										editorState,
@@ -93,6 +114,12 @@ export class MyEditor extends React.Component<any, any> {
 						}
 					/>
 				</div>
+
+				<MentionSuggestions
+					onSearchChange={this.onSearchChange}
+					suggestions={this.state.suggestions}
+					onAddMention={this.onAddMention}
+				/>
 			</div>
 		);
 	}

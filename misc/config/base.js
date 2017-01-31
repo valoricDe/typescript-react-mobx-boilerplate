@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const WebpackNotifier = require('webpack-notifier');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const { CheckerPlugin } = require('awesome-typescript-loader');
 const babelRelayPlugin = path.join(__dirname, '../utils/babel-relay-plugin');
 
 module.exports = (project, paths) => {
@@ -17,20 +18,20 @@ module.exports = (project, paths) => {
 			publicPath: '/',
 		},
 		resolve: {
-			extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.scss'],
+			extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx', '.scss'],
 		},
 		module: {
 			loaders: [
 				{
 					test: /\.(js|tsx|ts)$/,
-					exclude: [/node_modules/, /vendor/], // exlude also in tsconfig
+					exclude: [/node_modules/, /build/, /misc/, /vendor/, /data/, /__test__/], // exlude also in tsconfig
 					// transformation order is from down to up
 					loaders: [
 						'babel?'+JSON.stringify({
 							presets: ['es2015', 'react', 'stage-0'],
 							plugins: [babelRelayPlugin],
 						}),
-						'ts'],
+						'awesome-typescript-loader'],
 				},
 				{
 					test: /\.scss$/,
@@ -43,6 +44,14 @@ module.exports = (project, paths) => {
 					]),
 				},
 				{
+					test: /plugin\.css$/,
+					loaders: ['style', 'css'],
+				},
+				{
+					test: /mention.*\.css$/,
+					loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=draftJsMentionPlugin__[local]__[hash:base64:5]!postcss-loader'),
+				},
+				{
 					test: /\.(woff|woff2|eot|ttf)(\?.*)?$/,
 					loader: 'url?limit=100000&name=./css/fonts/font-[hash].[ext]',
 				},
@@ -53,6 +62,7 @@ module.exports = (project, paths) => {
 			],
 		},
 		plugins: [
+			new CheckerPlugin(),
 			new ExtractTextPlugin(paths.build.files.style, {
 				allChunks: true,
 			}),

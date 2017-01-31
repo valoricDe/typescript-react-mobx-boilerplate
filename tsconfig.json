@@ -19,11 +19,13 @@
             "mobx"
 		]
 	},
+
 	"exclude": [
 		"node_modules",
 		"build",
 		"misc",
         "vendor",
-        "data"
+        "data",
+        "__test__"
 	]
 }
