@@ -1,4 +1,4 @@
-import Relay from 'react-relay';
+import * as Relay from 'react-relay';
 
 import RelayNetworkLayer from "./RelayNetworkLayer";
 const graphql = require('../../../misc/settings').graphql;

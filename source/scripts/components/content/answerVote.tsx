@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
-import Relay from 'react-relay';
+import * as React from 'react';
+import { Component } from 'react';
+import * as Relay from 'react-relay';
 import { ButtonToolbar, Button } from 'react-bootstrap';
 import AnswerVoteMutation from "../../mutations/createAnswerVote";
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';

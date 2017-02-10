@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {Entity} from 'draft-js';
 import {fromJS} from 'immutable';
 import unionClassNames from 'union-class-names';

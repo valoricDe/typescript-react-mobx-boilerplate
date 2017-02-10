@@ -1,4 +1,4 @@
-import Relay = require('react-relay');
+import * as Relay from 'react-relay';
 import Router from "react-router/lib/Router";
 
 declare global {

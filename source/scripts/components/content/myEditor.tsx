@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {RichUtils, Modifier, EditorState, SelectionState, convertToRaw} from 'draft-js';
 import Button from "react-bootstrap/lib/Button";
 import ButtonGroup from "react-bootstrap/lib/ButtonGroup";

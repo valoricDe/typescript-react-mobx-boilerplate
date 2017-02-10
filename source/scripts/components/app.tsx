@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import { Component } from 'react';
 import DevTools from 'mobx-react-devtools';
-import Relay from 'react-relay';
+import * as Relay from 'react-relay';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';

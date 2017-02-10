@@ -1,7 +1,7 @@
 // https://github.com/facebook/draft-js/issues/542#issuecomment-275996606
 
 import { CompositeDecorator } from 'draft-js';
-import React from 'react';
+import * as React from 'react';
 
 import { List } from 'immutable';
 

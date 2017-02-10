@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {CompositeDecorator, Editor, EditorState, Modifier, SelectionState} from 'draft-js';
 import { Map } from 'immutable';
 

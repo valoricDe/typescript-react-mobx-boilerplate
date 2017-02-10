@@ -34,12 +34,13 @@ module.exports = (project, paths) => {
 						'awesome-typescript-loader'],
 				},
 				{
-					test: /\.js$/,
+					test: /\.(jsx|js)$/,
 					exclude: [/node_modules/, /build/, /misc/, /vendor/, /data/, /__test__/], // exlude also in tsconfig
 					// transformation order is from down to up
 					loaders: [
 						'babel?'+JSON.stringify({
 							presets: ['es2015', 'react', 'stage-0'],
+							plugins: [babelRelayPlugin],
 						}),
 					],
 				},

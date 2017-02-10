@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import IndexRoute from 'react-router/lib/IndexRoute';
 import Route from 'react-router/lib/Route';
 

@@ -5,8 +5,8 @@ declare namespace Types {
 declare namespace Components {
 	import IRouterProps = Props.IRouterProps;
 	import ComponentLifecycle = React.ComponentLifecycle;
-	import ReactNode = React.ReactNode;
-	import ReactInstance = React.ReactInstance;
+	import * as ReactNode = React.ReactNode;
+	import * as ReactInstance = React.ReactInstance;
 
 	class IRouterComponent<P, S> implements ComponentLifecycle<P, S> {
 		constructor(...args: any[]);

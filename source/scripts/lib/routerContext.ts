@@ -1,5 +1,5 @@
-import ReactRouter from 'react-router/lib/Router';
-import React from 'react';
+import * as ReactRouter from 'react-router/lib/Router';
+import * as React from 'react';
 
 export function Router(target: any) {
 	target.contextTypes = target.contextTypes || {};

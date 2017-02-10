@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import {Component} from 'react';
 import DevTools from 'mobx-react-devtools';
 import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
 
 //import Content from './content';
-import Relay from 'react-relay';
+import * as Relay from 'react-relay';
 import Question from "./question";
 import CreateQuestion from "./createQuestion";
 import CreateQuestionMutation from "../../mutations/createQuestion";

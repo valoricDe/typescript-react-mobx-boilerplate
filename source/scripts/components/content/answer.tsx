@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
-import Relay from 'react-relay';
+import * as React from 'react';
+import { Component } from 'react';
+import * as Relay from 'react-relay';
 import Panel from 'react-bootstrap/lib/Panel';
 import UserBox from "./userBox";
 import AnswerVote from "./answerVote";

@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import {Component} from 'react';
 import DevTools from 'mobx-react-devtools';
 import { Button, Jumbotron } from 'react-bootstrap';
 
 //import Content from './content';
-import Relay from 'react-relay';
+import * as Relay from 'react-relay';
 import {observer} from "mobx-react";
 //import {RegisterUserState} from "../content/registerUser";
 

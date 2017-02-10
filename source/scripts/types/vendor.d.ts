@@ -42,7 +42,7 @@ declare module "react-router-relay" {
 }
 
 declare module "react-relay/lib/RelayRootContainer" {
-	import Relay from "react-relay";
+	import * as Relay from "react-relay";
 	export = Relay.RootContainer;
 }
 
@@ -103,7 +103,7 @@ declare module "react-bootstrap/lib/Glyphicon" {
 
 
 declare module 'react-bootstrap-typeahead' {
-	import React = require('react')
+	import * as React = require('react')
 	interface TypeaheadProps extends React.HTMLProps<Typeahead> {
 		align?: string;
 		allowNew?: boolean;

@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import Relay from 'react-relay';
+import * as React from 'react';
+import {Component} from 'react';
+import * as Relay from 'react-relay';
 import {Input} from "formsy-react-components";
 import Formsy from 'formsy-react';
 import Clearfix from "react-bootstrap/lib/Clearfix";

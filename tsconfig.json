@@ -9,14 +9,7 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "types": [
-      "node",
-      "jest",
-      "react",
-      "react-dom",
-      "mobx"
-    ]
+    "moduleResolution": "node"
   },
 
   "exclude": [

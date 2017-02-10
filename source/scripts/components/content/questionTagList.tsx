@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import Relay from 'react-relay';
+import * as React from 'react';
+import {Component} from 'react';
+import * as Relay from 'react-relay';
 import TagToken from "./tagToken";
 
 class QuestionTagListClass extends Component<Props.IQuestionTagListProps, void> {

@@ -1,7 +1,7 @@
 /**
  * Created by velten on 23.10.16.
  */
-import Relay from 'react-relay';
+import * as Relay from 'react-relay';
 
 export default class LoginUserMutation extends Relay.Mutation<any, any> {
 	getMutation() {
