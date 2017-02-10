@@ -4,7 +4,7 @@ const defaultSuggestionsFilter = (searchValue, suggestions) => {
   const filteredSuggestions = suggestions.filter((suggestion) => (
     !value || suggestion.get('name').toLowerCase().indexOf(value) > -1
   ));
-  const size = Math.min(filteredSuggestions.size, 5);
+  const size = filteredSuggestions.size < 5 ? filteredSuggestions.size : 5;
   return filteredSuggestions.setSize(size);
 };
 

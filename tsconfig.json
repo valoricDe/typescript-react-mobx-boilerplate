@@ -1,31 +1,35 @@
 {
-	"compileOnSave": false,
-	"compilerOptions": {
-        "allowJs": true,
-		"module": "es6",
-		"target": "es6",
-		"jsx": "react",
-		"experimentalDecorators": true,
-		"strictNullChecks": true,
-		"sourceMap": true,
-		"allowSyntheticDefaultImports": true,
-		"noFallthroughCasesInSwitch": true,
-		"moduleResolution": "node",
-		"types": [
-			"node",
-			"jest",
-			"react",
-			"react-dom",
-            "mobx"
-		]
-	},
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "types": [
+      "node",
+      "jest",
+      "react",
+      "react-dom",
+      "mobx"
+    ]
+  },
 
-	"exclude": [
-		"node_modules",
-		"build",
-		"misc",
-        "vendor",
-        "data",
-        "__test__"
-	]
+  "exclude": [
+    "node_modules",
+    "build",
+    "misc",
+    "vendor",
+    "data",
+    "__test__"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "silent": true,
+    "useBabel": true,
+    "useCache": true
+  }
 }

@@ -1,4 +1,4 @@
-.mention, .mention:visited {
+.mentionSuggestionsPortal, .mentionSuggestionsPortal:visited {
 	color: #575f67;
 	cursor: pointer;
 	display: inline-block;
@@ -9,13 +9,13 @@
 	text-decoration: none;
 }
 
-.mention:hover, .mention:focus {
+.mentionSuggestionsPortal:hover, .mentionSuggestionsPortal:focus {
 	color: #677584;
 	background: #edf5fd;
 	outline: 0; /* reset for :focus */
 }
 
-.mention:active {
+.mentionSuggestionsPortal:active {
 	color: #222;
 	background: #455261;
 }

@@ -23,7 +23,7 @@ module.exports = (project, paths) => {
 		module: {
 			loaders: [
 				{
-					test: /\.(js|tsx|ts)$/,
+					test: /\.(tsx|ts)$/,
 					exclude: [/node_modules/, /build/, /misc/, /vendor/, /data/, /__test__/], // exlude also in tsconfig
 					// transformation order is from down to up
 					loaders: [
@@ -32,6 +32,16 @@ module.exports = (project, paths) => {
 							plugins: [babelRelayPlugin],
 						}),
 						'awesome-typescript-loader'],
+				},
+				{
+					test: /\.js$/,
+					exclude: [/node_modules/, /build/, /misc/, /vendor/, /data/, /__test__/], // exlude also in tsconfig
+					// transformation order is from down to up
+					loaders: [
+						'babel?'+JSON.stringify({
+							presets: ['es2015', 'react', 'stage-0'],
+						}),
+					],
 				},
 				{
 					test: /\.scss$/,

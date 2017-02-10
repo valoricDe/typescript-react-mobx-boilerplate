@@ -1,7 +1,7 @@
 /* @flow */
 
-import findWithRegex from 'find-with-regex';
+import findWithRegex from './utils/findWithRegex';
 
-export default (regExp: String) => (contentBlock: Object, callback: Function) => {
-		findWithRegex(regExp, contentBlock, callback);
-	};
+export default (regExp, group) => (contentBlock, callback) => {
+	findWithRegex(regExp, group, contentBlock, callback);
+};

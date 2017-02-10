@@ -8,11 +8,11 @@ type Answer implements Node {
   answerVoteByCurrentUser: AnswerVote
   vote: Int
 
-  # Reads a single `User` that is related to this `Answer`.
-  userByAuthor: User
-
   # Reads a single `Question` that is related to this `Answer`.
   questionByQuestion: Question
+
+  # Reads a single `User` that is related to this `Answer`.
+  userByAuthor: User
 
   # Reads and enables paginatation through a set of `AnswerVote`.
   answerVotesByAnswer(
@@ -161,14 +161,14 @@ type AnswerVote implements Node {
   subscribe: Boolean
   value: PositiveOrNegativeOne
 
-  # Reads a single `Answer` that is related to this `AnswerVote`.
-  answerByAnswer: Answer
+  # Reads a single `User` that is related to this `AnswerVote`.
+  userByUser: User
 
   # Reads a single `Question` that is related to this `AnswerVote`.
   questionByQuestion: Question
 
-  # Reads a single `User` that is related to this `AnswerVote`.
-  userByUser: User
+  # Reads a single `Answer` that is related to this `AnswerVote`.
+  answerByAnswer: Answer
 }
 
 # A condition to be used against `AnswerVote` object types. All fields are tested
@@ -293,11 +293,11 @@ type CreateAnswerPayload {
     orderBy: AnswersOrderBy = PRIMARY_KEY_ASC
   ): AnswersEdge
 
-  # Reads a single `User` that is related to this `Answer`.
-  userByAuthor: User
-
   # Reads a single `Question` that is related to this `Answer`.
   questionByQuestion: Question
+
+  # Reads a single `User` that is related to this `Answer`.
+  userByAuthor: User
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -328,14 +328,14 @@ type CreateAnswerVotePayload {
     orderBy: AnswerVotesOrderBy = PRIMARY_KEY_ASC
   ): AnswerVotesEdge
 
-  # Reads a single `Answer` that is related to this `AnswerVote`.
-  answerByAnswer: Answer
+  # Reads a single `User` that is related to this `AnswerVote`.
+  userByUser: User
 
   # Reads a single `Question` that is related to this `AnswerVote`.
   questionByQuestion: Question
 
-  # Reads a single `User` that is related to this `AnswerVote`.
-  userByUser: User
+  # Reads a single `Answer` that is related to this `AnswerVote`.
+  answerByAnswer: Answer
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -465,11 +465,11 @@ type CreateQuestionVotePayload {
     orderBy: QuestionVotesOrderBy = PRIMARY_KEY_ASC
   ): QuestionVotesEdge
 
-  # Reads a single `Question` that is related to this `QuestionVote`.
-  questionByQuestion: Question
-
   # Reads a single `User` that is related to this `QuestionVote`.
   userByUser: User
+
+  # Reads a single `Question` that is related to this `QuestionVote`.
+  questionByQuestion: Question
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -493,7 +493,7 @@ type CreateQuestionWithTagsPayload {
   clientMutationId: String
   question: Question
 
-  # An edge for our `Question`. May be used by Relay 1.
+  # An edge for the type. May be used by Relay 1.
   questionEdge(
     # The method to use when ordering `Question`.
     orderBy: QuestionsOrderBy = PRIMARY_KEY_ASC
@@ -632,11 +632,11 @@ type DeleteAnswerPayload {
   answer: Answer
   deletedAnswerId: ID
 
-  # Reads a single `User` that is related to this `Answer`.
-  userByAuthor: User
-
   # Reads a single `Question` that is related to this `Answer`.
   questionByQuestion: Question
+
+  # Reads a single `User` that is related to this `Answer`.
+  userByAuthor: User
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -670,14 +670,14 @@ type DeleteAnswerVotePayload {
   answerVote: AnswerVote
   deletedAnswerVoteId: ID
 
-  # Reads a single `Answer` that is related to this `AnswerVote`.
-  answerByAnswer: Answer
+  # Reads a single `User` that is related to this `AnswerVote`.
+  userByUser: User
 
   # Reads a single `Question` that is related to this `AnswerVote`.
   questionByQuestion: Question
 
-  # Reads a single `User` that is related to this `AnswerVote`.
-  userByUser: User
+  # Reads a single `Answer` that is related to this `AnswerVote`.
+  answerByAnswer: Answer
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -743,11 +743,11 @@ type DeleteQuestionVotePayload {
   questionVote: QuestionVote
   deletedQuestionVoteId: ID
 
-  # Reads a single `Question` that is related to this `QuestionVote`.
-  questionByQuestion: Question
-
   # Reads a single `User` that is related to this `QuestionVote`.
   userByUser: User
+
+  # Reads a single `Question` that is related to this `QuestionVote`.
+  questionByQuestion: Question
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -2040,11 +2040,11 @@ type QuestionVote implements Node {
   subscribe: Boolean
   value: PositiveOrNegativeOne
 
-  # Reads a single `Question` that is related to this `QuestionVote`.
-  questionByQuestion: Question
-
   # Reads a single `User` that is related to this `QuestionVote`.
   userByUser: User
+
+  # Reads a single `Question` that is related to this `QuestionVote`.
+  questionByQuestion: Question
 }
 
 # A condition to be used against `QuestionVote` object types. All fields are
@@ -2136,7 +2136,7 @@ type RegisterUserPayload {
   clientMutationId: String
   user: User
 
-  # An edge for our `User`. May be used by Relay 1.
+  # An edge for the type. May be used by Relay 1.
   userEdge(
     # The method to use when ordering `User`.
     orderBy: UsersOrderBy = PRIMARY_KEY_ASC
@@ -2486,11 +2486,11 @@ type UpdateAnswerPayload {
   clientMutationId: String
   answer: Answer
 
-  # Reads a single `User` that is related to this `Answer`.
-  userByAuthor: User
-
   # Reads a single `Question` that is related to this `Answer`.
   questionByQuestion: Question
+
+  # Reads a single `User` that is related to this `Answer`.
+  userByAuthor: User
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -2529,14 +2529,14 @@ type UpdateAnswerVotePayload {
   clientMutationId: String
   answerVote: AnswerVote
 
-  # Reads a single `Answer` that is related to this `AnswerVote`.
-  answerByAnswer: Answer
+  # Reads a single `User` that is related to this `AnswerVote`.
+  userByUser: User
 
   # Reads a single `Question` that is related to this `AnswerVote`.
   questionByQuestion: Question
 
-  # Reads a single `User` that is related to this `AnswerVote`.
-  userByUser: User
+  # Reads a single `Answer` that is related to this `AnswerVote`.
+  answerByAnswer: Answer
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -2612,11 +2612,11 @@ type UpdateQuestionVotePayload {
   clientMutationId: String
   questionVote: QuestionVote
 
-  # Reads a single `Question` that is related to this `QuestionVote`.
-  questionByQuestion: Question
-
   # Reads a single `User` that is related to this `QuestionVote`.
   userByUser: User
+
+  # Reads a single `Question` that is related to this `QuestionVote`.
+  questionByQuestion: Question
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -2762,17 +2762,17 @@ type UpsertAnswerVoteByQuestionAndAnswerPayload {
   clientMutationId: String
   answer: Answer
 
-  # An edge for our `Answer`. May be used by Relay 1.
+  # An edge for the type. May be used by Relay 1.
   answerEdge(
     # The method to use when ordering `Answer`.
     orderBy: AnswersOrderBy = PRIMARY_KEY_ASC
   ): AnswersEdge
 
-  # Reads a single `User` that is related to this `Answer`.
-  userByAuthor: User
-
   # Reads a single `Question` that is related to this `Answer`.
   questionByQuestion: Question
+
+  # Reads a single `User` that is related to this `Answer`.
+  userByAuthor: User
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query

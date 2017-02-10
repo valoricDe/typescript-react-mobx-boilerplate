@@ -3718,24 +3718,24 @@
               "deprecationReason": null
             },
             {
-              "name": "userByAuthor",
-              "description": "Reads a single `User` that is related to this `Answer`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "User",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "questionByQuestion",
               "description": "Reads a single `Question` that is related to this `Answer`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "Question",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userByAuthor",
+              "description": "Reads a single `User` that is related to this `Answer`.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -3930,12 +3930,12 @@
               "deprecationReason": null
             },
             {
-              "name": "answerByAnswer",
-              "description": "Reads a single `Answer` that is related to this `AnswerVote`.",
+              "name": "userByUser",
+              "description": "Reads a single `User` that is related to this `AnswerVote`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "Answer",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -3954,12 +3954,12 @@
               "deprecationReason": null
             },
             {
-              "name": "userByUser",
-              "description": "Reads a single `User` that is related to this `AnswerVote`.",
+              "name": "answerByAnswer",
+              "description": "Reads a single `Answer` that is related to this `AnswerVote`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "User",
+                "name": "Answer",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -4936,24 +4936,24 @@
               "deprecationReason": null
             },
             {
-              "name": "questionByQuestion",
-              "description": "Reads a single `Question` that is related to this `QuestionVote`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Question",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "userByUser",
               "description": "Reads a single `User` that is related to this `QuestionVote`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "questionByQuestion",
+              "description": "Reads a single `Question` that is related to this `QuestionVote`.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Question",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -8920,7 +8920,7 @@
             },
             {
               "name": "questionEdge",
-              "description": "An edge for our `Question`. May be used by Relay 1.",
+              "description": "An edge for the type. May be used by Relay 1.",
               "args": [
                 {
                   "name": "orderBy",
@@ -9253,7 +9253,7 @@
             },
             {
               "name": "userEdge",
-              "description": "An edge for our `User`. May be used by Relay 1.",
+              "description": "An edge for the type. May be used by Relay 1.",
               "args": [
                 {
                   "name": "orderBy",
@@ -9384,7 +9384,7 @@
             },
             {
               "name": "answerEdge",
-              "description": "An edge for our `Answer`. May be used by Relay 1.",
+              "description": "An edge for the type. May be used by Relay 1.",
               "args": [
                 {
                   "name": "orderBy",
@@ -9406,24 +9406,24 @@
               "deprecationReason": null
             },
             {
-              "name": "userByAuthor",
-              "description": "Reads a single `User` that is related to this `Answer`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "User",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "questionByQuestion",
               "description": "Reads a single `Question` that is related to this `Answer`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "Question",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userByAuthor",
+              "description": "Reads a single `User` that is related to this `Answer`.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -9643,24 +9643,24 @@
               "deprecationReason": null
             },
             {
-              "name": "userByAuthor",
-              "description": "Reads a single `User` that is related to this `Answer`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "User",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "questionByQuestion",
               "description": "Reads a single `Question` that is related to this `Answer`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "Question",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userByAuthor",
+              "description": "Reads a single `User` that is related to this `Answer`.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -9814,24 +9814,24 @@
               "deprecationReason": null
             },
             {
-              "name": "userByAuthor",
-              "description": "Reads a single `User` that is related to this `Answer`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "User",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "questionByQuestion",
               "description": "Reads a single `Question` that is related to this `Answer`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "Question",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userByAuthor",
+              "description": "Reads a single `User` that is related to this `Answer`.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -9981,24 +9981,24 @@
               "deprecationReason": null
             },
             {
-              "name": "userByAuthor",
-              "description": "Reads a single `User` that is related to this `Answer`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "User",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "questionByQuestion",
               "description": "Reads a single `Question` that is related to this `Answer`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "Question",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userByAuthor",
+              "description": "Reads a single `User` that is related to this `Answer`.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -10218,12 +10218,12 @@
               "deprecationReason": null
             },
             {
-              "name": "answerByAnswer",
-              "description": "Reads a single `Answer` that is related to this `AnswerVote`.",
+              "name": "userByUser",
+              "description": "Reads a single `User` that is related to this `AnswerVote`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "Answer",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -10242,12 +10242,12 @@
               "deprecationReason": null
             },
             {
-              "name": "userByUser",
-              "description": "Reads a single `User` that is related to this `AnswerVote`.",
+              "name": "answerByAnswer",
+              "description": "Reads a single `Answer` that is related to this `AnswerVote`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "User",
+                "name": "Answer",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -10411,12 +10411,12 @@
               "deprecationReason": null
             },
             {
-              "name": "answerByAnswer",
-              "description": "Reads a single `Answer` that is related to this `AnswerVote`.",
+              "name": "userByUser",
+              "description": "Reads a single `User` that is related to this `AnswerVote`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "Answer",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -10435,12 +10435,12 @@
               "deprecationReason": null
             },
             {
-              "name": "userByUser",
-              "description": "Reads a single `User` that is related to this `AnswerVote`.",
+              "name": "answerByAnswer",
+              "description": "Reads a single `Answer` that is related to this `AnswerVote`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "User",
+                "name": "Answer",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -10618,12 +10618,12 @@
               "deprecationReason": null
             },
             {
-              "name": "answerByAnswer",
-              "description": "Reads a single `Answer` that is related to this `AnswerVote`.",
+              "name": "userByUser",
+              "description": "Reads a single `User` that is related to this `AnswerVote`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "Answer",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -10642,12 +10642,12 @@
               "deprecationReason": null
             },
             {
-              "name": "userByUser",
-              "description": "Reads a single `User` that is related to this `AnswerVote`.",
+              "name": "answerByAnswer",
+              "description": "Reads a single `Answer` that is related to this `AnswerVote`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "User",
+                "name": "Answer",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -11768,24 +11768,24 @@
               "deprecationReason": null
             },
             {
-              "name": "questionByQuestion",
-              "description": "Reads a single `Question` that is related to this `QuestionVote`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Question",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "userByUser",
               "description": "Reads a single `User` that is related to this `QuestionVote`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "questionByQuestion",
+              "description": "Reads a single `Question` that is related to this `QuestionVote`.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Question",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -11939,24 +11939,24 @@
               "deprecationReason": null
             },
             {
-              "name": "questionByQuestion",
-              "description": "Reads a single `Question` that is related to this `QuestionVote`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Question",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "userByUser",
               "description": "Reads a single `User` that is related to this `QuestionVote`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "questionByQuestion",
+              "description": "Reads a single `Question` that is related to this `QuestionVote`.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Question",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -12120,24 +12120,24 @@
               "deprecationReason": null
             },
             {
-              "name": "questionByQuestion",
-              "description": "Reads a single `Question` that is related to this `QuestionVote`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Question",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "userByUser",
               "description": "Reads a single `User` that is related to this `QuestionVote`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "questionByQuestion",
+              "description": "Reads a single `Question` that is related to this `QuestionVote`.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Question",
                 "ofType": null
               },
               "isDeprecated": false,

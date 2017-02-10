@@ -198,8 +198,8 @@ declare namespace GQL {
     author: number;
     answerVoteByCurrentUser: IAnswerVote;
     vote: number;
-    userByAuthor: IUser;
     questionByQuestion: IQuestion;
+    userByAuthor: IUser;
     answerVotesByAnswer: IAnswerVotesConnection;
   }
 
@@ -214,9 +214,9 @@ declare namespace GQL {
     answer: number;
     subscribe: boolean;
     value: any;
-    answerByAnswer: IAnswer;
-    questionByQuestion: IQuestion;
     userByUser: IUser;
+    questionByQuestion: IQuestion;
+    answerByAnswer: IAnswer;
   }
 
   /*
@@ -360,8 +360,8 @@ declare namespace GQL {
     question: number;
     subscribe: boolean;
     value: any;
-    questionByQuestion: IQuestion;
     userByUser: IUser;
+    questionByQuestion: IQuestion;
   }
 
   /*
@@ -897,8 +897,8 @@ declare namespace GQL {
     clientMutationId: string;
     answer: IAnswer;
     answerEdge: IAnswersEdge;
-    userByAuthor: IUser;
     questionByQuestion: IQuestion;
+    userByAuthor: IUser;
     query: IQuery;
   }
 
@@ -939,8 +939,8 @@ declare namespace GQL {
     clientMutationId: string;
     answer: IAnswer;
     answerEdge: IAnswersEdge;
-    userByAuthor: IUser;
     questionByQuestion: IQuestion;
+    userByAuthor: IUser;
     query: IQuery;
   }
 
@@ -970,8 +970,8 @@ declare namespace GQL {
     __typename: string;
     clientMutationId: string;
     answer: IAnswer;
-    userByAuthor: IUser;
     questionByQuestion: IQuestion;
+    userByAuthor: IUser;
     query: IQuery;
   }
 
@@ -1000,8 +1000,8 @@ declare namespace GQL {
     clientMutationId: string;
     answer: IAnswer;
     deletedAnswerId: string;
-    userByAuthor: IUser;
     questionByQuestion: IQuestion;
+    userByAuthor: IUser;
     query: IQuery;
   }
 
@@ -1040,9 +1040,9 @@ declare namespace GQL {
     clientMutationId: string;
     answerVote: IAnswerVote;
     answerVoteEdge: IAnswerVotesEdge;
-    answerByAnswer: IAnswer;
-    questionByQuestion: IQuestion;
     userByUser: IUser;
+    questionByQuestion: IQuestion;
+    answerByAnswer: IAnswer;
     query: IQuery;
   }
 
@@ -1073,9 +1073,9 @@ declare namespace GQL {
     __typename: string;
     clientMutationId: string;
     answerVote: IAnswerVote;
-    answerByAnswer: IAnswer;
-    questionByQuestion: IQuestion;
     userByUser: IUser;
+    questionByQuestion: IQuestion;
+    answerByAnswer: IAnswer;
     query: IQuery;
   }
 
@@ -1106,9 +1106,9 @@ declare namespace GQL {
     clientMutationId: string;
     answerVote: IAnswerVote;
     deletedAnswerVoteId: string;
-    answerByAnswer: IAnswer;
-    questionByQuestion: IQuestion;
     userByUser: IUser;
+    questionByQuestion: IQuestion;
+    answerByAnswer: IAnswer;
     query: IQuery;
   }
 
@@ -1307,8 +1307,8 @@ declare namespace GQL {
     clientMutationId: string;
     questionVote: IQuestionVote;
     questionVoteEdge: IQuestionVotesEdge;
-    questionByQuestion: IQuestion;
     userByUser: IUser;
+    questionByQuestion: IQuestion;
     query: IQuery;
   }
 
@@ -1338,8 +1338,8 @@ declare namespace GQL {
     __typename: string;
     clientMutationId: string;
     questionVote: IQuestionVote;
-    questionByQuestion: IQuestion;
     userByUser: IUser;
+    questionByQuestion: IQuestion;
     query: IQuery;
   }
 
@@ -1369,8 +1369,8 @@ declare namespace GQL {
     clientMutationId: string;
     questionVote: IQuestionVote;
     deletedQuestionVoteId: string;
-    questionByQuestion: IQuestion;
     userByUser: IUser;
+    questionByQuestion: IQuestion;
     query: IQuery;
   }
 

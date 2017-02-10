@@ -37,7 +37,7 @@ const server = {
 
 const graphqlServer = {
 	host: 'localhost',
-	port: 3000,
+	port: 5000,
 	schemaLocation: {json: path.join(paths.misc, 'schema.json'), graphql: path.join(paths.misc, 'schema.graphql')},
 };
 

@@ -1,8 +1,8 @@
 import Relay from 'react-relay';
 
 import RelayNetworkLayer from "./RelayNetworkLayer";
-//const graphql = require('../../../misc/settings').graphql;
-const graphql = {host: 'localhost', port: 3000};
+const graphql = require('../../../misc/settings').graphql;
+//const graphql = {host: 'localhost', port: 3000};
 
 const RelayX: any = Relay;
 const localStorageX: any = localStorage;
