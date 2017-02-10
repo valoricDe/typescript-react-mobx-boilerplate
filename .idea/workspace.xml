@@ -2,50 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4a836e1-f73a-4031-a3bd-44f1c858908f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/components/content/editorExample.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/lib/CompoundDecorator.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/lib/NestableDecorator.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsPortalStyles.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegexesAndSelectionAndState.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegexAndSelection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/postgraphql" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/source/scripts/lib/CompoundDecorator.tsx" afterPath="$PROJECT_DIR$/source/scripts/lib/CompoundDecorator.tsx-" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/source/scripts/lib/NestableDecorator.tsx" afterPath="$PROJECT_DIR$/source/scripts/lib/NestableDecorator.tsx-" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphql.config.json" afterPath="$PROJECT_DIR$/graphql.config.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misc/config/base.js" afterPath="$PROJECT_DIR$/misc/config/base.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misc/schema.graphql" afterPath="$PROJECT_DIR$/misc/schema.graphql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misc/schema.json" afterPath="$PROJECT_DIR$/misc/schema.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misc/settings.js" afterPath="$PROJECT_DIR$/misc/settings.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/postgraph-server.js" afterPath="$PROJECT_DIR$/postgraph-server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/auth.ts" afterPath="$PROJECT_DIR$/source/scripts/lib/auth.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/Mention/__test__/index.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/Mention/__test__/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/Mention/index.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/Mention/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/Entry/Avatar/index.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/Entry/Avatar/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/Entry/defaultEntryComponent.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/Entry/defaultEntryComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/Entry/index.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/Entry/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/__test__/index.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/__test__/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/index.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestionsPortal/index.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestionsPortal/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/index.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionStrategy.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionStrategy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionStyles.css" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionStyles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsEntryStyles.css" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsEntryStyles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStrategy.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStrategy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStyles.css" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStyles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/modifiers/addMention.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/modifiers/addMention.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/__test__/getTypeByTrigger.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/__test__/getTypeByTrigger.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/__test__/getWordAt.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/__test__/getWordAt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/decodeOffsetKey.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/decodeOffsetKey.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/defaultSuggestionsFilter.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/defaultSuggestionsFilter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/getSearchText.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/getSearchText.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/getTypeByTrigger.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/getTypeByTrigger.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/getWordAt.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/getWordAt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/positionSuggestions.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/positionSuggestions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/mention.ts" afterPath="$PROJECT_DIR$/source/scripts/lib/mention.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/types/schema.d.ts" afterPath="$PROJECT_DIR$/source/scripts/types/schema.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/styles/index.scss" afterPath="$PROJECT_DIR$/source/styles/index.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegexesAndSelectionAndState.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegexesAndSelectionAndState.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tsconfig.json" afterPath="$PROJECT_DIR$/tsconfig.json" />
     </list>
     <ignored path="politbase.iws" />
@@ -84,8 +46,8 @@
       <file leaf-file-name="myEditor.tsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="86" selection-start-line="1" selection-start-column="86" selection-end-line="1" selection-end-column="86" />
+            <state relative-caret-position="0">
+              <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -94,8 +56,8 @@
       <file leaf-file-name="tsconfig.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tsconfig.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+            <state relative-caret-position="268">
+              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -114,9 +76,11 @@
       <file leaf-file-name="props.d.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/types/props.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
+            <state relative-caret-position="1200">
               <caret line="80" column="12" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
-              <folding />
+              <folding>
+                <marker date="1486729854000" expanded="true" signature="7:84" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,19 +88,10 @@
       <file leaf-file-name="answerVote.tsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/components/content/answerVote.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="53" column="6" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
+            <state relative-caret-position="780">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding>
-                <marker date="1480930577000" expanded="true" signature="2000:2174" ph="{...}" />
-                <marker date="1480930577000" expanded="true" signature="2012:2018" ph="{...}" />
-                <marker date="1480930577000" expanded="true" signature="2019:2174" ph="{...}" />
-                <marker date="1480930577000" expanded="true" signature="2028:2036" ph="{...}" />
-                <marker date="1480930577000" expanded="true" signature="2044:2048" ph="{...}" />
-                <marker date="1480930577000" expanded="true" signature="2056:2079" ph="{...}" />
-                <marker date="1480930577000" expanded="true" signature="2056:2122" ph="{...}" />
-                <marker date="1480930577000" expanded="true" signature="2080:2122" ph="{...}" />
-                <marker date="1480930577000" expanded="true" signature="2090:2095" ph="{...}" />
-                <marker date="1480930577000" expanded="true" signature="2104:2113" ph="{...}" />
+                <marker date="1486729854000" expanded="true" signature="7:310" ph="..." />
               </folding>
             </state>
           </provider>
@@ -145,16 +100,10 @@
       <file leaf-file-name="answer.tsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/components/content/answer.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            <state relative-caret-position="270">
+              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
               <folding>
-                <marker date="1486656633000" expanded="true" signature="1201:1342" ph="{...}" />
-                <marker date="1486656633000" expanded="true" signature="1213:1219" ph="{...}" />
-                <marker date="1486656633000" expanded="true" signature="1220:1342" ph="{...}" />
-                <marker date="1486656633000" expanded="true" signature="1227:1231" ph="{...}" />
-                <marker date="1486656633000" expanded="true" signature="1277:1289" ph="{...}" />
-                <marker date="1486656633000" expanded="true" signature="1277:1336" ph="{...}" />
-                <marker date="1486656633000" expanded="true" signature="1290:1336" ph="{...}" />
+                <marker date="1486729854000" expanded="true" signature="7:191" ph="..." />
               </folding>
             </state>
           </provider>
@@ -163,18 +112,18 @@
       <file leaf-file-name="auth.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/lib/auth.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+            <state relative-caret-position="180">
+              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/misc/config/base.js">
+      <file leaf-file-name="findWithRegexesAndSelectionAndState.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegexesAndSelectionAndState.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="41" column="68" selection-start-line="41" selection-start-column="68" selection-end-line="41" selection-end-column="68" />
+            <state relative-caret-position="270">
+              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -183,7 +132,7 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="615">
               <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
               <folding />
             </state>
@@ -193,8 +142,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="184" column="63" selection-start-line="184" selection-start-column="63" selection-end-line="184" selection-end-column="63" />
+            <state relative-caret-position="297">
+              <caret line="179" column="129" selection-start-line="179" selection-start-column="129" selection-end-line="179" selection-end-column="129" />
               <folding />
             </state>
           </provider>
@@ -259,14 +208,14 @@
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegex.js" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/modifiers/addMention.js" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/index.js" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegexesAndSelectionAndState.js" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/index.js" />
         <option value="$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx" />
         <option value="$PROJECT_DIR$/source/scripts/components/content/answer.tsx" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/source/scripts/lib/auth.ts" />
-        <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/misc/config/base.js" />
+        <option value="$PROJECT_DIR$/tsconfig.json" />
+        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/index.js" />
+        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegexesAndSelectionAndState.js" />
       </list>
     </option>
   </component>
@@ -275,9 +224,6 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="PhpServers">
     <servers />
@@ -356,7 +302,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -447,6 +393,54 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="politbase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="politbase" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="draft-js-model-plugin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="politbase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="politbase" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="components" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -479,7 +473,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -593,31 +587,32 @@
       <workItem from="1483802327761" duration="1507000" />
       <workItem from="1485090498676" duration="21552000" />
       <workItem from="1485855434147" duration="152351000" />
+      <workItem from="1486729864737" duration="1549000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372537000" />
+    <option name="totallyTimeSpent" value="374086000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25686592" sideWeight="0.4879121" order="3" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25282714" sideWeight="0.4879121" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19709209" sideWeight="0.51208794" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5058997" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18578352" sideWeight="0.50769234" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5058997" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -696,7 +691,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -704,26 +698,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
           <caret line="18" column="79" selection-start-line="18" selection-start-column="79" selection-end-line="18" selection-end-column="79" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/CompoundDecorator.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/NestableDecorator.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="50" column="75" selection-start-line="50" selection-start-column="75" selection-end-line="50" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/lib/CompoundDecorator.tsx-" />
+    <entry file="file://$PROJECT_DIR$/source/scripts/lib/NestableDecorator.tsx-" />
     <entry file="file://$PROJECT_DIR$/source/styles/index.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
@@ -736,7 +715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1010">
           <caret line="70" column="70" selection-start-line="70" selection-start-column="70" selection-end-line="70" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -744,7 +722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-175">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -752,7 +729,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -760,7 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -768,7 +743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -792,7 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -800,7 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="29" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -808,7 +780,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -816,11 +787,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1479150756000" expanded="true" signature="2104:2180" ph="{...}" />
-            <marker date="1479150756000" expanded="true" signature="2116:2121" ph="{...}" />
-            <marker date="1479150756000" expanded="true" signature="2122:2180" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -828,7 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="41" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -836,7 +802,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -844,7 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
           <caret line="551" column="55" selection-start-line="551" selection-start-column="52" selection-end-line="551" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -852,7 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -860,7 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -868,7 +830,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -876,7 +837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -892,7 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="8" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -908,7 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -916,49 +874,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
           <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <marker date="1486411665000" expanded="true" signature="5363:5711" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5375:5380" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5381:5711" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5399:5409" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5399:5652" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5409:5652" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5466:5652" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5488:5498" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5519:5524" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5519:5634" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5525:5634" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5551:5555" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5551:5612" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5556:5612" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5569:5574" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5582:5586" ph="{...}" />
-            <marker date="1486411665000" expanded="true" signature="5639:5652" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findCurrentWordByRegexAndSelection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegexAndSelection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findCurrentWordByRegexAndSelection.js" />
+    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegexAndSelection.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/find-with-regex/lib/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -970,19 +895,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/multiRegExp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="35" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/multiRegExp.js" />
     <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/defaultRegExp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -998,7 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1018,19 +934,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegexesAndSelectionAndState.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="104" selection-start-line="1" selection-start-column="104" selection-end-line="1" selection-end-column="104" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStrategy.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1038,38 +945,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1342">
           <caret line="9" column="14" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="184" column="63" selection-start-line="184" selection-start-column="63" selection-end-line="184" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="86" selection-start-line="1" selection-start-column="86" selection-end-line="1" selection-end-column="86" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="615">
           <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/auth.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1084,59 +966,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/types/props.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
+        <state relative-caret-position="1200">
           <caret line="80" column="12" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
-          <folding />
+          <folding>
+            <marker date="1486729854000" expanded="true" signature="7:84" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/components/content/answer.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        <state relative-caret-position="270">
+          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
           <folding>
-            <marker date="1486656633000" expanded="true" signature="1201:1342" ph="{...}" />
-            <marker date="1486656633000" expanded="true" signature="1213:1219" ph="{...}" />
-            <marker date="1486656633000" expanded="true" signature="1220:1342" ph="{...}" />
-            <marker date="1486656633000" expanded="true" signature="1227:1231" ph="{...}" />
-            <marker date="1486656633000" expanded="true" signature="1277:1289" ph="{...}" />
-            <marker date="1486656633000" expanded="true" signature="1277:1336" ph="{...}" />
-            <marker date="1486656633000" expanded="true" signature="1290:1336" ph="{...}" />
+            <marker date="1486729854000" expanded="true" signature="7:191" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/components/content/answerVote.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="53" column="6" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
+        <state relative-caret-position="780">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
-            <marker date="1480930577000" expanded="true" signature="2000:2174" ph="{...}" />
-            <marker date="1480930577000" expanded="true" signature="2012:2018" ph="{...}" />
-            <marker date="1480930577000" expanded="true" signature="2019:2174" ph="{...}" />
-            <marker date="1480930577000" expanded="true" signature="2028:2036" ph="{...}" />
-            <marker date="1480930577000" expanded="true" signature="2044:2048" ph="{...}" />
-            <marker date="1480930577000" expanded="true" signature="2056:2079" ph="{...}" />
-            <marker date="1480930577000" expanded="true" signature="2056:2122" ph="{...}" />
-            <marker date="1480930577000" expanded="true" signature="2080:2122" ph="{...}" />
-            <marker date="1480930577000" expanded="true" signature="2090:2095" ph="{...}" />
-            <marker date="1480930577000" expanded="true" signature="2104:2113" ph="{...}" />
+            <marker date="1486729854000" expanded="true" signature="7:310" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tsconfig.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        <state relative-caret-position="268">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/misc/config/base.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="41" column="68" selection-start-line="41" selection-start-column="68" selection-end-line="41" selection-end-column="68" />
+        <state relative-caret-position="165">
+          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/lib/auth.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="179" column="129" selection-start-line="179" selection-start-column="129" selection-end-line="179" selection-end-column="129" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegexesAndSelectionAndState.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
           <folding />
         </state>
       </provider>

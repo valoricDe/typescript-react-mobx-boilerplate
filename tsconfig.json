@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "es6",
     "target": "es6",
     "jsx": "react",
     "experimentalDecorators": true,
@@ -9,16 +9,8 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "types": [
-      "node",
-      "jest",
-      "react",
-      "react-dom",
-      "mobx"
-    ]
+    "moduleResolution": "node"
   },
-
   "exclude": [
     "node_modules",
     "build",
@@ -26,10 +18,5 @@
     "vendor",
     "data",
     "__test__"
-  ],
-  "awesomeTypescriptLoaderOptions": {
-    "silent": true,
-    "useBabel": true,
-    "useCache": true
-  }
+  ]
 }
