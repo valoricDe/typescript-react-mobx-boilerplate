@@ -178,7 +178,7 @@ export default class MentionSuggestions extends Component {
 	};
 
 	onSearchChange = (editorState, selection, activeOffsetKey, lastActiveOffsetKey) => {
-		const search = findWithRegexesAndSelectionAndState(editorState, selection, [this.props.mentionTriggerRegExp], [4]);
+		const search = findWithRegexesAndSelectionAndState(editorState, selection, [this.props.mentionTriggerRegExp], [4], [1, 3]);
 
 		if (this.lastSearchValue !== search.match || activeOffsetKey !== lastActiveOffsetKey) {
 			this.lastSearchValue = search.match;
