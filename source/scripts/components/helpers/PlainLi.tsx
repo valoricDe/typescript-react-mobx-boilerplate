@@ -1,5 +1,4 @@
-import React from "react";
-import Component = React.Component;
+import {Component} from "react";
 
 export default class PlainLi extends Component<any, void> {
 	public render(): JSX.Element {

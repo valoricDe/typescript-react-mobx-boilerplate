@@ -4,9 +4,6 @@ import RelayNetworkLayer from "./RelayNetworkLayer";
 const graphql = require('../../../misc/settings').graphql;
 //const graphql = {host: 'localhost', port: 3000};
 
-const RelayX: any = Relay;
-const localStorageX: any = localStorage;
-
 class Auth {
 	environment;
 	afterLogin;
@@ -16,36 +13,36 @@ class Auth {
 
 
 	constructor() {
-		this.environment = new RelayX.Environment();
+		this.environment = new Relay.Environment();
 		// Inject a new network layer into Relay with NO token
 		this.environment.injectNetworkLayer(this._buildNetworkLayer());
 	}
 
 	getToken() {
-		return localStorageX.accessToken;
+		return localStorage.accessToken;
 	}
 
 	login(token) {
 		// persist token in localStorage
-		localStorageX.accessToken = token;
+		localStorage.accessToken = token;
 		// "Renew" this.environment each login
-		this.environment = new RelayX.Environment();
+		this.environment = new Relay.Environment();
 		this.environment.injectNetworkLayer(this._buildNetworkLayer());
 		if (this.afterLogin) this.afterLogin();
 	}
 
 	logout(callback) {
 		// delete token from localStorage
-		delete localStorageX.accessToken;
+		delete localStorage.accessToken;
 		// Renew this.environment each logout to override
-		this.environment = new RelayX.Environment();
+		this.environment = new Relay.Environment();
 		this.environment.injectNetworkLayer(this._buildNetworkLayer());
 		if (callback) callback();
 		if (this.afterLogout) this.afterLogout();
 	}
 
 	loggedIn() {
-		return !!localStorageX.accessToken;
+		return !!localStorage.accessToken;
 	}
 
 	getEnvironment(){
@@ -69,7 +66,7 @@ class Auth {
 			onError: (error, init) => {
 				console.log('_buildNetworkLayer', error);
 				if((error.status == 400 || error.status == 500) && loggedIn) {
-					delete localStorageX.accessToken;
+					delete localStorage.accessToken;
 					delete init['Authorization'];
 					if(this.onTokenError) this.onTokenError();
 					else return true;

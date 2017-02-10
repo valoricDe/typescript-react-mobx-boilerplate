@@ -7,7 +7,7 @@ import NavItem from 'react-bootstrap/lib/NavItem';
 import NavDropdown from 'react-bootstrap/lib/NavDropdown';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
 import PlainLi from "./helpers/PlainLi";
-const Auth = require('../lib/auth');
+import Auth from '../lib/auth';
 
 class AppClass extends Component<Props.IAppProps, void> {
 
