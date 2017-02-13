@@ -6,9 +6,7 @@ import Entry from './Entry';
 import addMention from '../modifiers/addMention';
 import decodeOffsetKey from '../utils/decodeOffsetKey';
 import defaultEntryComponent from './Entry/defaultEntryComponent';
-import findByEditorStateSelectionAndRegexes from "../utils/findWithRegexesAndSelectionAndState";
-import findWithRegexesAndSelectionAndState from "../utils/findWithRegexesAndSelectionAndState";
-import {findByTextOffsetAndRegexes} from "../utils/findWithRegexesAndSelectionAndState";
+import {getTextAndOffset, findWithRegex} from "../utils/customFindWithRegex";
 
 export default class MentionSuggestions extends Component {
 
@@ -31,7 +29,7 @@ export default class MentionSuggestions extends Component {
 	};
 
 	//noinspection ConstantConditionalExpressionJS
-	mayBeEmpty = false ? -1 : 0;
+	mayBeEmpty = true ? -1 : 0;
 
 	state = {
 		isActive: false,
@@ -91,8 +89,6 @@ export default class MentionSuggestions extends Component {
 	onEditorStateChange = (editorState) => {
 		const searches = this.props.store.getAllSearches();
 
-		console.log('searches', searches.toJS());
-
 		// if no search portal is active there is no need to show the popover
 		if (searches.size === 0) {
 			return editorState;
@@ -123,8 +119,6 @@ export default class MentionSuggestions extends Component {
 					.getBlockTree(blockKey)
 					.getIn([decoratorKey, 'leaves', leafKey])
 			));
-
-		console.log('leaves', leaves.toJS());
 
 		// if all leaves are undefined the popover should be removed
 		if (leaves.every((leave) => leave === undefined)) {
@@ -178,12 +172,15 @@ export default class MentionSuggestions extends Component {
 	};
 
 	onSearchChange = (editorState, selection, activeOffsetKey, lastActiveOffsetKey) => {
-		const search = findWithRegexesAndSelectionAndState(editorState, selection, [this.props.mentionTriggerRegExp], [4], [1, 3]);
+		const [text, offset] = getTextAndOffset(editorState, selection);
+		const search = findWithRegex(text, (startMatch, endMatch, match) => (startMatch <= offset && offset <= endMatch) ? match : null, this.props.mentionTriggerRegExp, 2);
 
-		if (this.lastSearchValue !== search.match || activeOffsetKey !== lastActiveOffsetKey) {
+		if (search && (this.lastSearchValue !== search.match || activeOffsetKey !== lastActiveOffsetKey)) {
 			this.lastSearchValue = search.match;
-			const wordSearch = findByTextOffsetAndRegexes(search.match, selection.getAnchorOffset() - search.start, [/[\w_\d\.,]+/g]);
-			this.props.onSearchChange({fullMatch: search.match, wordMatch: wordSearch.match});
+			console.log(this.lastSearchValue);
+			const newOffset = offset - search.start;
+			const wordSearch = findWithRegex(search.match, (startMatch, endMatch, match) => (startMatch <= newOffset && newOffset <= endMatch) ? match : null, [/[\w_\d\.,]+/g]);
+			this.props.onSearchChange({fullMatch: search.match, wordMatch: wordSearch ? wordSearch.match : ''});
 		}
 	};
 
@@ -294,6 +291,7 @@ export default class MentionSuggestions extends Component {
 		this.props.ariaProps.ariaOwneeID = undefined;
 		this.setState({
 			isActive: false,
+			focusedOptionIndex: this.mayBeEmpty
 		});
 
 		if (this.props.onClose) {

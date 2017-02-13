@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {RichUtils, Modifier, EditorState, SelectionState, convertToRaw} from 'draft-js';
+import {RichUtils, Modifier, EditorState, SelectionState, convertToRaw, Entity} from 'draft-js';
 import Button from "react-bootstrap/lib/Button";
 import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
 import ButtonToolbar from "react-bootstrap/lib/ButtonToolbar";
@@ -10,11 +10,17 @@ const draftJsModelPlugin = require('../../lib/draft-js-model-plugin');
 const createMentionPlugin = draftJsModelPlugin.default;
 const createLinkifyPlugin = require('draft-js-linkify-plugin').default;
 const defaultSuggestionsFilter = draftJsModelPlugin.defaultSuggestionsFilter;
-import {Map, List, fromJS, Seq} from 'immutable';
+import {Map, List} from 'immutable';
+import {Draggable} from "react-touch";
+import {observable} from "mobx";
+import {observer} from "mobx-react";
+import {Calculation} from "./calculation";
+import decorateWithProps from 'decorate-component-with-props';
 var math = require('mathjs');
-/*math.config({
-	number: 'Fraction'
-});*/
+
+//math.config({
+// precision: 2
+// });
 
 math.createUnit(
 	{
@@ -57,50 +63,23 @@ const Entry = (props) => {
 					<div className={theme.mentionSuggestionsEntryText}>
 						{math.format(mention.get('value'), {precision: 2})}
 					</div>
-
-					<div className={theme.mentionSuggestionsEntryTitle}>
-						{mention.get('source')}
-					</div>
 				</div>
+			</div>
+			<div className={theme.mentionSuggestionsEntryTitle}>
+				{mention.get('source')}
 			</div>
 		</div>
 	);
 };
 
+@observer
 export class MyEditor extends React.Component<any, any> {
+	@observable readOnly = false;
+
 	constructor(props) {
 		super(props);
 
 		this.state = {editorState: props.editorState, suggestions: List(), models: Map()};
-		const myEditor = this;
-
-		class Mention extends React.Component<any, any> {
-			componentDidMount() {
-				if(!this.props.mention.get('isShallow')) {
-					myEditor.setState({models: myEditor.state.models.set(this.props.entityKey, this.props.mention)});
-				}
-			}
-
-			componentWillUnmount() {
-				if(!this.props.mention.get('isShallow')) {
-					console.log('componentWillUnmount', myEditor.state.models.toJS());
-					myEditor.setState({models: myEditor.state.models.delete(this.props.entityKey)});
-				}
-			}
-
-			render() {
-				//console.log('Mention.render:'+this.props.entityKey, this.props.mention);
-				//console.log('Mention.render:'+this.props.entityKey, this.props.mention.toJS());
-				return (
-					<span
-						className={this.props.className}
-						contentEditable={false}
-					>
-			{this.props.mention.get('value').toString()}
-			</span>
-				);
-			}
-		}
 
 		const mentionPlugin = createMentionPlugin({
 			mentionTrigger: '[ ',
@@ -114,14 +93,28 @@ export class MyEditor extends React.Component<any, any> {
 			 };
 			 },*/
 			//theme: {mentionSuggestions: 'mentionSuggestion mentionSuggestionPortal'}
-			mentionComponent: Mention,
-			editorRepresentation: (mention, isEntry) => mention.get('name')+(isEntry ? ' ' : ''),
+			mentionComponent: decorateWithProps(Calculation, {
+				models: this.state.models,
+				updateModels: (models) => this.updateModels(models),
+				setReadOnly: (readOnly) => this.setReadOnly(readOnly),
+				getNodeFromNewMentionValue: (model, value) => this.getNodeFromNewMentionValue(model, value),
+				recalculateModelValues: () => this.recalculateModelValues(),
+			}),
+			editorRepresentation: (mention, isEntry) => isEntry ? mention.get('name')+' ' : mention.get('node').toString(),
 		});
 		this.MentionSuggestions = mentionPlugin.MentionSuggestions;
 
 		this.plugins = [
 			mentionPlugin,
 		];
+	}
+
+	updateModels(models) {
+		this.setState({models});
+	}
+
+	setReadOnly(readonly) {
+		this.readOnly = readonly;
 	}
 
 	onChange = (editorState) => {
@@ -184,6 +177,21 @@ export class MyEditor extends React.Component<any, any> {
 		}
 	}
 
+	getNodeFromNewMentionValue(mention, value) {
+		let node = mention.get('node');
+		if(node.isConstantNode) {
+			node.value = String(value);
+		}
+		else if(node.value.isConstantNode) {
+			node.value.value = String(value);
+		}
+		return mention;
+	}
+
+	recalculateModelValues() {
+		this.setState({models: this.state.models.map(mention => mention.merge({value: mention.get('node').compile().eval(scope)}))});
+	}
+
 	onAddMention = ({mention, isEntry}) => {
 		if (isEntry) {
 			return mention;
@@ -196,10 +204,12 @@ export class MyEditor extends React.Component<any, any> {
 		try {
 			const value = node.compile().eval(scope);
 			let name = node.name;
+			let editable = node.isConstantNode || node.value.isConstantNode;
 			const modelNames = this.state.models.map(model => model.get('name'));
 			if(node.isAssignmentNode || node.isFunctionAssignmentNode) {
-				if(modelNames.includes(name)) // identifier already exists
-					return;
+				if(modelNames.includes(name)) {
+					return; // identifier already exists
+				}
 			}
 			else {
 				if(!name) {
@@ -213,9 +223,10 @@ export class MyEditor extends React.Component<any, any> {
 				if(!node) return;
 			}
 
+
 			console.log('onAddMention', value);
 
-			return Map({name, value, node, source: "http://example.org"});
+			return Map({name, value, node, source: "http://example.org", editable});
 		}
 		catch (error) {
 			console.log('onAddMention', error);
@@ -228,10 +239,13 @@ export class MyEditor extends React.Component<any, any> {
 	}
 
 	render() {
-		const {readOnly} = this.props;
 		const {MentionSuggestions} = this;
 
-		//console.log("does rerender");
+		console.log("does rerender");
+
+		const editorContainerStyle = {width: this.state.models.length ? '70%': '70%'};
+		const modelsContainerStyle = {display: this.state.models.length ? 'block' : 'block', paddingLeft: '6px', borderLeft: '1px solid #ccc'};
+		const modelsContainerHeadlineStyle = {margin: '0'};
 
 		return (
 			<div>
@@ -241,59 +255,64 @@ export class MyEditor extends React.Component<any, any> {
 						<Button onClick={this.onUnderlineClick}>Underline</Button>
 					</ButtonGroup>
 				</ButtonToolbar>
-				<div className="form-control" style={{height: 'auto'}}>
-					<Editor
-						editorState={this.state.editorState}
-						onChange={this.onChange}
-						plugins={this.plugins}
-						handleKeyCommand={this.handleKeyCommand}
-						spellCheck={true}
-						readOnly={readOnly}
-						handleBeforeInput={(chars: String) => {
-							if (chars === '[') {
-								const { editorState } = this.state;
-								const content = editorState.getCurrentContent();
-								const selection = editorState.getSelection();
+				<div className={"form-control editorPanels"+(this.readOnly ? ' noselect': '')} style={{height: 'auto'}}>
+					<div style={editorContainerStyle}>
+						<Editor
+							editorState={this.state.editorState}
+							onChange={this.onChange}
+							plugins={this.plugins}
+							handleKeyCommand={this.handleKeyCommand}
+							spellCheck={true}
+							readOnly={this.readOnly}
+							handleBeforeInput={(chars: String) => {
+								if (chars === '[') {
+									const { editorState } = this.state;
+									const content = editorState.getCurrentContent();
+									const selection = editorState.getSelection();
 
-								let textFunction = Modifier.insertText;
-								let editorChangeType = 'insert-text';
+									let textFunction = Modifier.insertText;
+									let editorChangeType = 'insert-text';
 
-								if(selection.getAnchorOffset() != selection.getFocusOffset() ) {
-									textFunction = Modifier.replaceText;
-									editorChangeType = 'replace-text';
+									if(selection.getAnchorOffset() != selection.getFocusOffset() ) {
+										textFunction = Modifier.replaceText;
+										editorChangeType = 'replace-text';
+									}
+
+									const contentReplaced = textFunction(
+											content,
+											selection,
+											"[  ]"
+										);
+
+									const selectionAfter = contentReplaced.getSelectionAfter();
+									const contentReplaced2 = contentReplaced.set('selectionAfter', selectionAfter.merge({
+												anchorOffset: selectionAfter.getAnchorOffset()-2,
+												focusOffset: selectionAfter.getFocusOffset()-2
+											}));
+									const editorStateModified = EditorState.push(
+											editorState,
+											contentReplaced2,
+											editorChangeType
+										);
+
+									this.setState({editorState:editorStateModified});
+									return 'handled';
 								}
-
-								const contentReplaced = textFunction(
-										content,
-										selection,
-										"[  ]"
-									);
-
-								const selectionAfter = contentReplaced.getSelectionAfter();
-								const contentReplaced2 = contentReplaced.set('selectionAfter', selectionAfter.merge({
-											anchorOffset: selectionAfter.getAnchorOffset()-2,
-											focusOffset: selectionAfter.getFocusOffset()-2
-										}));
-								const editorStateModified = EditorState.push(
-										editorState,
-										contentReplaced2,
-										editorChangeType
-									);
-
-								this.setState({editorState:editorStateModified});
-								return 'handled';
+								return 'not-handled';
+							}}
+							handleDrop={
+								(selection, dataTransfer, isInternal) =>
+								{ console.log('handleDrop', selection, dataTransfer, isInternal); return 'not-handled' }
 							}
-							return 'not-handled';
-						}}
-						handleDrop={
-							(selection, dataTransfer, isInternal) =>
-							{ console.log('handleDrop', selection, dataTransfer, isInternal); return 'not-handled' }
-						}
-					/>
+						/>
+					</div>
+					<div style={modelsContainerStyle}>
+						<p className="calculation-headline" style={modelsContainerHeadlineStyle}>Calculations (started by typing "["):</p>
+						<ul style={{listStyleType: "none", padding: "0"}}>
+							{this.state.models.map((v, i) => <li key={i}>{v.get('node').toString()}</li>).toArray()}
+						</ul>
+					</div>
 				</div>
-				<ul>
-					{this.state.models.map((v, i) => <li key={i}>{v.get('name')} {v.get('node').toString()} {v.get('value').toString()} {v.get('node').compile().eval(scope).toString()} {v.get('node').type}</li>).toArray()}
-				</ul>
 
 				<MentionSuggestions
 					onSearchChange={this.onSearchChange}

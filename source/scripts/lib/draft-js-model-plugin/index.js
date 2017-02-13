@@ -10,6 +10,7 @@ import mentionStyles from './mentionStyles.css';
 import mentionSuggestionsStyles from './mentionSuggestionsStyles.css';
 import mentionSuggestionsPortalStyles from './mentionSuggestionsPortalStyles.css';
 import mentionSuggestionsEntryStyles from './mentionSuggestionsEntryStyles.css';
+import mentionSuggestionsEntryContainerStyles from './mentionSuggestionsEntryContainerStyles.css';
 import suggestionsFilter from './utils/defaultSuggestionsFilter';
 import defaultPositionSuggestions from './utils/positionSuggestions';
 import escapeRegExp from 'lodash.escaperegexp';
@@ -23,8 +24,12 @@ export default (config = {}) => {
 		// CSS class for decorated text aka suggestions portal
 		mentionSuggestionsPortal: mentionSuggestionsPortalStyles.mentionSuggestionsPortal,
 		// CSS classes for an entry in the suggestions component
+		mentionSuggestionsEntryContainer: mentionSuggestionsEntryContainerStyles.mentionSuggestionsEntryContainer,
+		mentionSuggestionsEntryContainerLeft: mentionSuggestionsEntryContainerStyles.mentionSuggestionsEntryContainerLeft,
+		mentionSuggestionsEntryContainerRight: mentionSuggestionsEntryContainerStyles.mentionSuggestionsEntryContainerRight,
 		mentionSuggestionsEntry: mentionSuggestionsEntryStyles.mentionSuggestionsEntry,
 		mentionSuggestionsEntryFocused: mentionSuggestionsEntryStyles.mentionSuggestionsEntryFocused,
+		mentionSuggestionsEntryTitle: mentionSuggestionsEntryStyles.mentionSuggestionsEntryTitle,
 		mentionSuggestionsEntryText: mentionSuggestionsEntryStyles.mentionSuggestionsEntryText,
 		mentionSuggestionsEntryAvatar: mentionSuggestionsEntryStyles.mentionSuggestionsEntryAvatar,
 	};
@@ -94,7 +99,7 @@ export default (config = {}) => {
 		mentionTrigger = '@',
 		mentionTriggerSuffix = '',
 		mentionRegExp = defaultRegExp,
-		mentionTriggerRegExp = new RegExp(`(\\s|^)((${escapeRegExp(mentionTrigger)})(${mentionRegExp})${mentionTriggerSuffix ? escapeRegExp(mentionTriggerSuffix) : ''})`, 'g'),
+		mentionTriggerRegExp = new RegExp(`(?:\\s|^)(${escapeRegExp(mentionTrigger)}(${mentionRegExp})${mentionTriggerSuffix ? escapeRegExp(mentionTriggerSuffix) : ''})`, 'g'),
 	} = config;
 	const mentionSearchProps = {
 		ariaProps,
@@ -115,7 +120,7 @@ export default (config = {}) => {
 				component: decorateComponentWithProps(Mention, {theme, mentionComponent}),
 			},
 			{
-				strategy: mentionSuggestionsStrategy(mentionTriggerRegExp, 2),
+				strategy: mentionSuggestionsStrategy(mentionTriggerRegExp, 1),
 				component: decorateComponentWithProps(MentionSuggestionsPortal, {theme, store}),
 			},
 		],

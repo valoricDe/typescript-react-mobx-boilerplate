@@ -1,0 +1,15 @@
+.mentionSuggestionsEntryContainer {
+	display: table;
+	width: 100%;
+}
+
+.mentionSuggestionsEntryContainerLeft,
+.mentionSuggestionsEntryContainerRight {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.mentionSuggestionsEntryContainerRight {
+	width: 100%;
+	padding-left: 8px;
+}

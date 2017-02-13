@@ -12,6 +12,13 @@
 	background-color: #e6f3ff;
 }
 
+.mentionSuggestionsEntryText,
+.mentionSuggestionsEntryTitle {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 .mentionSuggestionsEntryText {
 	display: inline-block;
 	margin-left: 8px;
@@ -23,9 +30,16 @@
 	margin-bottom: 0.2em;
 }
 
+.mentionSuggestionsEntryTitle {
+	font-size: 80%;
+	color: #a7a7a7;
+}
+
 .mentionSuggestionsEntryAvatar {
 	display: inline-block;
 	width: 24px;
 	height: 24px;
 	border-radius: 12px;
 }
+
+
