@@ -2,24 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4a836e1-f73a-4031-a3bd-44f1c858908f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/components/content/calculation.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsEntryContainerStyles.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/MultiRegExp2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/customFindWithRegex.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegex.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegexesAndSelectionAndState.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/components/helpers/TextDecorator.tsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/components/layout.tsx" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/source/scripts/components/app.tsx" afterPath="$PROJECT_DIR$/source/scripts/app.tsx" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/customFindWithRegex.js" afterPath="$PROJECT_DIR$/source/scripts/lib/customFindWithRegex.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.babelrc" afterPath="$PROJECT_DIR$/.babelrc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misc/config/base.js" afterPath="$PROJECT_DIR$/misc/config/base.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misc/config/dev.js" afterPath="$PROJECT_DIR$/misc/config/dev.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misc/settings.js" afterPath="$PROJECT_DIR$/misc/settings.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/__tests__/app.test.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/__tests__/app.test.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/answer.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/answer.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/calculation.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/calculation.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/createQuestion.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/createQuestion.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/helpers/PlainLi.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/helpers/PlainLi.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/question.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/question.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/questionBox.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/questionBox.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/questionList.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/questionList.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/userBox.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/userBox.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/index.tsx" afterPath="$PROJECT_DIR$/source/scripts/index.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/index.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/index.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsEntryStyles.css" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsEntryStyles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStrategy.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStrategy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStyles.css" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStyles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/modifiers/addMention.js" afterPath="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/modifiers/addMention.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/routeProvider.tsx" afterPath="$PROJECT_DIR$/source/scripts/routeProvider.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/styles/index.scss" afterPath="$PROJECT_DIR$/source/styles/index.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/styles/partials/_tangle.scss" afterPath="$PROJECT_DIR$/source/styles/partials/_tangle.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.js" afterPath="$PROJECT_DIR$/test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tsconfig.json" afterPath="$PROJECT_DIR$/tsconfig.json" />
     </list>
     <ignored path="politbase.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,61 +63,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="myEditor.tsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="myEditor.tsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="100" column="76" selection-start-line="100" selection-start-column="76" selection-end-line="100" selection-end-column="76" />
+            <state relative-caret-position="-4110">
+              <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_tangle.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/styles/partials/_tangle.scss">
+      <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+            <state relative-caret-position="397">
+              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="calculation.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/components/content/calculation.tsx">
+      <file leaf-file-name="tsconfig.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tsconfig.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="17" column="74" selection-start-line="17" selection-start-column="74" selection-end-line="17" selection-end-column="74" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Draggable.react.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/react-touch/src/Draggable.react.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="computePositionStyle.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/react-touch/src/computePositionStyle.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addMention.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/modifiers/addMention.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-250">
-              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+            <state relative-caret-position="195">
+              <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -117,44 +96,99 @@
       <file leaf-file-name="createQuestion.tsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/scripts/components/content/createQuestion.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="42" column="72" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="72" />
+            <state relative-caret-position="210">
+              <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
               <folding>
-                <marker date="1486732154000" expanded="true" signature="5395:5743" ph="{...}" />
-                <marker date="1486732154000" expanded="true" signature="5407:5412" ph="{...}" />
-                <marker date="1486732154000" expanded="true" signature="5413:5743" ph="{...}" />
-                <marker date="1486732154000" expanded="true" signature="5431:5441" ph="{...}" />
-                <marker date="1486732154000" expanded="true" signature="5431:5684" ph="{...}" />
-                <marker date="1486732154000" expanded="true" signature="5498:5684" ph="{...}" />
-                <marker date="1486732154000" expanded="true" signature="5520:5530" ph="{...}" />
-                <marker date="1486732154000" expanded="true" signature="5551:5556" ph="{...}" />
-                <marker date="1486732154000" expanded="true" signature="5551:5666" ph="{...}" />
-                <marker date="1486732154000" expanded="true" signature="5557:5666" ph="{...}" />
-                <marker date="1486732154000" expanded="true" signature="5583:5587" ph="{...}" />
-                <marker date="1486732154000" expanded="true" signature="5583:5644" ph="{...}" />
-                <marker date="1486732154000" expanded="true" signature="5588:5644" ph="{...}" />
-                <marker date="1486732154000" expanded="true" signature="5601:5606" ph="{...}" />
-                <marker date="1486732154000" expanded="true" signature="5614:5618" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5751:6099" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5763:5768" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5769:6099" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5787:5797" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5787:6040" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5854:6040" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5876:5886" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5907:5912" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5907:6022" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5913:6022" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5939:5943" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5939:6000" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5944:6000" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5957:5962" ph="{...}" />
+                <marker date="1487255126000" expanded="true" signature="5970:5974" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/index.js">
+      <file leaf-file-name="dev.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/misc/config/dev.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-197">
-              <caret line="228" column="8" selection-start-line="228" selection-start-column="8" selection-end-line="228" selection-end-column="8" />
+            <state relative-caret-position="195">
+              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/index.js">
+      <file leaf-file-name="index.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scripts/index.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="114" column="12" selection-start-line="114" selection-start-column="12" selection-end-line="114" selection-end-column="12" />
+            <state relative-caret-position="75">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TextDecorator.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scripts/components/helpers/TextDecorator.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="370">
+              <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="question.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scripts/components/content/question.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+              <folding>
+                <marker date="1487102465000" expanded="true" signature="3889:4161" ph="{...}" />
+                <marker date="1487102465000" expanded="true" signature="3901:3909" ph="{...}" />
+                <marker date="1487102465000" expanded="true" signature="3910:4161" ph="{...}" />
+                <marker date="1487102465000" expanded="true" signature="4023:4028" ph="{...}" />
+                <marker date="1487102465000" expanded="true" signature="4033:4038" ph="{...}" />
+                <marker date="1487102465000" expanded="true" signature="4043:4054" ph="{...}" />
+                <marker date="1487102465000" expanded="true" signature="4059:4071" ph="{...}" />
+                <marker date="1487102465000" expanded="true" signature="4059:4116" ph="{...}" />
+                <marker date="1487102465000" expanded="true" signature="4072:4116" ph="{...}" />
+                <marker date="1487102465000" expanded="true" signature="4316:4391" ph="{...}" />
+                <marker date="1487102465000" expanded="true" signature="4322:4391" ph="{...}" />
+                <marker date="1487102465000" expanded="true" signature="4324:4339" ph="{...}" />
+                <marker date="1487102465000" expanded="true" signature="4324:4389" ph="{...}" />
+                <marker date="1487102465000" expanded="true" signature="4352:4389" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calculation.tsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/scripts/components/content/calculation.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="49" column="24" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scripts/app.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -173,27 +207,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/postgraph-server.js" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/NestableDecorator.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/CompositeDecorator.ts" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.js" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/CompositeDecorator.tsx" />
-        <option value="$PROJECT_DIR$/node_modules/draft-js-plugins-editor/lib/Editor/MultiDecorator.js" />
-        <option value="$PROJECT_DIR$/node_modules/draft-js-plugins-editor/lib/Editor/index.js" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/CompoundDecorator.tsx" />
-        <option value="$PROJECT_DIR$/node_modules/draft-js-linkify-plugin/lib/Link/index.js" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1.js" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionStrategy.js" />
         <option value="$PROJECT_DIR$/node_modules/find-with-regex/lib/index.js" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsPortalStyles.css" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/__test__/index.js" />
-        <option value="$PROJECT_DIR$/source/scripts/components/content/createQuestion.tsx" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.js" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestionsPortal/index.js" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/Entry/index.js" />
@@ -205,17 +225,12 @@
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findByEditorStateSelectionAndRegexes.js" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/multiRegExp.js" />
         <option value="$PROJECT_DIR$/source/scripts/components/content/answer.tsx" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/source/scripts/lib/auth.ts" />
-        <option value="$PROJECT_DIR$/misc/config/base.js" />
-        <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.js" />
-        <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/source/scripts/components/helpers/PlainLi.tsx" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegexesAndSelectionAndState.js" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/customFindWithRegexAndSelection.js" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegex.js" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStrategy.js" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/customFindWithRegex.js" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/MultiRegExp2.js" />
         <option value="$PROJECT_DIR$/source/scripts/mutations/updateQuestion.ts" />
@@ -225,11 +240,27 @@
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsEntryStyles.css" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsEntryContainerStyles.css" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/index.js" />
+        <option value="$PROJECT_DIR$/source/styles/partials/_tangle.scss" />
+        <option value="$PROJECT_DIR$/.babelrc" />
+        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/source/styles/index.scss" />
         <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/modifiers/addMention.js" />
-        <option value="$PROJECT_DIR$/source/styles/partials/_tangle.scss" />
-        <option value="$PROJECT_DIR$/source/scripts/components/content/calculation.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/components/app.tsx" />
+        <option value="$PROJECT_DIR$/misc/settings.js" />
+        <option value="$PROJECT_DIR$/misc/config/base.js" />
+        <option value="$PROJECT_DIR$/misc/config/dev.js" />
+        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStrategy.js" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/questionList.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/app.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/index.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/question.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/components/helpers/TextDecorator.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/createQuestion.tsx" />
+        <option value="$PROJECT_DIR$/tsconfig.json" />
+        <option value="$PROJECT_DIR$/node_modules/mathjs/lib/utils/string.js" />
+        <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/calculation.tsx" />
       </list>
     </option>
   </component>
@@ -238,6 +269,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="PhpServers">
     <servers />
@@ -316,8 +350,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -346,250 +380,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="draft-js-model-plugin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="draft-js-model-plugin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="draft-js-model-plugin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modifiers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="draft-js-model-plugin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MentionSuggestions" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="node_modules" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -608,7 +398,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="react-touch" />
+              <option name="myItemId" value="mathjs" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -622,15 +412,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react-touch" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="misc" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -644,41 +426,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
+              <option name="myItemId" value="misc" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="react-touch" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="examples" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react-touch" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="examples" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="smartphone-dashboard" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -692,7 +444,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="nodejs_interpreter_path" value="/opt/local/bin/node" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../forks/postgraphql" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../forks/mathjs" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="GraphQL&#10;JavaScript&#10;JSON&#10;HTML" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
     <property name="JavaScriptPreferStrict" value="false" />
@@ -700,18 +452,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/scripts/lib" />
+      <recent name="$PROJECT_DIR$/source/scripts" />
       <recent name="$PROJECT_DIR$/source/scripts/components/content" />
       <recent name="$PROJECT_DIR$/vendor" />
       <recent name="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils" />
-      <recent name="$PROJECT_DIR$/source/scripts/vendor" />
-      <recent name="$PROJECT_DIR$/source/scripts/lib" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/scripts/components/helpers" />
+      <recent name="$PROJECT_DIR$/source/scripts/components" />
       <recent name="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin" />
       <recent name="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils" />
       <recent name="$PROJECT_DIR$/source/scripts/lib" />
-      <recent name="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions" />
-      <recent name="$PROJECT_DIR$/source/scripts/components/content" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.test.js">
@@ -814,12 +566,13 @@
       <workItem from="1485090498676" duration="21552000" />
       <workItem from="1485855434147" duration="152351000" />
       <workItem from="1486729864737" duration="1549000" />
-      <workItem from="1486732210678" duration="71067000" />
+      <workItem from="1486732210678" duration="106810000" />
+      <workItem from="1487256687546" duration="14238000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="445153000" />
+    <option name="totallyTimeSpent" value="495134000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -828,17 +581,17 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19224556" sideWeight="0.4879121" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19547658" sideWeight="0.4879121" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19709209" sideWeight="0.51208794" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.107669614" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18578352" sideWeight="0.50769234" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -921,228 +674,11 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/defaultRegExp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/Mention/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/react-relay/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1342">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/types/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/types/props.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="80" column="12" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/answerVote.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/misc/config/base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/auth.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_4.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/answer.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="31" />
-          <folding>
-            <marker date="1486732154000" expanded="true" signature="1233:1374" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1245:1251" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1252:1374" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1259:1263" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1309:1321" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1309:1368" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1322:1368" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/helpers/PlainLi.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="31" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="713" column="17" selection-start-line="654" selection-start-column="0" selection-end-line="713" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.es5.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="1213" column="4" selection-start-line="1213" selection-start-column="4" selection-end-line="1213" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="1213" column="4" selection-start-line="1213" selection-start-column="4" selection-end-line="1213" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionStrategy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStrategy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/customFindWithRegex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="60" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/MultiRegExp2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="125" column="47" selection-start-line="125" selection-start-column="47" selection-end-line="125" selection-end-column="47" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/tagToken.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-          <folding>
-            <marker date="1486732154000" expanded="true" signature="1284:1495" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1296:1299" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1300:1495" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1318:1322" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1339:1350" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1390:1407" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1390:1481" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1431:1481" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1453:1463" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/components/content/userBox.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-          <folding>
-            <marker date="1486732154000" expanded="true" signature="952:1034" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="964:968" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="969:1034" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="975:983" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="988:1005" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="988:1029" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1006:1029" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1013:1023" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1174,51 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
           <caret line="44" column="12" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
-          <folding>
-            <marker date="1486911817000" expanded="true" signature="196:223" ph="{...}" />
-            <marker date="1486911817000" expanded="true" signature="205:223" ph="{...}" />
-            <marker date="1486911817000" expanded="true" signature="207:221" ph="{...}" />
-            <marker date="1486911817000" expanded="true" signature="418:464" ph="{...}" />
-            <marker date="1486911817000" expanded="true" signature="430:451" ph="{...}" />
-            <marker date="1486911817000" expanded="true" signature="452:464" ph="{...}" />
-            <marker date="1486911817000" expanded="true" signature="454:462" ph="{...}" />
-            <marker date="1486911817000" expanded="true" signature="967:1001" ph="{...}" />
-            <marker date="1486911817000" expanded="true" signature="979:987" ph="{...}" />
-            <marker date="1486911817000" expanded="true" signature="988:1001" ph="{...}" />
-            <marker date="1486911817000" expanded="true" signature="993:995" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/questionList.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="55" column="33" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
-          <folding>
-            <marker date="1486732154000" expanded="true" signature="1821:2225" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1833:1838" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1839:2225" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1848:1863" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1848:2033" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1920:2033" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1930:1940" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1946:1951" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1946:2024" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1952:2024" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1960:1964" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1960:2017" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="1965:2017" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="2038:2050" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="2038:2169" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="2062:2169" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="2069:2079" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="2085:2090" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="2085:2163" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="2091:2163" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="2099:2103" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="2099:2156" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="2104:2156" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1226,45 +717,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="105" column="16" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="16" />
-          <folding>
-            <marker date="1486912501000" expanded="true" signature="4037:4553" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4049:4057" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4058:4553" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4159:4164" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4169:4174" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4179:4190" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4195:4199" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4204:4226" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4204:4429" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4238:4429" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4245:4250" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4245:4423" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4251:4423" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4277:4281" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4277:4415" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4282:4415" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4312:4320" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4312:4389" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4321:4389" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4355:4359" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4434:4446" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4434:4502" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4447:4502" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4454:4459" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4507:4524" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4507:4548" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4525:4548" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4532:4542" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4592:4655" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4604:4609" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4610:4655" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4628:4641" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4813:4888" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4819:4888" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4821:4836" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4821:4886" ph="{...}" />
-            <marker date="1486912501000" expanded="true" signature="4849:4886" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1272,7 +725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1280,7 +732,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1288,7 +739,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1296,7 +746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1304,7 +753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="77" selection-start-line="0" selection-start-column="77" selection-end-line="0" selection-end-column="77" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1312,7 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1320,51 +767,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="11" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/styles/index.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="716">
-          <caret line="92" column="22" selection-start-line="92" selection-start-column="22" selection-end-line="92" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/createQuestion.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="42" column="72" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="72" />
-          <folding>
-            <marker date="1486732154000" expanded="true" signature="5395:5743" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="5407:5412" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="5413:5743" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="5431:5441" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="5431:5684" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="5498:5684" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="5520:5530" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="5551:5556" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="5551:5666" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="5557:5666" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="5583:5587" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="5583:5644" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="5588:5644" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="5601:5606" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="5614:5618" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/createAnswer.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-470">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <marker date="1486732154000" expanded="true" signature="2136:2212" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="2148:2153" ph="{...}" />
-            <marker date="1486732154000" expanded="true" signature="2154:2212" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1380,7 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1388,7 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-465">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1396,7 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="19" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1404,7 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1412,7 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="35">
           <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1420,7 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1432,34 +828,301 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/index.js">
+    <entry file="file://$PROJECT_DIR$/source/styles/index.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="114" column="12" selection-start-line="114" selection-start-column="12" selection-end-line="114" selection-end-column="12" />
+        <state relative-caret-position="90">
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/modifiers/addMention.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-250">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        <state relative-caret-position="245">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/calculation.tsx">
+    <entry file="file://$PROJECT_DIR$/.babelrc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="17" column="74" selection-start-line="17" selection-start-column="74" selection-end-line="17" selection-end-column="74" />
+        <state relative-caret-position="105">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/layout.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-405">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1486732154000" expanded="true" signature="2247:2329" ph="{...}" />
+            <marker date="1486732154000" expanded="true" signature="2259:2264" ph="{...}" />
+            <marker date="1486732154000" expanded="true" signature="2265:2329" ph="{...}" />
+            <marker date="1486732154000" expanded="true" signature="2274:2285" ph="{...}" />
+            <marker date="1486732154000" expanded="true" signature="2274:2324" ph="{...}" />
+            <marker date="1486732154000" expanded="true" signature="2286:2324" ph="{...}" />
+            <marker date="1486732154000" expanded="true" signature="2293:2298" ph="{...}" />
+            <marker date="1486732154000" expanded="true" signature="2307:2315" ph="{...}" />
+            <marker date="1486732154000" expanded="true" signature="2495:2554" ph="{...}" />
+            <marker date="1486732154000" expanded="true" signature="2501:2554" ph="{...}" />
+            <marker date="1486732154000" expanded="true" signature="2503:2508" ph="{...}" />
+            <marker date="1486732154000" expanded="true" signature="2503:2552" ph="{...}" />
+            <marker date="1486732154000" expanded="true" signature="2509:2552" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/misc/settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/misc/config/base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="75" column="29" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/mathjs/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="577" column="60" selection-start-line="577" selection-start-column="52" selection-end-line="577" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/misc/schema.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="3386" column="9" selection-start-line="3386" selection-start-column="9" selection-end-line="3386" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionStrategy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-string-replace/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-415">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStrategy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/lib/customFindWithRegex.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/helpers/PlainLi.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="31" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/decorate-component-with-props/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/decorate-component-with-props/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-175">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/Mention/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="20" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/createAnswer.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <marker date="1486732154000" expanded="true" signature="2136:2212" ph="{...}" />
+            <marker date="1486732154000" expanded="true" signature="2148:2153" ph="{...}" />
+            <marker date="1486732154000" expanded="true" signature="2154:2212" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/questionList.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="75" column="30" selection-start-line="75" selection-start-column="30" selection-end-line="75" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="119" column="58" selection-start-line="119" selection-start-column="58" selection-end-line="119" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/routeProvider.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="62" column="15" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/app.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/misc/config/dev.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/createQuestion.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+          <folding>
+            <marker date="1487255126000" expanded="true" signature="5751:6099" ph="{...}" />
+            <marker date="1487255126000" expanded="true" signature="5763:5768" ph="{...}" />
+            <marker date="1487255126000" expanded="true" signature="5769:6099" ph="{...}" />
+            <marker date="1487255126000" expanded="true" signature="5787:5797" ph="{...}" />
+            <marker date="1487255126000" expanded="true" signature="5787:6040" ph="{...}" />
+            <marker date="1487255126000" expanded="true" signature="5854:6040" ph="{...}" />
+            <marker date="1487255126000" expanded="true" signature="5876:5886" ph="{...}" />
+            <marker date="1487255126000" expanded="true" signature="5907:5912" ph="{...}" />
+            <marker date="1487255126000" expanded="true" signature="5907:6022" ph="{...}" />
+            <marker date="1487255126000" expanded="true" signature="5913:6022" ph="{...}" />
+            <marker date="1487255126000" expanded="true" signature="5939:5943" ph="{...}" />
+            <marker date="1487255126000" expanded="true" signature="5939:6000" ph="{...}" />
+            <marker date="1487255126000" expanded="true" signature="5944:6000" ph="{...}" />
+            <marker date="1487255126000" expanded="true" signature="5957:5962" ph="{...}" />
+            <marker date="1487255126000" expanded="true" signature="5970:5974" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/question.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding>
+            <marker date="1487102465000" expanded="true" signature="3889:4161" ph="{...}" />
+            <marker date="1487102465000" expanded="true" signature="3901:3909" ph="{...}" />
+            <marker date="1487102465000" expanded="true" signature="3910:4161" ph="{...}" />
+            <marker date="1487102465000" expanded="true" signature="4023:4028" ph="{...}" />
+            <marker date="1487102465000" expanded="true" signature="4033:4038" ph="{...}" />
+            <marker date="1487102465000" expanded="true" signature="4043:4054" ph="{...}" />
+            <marker date="1487102465000" expanded="true" signature="4059:4071" ph="{...}" />
+            <marker date="1487102465000" expanded="true" signature="4059:4116" ph="{...}" />
+            <marker date="1487102465000" expanded="true" signature="4072:4116" ph="{...}" />
+            <marker date="1487102465000" expanded="true" signature="4316:4391" ph="{...}" />
+            <marker date="1487102465000" expanded="true" signature="4322:4391" ph="{...}" />
+            <marker date="1487102465000" expanded="true" signature="4324:4339" ph="{...}" />
+            <marker date="1487102465000" expanded="true" signature="4324:4389" ph="{...}" />
+            <marker date="1487102465000" expanded="true" signature="4352:4389" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mathjs/lib/utils/string.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/helpers/TextDecorator.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="100" column="76" selection-start-line="100" selection-start-column="76" selection-end-line="100" selection-end-column="76" />
+        <state relative-caret-position="-4110">
+          <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/calculation.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="49" column="24" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
           <folding />
         </state>
       </provider>

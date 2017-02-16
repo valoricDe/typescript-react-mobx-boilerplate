@@ -1,6 +1,6 @@
 import {Modifier, EditorState, Entity} from 'draft-js';
 import getTypeByTrigger from '../utils/getTypeByTrigger';
-import {getTextAndOffset, findWithRegex} from "../utils/customFindWithRegex";
+import {getTextAndOffset, findWithRegex} from "../../customFindWithRegex";
 
 const addMention = (editorState, mention, editorRepresentation, mentionTrigger, mentionTriggerRegExp, entityMutability, isEntry) => {
 	const entityKey = Entity.create( getTypeByTrigger(mentionTrigger) + (isEntry ? '-usage' : ''), entityMutability, {mention});

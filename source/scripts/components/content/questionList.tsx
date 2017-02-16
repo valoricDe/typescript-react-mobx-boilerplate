@@ -49,7 +49,7 @@ const QuestionList = Relay.createContainer(QuestionListClass, {
 		store: (vars) => {
 			return Relay.QL`
     		fragment on Query {
-    			searchQuestions(search: $query, first: 20) @include(if: $queryIsTruthy) {
+    			searchQuestions(search: $query, last: 20) @include(if: $queryIsTruthy) {
     				totalCount
 					edges {
 						node {
@@ -57,7 +57,7 @@ const QuestionList = Relay.createContainer(QuestionListClass, {
 						}
 					}
     			}
-				allQuestions(first: 20) {
+				allQuestions(last: 20) {
 					totalCount
 					edges {
 						node {

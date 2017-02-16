@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 
-import App from '../app';
+import App from '../layout';
 
 import createStores from '../../main/create-stores';
 

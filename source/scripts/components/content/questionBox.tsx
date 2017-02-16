@@ -59,11 +59,11 @@ class QuestionBoxClass extends Component<Props.IQuestionProps, void> {
 				>
 					<UserBox store={store.userByAuthor} details={false} className="pull-right"/>
 					<p className="pull-right"> . </p>
-					<Button bsStyle={store.answersByQuestion.totalCount > 0 ? "success" : "warning"} className="pull-right" style={{"text-align": "center", padding: "15px"}} title={"This question has "+store.answersByQuestion.totalCount+" answers."}>
+					<Button bsStyle={store.answersByQuestion.totalCount > 0 ? "success" : "warning"} className="pull-right" style={{"textAlign": "center", padding: "15px"}} title={"This question has "+store.answersByQuestion.totalCount+" answers."}>
 						<small>Answers</small>
 						<p>{store.answersByQuestion.totalCount}</p>
 					</Button>
-					<Button bsStyle={store.answersByQuestion.totalCount > 0 ? "success" : "warning"} className="pull-right" style={{"text-align": "center", padding: "15px"}} title={"This question has "+store.answersByQuestion.totalCount+" answers."}>
+					<Button bsStyle={store.answersByQuestion.totalCount > 0 ? "success" : "warning"} className="pull-right" style={{"textAlign": "center", padding: "15px"}} title={"This question has "+store.answersByQuestion.totalCount+" answers."}>
 						<small>Answers</small>
 						<p>{store.answersByQuestion.totalCount}</p>
 					</Button>

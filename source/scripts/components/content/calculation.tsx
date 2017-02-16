@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {Draggable} from "react-touch";
+import math from 'mathjs';
 
-export class Calculation extends React.Component<any, any> {
-	valueAtDragStart = 0;
+export default class Calculation extends React.Component<any, any> {
+	valueAtDragStart;
 	positionX = 0;
 
 	componentDidMount() {
@@ -15,7 +16,7 @@ export class Calculation extends React.Component<any, any> {
 	}
 
 	render() {
-		let {mention, entityKey, setReadOnly, getNodeFromNewMentionValue, recalculateModelValues} = this.props;
+		let {mention, entityKey, setReadOnly, updateValue} = this.props;
 		let value = mention.get('value');
 
 		if(mention.get('editable')) {
@@ -23,39 +24,34 @@ export class Calculation extends React.Component<any, any> {
 				style={{translateX: 0, translateY: 0}}
 				position={{left: 0}}
 				onMouseDown={(test) => { console.log('mouse start', test); setReadOnly(true); this.valueAtDragStart = mention.get('value'); }}
-				onTouchStart={(test) => { console.log('touch start', test); setReadOnly(true); }}
+				onTouchStart={(test) => { console.log('touch start', test); setReadOnly(true); this.valueAtDragStart = mention.get('value'); }}
 				onDrag={(delta) => {
 							this.positionX += delta.left;
 
-							let newValue = this.valueAtDragStart + (this.valueAtDragStart * Math.round(this.positionX/10) / 10);
+							let newValue = math.add(this.valueAtDragStart, math.divide(math.multiply(this.valueAtDragStart, Math.round(this.positionX/10)), 10));
 							if(value != newValue) {
 								value = newValue;
-								getNodeFromNewMentionValue(mention, newValue);
-								recalculateModelValues();
+								updateValue(entityKey, mention, newValue);
 							}
 						}}
 				onDragEnd={() => { console.log('drag end'); setReadOnly(false); }}
 			>
 				{(position) => {
-
-					let displayValue = this.valueAtDragStart ? this.valueAtDragStart + (this.valueAtDragStart * Math.round(position.dx/10) / 10) : value;
-
-					console.log(position, mention.get('value'));
+					let displayValue = this.valueAtDragStart ? math.add(this.valueAtDragStart, math.divide(math.multiply(this.valueAtDragStart, Math.round(position.dx/10)), 10)) : value;
 					return <span
 						className={"adjustable-number "}
 					>
-							{displayValue}
-						</span>;
+						{math.format(displayValue, 5)}
+					</span>;
 				}}
 			</Draggable>;
 		}
 		else {
 			return <span
 				className={"calculated-result "}
-				contentEditable={false}
 			>
-							{math.format(value, {precision: 2})}
-						</span>;
+				{math.format(value, 5)}
+			</span>;
 		}
 	}
 }

@@ -3,7 +3,7 @@ import IndexRoute from 'react-router/lib/IndexRoute';
 import Route from 'react-router/lib/Route';
 
 const Auth = require('./lib/auth');
-import App, {AppQueries} from "./components/app";
+import App, {AppQueries} from "./components/layout";
 import QuestionList from "./components/content/questionList";
 import HomePage from "./components/pages/homePage";
 import RegisterUser from "./components/content/registerUser";

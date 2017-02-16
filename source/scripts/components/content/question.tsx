@@ -11,11 +11,17 @@ import UserBox from "./userBox";
 import AnswersList from "./answerList";
 import Link from "react-router/lib/Link";
 import QuestionTagList from "./questionTagList";
+import TextDecorator from "../helpers/TextDecorator";
+import {findWithRegex} from '../../lib/customFindWithRegex';
+import yaml from 'js-yaml';
+import {Map} from 'immutable';
+import Calculation from "./calculation";
 
 @observer
 class QuestionClass extends Component<Props.IQuestionProps, void> {
 	@observable isEditing = false;
 	@observable isValidInput = false;
+	@observable models = Map();
 
 	edit = () => {
 		this.isEditing = true;
@@ -64,7 +70,15 @@ class QuestionClass extends Component<Props.IQuestionProps, void> {
 						<Input label="Title" value={item.title} placeholder={item.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
 					}
 					{!this.isEditing ?
-						<p>{item.description}</p> :
+						<TextDecorator
+							decorator={{
+								strategy: (text, callback) => findWithRegex(text, callback, /(###\[(\{.+?})]###)/g, 2, 1),
+								component: Calculation
+							}}
+							decoratorProps={text => { return {mention: Map(JSON.parse(text)), models: this.models, updateModels: (models) => this.models}; }}
+						>
+							{item.description}
+						</TextDecorator> :
 						<Textarea
 							label="Description"
 							name="description"

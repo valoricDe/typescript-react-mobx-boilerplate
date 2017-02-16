@@ -31,6 +31,7 @@ const paths = {
 };
 
 const server = {
+	protocol: 'http',
 	host: 'localhost',
 	port: 7070,
 };

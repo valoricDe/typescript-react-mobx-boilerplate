@@ -73,6 +73,14 @@ class CreateQuestionComponent extends Component<Props.ICreateQuestionProps, void
 		);
 	};
 
+	onChange = (editorState) => {
+		this.editorState = editorState;
+		const contentState = this.editorState.getCurrentContent();
+		const editorContentRaw = convertToRaw(contentState);
+		console.log(editorContentRaw);
+		console.log(exportHtml.stateToHTML(this.editorState.getCurrentContent()));
+	}
+
 	cancel = () => {
 		this.props.router.push('/questions');
 	};
@@ -93,8 +101,8 @@ class CreateQuestionComponent extends Component<Props.ICreateQuestionProps, void
 
 		const contentState = this.editorState.getCurrentContent();
 		const editorContentRaw = convertToRaw(contentState);
-		console.log(editorContentRaw);
-		console.log(exportHtml.stateToHTML(this.editorState.getCurrentContent()));
+		console.log('createQuestion', editorContentRaw);
+		console.log('CreateQeustion', exportHtml.stateToHTML(this.editorState.getCurrentContent()));
 
 		const titleFieldStyles = {"paddingRight":"16px","lineHeight":"56px","fontSize":"20px","position":"relative","textOverflow":"ellipsis","whiteSpace":"nowrap","overflow":"hidden","color":"rgba(0, 0, 0, 0.4)"};
 
@@ -105,7 +113,7 @@ class CreateQuestionComponent extends Component<Props.ICreateQuestionProps, void
 					<fieldset>
 						<Input label="Title" value={item.title} placeholder={item.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
 						<Row label="Description" for="description" required layout="horizontal">
-							<MyEditor editorState={this.editorState} readOnly={this.editorReadOnly} />
+							<MyEditor onChange={this.onChange} editorState={this.editorState} readOnly={this.editorReadOnly} />
 						</Row>
 						<Row label="Tags" for="tags" required layout="horizontal">
 							<Typeahead

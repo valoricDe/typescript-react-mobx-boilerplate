@@ -1,4 +1,4 @@
-import MultiRegExp2 from './MultiRegExp2'
+import MultiRegExp2 from './draft-js-model-plugin/utils/MultiRegExp2'
 
 export function getTextAndOffset(editorState, selection) {
 	const anchorKey = selection.getAnchorKey();

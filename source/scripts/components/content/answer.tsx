@@ -13,7 +13,7 @@ class AnswerClass extends Component<Props.IAnswerProps, void> {
 			style['border'] = '1px solid red';
 		}
 
-		const titleFieldStyles = {"text-align": "top", "paddingRight":"16px","lineHeight":"56px","fontSize":"20px","position":"relative","textOverflow":"ellipsis","whiteSpace":"nowrap","overflow":"hidden","color":"rgba(0, 0, 0, 0.4)"};
+		const titleFieldStyles = {"textAlign": "top", "paddingRight":"16px","lineHeight":"56px","fontSize":"20px","position":"relative","textOverflow":"ellipsis","whiteSpace":"nowrap","overflow":"hidden","color":"rgba(0, 0, 0, 0.4)"};
 
 		return (
 			<div style={style}>

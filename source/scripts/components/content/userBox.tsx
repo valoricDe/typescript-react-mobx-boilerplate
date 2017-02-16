@@ -9,7 +9,7 @@ class UserBoxComponent extends Component<Props.IUserProps, void> {
 		const item = this.props.store;
 
 		return (
-			<Panel className={this.props.className ? this.props.className : ''} style={{"text-align": "center", padding: "0", margin: "0"}} title={"User asked "+(item.questionsByAuthor.totalCount ? item.questionsByAuthor.totalCount : 'no')+" question(s) yet"}>
+			<Panel className={this.props.className ? this.props.className : ''} style={{"textAlign": "center", padding: "0", margin: "0"}} title={"User asked "+(item.questionsByAuthor.totalCount ? item.questionsByAuthor.totalCount : 'no')+" question(s) yet"}>
 				<small>Asked By</small>
 				<p><Link to={'/user/'+item.username}>{item.username}</Link></p>
 			</Panel>

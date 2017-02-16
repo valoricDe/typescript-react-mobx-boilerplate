@@ -6,7 +6,7 @@ import Entry from './Entry';
 import addMention from '../modifiers/addMention';
 import decodeOffsetKey from '../utils/decodeOffsetKey';
 import defaultEntryComponent from './Entry/defaultEntryComponent';
-import {getTextAndOffset, findWithRegex} from "../utils/customFindWithRegex";
+import {getTextAndOffset, findWithRegex} from "../../customFindWithRegex";
 
 export default class MentionSuggestions extends Component {
 

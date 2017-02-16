@@ -8,39 +8,37 @@ const createHashtagPlugin = require('draft-js-hashtag-plugin').default;
 import 'draft-js-hashtag-plugin/lib/plugin.css';
 const draftJsModelPlugin = require('../../lib/draft-js-model-plugin');
 const createMentionPlugin = draftJsModelPlugin.default;
-const createLinkifyPlugin = require('draft-js-linkify-plugin').default;
-const defaultSuggestionsFilter = draftJsModelPlugin.defaultSuggestionsFilter;
 import {Map, List} from 'immutable';
-import {Draggable} from "react-touch";
 import {observable} from "mobx";
 import {observer} from "mobx-react";
-import {Calculation} from "./calculation";
+import Calculation from "./calculation";
 import decorateWithProps from 'decorate-component-with-props';
-var math = require('mathjs');
+import math from 'mathjs';
+import yaml from 'js-yaml';
+import MathNode = mathjs.MathNode;
+import 'core-js/fn/object/entries';
 
 //math.config({
 // precision: 2
 // });
 
-math.createUnit(
-	{
-		dollar: {},
-		euro: {},
-		foo: {},
-		bar: {
-			definition: 'kg/foo',
-			aliases: ['ba', 'barr', 'bars'],
-			offset: 200
-		},
-		baz: '4 bar'
-	},
-	{
-		override: true
-	}
-);
 
 var scope = {};
-math.eval('dollar = 0.92840 euro', scope);
+var currencyMapper = {
+	'EUR': ['euro', '€'],
+	'USD': ['dollar'],
+};
+
+/*fetch("http://api.fixer.io/latest")
+	.then(response => response.json())
+	.then(json => {
+		math.createUnit(json.base, {aliases: currencyMapper[json.base]});
+		Object.entries(json.rates).forEach(([currency, rate]) => {
+			console.log('EUR = '+rate+' '+currency);
+			math.createUnit(currency, {definition: (1/rate)+' EUR', aliases: currencyMapper[currency]});
+		});
+	})
+	.catch(console.error);*/
 
 const Entry = (props) => {
 	const {
@@ -61,7 +59,7 @@ const Entry = (props) => {
 
 				<div className={theme.mentionSuggestionsEntryContainerRight}>
 					<div className={theme.mentionSuggestionsEntryText}>
-						{math.format(mention.get('value'), {precision: 2})}
+						{math.format(mention.get('value'))}
 					</div>
 				</div>
 			</div>
@@ -93,14 +91,20 @@ export class MyEditor extends React.Component<any, any> {
 			 };
 			 },*/
 			//theme: {mentionSuggestions: 'mentionSuggestion mentionSuggestionPortal'}
-			mentionComponent: decorateWithProps(Calculation, {
-				models: this.state.models,
-				updateModels: (models) => this.updateModels(models),
-				setReadOnly: (readOnly) => this.setReadOnly(readOnly),
-				getNodeFromNewMentionValue: (model, value) => this.getNodeFromNewMentionValue(model, value),
-				recalculateModelValues: () => this.recalculateModelValues(),
-			}),
-			editorRepresentation: (mention, isEntry) => isEntry ? mention.get('name')+' ' : mention.get('node').toString(),
+			mentionComponent: ({children, ...props}) =>
+				<Calculation
+					models={this.state.models}
+					updateModels={this.updateModels.bind(this)}
+					setReadOnly={this.setReadOnly.bind(this)}
+					updateValue={this.updateNodeWithValue.bind(this)}
+					{...props}
+				>
+
+					{children}
+				</Calculation>,
+			editorRepresentation: (mention, isEntry) => {
+				return isEntry ? mention.get('name') + ' ' : '###[' + JSON.stringify(mention.toJSON()) + ']###';
+			},
 		});
 		this.MentionSuggestions = mentionPlugin.MentionSuggestions;
 
@@ -110,6 +114,7 @@ export class MyEditor extends React.Component<any, any> {
 	}
 
 	updateModels(models) {
+		//scope = models.map(model => [model.get('name'), model.get('value')]).reduce((obj, [k, v]) => ({ ...obj, [k]: v }), {});
 		this.setState({models});
 	}
 
@@ -123,6 +128,7 @@ export class MyEditor extends React.Component<any, any> {
 		//const models = Map(contentState.entityMap).toList().filter(v => v.type === entityType).map(v => v.data.mention);
 
 		this.setState({editorState});
+		this.props.onChange(editorState);
 	}
 
 	handleKeyCommand = (command) => {
@@ -177,19 +183,28 @@ export class MyEditor extends React.Component<any, any> {
 		}
 	}
 
-	getNodeFromNewMentionValue(mention, value) {
-		let node = mention.get('node');
-		if(node.isConstantNode) {
-			node.value = String(value);
-		}
-		else if(node.value.isConstantNode) {
-			node.value.value = String(value);
-		}
-		return mention;
+	updateNodeWithValue = (entityKey, mention, value) => {
+		let node:MathNode = mention.get('node');
+
+		this.recalculateModelValues(this.state.models.set(entityKey, mention.set('node', node)));
 	}
 
-	recalculateModelValues() {
-		this.setState({models: this.state.models.map(mention => mention.merge({value: mention.get('node').compile().eval(scope)}))});
+	recalculateModelValues(models) {
+		this.setState({models: models.map(mention => mention.set('value', mention.get('node').compile().eval(scope)))});
+	}
+
+	nodeIsEditable(node: MathNode) {
+		// direct editable nodes
+		let direct = node.isConstantNode ||
+			(node.value && node.value.isConstantNode) ||
+			(node.isOperatorNode && node.args[0].isConstantNode && node.args[1].isSymbolNode);
+		// assigned editable nodes
+		let assigned = node.isAssignementNode && node.value && (
+				node.value.isConstantNode ||
+				(node.value.value && node.value.value.isConstantNode) ||
+				(node.value.isOperatorNode && node.value.args[0].isConstantNode && node.value.args[1].isSymbolNode)
+			);
+		return direct || assigned;
 	}
 
 	onAddMention = ({mention, isEntry}) => {
@@ -204,7 +219,7 @@ export class MyEditor extends React.Component<any, any> {
 		try {
 			const value = node.compile().eval(scope);
 			let name = node.name;
-			let editable = node.isConstantNode || node.value.isConstantNode;
+			let editable = this.nodeIsEditable(node);
 			const modelNames = this.state.models.map(model => model.get('name'));
 			if(node.isAssignmentNode || node.isFunctionAssignmentNode) {
 				if(modelNames.includes(name)) {
@@ -241,7 +256,7 @@ export class MyEditor extends React.Component<any, any> {
 	render() {
 		const {MentionSuggestions} = this;
 
-		console.log("does rerender");
+		console.log("does rerender", scope);
 
 		const editorContainerStyle = {width: this.state.models.length ? '70%': '70%'};
 		const modelsContainerStyle = {display: this.state.models.length ? 'block' : 'block', paddingLeft: '6px', borderLeft: '1px solid #ccc'};
@@ -309,7 +324,7 @@ export class MyEditor extends React.Component<any, any> {
 					<div style={modelsContainerStyle}>
 						<p className="calculation-headline" style={modelsContainerHeadlineStyle}>Calculations (started by typing "["):</p>
 						<ul style={{listStyleType: "none", padding: "0"}}>
-							{this.state.models.map((v, i) => <li key={i}>{v.get('node').toString()}</li>).toArray()}
+							{this.state.models.map((v, i) => <li key={i}>{math.format(v.get('node'), 5)}</li>).toArray()}
 						</ul>
 					</div>
 				</div>
