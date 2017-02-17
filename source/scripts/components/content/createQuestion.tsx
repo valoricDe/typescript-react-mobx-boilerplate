@@ -64,7 +64,7 @@ class CreateQuestionComponent extends Component<Props.ICreateQuestionProps, void
 		const editorContentRaw = convertToRaw(contentState);
 		console.log(editorContentRaw);
 
-		item.description = exportHtml.stateToHTML(this.editorState.getCurrentContent());
+		item.description = JSON.stringify(editorContentRaw); //exportHtml.stateToHTML(this.editorState.getCurrentContent());
 		item.tagIds = this.selectedTagIds;
 		const onSuccess = () => this.props.router.push('/questions');
 		this.props.relay.commitUpdate(

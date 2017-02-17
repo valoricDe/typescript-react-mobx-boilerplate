@@ -15,7 +15,7 @@ import TextDecorator from "../helpers/TextDecorator";
 import {findWithRegex} from '../../lib/customFindWithRegex';
 import yaml from 'js-yaml';
 import {Map} from 'immutable';
-import Calculation from "./calculation";
+import Calculation from "./calculation"; import {ReadOnlyEditor} from "./ReadOnlyEditor";
 
 @observer
 class QuestionClass extends Component<Props.IQuestionProps, void> {
@@ -70,15 +70,16 @@ class QuestionClass extends Component<Props.IQuestionProps, void> {
 						<Input label="Title" value={item.title} placeholder={item.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
 					}
 					{!this.isEditing ?
-						<TextDecorator
-							decorator={{
-								strategy: (text, callback) => findWithRegex(text, callback, /(###\[(\{.+?})]###)/g, 2, 1),
-								component: Calculation
-							}}
-							decoratorProps={text => { return {mention: Map(JSON.parse(text)), models: this.models, updateModels: (models) => this.models}; }}
-						>
+						/*
+						 decorator={{
+						 strategy: (text, callback) => findWithRegex(text, callback, /(###\[(\{.+?})]###)/g, 2, 1),
+						 component: Calculation
+						 }}
+						 decoratorProps={text => { return {mention: Map(JSON.parse(text)), models: this.models, updateModels: (models) => this.models}; }}
+						 */
+						<ReadOnlyEditor onChange={() => {}}>
 							{item.description}
-						</TextDecorator> :
+						</ReadOnlyEditor> :
 						<Textarea
 							label="Description"
 							name="description"

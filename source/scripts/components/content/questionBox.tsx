@@ -9,7 +9,7 @@ import { Panel, ButtonToolbar, Button } from 'react-bootstrap';
 import UpdateQuestionMutation from '../../mutations/updateQuestion'
 import UserBox from "./userBox";
 import Link from "react-router/lib/Link";
-import QuestionTagList from "./questionTagList";
+import QuestionTagList from "./questionTagList"; import {ReadOnlyEditor} from "./ReadOnlyEditor";
 
 @observer
 class QuestionBoxClass extends Component<Props.IQuestionProps, void> {
@@ -73,7 +73,9 @@ class QuestionBoxClass extends Component<Props.IQuestionProps, void> {
 						<Input label="Title" value={store.title} placeholder={store.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
 					}
 					{!this.isEditing ?
-						<p>{store.description}</p> :
+						<ReadOnlyEditor onChange={() => {}}>
+							{store.description}
+						</ReadOnlyEditor> :
 						<Textarea
 							label="Description"
 							name="description"

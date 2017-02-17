@@ -30,10 +30,6 @@ export default class TextDecorator extends Component<any, void> {
 		return children;
 	}
 
-	HTMLString = (props) => {
-		return
-	}
-
 	public render(): JSX.Element {
 		const children = this.getChildren(this.props.children, this.props.decorator, this.props.decoratorProps);
 		return <p>{children}</p>;

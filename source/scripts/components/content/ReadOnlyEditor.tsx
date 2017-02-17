@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {RichUtils, Modifier, EditorState, SelectionState, convertToRaw, Entity} from 'draft-js';
+import {RichUtils, Modifier, EditorState, SelectionState, convertToRaw, Entity, convertFromRaw, ContentState, convertFromHTML} from 'draft-js';
 import Button from "react-bootstrap/lib/Button";
 import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
 import ButtonToolbar from "react-bootstrap/lib/ButtonToolbar";
@@ -22,11 +22,9 @@ import 'core-js/fn/object/entries';
 // precision: 2
 // });
 
-
-var scope = {};
 var currencyMapper = {
 	'EUR': ['euro', '€'],
-	'USD': ['dollar'],
+	'USD': ['dollar', '$'],
 };
 
 /*fetch("http://api.fixer.io/latest")
@@ -71,13 +69,30 @@ const Entry = (props) => {
 };
 
 @observer
-export class MyEditor extends React.Component<any, any> {
+export class ReadOnlyEditor extends React.Component<any, any> {
 	@observable readOnly = false;
+	scope = {};
+	calculations = false;
 
 	constructor(props) {
 		super(props);
 
-		this.state = {editorState: props.editorState, suggestions: List(), models: Map()};
+		let contentState;
+		try {
+			const contentStateJSON = JSON.parse(props.children);
+			contentState = convertFromRaw(contentStateJSON);
+			contentState = new ContentState(contentState);
+			this.calculations = true;
+		}
+		catch(e) {
+			console.log('ReadOnly constructor', e);
+			const blocksFromHTML = convertFromHTML(props.children);
+			contentState = ContentState.createFromBlockArray(
+				blocksFromHTML.contentBlocks,
+				blocksFromHTML.entityMap,
+			);
+		}
+		this.state = {editorState: EditorState.createWithContent(contentState), suggestions: List(), models: Map(), calculationComponents: Map()};
 
 		const mentionPlugin = createMentionPlugin({
 			mentionTrigger: '[ ',
@@ -93,8 +108,9 @@ export class MyEditor extends React.Component<any, any> {
 			//theme: {mentionSuggestions: 'mentionSuggestion mentionSuggestionPortal'}
 			mentionComponent: ({children, ...props}) =>
 				<Calculation
-					scope={scope}
-					models={this.state.models}
+					store={this.state}
+					container={this}
+					updateComponents={this.updateCalculationComponents.bind(this)}
 					updateModels={this.updateModels.bind(this)}
 					setReadOnly={this.setReadOnly.bind(this)}
 					updateValue={this.updateNodeWithValue.bind(this)}
@@ -115,9 +131,9 @@ export class MyEditor extends React.Component<any, any> {
 		];
 	}
 
-	updateModels(models) {
+	updateModels(entityKey, model) {
 		//scope = models.map(model => [model.get('name'), model.get('value')]).reduce((obj, [k, v]) => ({ ...obj, [k]: v }), {});
-		this.setState({models});
+		this.setState((state) => ({models: state.models.set(entityKey, model)}));
 	}
 
 	setReadOnly(readonly) {
@@ -160,6 +176,10 @@ export class MyEditor extends React.Component<any, any> {
 		return filteredSuggestions.setSize(size);
 	}
 
+	updateCalculationComponents = (calculationComponents) => {
+		this.setState({calculationComponents});
+	}
+
 	onSearchChange = ({fullMatch, wordMatch}) => {
 		this.setState({
 			suggestions: this.defaultSuggestionsFilter(wordMatch, this.state.models.toList()),
@@ -187,7 +207,9 @@ export class MyEditor extends React.Component<any, any> {
 
 	updateNodeWithValue = (entityKey, mention, value) => {
 		value = String(value);
-		let node:MathNode = mention.get('node');
+
+		let baseNode:MathNode = mention.get('node');
+		let node = baseNode;
 		if(node.isConstantNode) {
 			node.value = value;
 		}
@@ -209,12 +231,14 @@ export class MyEditor extends React.Component<any, any> {
 				node.args[0].value = value;
 			}
 		}
-
-		this.recalculateModelValues(); //this.state.models.set(entityKey, mention.set('node', node)));
+		baseNode.compile().eval(this.scope);
+		this.state.calculationComponents.forEach(component => { component.forceUpdate() });
+		this.setState(state => ({models: state.models.set(entityKey, mention.set('node', node))}));
+		//this.recalculateModelValues();
 	}
 
 	recalculateModelValues() {
-		this.setState({models: this.state.models.map(mention => mention.set('value', mention.get('node').compile().eval(scope)))});
+		this.setState({models: this.state.models.map(mention => mention.set('value', mention.get('node').compile().eval(this.scope)))});
 	}
 
 	nodeIsEditable(node: MathNode) {
@@ -241,7 +265,7 @@ export class MyEditor extends React.Component<any, any> {
 
 		console.log('onAddMention', node);
 		try {
-			const value = node.compile().eval(scope);
+			const value = node.compile().eval(this.scope);
 			let name = node.name;
 			let editable = this.nodeIsEditable(node);
 			const modelNames = this.state.models.map(model => model.get('name'));
@@ -280,7 +304,7 @@ export class MyEditor extends React.Component<any, any> {
 	render() {
 		const {MentionSuggestions} = this;
 
-		console.log("does rerender", scope);
+		console.log("does rerender", this.scope, this.state.models.map((v) => math.format(v.get('node'), 5)).toArray());
 
 		const editorContainerStyle = {width: this.state.models.length ? '70%': '70%'};
 		const modelsContainerStyle = {display: this.state.models.length ? 'block' : 'block', paddingLeft: '6px', borderLeft: '1px solid #ccc'};
@@ -288,12 +312,6 @@ export class MyEditor extends React.Component<any, any> {
 
 		return (
 			<div>
-				<ButtonToolbar style={{paddingBottom: "2px"}}>
-					<ButtonGroup>
-						<Button onClick={this.onBoldClick}>Bold</Button>
-						<Button onClick={this.onUnderlineClick}>Underline</Button>
-					</ButtonGroup>
-				</ButtonToolbar>
 				<div className={"form-control editorPanels"+(this.readOnly ? ' noselect': '')} style={{height: 'auto'}}>
 					<div style={editorContainerStyle}>
 						<Editor
@@ -302,7 +320,7 @@ export class MyEditor extends React.Component<any, any> {
 							plugins={this.plugins}
 							handleKeyCommand={this.handleKeyCommand}
 							spellCheck={true}
-							readOnly={this.readOnly}
+							readOnly={true}
 							handleBeforeInput={(chars: String) => {
 								if (chars === '[') {
 									const { editorState } = this.state;
@@ -345,12 +363,19 @@ export class MyEditor extends React.Component<any, any> {
 							}
 						/>
 					</div>
-					<div style={modelsContainerStyle}>
-						<p className="calculation-headline" style={modelsContainerHeadlineStyle}>Calculations (started by typing "["):</p>
-						<ul style={{listStyleType: "none", padding: "0"}}>
-							{this.state.models.map((v, i) => <li key={i}>{math.format(v.get('node'), 5)}</li>).toArray()}
-						</ul>
-					</div>
+					{this.calculations ?
+						<div style={modelsContainerStyle}>
+							<p className="calculation-headline" style={modelsContainerHeadlineStyle}>Calculations:</p>
+							<ul style={{listStyleType: "none", padding: "0"}}>
+								{Array.from(this.state.models.values()).map((v, i) => {
+									const node = v.get('node');
+									return <li key={i}>{math.format(node, 5)} {!this.nodeIsEditable(node) ? '= '+math.format(node.compile().eval(this.scope), 5) : '' }</li>;
+								})}
+							</ul>
+						</div> :
+						null
+					}
+
 				</div>
 
 				<MentionSuggestions
