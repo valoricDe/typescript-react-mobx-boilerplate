@@ -3,7 +3,7 @@ import { Component } from 'react';
 import * as Relay from 'react-relay';
 import Panel from 'react-bootstrap/lib/Panel';
 import UserBox from "./userBox";
-import AnswerVote from "./answerVote";
+import AnswerVote from "./answerVote"; import {ReadOnlyEditor} from "./ReadOnlyEditor";
 
 class AnswerClass extends Component<Props.IAnswerProps, void> {
 	public render(): JSX.Element {
@@ -19,10 +19,10 @@ class AnswerClass extends Component<Props.IAnswerProps, void> {
 			<div style={style}>
 				<Panel>
 					<AnswerVote store={this.props.store} questionId={this.props.questionId} />
-					<div style={{display: "inline-block"}}>
-						<p>{item.text}</p>
-					</div>
-					<UserBox store={item.userByAuthor} />
+					<UserBox store={item.userByAuthor} className="pull-right"/>
+					<ReadOnlyEditor onChange={() => {}}>
+						{item.text}
+					</ReadOnlyEditor>
 				</Panel>
 			</div>
 		);

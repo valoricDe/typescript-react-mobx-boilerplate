@@ -28,10 +28,10 @@ class AnswersListClass extends Component<Props.IAnswerListProps, void> {
 						<input type="submit" className="btn btn-default btn-group" name="submit_search" value="Search" />
 					</span>
 				</Formsy.Form>
+				<p>This question has {answers.totalCount} answer(s).</p>
 				<Clearfix />
 				<p>&nbsp;</p>
 				{ items }
-				<p>This question has {answers.totalCount} answer(s).</p>
 				<Link to={"/questions/"+questionId+"/addAnswer"}>Add your own Answer</Link>
 			</div>
 		);

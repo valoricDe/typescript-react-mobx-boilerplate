@@ -531,6 +531,9 @@ type CreateTagPayload {
     orderBy: TagsOrderBy = PRIMARY_KEY_ASC
   ): TagsEdge
 
+  # Reads a single `Tag` that is related to this `Tag`.
+  tagByParent: Tag
+
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
 }
@@ -778,6 +781,9 @@ type DeleteTagPayload {
   clientMutationId: String
   tag: Tag
   deletedTagId: ID
+
+  # Reads a single `Tag` that is related to this `Tag`.
+  tagByParent: Tag
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -1287,6 +1293,29 @@ type Query implements Node {
     offset: Int
     search: String
   ): SearchTagsConnection
+
+  # Reads and enables paginatation through a set of `Tag`.
+  tagsByParent(
+    # The method to use when ordering `Tag`.
+    orderBy: TagsByParentOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+    parent: Int
+  ): TagsByParentConnection
 
   # Reads and enables paginatation through a set of `Answer`.
   allAnswers(
@@ -2239,6 +2268,35 @@ type Tag implements Node {
   rowId: Int!
   name: String
   description: String
+  parent: Int
+
+  # Reads a single `Tag` that is related to this `Tag`.
+  tagByParent: Tag
+
+  # Reads and enables paginatation through a set of `Tag`.
+  tagsByParent(
+    # The method to use when ordering `Tag`.
+    orderBy: TagsOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: TagCondition
+  ): TagsConnection
 
   # Reads and enables paginatation through a set of `QuestionTag`.
   questionTagsByTag(
@@ -2326,12 +2384,16 @@ input TagCondition {
 
   # Checks for equality with the object’s `description` field.
   description: String
+
+  # Checks for equality with the object’s `parent` field.
+  parent: Int
 }
 
 input TagInput {
   rowId: Int
   name: String
   description: String
+  parent: Int
 }
 
 # Represents an update to a `Tag`. Fields that are set will be updated.
@@ -2339,6 +2401,7 @@ input TagPatch {
   rowId: Int
   name: String
   description: String
+  parent: Int
 }
 
 type TagRelation implements Node {
@@ -2419,6 +2482,35 @@ enum TagRelationsOrderBy {
 }
 
 # A connection to a list of `Tag` values.
+type TagsByParentConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `Tag` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `Tag` and cursor to aid in pagination.
+  edges: [TagsByParentEdge]
+
+  # A list of `Tag` objects.
+  nodes: [Tag]
+}
+
+# A `Tag` edge in the connection.
+type TagsByParentEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `Tag` at the end of the edge.
+  node: Tag
+}
+
+# Methods to use when ordering `Tag`.
+enum TagsByParentOrderBy {
+  NATURAL
+}
+
+# A connection to a list of `Tag` values.
 type TagsConnection {
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -2453,6 +2545,8 @@ enum TagsOrderBy {
   NAME_DESC
   DESCRIPTION_ASC
   DESCRIPTION_DESC
+  PARENT_ASC
+  PARENT_DESC
 }
 
 # All input for the `updateAnswerByRowId` mutation.
@@ -2652,6 +2746,9 @@ type UpdateTagPayload {
   # unchanged and unused. May be used by a client to track mutations.
   clientMutationId: String
   tag: Tag
+
+  # Reads a single `Tag` that is related to this `Tag`.
+  tagByParent: Tag
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query

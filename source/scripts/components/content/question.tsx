@@ -51,8 +51,6 @@ class QuestionClass extends Component<Props.IQuestionProps, void> {
 
 		return (
 			<div style={style}>
-				<Formsy.Form onValidSubmit={(item) => this.save(item)} onValid={() => this.isValidInput = true} onInvalid={() => this.isValidInput = false}>
-					<fieldset>
 				<Panel
 					   header={
 							[<ButtonToolbar className="content__panelButtonToolbar pull-right" key="buttonToolbar">
@@ -65,37 +63,39 @@ class QuestionClass extends Component<Props.IQuestionProps, void> {
 					   }
 					   footer="Test Footer"
 				>
-					{!this.isEditing ?
-						null :
-						<Input label="Title" value={item.title} placeholder={item.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
-					}
-					{!this.isEditing ?
-						/*
-						 decorator={{
-						 strategy: (text, callback) => findWithRegex(text, callback, /(###\[(\{.+?})]###)/g, 2, 1),
-						 component: Calculation
-						 }}
-						 decoratorProps={text => { return {mention: Map(JSON.parse(text)), models: this.models, updateModels: (models) => this.models}; }}
-						 */
-						<ReadOnlyEditor onChange={() => {}}>
-							{item.description}
-						</ReadOnlyEditor> :
-						<Textarea
-							label="Description"
-							name="description"
-							value={item.description}
-							validationError="Description field is required"
-							placeholder="This field requires 10 characters."
-							help="This is some help text for the textarea."
-							required
-						/>
-					}
-					<QuestionTagList store={store} />
-					<UserBox store={item.userByAuthor} details={false} />
+					<Formsy.Form onValidSubmit={(item) => this.save(item)} onValid={() => this.isValidInput = true} onInvalid={() => this.isValidInput = false}>
+						<fieldset>
+						<UserBox store={item.userByAuthor} details={false} className="pull-right" />
+						{!this.isEditing ?
+							null :
+							<Input label="Title" value={item.title} placeholder={item.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
+						}
+						{!this.isEditing ?
+							/*
+							 decorator={{
+							 strategy: (text, callback) => findWithRegex(text, callback, /(###\[(\{.+?})]###)/g, 2, 1),
+							 component: Calculation
+							 }}
+							 decoratorProps={text => { return {mention: Map(JSON.parse(text)), models: this.models, updateModels: (models) => this.models}; }}
+							 */
+							<ReadOnlyEditor onChange={() => {}}>
+								{item.description}
+							</ReadOnlyEditor> :
+							<Textarea
+								label="Description"
+								name="description"
+								value={item.description}
+								validationError="Description field is required"
+								placeholder="This field requires 10 characters."
+								help="This is some help text for the textarea."
+								required
+							/>
+						}
+						<QuestionTagList store={store} />
+						</fieldset>
+					</Formsy.Form>
 					<AnswersList store={this.props.store}/>
 				</Panel>
-			</fieldset>
-			</Formsy.Form>
 			</div>
 		);
 	}

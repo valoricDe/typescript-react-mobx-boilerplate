@@ -22,23 +22,49 @@ import 'core-js/fn/object/entries';
 // precision: 2
 // });
 
-
 var scope = {};
 var currencyMapper = {
 	'EUR': ['euro', '€'],
-	'USD': ['dollar'],
+	'USD': ['dollar', '$'],
 };
 
 /*fetch("http://api.fixer.io/latest")
-	.then(response => response.json())
-	.then(json => {
-		math.createUnit(json.base, {aliases: currencyMapper[json.base]});
-		Object.entries(json.rates).forEach(([currency, rate]) => {
-			console.log('EUR = '+rate+' '+currency);
-			math.createUnit(currency, {definition: (1/rate)+' EUR', aliases: currencyMapper[currency]});
-		});
-	})
-	.catch(console.error);*/
+ .then(response => response.json())
+ .then(json => {
+ math.createUnit(json.base, {aliases: currencyMapper[json.base]});
+ Object.entries(json.rates).forEach(([currency, rate]) => {
+ console.log('EUR = '+rate+' '+currency);
+ math.createUnit(currency, {definition: (1/rate)+' EUR', aliases: currencyMapper[currency]});
+ });
+ })
+ .catch(console.error);*/
+
+
+// TODO put it into database
+if(math.type.Unit.UNITS.EUR === undefined) {
+	const exchangeRates = require('../../lib/exchangeRates.json');
+	math.createUnit(exchangeRates.base, {aliases: currencyMapper[exchangeRates.base]});
+	Object.entries(exchangeRates.rates).forEach(([currency, rate]) => {
+		console.log('EUR = '+rate+' '+currency);
+		math.createUnit(currency, {definition: (1/rate)+' EUR', aliases: currencyMapper[currency]});
+	});
+}
+
+function mathNodeToFormattedString(node) {
+	if (node.isConstantNode) {
+		if (node.valueType === 'string') {
+			return '"' + node.value + '"';
+		}
+		else {
+			console.log('mathNodeToFormattedString', Number(node.value).toLocaleString());
+			return Number(node.value).toLocaleString();
+		}
+	}
+	else {
+		return undefined;
+	}
+}
+
 
 const Entry = (props) => {
 	const {
@@ -72,12 +98,13 @@ const Entry = (props) => {
 
 @observer
 export class MyEditor extends React.Component<any, any> {
+	scope = {};
 	@observable readOnly = false;
 
 	constructor(props) {
 		super(props);
 
-		this.state = {editorState: props.editorState, suggestions: List(), models: Map()};
+		this.state = {editorState: props.editorState, suggestions: List(), models: Map(), calculationComponents: Map()};
 
 		const mentionPlugin = createMentionPlugin({
 			mentionTrigger: '[ ',
@@ -93,6 +120,10 @@ export class MyEditor extends React.Component<any, any> {
 			//theme: {mentionSuggestions: 'mentionSuggestion mentionSuggestionPortal'}
 			mentionComponent: ({children, ...props}) =>
 				<Calculation
+					store={this.state}
+					container={this}
+					updateComponents={this.updateCalculationComponents.bind(this)}
+
 					scope={scope}
 					models={this.state.models}
 					updateModels={this.updateModels.bind(this)}
@@ -115,9 +146,9 @@ export class MyEditor extends React.Component<any, any> {
 		];
 	}
 
-	updateModels(models) {
+	updateModels(entityKey, model) {
 		//scope = models.map(model => [model.get('name'), model.get('value')]).reduce((obj, [k, v]) => ({ ...obj, [k]: v }), {});
-		this.setState({models});
+		this.setState((state) => ({models: model === undefined ? state.models.delete(entityKey) : state.models.set(entityKey, model)}));
 	}
 
 	setReadOnly(readonly) {
@@ -160,6 +191,10 @@ export class MyEditor extends React.Component<any, any> {
 		return filteredSuggestions.setSize(size);
 	}
 
+	updateCalculationComponents = (entityKey, calculationComponent) => {
+		this.setState((state) => ({calculationComponents: state.calculationComponents.set(entityKey, calculationComponent)}));
+	}
+
 	onSearchChange = ({fullMatch, wordMatch}) => {
 		this.setState({
 			suggestions: this.defaultSuggestionsFilter(wordMatch, this.state.models.toList()),
@@ -187,7 +222,9 @@ export class MyEditor extends React.Component<any, any> {
 
 	updateNodeWithValue = (entityKey, mention, value) => {
 		value = String(value);
-		let node:MathNode = mention.get('node');
+
+		let baseNode:MathNode = mention.get('node');
+		let node = baseNode;
 		if(node.isConstantNode) {
 			node.value = value;
 		}
@@ -197,7 +234,7 @@ export class MyEditor extends React.Component<any, any> {
 		else if(node.isOperatorNode && node.args[0].isConstantNode && node.args[1].isSymbolNode) {
 			node.args[0].value = value;
 		}
-		else if(node.isAssignementNode && node.value) {
+		else if(node.isAssignmentNode && node.value) {
 			node = node.value;
 			if(node.isConstantNode) {
 				node.value = value;
@@ -209,12 +246,14 @@ export class MyEditor extends React.Component<any, any> {
 				node.args[0].value = value;
 			}
 		}
-
-		this.recalculateModelValues(); //this.state.models.set(entityKey, mention.set('node', node)));
+		baseNode.compile().eval(this.scope);
+		this.state.calculationComponents.forEach(component => { component.forceUpdate() });
+		this.setState(state => ({models: state.models.set(entityKey, mention.set('node', node))}));
+		//this.recalculateModelValues();
 	}
 
 	recalculateModelValues() {
-		this.setState({models: this.state.models.map(mention => mention.set('value', mention.get('node').compile().eval(scope)))});
+		this.setState({models: this.state.models.map(mention => mention.set('value', mention.get('node').compile().eval(this.scope)))});
 	}
 
 	nodeIsEditable(node: MathNode) {
@@ -223,7 +262,7 @@ export class MyEditor extends React.Component<any, any> {
 			(node.value && node.value.isConstantNode) ||
 			(node.isOperatorNode && node.args[0].isConstantNode && node.args[1].isSymbolNode);
 		// assigned editable nodes
-		let assigned = node.isAssignementNode && node.value && (
+		let assigned = node.isAssignmentNode && node.value && (
 				node.value.isConstantNode ||
 				(node.value.value && node.value.value.isConstantNode) ||
 				(node.value.isOperatorNode && node.value.args[0].isConstantNode && node.value.args[1].isSymbolNode)
@@ -348,7 +387,11 @@ export class MyEditor extends React.Component<any, any> {
 					<div style={modelsContainerStyle}>
 						<p className="calculation-headline" style={modelsContainerHeadlineStyle}>Calculations (started by typing "["):</p>
 						<ul style={{listStyleType: "none", padding: "0"}}>
-							{this.state.models.map((v, i) => <li key={i}>{math.format(v.get('node'), 5)}</li>).toArray()}
+							{Array.from(this.state.models.values()).map((v, i) => {
+								const node = v.get('node');
+								const formatted = node.toString({ handler: mathNodeToFormattedString });
+								return <li key={i}>{formatted} {!this.nodeIsEditable(node) ? '= '+math.format(node.compile().eval(this.scope), 8) : '' }</li>;
+							})}
 						</ul>
 					</div>
 				</div>

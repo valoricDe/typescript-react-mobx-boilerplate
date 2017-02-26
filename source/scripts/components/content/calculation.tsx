@@ -3,6 +3,14 @@ import {Draggable} from "react-touch";
 import math from 'mathjs';
 import {Map} from 'immutable';
 
+function mathFormatCallback(value) {
+	if(value > 1e12 || value < 1e-6)
+		return math.format(value, 5);
+	else {
+		return value.toLocaleString()
+	}
+}
+
 export default class Calculation extends React.Component<any, any> {
 	valueAtDragStart;
 	positionX = 0;
@@ -15,13 +23,13 @@ export default class Calculation extends React.Component<any, any> {
 		}
 		console.log('calculationDidMount', mention.get('raw'), container.state.models.toJS());
 		this.props.updateModels(this.props.entityKey, mention);
-		this.props.updateComponents(container.state.calculationComponents.set(this.props.entityKey, this));
+		this.props.updateComponents(this.props.entityKey, this);
 	}
 
 	componentWillUnmount() {
 		let {store} = this.props;
 		console.log('componentWillUnmount', store.models.toJS());
-		this.props.updateModels(store.models.delete(this.props.entityKey));
+		this.props.updateModels(this.props.entityKey, undefined);
 	}
 
 	render() {
@@ -42,6 +50,15 @@ export default class Calculation extends React.Component<any, any> {
 		let value = mention.get('node').compile().eval(container.scope);
 
 		if(mention.get('editable')) {
+			const getNewValue = (value, xDelta) => {
+				const converted = typeof value === 'object' ? value.toNumber() : value;
+				const expString = String(converted.toExponential());
+				const exp = Number(expString.substr(expString.lastIndexOf('e')+1));
+				const diff = Math.pow(10, exp-1) * Math.round(xDelta/5);
+				const diff2 = math.divide(value, converted/diff);
+				return math.add(value, diff2);
+			};
+
 			return <Draggable
 				style={{translateX: 0, translateY: 0}}
 				position={{left: 0}}
@@ -50,7 +67,7 @@ export default class Calculation extends React.Component<any, any> {
 				onDrag={(delta) => {
 						this.positionX += delta.left;
 
-						let newValue = math.add(this.valueAtDragStart, math.divide(math.multiply(this.valueAtDragStart, Math.round(this.positionX/10)), 10));
+						let newValue = getNewValue(this.valueAtDragStart, this.positionX);
 						if(value != newValue) {
 							value = newValue;
 							updateValue(entityKey, mention, newValue);
@@ -59,11 +76,11 @@ export default class Calculation extends React.Component<any, any> {
 				onDragEnd={() => { console.log('drag end'); setReadOnly(false); }}
 			>
 				{(position) => {
-					let displayValue = this.valueAtDragStart ? math.add(this.valueAtDragStart, math.divide(math.multiply(this.valueAtDragStart, Math.round(position.dx/10)), 10)) : value;
+					let displayValue = this.valueAtDragStart ? getNewValue(this.valueAtDragStart, position.dx) : value;
 					return <span
 						className={"adjustable-number "}
 					>
-					{math.format(displayValue, 5)}
+					{math.format(displayValue, mathFormatCallback)}
 				</span>;
 				}}
 			</Draggable>;
@@ -72,7 +89,7 @@ export default class Calculation extends React.Component<any, any> {
 			return <span
 				className={"calculated-result "}
 			>
-			{math.format(value, 5)}
+			{math.format(value, mathFormatCallback)}
 		</span>;
 		}
 	}

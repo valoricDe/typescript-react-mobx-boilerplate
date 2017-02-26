@@ -7,12 +7,18 @@ import Formsy from 'formsy-react';
 import { Input, Textarea } from 'formsy-react-components';
 import { Panel, ButtonToolbar, Button, Modal } from 'react-bootstrap';
 import CreateAnswerMutation from "../../mutations/createAnswer";
+import {EditorState, convertToRaw} from "draft-js";
+import {MyEditor} from "./myEditor";
 
 @observer
 class CreateAnswerComponent extends Component<Props.ICreateAnswerProps, void> {
-	@observable isValidInput = false;
+	@observable isValidInput = true;
+	editorState = EditorState.createEmpty(this.editorDecorators);
 
 	save = (item) => {
+		const contentState = this.editorState.getCurrentContent();
+		const editorContentRaw = convertToRaw(contentState);
+		item.text = JSON.stringify(editorContentRaw); //exportHtml.stateToHTML(this.editorState.getCurrentContent());
 		this.props.relay.commitUpdate(
 			new CreateAnswerMutation({store: this.props.store, questionId: this.props.id, newItem: item}),
 			{onSuccess: () => this.props.router.push('/questions/'+this.props.id), onFailure: console.error}
@@ -22,6 +28,10 @@ class CreateAnswerComponent extends Component<Props.ICreateAnswerProps, void> {
 	cancel = () => {
 		this.props.router.push('/questions/'+this.props.id);
 	};
+
+	onChange = (editorState) => {
+		this.editorState = editorState;
+	}
 
 	public render(): JSX.Element {
 		const item = {text: ''};
@@ -33,15 +43,7 @@ class CreateAnswerComponent extends Component<Props.ICreateAnswerProps, void> {
 				<h2 className="page-header">Add your Answer</h2>
 				<Formsy.Form ref="form" onValidSubmit={(item) => this.save(item)} onValid={() => this.isValidInput = true} onInvalid={() => this.isValidInput = false}>
 					<fieldset>
-						<Textarea
-							label="Description"
-							name="text"
-							value={item.text}
-							validationError="Description field is required"
-							placeholder="This field requires 10 characters."
-							help="This is some help text for the textarea."
-							required
-						/>
+						<MyEditor onChange={this.onChange} editorState={this.editorState} readOnly={false} />
 						<ButtonToolbar className="content__panelButtonToolbar pull-right" key="buttonToolbar">
 							<Button bsStyle="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>
 							<Button onClick={this.cancel} bsStyle="danger" key="cancel">Cancel</Button>

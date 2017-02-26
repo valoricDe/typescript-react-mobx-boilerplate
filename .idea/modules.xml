@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/politbase.iml" filepath="$PROJECT_DIR$/.idea/politbase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../politbase-schema/.idea/politbase-schema.iml" filepath="$PROJECT_DIR$/../politbase-schema/.idea/politbase-schema.iml" />
     </modules>
   </component>
 </project>

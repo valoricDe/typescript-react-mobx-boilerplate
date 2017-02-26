@@ -24,7 +24,7 @@
 	}
 
 	&__voteBox {
-		padding-right: 5px;
+		padding-right: 10px;
 		width: 50px;
 		float: left;
 	}
@@ -77,5 +77,38 @@
 		font-style: italic;
 		margin-top: 40px;
 		text-align: center;
+	}
+
+	.favoriteTags {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -10px;
+		position: relative;
+
+		/*&:before {
+			display: block;
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: 10px;
+			right: 20px; // 20px instead of 10px due to padding
+			bottom: 10px;
+			left: 10px;
+			background: #666;
+		}*/
+
+		div {
+			padding: 5px;
+			min-width: 120px;
+			min-height: 100px;
+			background: $gray-lighter;
+			margin: 10px;
+			font-size: 1.5em;
+			line-height: 1em;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 	}
 }

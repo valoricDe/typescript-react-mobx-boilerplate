@@ -65,7 +65,7 @@ class Auth {
 			} : {}),
 			onError: (error, init) => {
 				console.log('_buildNetworkLayer', error);
-				if((error.status == 400 || error.status == 500) && loggedIn) {
+				if((error.status == 401 || error.status == 403) && loggedIn) {
 					delete localStorage.accessToken;
 					delete init['Authorization'];
 					if(this.onTokenError) this.onTokenError();

@@ -35,6 +35,7 @@ declare namespace GQL {
     searchAnswers: ISearchAnswersConnection;
     searchQuestions: ISearchQuestionsConnection;
     searchTags: ISearchTagsConnection;
+    tagsByParent: ITagsByParentConnection;
     allAnswers: IAnswersConnection;
     answer: IAnswer;
     answerByRowId: IAnswer;
@@ -417,9 +418,47 @@ declare namespace GQL {
     rowId: number;
     name: string;
     description: string;
+    parent: number;
+    tagByParent: ITag;
+    tagsByParent: ITagsConnection;
     questionTagsByTag: IQuestionTagsConnection;
     tagRelationsByTag1: ITagRelationsConnection;
     tagRelationsByTag2: ITagRelationsConnection;
+  }
+
+  /*
+    description: Methods to use when ordering `Tag`.
+  */
+  type ITagsOrderByEnum = "PRIMARY_KEY_ASC" | "PRIMARY_KEY_DESC" | "NATURAL" | "ID_ASC" | "ID_DESC" | "NAME_ASC" | "NAME_DESC" | "DESCRIPTION_ASC" | "DESCRIPTION_DESC" | "PARENT_ASC" | "PARENT_DESC";
+
+  /*
+    description: A condition to be used against `Tag` object types. All fields are tested for equality and combined with a logical ‘and.’
+  */
+  interface ITagCondition {
+    rowId?: number;
+    name?: string;
+    description?: string;
+    parent?: number;
+  }
+
+  /*
+    description: A connection to a list of `Tag` values.
+  */
+  interface ITagsConnection {
+    __typename: string;
+    pageInfo: IPageInfo;
+    totalCount: number;
+    edges: Array<ITagsEdge>;
+    nodes: Array<ITag>;
+  }
+
+  /*
+    description: A `Tag` edge in the connection.
+  */
+  interface ITagsEdge {
+    __typename: string;
+    cursor: any;
+    node: ITag;
   }
 
   /*
@@ -605,32 +644,23 @@ declare namespace GQL {
   /*
     description: Methods to use when ordering `Tag`.
   */
-  type ITagsOrderByEnum = "PRIMARY_KEY_ASC" | "PRIMARY_KEY_DESC" | "NATURAL" | "ID_ASC" | "ID_DESC" | "NAME_ASC" | "NAME_DESC" | "DESCRIPTION_ASC" | "DESCRIPTION_DESC";
-
-  /*
-    description: A condition to be used against `Tag` object types. All fields are tested for equality and combined with a logical ‘and.’
-  */
-  interface ITagCondition {
-    rowId?: number;
-    name?: string;
-    description?: string;
-  }
+  type ITagsByParentOrderByEnum = "NATURAL";
 
   /*
     description: A connection to a list of `Tag` values.
   */
-  interface ITagsConnection {
+  interface ITagsByParentConnection {
     __typename: string;
     pageInfo: IPageInfo;
     totalCount: number;
-    edges: Array<ITagsEdge>;
+    edges: Array<ITagsByParentEdge>;
     nodes: Array<ITag>;
   }
 
   /*
     description: A `Tag` edge in the connection.
   */
-  interface ITagsEdge {
+  interface ITagsByParentEdge {
     __typename: string;
     cursor: any;
     node: ITag;
@@ -1398,6 +1428,7 @@ declare namespace GQL {
     rowId?: number;
     name?: string;
     description?: string;
+    parent?: number;
   }
 
   /*
@@ -1408,6 +1439,7 @@ declare namespace GQL {
     clientMutationId: string;
     tag: ITag;
     tagEdge: ITagsEdge;
+    tagByParent: ITag;
     query: IQuery;
   }
 
@@ -1427,6 +1459,7 @@ declare namespace GQL {
     rowId?: number;
     name?: string;
     description?: string;
+    parent?: number;
   }
 
   /*
@@ -1436,6 +1469,7 @@ declare namespace GQL {
     __typename: string;
     clientMutationId: string;
     tag: ITag;
+    tagByParent: ITag;
     query: IQuery;
   }
 
@@ -1464,6 +1498,7 @@ declare namespace GQL {
     clientMutationId: string;
     tag: ITag;
     deletedTagId: string;
+    tagByParent: ITag;
     query: IQuery;
   }
 

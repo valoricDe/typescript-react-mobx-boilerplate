@@ -38,6 +38,41 @@ var currencyMapper = {
 	})
 	.catch(console.error);*/
 
+// TODO put it into database
+if(math.type.Unit.UNITS.EUR === undefined) {
+	const exchangeRates = require('../../lib/exchangeRates.json');
+	math.createUnit(exchangeRates.base, {aliases: currencyMapper[exchangeRates.base]});
+	Object.entries(exchangeRates.rates).forEach(([currency, rate]) => {
+		console.log('EUR = '+rate+' '+currency);
+		math.createUnit(currency, {definition: (1/rate)+' EUR', aliases: currencyMapper[currency]});
+	});
+}
+
+function mathFormatCallback(value) {
+	if(value > 1e12 || value < 1e-6)
+		return math.format(value, 5);
+	else {
+		return Number(value).toLocaleString();
+	}
+}
+
+function mathNodeToFormattedString(node) {
+	if(typeof node === 'number') {
+		return mathFormatCallback(node);
+	}
+	if (node.isConstantNode) {
+		if (node.valueType === 'string') {
+			return '"' + node.value + '"';
+		}
+		else {
+			return mathFormatCallback(node.value);
+		}
+	}
+	else {
+		return undefined;
+	}
+}
+
 const Entry = (props) => {
 	const {
 		mention,
@@ -133,7 +168,7 @@ export class ReadOnlyEditor extends React.Component<any, any> {
 
 	updateModels(entityKey, model) {
 		//scope = models.map(model => [model.get('name'), model.get('value')]).reduce((obj, [k, v]) => ({ ...obj, [k]: v }), {});
-		this.setState((state) => ({models: state.models.set(entityKey, model)}));
+		this.setState((state) => ({models: model === undefined ? state.models.delete(entityKey) : state.models.set(entityKey, model)}));
 	}
 
 	setReadOnly(readonly) {
@@ -176,8 +211,8 @@ export class ReadOnlyEditor extends React.Component<any, any> {
 		return filteredSuggestions.setSize(size);
 	}
 
-	updateCalculationComponents = (calculationComponents) => {
-		this.setState({calculationComponents});
+	updateCalculationComponents = (entityKey, calculationComponent) => {
+		this.setState((state) => ({calculationComponents: state.calculationComponents.set(entityKey, calculationComponent)}));
 	}
 
 	onSearchChange = ({fullMatch, wordMatch}) => {
@@ -206,7 +241,7 @@ export class ReadOnlyEditor extends React.Component<any, any> {
 	}
 
 	updateNodeWithValue = (entityKey, mention, value) => {
-		value = String(value);
+		value = String(typeof value === 'object' ? value.toNumber() : value);
 
 		let baseNode:MathNode = mention.get('node');
 		let node = baseNode;
@@ -219,8 +254,8 @@ export class ReadOnlyEditor extends React.Component<any, any> {
 		else if(node.isOperatorNode && node.args[0].isConstantNode && node.args[1].isSymbolNode) {
 			node.args[0].value = value;
 		}
-		else if(node.isAssignementNode && node.value) {
-			node = node.value;
+		else if(node.isAssignmentNode && node.value) {
+			let node = baseNode.value;
 			if(node.isConstantNode) {
 				node.value = value;
 			}
@@ -247,7 +282,7 @@ export class ReadOnlyEditor extends React.Component<any, any> {
 			(node.value && node.value.isConstantNode) ||
 			(node.isOperatorNode && node.args[0].isConstantNode && node.args[1].isSymbolNode);
 		// assigned editable nodes
-		let assigned = node.isAssignementNode && node.value && (
+		let assigned = node.isAssignmentNode && node.value && (
 				node.value.isConstantNode ||
 				(node.value.value && node.value.value.isConstantNode) ||
 				(node.value.isOperatorNode && node.value.args[0].isConstantNode && node.value.args[1].isSymbolNode)
@@ -307,12 +342,12 @@ export class ReadOnlyEditor extends React.Component<any, any> {
 		console.log("does rerender", this.scope, this.state.models.map((v) => math.format(v.get('node'), 5)).toArray());
 
 		const editorContainerStyle = {width: this.state.models.length ? '70%': '70%'};
-		const modelsContainerStyle = {display: this.state.models.length ? 'block' : 'block', paddingLeft: '6px', borderLeft: '1px solid #ccc'};
+		const modelsContainerStyle = {maxWidth: '400px', overflow: 'auto', display: this.state.models.length ? 'block' : 'block', paddingLeft: '6px', borderLeft: '1px solid #ccc'};
 		const modelsContainerHeadlineStyle = {margin: '0'};
 
 		return (
 			<div>
-				<div className={"form-control editorPanels"+(this.readOnly ? ' noselect': '')} style={{height: 'auto'}}>
+				<div className={"editorPanels"+(this.readOnly ? ' noselect': '')} style={{height: 'auto'}}>
 					<div style={editorContainerStyle}>
 						<Editor
 							editorState={this.state.editorState}
@@ -363,13 +398,14 @@ export class ReadOnlyEditor extends React.Component<any, any> {
 							}
 						/>
 					</div>
-					{this.calculations ?
+					{this.calculations && this.state.models.size ?
 						<div style={modelsContainerStyle}>
 							<p className="calculation-headline" style={modelsContainerHeadlineStyle}>Calculations:</p>
 							<ul style={{listStyleType: "none", padding: "0"}}>
 								{Array.from(this.state.models.values()).map((v, i) => {
 									const node = v.get('node');
-									return <li key={i}>{math.format(node, 5)} {!this.nodeIsEditable(node) ? '= '+math.format(node.compile().eval(this.scope), 5) : '' }</li>;
+									const formatted = node.toString({ handler: mathNodeToFormattedString });
+									return <li key={i}>{formatted} {!this.nodeIsEditable(node) ? ': '+math.format(node.compile().eval(this.scope), mathNodeToFormattedString) : '' }</li>;
 								})}
 							</ul>
 						</div> :
