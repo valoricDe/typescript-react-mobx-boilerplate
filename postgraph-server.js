@@ -1,7 +1,7 @@
 /**
  * Created by velten on 18.10.16.
  */
-/*const express = require('express');
+const express = require('express');
 const postgraphql = require('../forks/postgraphql/build/postgraphql').postgraphql;
 
 const app = express();
@@ -26,7 +26,6 @@ app.listen(5000, function (error) {
 	}
 	console.log('PostGraphQL server started.');
 
-});*/
 	console.log(__dirname+'/misc/utils/createGraphQLSchema');
 	var schema = require(__dirname+'/misc/utils/createGraphQLSchema');
 	schema.schemaPromise.then(function (schema) {
@@ -37,3 +36,4 @@ app.listen(5000, function (error) {
 			console.log('Type definitions updated.');
 		}
 	});
+});

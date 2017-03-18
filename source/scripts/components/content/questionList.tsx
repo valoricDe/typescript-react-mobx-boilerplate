@@ -9,11 +9,13 @@ import QuestionBox from "./questionBox";
 class QuestionListClass extends Component<Props.IQuestionListProps, void> {
 
 	public render(): JSX.Element {
-		const query = this.props.relay.variables.query;
-		const querySearch = !!this.props.store.searchQuestions;
-		const questions = this.props.store.searchQuestions ? this.props.store.searchQuestions : this.props.store.allQuestions;
+		const {store, relay} = this.props;
+		const query = relay.variables.query;
+		const querySearch = !!store.searchQuestions;
+		const questions = store.searchQuestions ? store.searchQuestions : store.allQuestions;
+		const questionEdges = store.searchQuestions ? questions.edges.sort((a, b) => a.rowId > b.rowId) : questions.edges;
 
-		let items = questions.edges.map(
+		let items = questionEdges.map(
 			(edge, idx) => <QuestionBox store={edge.node} user={this.props.store} key={idx} />
 		);
 
@@ -53,11 +55,12 @@ const QuestionList = Relay.createContainer(QuestionListClass, {
     				totalCount
 					edges {
 						node {
+							rowId # for ordering
 							${QuestionBox.getFragment('store')}
 						}
 					}
     			}
-				allQuestions(last: 20) {
+				allQuestions(last: 20, orderBy: PRIMARY_KEY_DESC) {
 					totalCount
 					edges {
 						node {

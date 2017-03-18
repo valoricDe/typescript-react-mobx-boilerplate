@@ -1,5 +1,18 @@
 @import "variables";
 
+$font-size-base:          14px !default;
+$font-size-h1:            floor(($font-size-base * 2.4)) !default; // ~34px
+$font-size-h2:            floor(($font-size-base * 2)) !default; // ~28px
+$font-size-h3:            ceil(($font-size-base * 1.6)) !default; // ~22px
+$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
+
+
+$icon-font-path: "../../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import "../../node_modules/react-bootstrap-typeahead/css/Typeahead.css";
+@import "../../node_modules/react-bootstrap-typeahead/css/Token.css";
+
 .page-header {
 	margin-top: 3px;
 	margin-bottom: 1em;

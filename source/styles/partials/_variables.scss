@@ -5,3 +5,19 @@ $color-1: #fafafa;
 $color-2: #333;
 $increment-background: #6496c8;
 $decrement-background: #c86464;
+
+$btn-success-color:              $gray-dark;
+$btn-success-bg:                 rgba($brand-success, 0.3);
+$btn-success-border:             lighten($btn-success-bg, 5%);
+
+$btn-info-color:              	 $gray-dark;
+$btn-info-bg:                    rgba($brand-info, 0.3);
+$btn-info-border:                lighten($btn-info-bg, 5%);
+
+$btn-warning-color:              $gray-dark;
+$btn-warning-bg:                 rgba($brand-warning, 0.3);
+$btn-warning-border:             lighten($btn-warning-bg, 5%);
+
+$btn-danger-color:               $gray-dark;
+$btn-danger-bg:                  rgba($brand-danger, 0.3);
+$btn-danger-border:              lighten($btn-danger-bg, 5%);

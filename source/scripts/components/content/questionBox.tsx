@@ -58,11 +58,12 @@ class QuestionBoxClass extends Component<Props.IQuestionProps, void> {
 					   }
 				>
 					<UserBox store={store.userByAuthor} details={false} className="pull-right"/>
-					<p className="pull-right"> . </p>
-					<Button bsStyle={store.answersByQuestion.totalCount > 0 ? "success" : "warning"} className="pull-right" style={{"textAlign": "center", padding: "15px"}} title={"This question has "+store.answersByQuestion.totalCount+" answers."}>
-						<small>Answers</small>
-						<p>{store.answersByQuestion.totalCount}</p>
+					<p className="pull-right">&nbsp;</p>
+					<Button bsStyle={store.answersByQuestion.totalCount > 0 ? "warning" : "warning"} className="pull-right" style={{"textAlign": "center", padding: "15px"}} title={"This question has "+Math.floor((Math.random() * 100) + 1)+" views."}>
+						<small>Views</small>
+						<p>{Math.floor((Math.random() * 100) + 1)}</p>
 					</Button>
+					<p className="pull-right">&nbsp;</p>
 					<Button bsStyle={store.answersByQuestion.totalCount > 0 ? "success" : "warning"} className="pull-right" style={{"textAlign": "center", padding: "15px"}} title={"This question has "+store.answersByQuestion.totalCount+" answers."}>
 						<small>Answers</small>
 						<p>{store.answersByQuestion.totalCount}</p>
@@ -88,7 +89,6 @@ class QuestionBoxClass extends Component<Props.IQuestionProps, void> {
 
 					}
 					<QuestionTagList store={store} />
-					<p>Viewed {Math.floor((Math.random() * 100) + 1)} times.</p>
 				</Panel>
 			</fieldset>
 			</Formsy.Form>
