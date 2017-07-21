@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader');
 
 const server = require('../settings').server;
-const babelRelayPlugin = path.join(__dirname, '../utils/babel-relay-plugin');
+//const babelRelayPlugin = path.join(__dirname, '../utils/babel-relay-plugin');
 
 module.exports = (project, paths) => {
 	return {
@@ -21,8 +21,8 @@ module.exports = (project, paths) => {
 			// bundle the client for hot reloading
 			// only- means to only hot reload for successful updates
 
+			//path.join(paths.styles.path, paths.styles.file),
 			path.join(paths.scripts.path, paths.scripts.file),
-			path.join(paths.styles.path, paths.styles.file),
 		],
 		output: {
 			filename: paths.build.files.script,
@@ -43,7 +43,13 @@ module.exports = (project, paths) => {
 							loader: 'babel',
 							options: {
 								presets: ['es2015', 'react', 'stage-0'],
-								plugins: [babelRelayPlugin]
+								plugins: [
+									["transform-relay-hot", {
+										"schemaJsonFilepath": "./misc/schema.json",
+										"watchInterval": 2000,
+										"verbose": true
+									}]
+								]
 							}
 						},
 						{
@@ -60,7 +66,13 @@ module.exports = (project, paths) => {
 							loader: 'babel',
 							options: {
 								presets: ['es2015', 'react', 'stage-0'],
-								plugins: [babelRelayPlugin],
+								plugins: [
+									["transform-relay-hot", {
+										"schemaJsonFilepath": "./misc/schema.json",
+										"watchInterval": 2000,
+										"verbose": true
+									}]
+								],
 							}
 						}
 					],

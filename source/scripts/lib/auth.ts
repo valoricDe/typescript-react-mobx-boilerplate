@@ -11,7 +11,6 @@ class Auth {
 	onTokenError;
 	currentUser = null;
 
-
 	constructor() {
 		this.environment = new Relay.Environment();
 		// Inject a new network layer into Relay with NO token
@@ -79,5 +78,4 @@ class Auth {
 	}
 }
 
-// Export singleton
-module.exports = new Auth();
+export default new Auth();

@@ -1,0 +1,63 @@
+@import "variables";
+
+//$icon-font-path: "../../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+@import "../../node_modules/react-bootstrap-typeahead/css/Typeahead.css";
+@import "../../node_modules/react-bootstrap-typeahead/css/Token.css";
+
+.page-header {
+	margin-top: 3px;
+	margin-bottom: 1em;
+}
+
+.panel-body, .btn {
+	& > :last-child {
+		margin-bottom: 0;
+	}
+}
+
+.navbar-text {
+	margin: 15px;
+}
+
+.navbar-nav {
+	> li.highlight > a {
+		color: $link-color;
+	}
+
+	> li.highlight.left > a {
+		padding-right: 0.5em;
+	}
+
+	> li.highlight.right > a {
+		padding-left: 0.5em;
+	}
+
+	> li p {
+		padding-top:    15px;
+		padding-bottom: 15px;
+		line-height: $line-height-base;
+	}
+}
+
+.navbar + .content {
+	padding-top: 0;
+}
+
+.bootstrap-tokenizer {
+
+	padding: 0;
+	font-size: $font-size-xs;
+
+	.token {
+		border-radius: $border-radius-sm;
+		border: 1px solid $brand-primary;
+		padding: 2px 4px;
+		vertical-align: text-top;
+	}
+
+	.token:last-child {
+		margin-right: 0;
+	}
+}

@@ -15,35 +15,24 @@ export class TagListClass extends Component<Props.ITagListProps, void> {
 		const querySearch = !!this.props.store.searchTags;
 		const tags = this.props.store.searchTags || this.props.store.allTags || this.props.store.children;
 
-		const title =
-				(!!this.props.store.searchTags ? 'Tags with "'+query+'" in title or description' : false) ||
-				(!!this.props.store.children ? 'Sub-Tags' : false) ||
-				'Newest Tags';
-
 		let items = tags.edges.map(
 			(edge, idx) => <TagBox store={edge.node} user={this.props.store} key={idx} />
 		);
 
 		return (
 			<div>
-				<h2 className="page-header">{title}</h2>
-				{ items.length ?
-					<div>
-						<Formsy.Form className="col-md-4 input-group float-right" onValidSubmit={(item) => this.props.relay.setVariables({query: item.query})}>
-							<Input label="Search for: " name="query" value="" layout="elementOnly" />
-							<span className="input-group-btn">
-								<input type="submit" className="btn btn-default btn-group" name="submit_search" value="Search" />
-							</span>
-						</Formsy.Form>
-						<p></p>
-						<div className="tagList-list">
-							{ items }
-						</div>
-						<p>Showing {tags.length} of {tags.totalCount} tags</p>
-					</div>
-					:
-					<p>No tags found.</p>
-				}
+				<h2 className="page-header">{querySearch ? 'Tags with "'+query+'" in title or description' : 'Newest Tags'}</h2>
+				<Formsy.Form className="col-md-4 input-group float-right" onValidSubmit={(item) => this.props.relay.setVariables({query: item.query})}>
+					<Input label="Search for: " name="query" value="" layout="elementOnly" />
+					<span className="input-group-btn">
+						<input type="submit" className="btn btn-default btn-group" name="submit_search" value="Search" />
+					</span>
+				</Formsy.Form>
+				<p>&nbsp;</p>
+				<div className="tagGrid-grid">
+				{ items }
+				</div>
+				<p>With a total of {tags.totalCount}</p>
 			</div>
 		);
 	};
@@ -51,8 +40,7 @@ export class TagListClass extends Component<Props.ITagListProps, void> {
 
 const TagList = Relay.createContainer(TagListClass, {
 	initialVariables: {
-		query: null,
-		first: 20,
+		query: null
 	},
 	prepareVariables: vars => {
 		vars['queryIsTruthy'] = !!vars['query'];
@@ -64,7 +52,7 @@ const TagList = Relay.createContainer(TagListClass, {
 		store: (vars) => {
 			return Relay.QL`
     		fragment on Query {
-    			searchTags(search: $query, first: $first) @include(if: $queryIsTruthy) {
+    			searchTags(search: $query, first: 20) @include(if: $queryIsTruthy) {
     				totalCount
 					edges {
 						node {
@@ -72,7 +60,7 @@ const TagList = Relay.createContainer(TagListClass, {
 						}
 					}
     			}
-				allTags(first: $first) {
+				allTags(first: 20) {
 					totalCount
 					edges {
 						node {
@@ -88,16 +76,13 @@ const TagList = Relay.createContainer(TagListClass, {
 export default TagList;
 
 const TagChildrenList = Relay.createContainer(TagListClass, {
-	initialVariables: {
-		first: 20,
-	},
 	fragments: {
 		// The property name here reflects what is added to `this.props` above.
 		// This template string will be parsed by babel-relay-plugin when we browserify.
 		store: (vars) => {
 			return Relay.QL`
     		fragment on Tag {
-    			children(first:$first) {
+    			children(first:20) {
     				totalCount
 					edges {
 						node {

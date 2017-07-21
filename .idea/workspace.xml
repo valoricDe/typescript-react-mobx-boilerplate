@@ -2,7 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4a836e1-f73a-4031-a3bd-44f1c858908f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/update-schema.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/components/content/tagBox.tsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/components/content/tagGrid.tsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/components/content/user.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/lib/routerClickHelper.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/scripts/mutations/createTagSubscription.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/_bootstrap.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/components/answer.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/components/homepage.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/components/layout.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/components/question.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/components/questionBox.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/components/tagGrid.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/components/tagList.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/styles/components/userBox.scss" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/source/styles/partials/_bootstrap.scss" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/source/styles/partials/_content.scss" afterPath="$PROJECT_DIR$/source/styles/_content.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/source/styles/partials/_form.scss" afterPath="$PROJECT_DIR$/source/styles/_form.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/source/styles/partials/_mixins.scss" afterPath="$PROJECT_DIR$/source/styles/_mixins.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/source/styles/partials/_tangle.scss" afterPath="$PROJECT_DIR$/source/styles/_tangle.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/source/styles/partials/_variables.scss" afterPath="$PROJECT_DIR$/source/styles/_variables.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../politbase-schema/.idea/misc.xml" afterPath="$PROJECT_DIR$/../politbase-schema/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../politbase-schema/.idea/modules.xml" afterPath="$PROJECT_DIR$/../politbase-schema/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../politbase-schema/.idea/politbase-schema.iml" afterPath="$PROJECT_DIR$/../politbase-schema/.idea/politbase-schema.iml" />
@@ -10,15 +30,49 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../politbase-schema/package.json" afterPath="$PROJECT_DIR$/../politbase-schema/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../politbase-schema/utils/commit.js" afterPath="$PROJECT_DIR$/../politbase-schema/utils/commit.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../politbase-schema/utils/try.js" afterPath="$PROJECT_DIR$/../politbase-schema/utils/try.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/velten.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/velten.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/politbase.iml" afterPath="$PROJECT_DIR$/.idea/politbase.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misc/config/base.js" afterPath="$PROJECT_DIR$/misc/config/base.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misc/schema.graphql" afterPath="$PROJECT_DIR$/misc/schema.graphql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misc/schema.json" afterPath="$PROJECT_DIR$/misc/schema.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misc/settings.js" afterPath="$PROJECT_DIR$/misc/settings.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misc/template.ejs" afterPath="$PROJECT_DIR$/misc/template.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/postgraph-server.js" afterPath="$PROJECT_DIR$/postgraph-server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/app.tsx" afterPath="$PROJECT_DIR$/source/scripts/app.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/ReadOnlyEditor.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/ReadOnlyEditor.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/answer.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/answer.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/answerList.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/answerList.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/answerVote.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/answerVote.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/createAnswer.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/createAnswer.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/createQuestion.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/createQuestion.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/loginUser.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/loginUser.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/question.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/question.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/questionBox.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/questionBox.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/questionList.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/questionList.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/questionTagList.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/questionTagList.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/registerUser.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/registerUser.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/tag.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/tag.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/tagList.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/tagList.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/tagToken.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/tagToken.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/userBox.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/userBox.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/content/userList.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/content/userList.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/layout.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/layout.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/components/pages/homePage.tsx" afterPath="$PROJECT_DIR$/source/scripts/components/pages/homePage.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/index.tsx" afterPath="$PROJECT_DIR$/source/scripts/index.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/auth.ts" afterPath="$PROJECT_DIR$/source/scripts/lib/auth.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/lib/relayNodeArray.ts" afterPath="$PROJECT_DIR$/source/scripts/lib/relayNodeArray.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/routeProvider.tsx" afterPath="$PROJECT_DIR$/source/scripts/routeProvider.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/types/props.d.ts" afterPath="$PROJECT_DIR$/source/scripts/types/props.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/types/schema.d.ts" afterPath="$PROJECT_DIR$/source/scripts/types/schema.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/scripts/types/vendor.d.ts" afterPath="$PROJECT_DIR$/source/scripts/types/vendor.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/styles/index.scss" afterPath="$PROJECT_DIR$/source/styles/index.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/styles/partials/_bootstrap.scss" afterPath="$PROJECT_DIR$/source/styles/partials/_bootstrap.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/styles/partials/_variables.scss" afterPath="$PROJECT_DIR$/source/styles/partials/_variables.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tsconfig.json" afterPath="$PROJECT_DIR$/tsconfig.json" />
     </list>
     <ignored path="politbase.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,12 +94,6 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -53,41 +101,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="lib.es6.d.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.es6.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202575">
-              <caret line="13518" column="4" lean-forward="false" selection-start-line="13518" selection-start-column="4" selection-end-line="13518" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReadOnlyEditor.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/components/content/ReadOnlyEditor.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6180">
-              <caret line="412" column="21" lean-forward="false" selection-start-line="412" selection-start-column="21" selection-end-line="412" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginUser.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/components/content/loginUser.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="69" column="28" lean-forward="false" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="postgraph-server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/postgraph-server.js">
+      <file leaf-file-name="jobs.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../politbase-jobs/jobs.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+              <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
               </folding>
@@ -95,118 +113,214 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="question.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/components/content/question.tsx">
+      <file leaf-file-name="subscriptionsHandler.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../politbase-jobs/subscriptionsHandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="670">
-              <caret line="88" column="16" lean-forward="false" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
-              <folding>
-                <marker date="1487845431000" expanded="true" signature="4027:4299" ph="{...}" />
-                <marker date="1487845431000" expanded="true" signature="4039:4047" ph="{...}" />
-                <marker date="1487845431000" expanded="true" signature="4048:4299" ph="{...}" />
-                <marker date="1487845431000" expanded="true" signature="4161:4166" ph="{...}" />
-                <marker date="1487845431000" expanded="true" signature="4171:4176" ph="{...}" />
-                <marker date="1487845431000" expanded="true" signature="4181:4192" ph="{...}" />
-                <marker date="1487845431000" expanded="true" signature="4197:4209" ph="{...}" />
-                <marker date="1487845431000" expanded="true" signature="4197:4254" ph="{...}" />
-                <marker date="1487845431000" expanded="true" signature="4210:4254" ph="{...}" />
-                <marker date="1487845431000" expanded="true" signature="4454:4529" ph="{...}" />
-                <marker date="1487845431000" expanded="true" signature="4460:4529" ph="{...}" />
-                <marker date="1487845431000" expanded="true" signature="4462:4477" ph="{...}" />
-                <marker date="1487845431000" expanded="true" signature="4462:4527" ph="{...}" />
-                <marker date="1487845431000" expanded="true" signature="4490:4527" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tag.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/scripts/components/content/tag.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1487277139000" expanded="true" signature="736:841" ph="fragment...{&#10;&#9;&#9;&#9;&#9;name&#10;&#9;&#9;&#9;&#9;description&#10;                questionTagsByTag {&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;}" />
-                <marker date="1487277139000" expanded="true" signature="748:751" ph="Tag...Tag" />
-                <marker date="1487277139000" expanded="true" signature="752:841" ph="{...}" />
-                <marker date="1487277139000" expanded="true" signature="758:762" ph="name...name" />
-                <marker date="1487277139000" expanded="true" signature="767:778" ph="description...description" />
-                <marker date="1487277139000" expanded="true" signature="795:812" ph="questionTagsByTag...questionTagsByTag" />
-                <marker date="1487277139000" expanded="true" signature="795:836" ph="questionTagsByTag...{&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;}" />
-                <marker date="1487277139000" expanded="true" signature="813:836" ph="{...}" />
-                <marker date="1487277139000" expanded="true" signature="820:830" ph="totalCount...totalCount" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.tsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/scripts/components/content/user.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="16" column="18" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="16" selection-end-column="18" />
-              <folding>
-                <marker date="1487277139000" expanded="true" signature="857:1013" ph="fragment...{&#10;&#9;&#9;&#9;&#9;username&#10;&#9;&#9;&#9;&#9;questionsByAuthor(first:50) {&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;id&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;title&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;}" />
-                <marker date="1487277139000" expanded="true" signature="869:873" ph="User...User" />
-                <marker date="1487277139000" expanded="true" signature="874:1013" ph="{...}" />
-                <marker date="1487277139000" expanded="true" signature="880:888" ph="username...username" />
-                <marker date="1487277139000" expanded="true" signature="893:910" ph="questionsByAuthor...questionsByAuthor" />
-                <marker date="1487277139000" expanded="true" signature="893:1008" ph="questionsByAuthor...{&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;id&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;title&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}" />
-                <marker date="1487277139000" expanded="true" signature="910:920" ph="(...)" />
-                <marker date="1487277139000" expanded="true" signature="911:916" ph="first...first" />
-                <marker date="1487277139000" expanded="true" signature="921:1008" ph="{...}" />
-                <marker date="1487277139000" expanded="true" signature="928:938" ph="totalCount...totalCount" />
-                <marker date="1487277139000" expanded="true" signature="944:949" ph="edges...edges" />
-                <marker date="1487277139000" expanded="true" signature="944:1002" ph="edges...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;id&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;title&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}" />
-                <marker date="1487277139000" expanded="true" signature="950:1002" ph="{...}" />
-                <marker date="1487277139000" expanded="true" signature="958:962" ph="node...node" />
-                <marker date="1487277139000" expanded="true" signature="958:995" ph="node...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;id&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;title&#10;&#9;&#9;&#9;&#9;&#9;&#9;}" />
-                <marker date="1487277139000" expanded="true" signature="963:995" ph="{...}" />
-                <marker date="1487277139000" expanded="true" signature="972:974" ph="id...id" />
-                <marker date="1487277139000" expanded="true" signature="982:987" ph="title...title" />
-                <marker date="1487277139000" expanded="true" signature="1182:1265" ph="query...{ userByUsername(username: $username) { ${Component.getFragment('store')} } }" />
-                <marker date="1487277139000" expanded="true" signature="1188:1265" ph="{...}" />
-                <marker date="1487277139000" expanded="true" signature="1190:1204" ph="userByUsername...userByUsername" />
-                <marker date="1487277139000" expanded="true" signature="1190:1263" ph="userByUsername...{ ${Component.getFragment('store')} }" />
-                <marker date="1487277139000" expanded="true" signature="1204:1225" ph="(...)" />
-                <marker date="1487277139000" expanded="true" signature="1205:1213" ph="username...username" />
-                <marker date="1487277139000" expanded="true" signature="1226:1263" ph="{...}" />
-                <marker date="1487277139000" expanded="true" signature="1424:1483" ph="query...{ currentUser { ${Component.getFragment('store')} } }" />
-                <marker date="1487277139000" expanded="true" signature="1430:1483" ph="{...}" />
-                <marker date="1487277139000" expanded="true" signature="1432:1443" ph="currentUser...currentUser" />
-                <marker date="1487277139000" expanded="true" signature="1432:1481" ph="currentUser...{ ${Component.getFragment('store')} }" />
-                <marker date="1487277139000" expanded="true" signature="1444:1481" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="update-schema.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/update-schema.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+            <state relative-caret-position="510">
+              <caret line="34" column="42" lean-forward="false" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.d.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/@types/draft-js/index.d.ts">
+      <file leaf-file-name="importer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../politbase-jobs/importer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10260">
-              <caret line="687" column="23" lean-forward="false" selection-start-line="687" selection-start-column="23" selection-end-line="687" selection-end-column="23" />
+            <state relative-caret-position="60">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="10" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Unit.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/mathjs/lib/type/unit/Unit.js">
+      <file leaf-file-name="mailer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../politbase-jobs/mailer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="7" lean-forward="false" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+            <state relative-caret-position="810">
+              <caret line="54" column="79" lean-forward="false" selection-start-line="54" selection-start-column="79" selection-end-line="54" selection-end-column="79" />
+              <folding>
+                <marker date="1499362609000" expanded="true" signature="1163:1195" ph="..." />
+                <marker date="1499362609000" expanded="true" signature="5999:6031" ph="..." />
+                <marker date="1499362609000" expanded="true" signature="7492:8111" ph="..." />
+                <marker date="1499362609000" expanded="true" signature="7854:8075" ph="..." />
+                <marker date="1499362609000" expanded="true" signature="7882:7994" ph="..." />
+                <marker date="1499362609000" expanded="false" signature="7904:7942" ph="..." />
+                <marker date="1499362609000" expanded="false" signature="7969:7975" ph=" " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../politbase-jobs/library/config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="915">
+              <caret line="61" column="44" lean-forward="false" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="44" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="questionList.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scripts/components/content/questionList.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="45" column="16" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+              <folding>
+                <marker date="1499361417000" expanded="true" signature="1802:2210" ph="fragment...{&#10;    &#9;&#9;&#9;searchQuestions(search: $query, first: 20) @include(if: $queryIsTruthy) {&#10;    &#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;rowId ## for ordering&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;    &#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;allQuestions(last: 20, orderBy: PRIMARY_KEY_DESC) {&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;}" />
+                <marker date="1499361417000" expanded="true" signature="1814:1819" ph="Query...Query" />
+                <marker date="1499361417000" expanded="true" signature="1820:2210" ph="{...}" />
+                <marker date="1499361417000" expanded="true" signature="1829:1844" ph="searchQuestions...searchQuestions" />
+                <marker date="1499361417000" expanded="true" signature="1829:2042" ph="searchQuestions...{&#10;    &#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;rowId ## for ordering&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;    &#9;&#9;&#9;}" />
+                <marker date="1499361417000" expanded="true" signature="1844:1871" ph="(...)" />
+                <marker date="1499361417000" expanded="true" signature="1845:1851" ph="search...search" />
+                <marker date="1499361417000" expanded="true" signature="1861:1866" ph="first...first" />
+                <marker date="1499361417000" expanded="true" signature="1880:1900" ph="(...)" />
+                <marker date="1499361417000" expanded="true" signature="1881:1883" ph="if...if" />
+                <marker date="1499361417000" expanded="true" signature="1901:2042" ph="{...}" />
+                <marker date="1499361417000" expanded="true" signature="1911:1921" ph="totalCount...totalCount" />
+                <marker date="1499361417000" expanded="true" signature="1927:1932" ph="edges...edges" />
+                <marker date="1499361417000" expanded="true" signature="1927:2033" ph="edges...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;rowId ## for ordering&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}" />
+                <marker date="1499361417000" expanded="true" signature="1933:2033" ph="{...}" />
+                <marker date="1499361417000" expanded="true" signature="1941:1945" ph="node...node" />
+                <marker date="1499361417000" expanded="true" signature="1941:2026" ph="node...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;rowId ## for ordering&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}" />
+                <marker date="1499361417000" expanded="true" signature="1946:2026" ph="{...}" />
+                <marker date="1499361417000" expanded="true" signature="1955:1960" ph="rowId...rowId" />
+                <marker date="1499361417000" expanded="true" signature="2047:2059" ph="allQuestions...allQuestions" />
+                <marker date="1499361417000" expanded="true" signature="2047:2205" ph="allQuestions...{&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}" />
+                <marker date="1499361417000" expanded="true" signature="2059:2097" ph="(...)" />
+                <marker date="1499361417000" expanded="true" signature="2060:2065" ph="first...first" />
+                <marker date="1499361417000" expanded="true" signature="2071:2078" ph="orderBy...orderBy" />
+                <marker date="1499361417000" expanded="true" signature="2098:2205" ph="{...}" />
+                <marker date="1499361417000" expanded="true" signature="2105:2115" ph="totalCount...totalCount" />
+                <marker date="1499361417000" expanded="true" signature="2121:2126" ph="edges...edges" />
+                <marker date="1499361417000" expanded="true" signature="2121:2199" ph="edges...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}" />
+                <marker date="1499361417000" expanded="true" signature="2127:2199" ph="{...}" />
+                <marker date="1499361417000" expanded="true" signature="2135:2139" ph="node...node" />
+                <marker date="1499361417000" expanded="true" signature="2135:2192" ph="node...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}" />
+                <marker date="1499361417000" expanded="true" signature="2140:2192" ph="{...}" />
+                <marker date="1499361417000" expanded="true" signature="2690:3375" ph="fragment...{&#10;                    searchQuestions(search: $query, first: 20) @include(if: $queryIsTruthy) {&#10;                        totalCount&#10;                        edges {&#10;                            node {&#10;                                rowId ## for ordering&#10;                                ${QuestionBox.getFragment('store')}&#10;                            }&#10;                        }&#10;                    }&#10;&#9;&#9;&#9;&#9;&#9;allQuestions(first: 20) {&#10;                        totalCount&#10;                        edges {&#10;                            node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;                            }&#10;                        }&#10;                    }&#10;                }" />
+                <marker date="1499361417000" expanded="true" signature="2702:2705" ph="Tag...Tag" />
+                <marker date="1499361417000" expanded="true" signature="2706:3375" ph="{...}" />
+                <marker date="1499361417000" expanded="true" signature="2728:2743" ph="searchQuestions...searchQuestions" />
+                <marker date="1499361417000" expanded="true" signature="2728:3102" ph="searchQuestions...{&#10;                        totalCount&#10;                        edges {&#10;                            node {&#10;                                rowId ## for ordering&#10;                                ${QuestionBox.getFragment('store')}&#10;                            }&#10;                        }&#10;                    }" />
+                <marker date="1499361417000" expanded="true" signature="2743:2770" ph="(...)" />
+                <marker date="1499361417000" expanded="true" signature="2744:2750" ph="search...search" />
+                <marker date="1499361417000" expanded="true" signature="2760:2765" ph="first...first" />
+                <marker date="1499361417000" expanded="true" signature="2779:2799" ph="(...)" />
+                <marker date="1499361417000" expanded="true" signature="2780:2782" ph="if...if" />
+                <marker date="1499361417000" expanded="true" signature="2800:3102" ph="{...}" />
+                <marker date="1499361417000" expanded="true" signature="2826:2836" ph="totalCount...totalCount" />
+                <marker date="1499361417000" expanded="true" signature="2861:2866" ph="edges...edges" />
+                <marker date="1499361417000" expanded="true" signature="2861:3080" ph="edges...{&#10;                            node {&#10;                                rowId ## for ordering&#10;                                ${QuestionBox.getFragment('store')}&#10;                            }&#10;                        }" />
+                <marker date="1499361417000" expanded="true" signature="2867:3080" ph="{...}" />
+                <marker date="1499361417000" expanded="true" signature="2897:2901" ph="node...node" />
+                <marker date="1499361417000" expanded="true" signature="2897:3054" ph="node...{&#10;                                rowId ## for ordering&#10;                                ${QuestionBox.getFragment('store')}&#10;                            }" />
+                <marker date="1499361417000" expanded="true" signature="2902:3054" ph="{...}" />
+                <marker date="1499361417000" expanded="true" signature="2936:2941" ph="rowId...rowId" />
+                <marker date="1499361417000" expanded="true" signature="3108:3120" ph="allQuestions...allQuestions" />
+                <marker date="1499361417000" expanded="true" signature="3108:3357" ph="allQuestions...{&#10;                        totalCount&#10;                        edges {&#10;                            node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;                            }&#10;                        }&#10;                    }" />
+                <marker date="1499361417000" expanded="true" signature="3120:3131" ph="(...)" />
+                <marker date="1499361417000" expanded="true" signature="3121:3126" ph="first...first" />
+                <marker date="1499361417000" expanded="true" signature="3132:3357" ph="{...}" />
+                <marker date="1499361417000" expanded="true" signature="3158:3168" ph="totalCount...totalCount" />
+                <marker date="1499361417000" expanded="true" signature="3193:3198" ph="edges...edges" />
+                <marker date="1499361417000" expanded="true" signature="3193:3335" ph="edges...{&#10;                            node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;                            }&#10;                        }" />
+                <marker date="1499361417000" expanded="true" signature="3199:3335" ph="{...}" />
+                <marker date="1499361417000" expanded="true" signature="3229:3233" ph="node...node" />
+                <marker date="1499361417000" expanded="true" signature="3229:3309" ph="node...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;                            }" />
+                <marker date="1499361417000" expanded="true" signature="3234:3309" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tagList.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scripts/components/content/tagList.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1350">
+              <caret line="98" column="29" lean-forward="false" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+              <folding>
+                <marker date="1499544515000" expanded="true" signature="2083:2424" ph="fragment...{&#10;    &#9;&#9;&#9;searchTags(search: $query, first: $first) @include(if: $queryIsTruthy) {&#10;    &#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;    &#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;allTags(first: $first) {&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;}" />
+                <marker date="1499544515000" expanded="true" signature="2095:2100" ph="Query...Query" />
+                <marker date="1499544515000" expanded="true" signature="2101:2424" ph="{...}" />
+                <marker date="1499544515000" expanded="true" signature="2110:2120" ph="searchTags...searchTags" />
+                <marker date="1499544515000" expanded="true" signature="2110:2289" ph="searchTags...{&#10;    &#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;    &#9;&#9;&#9;}" />
+                <marker date="1499544515000" expanded="true" signature="2120:2151" ph="(...)" />
+                <marker date="1499544515000" expanded="true" signature="2121:2127" ph="search...search" />
+                <marker date="1499544515000" expanded="true" signature="2137:2142" ph="first...first" />
+                <marker date="1499544515000" expanded="true" signature="2160:2180" ph="(...)" />
+                <marker date="1499544515000" expanded="true" signature="2161:2163" ph="if...if" />
+                <marker date="1499544515000" expanded="true" signature="2181:2289" ph="{...}" />
+                <marker date="1499544515000" expanded="true" signature="2191:2201" ph="totalCount...totalCount" />
+                <marker date="1499544515000" expanded="true" signature="2207:2212" ph="edges...edges" />
+                <marker date="1499544515000" expanded="true" signature="2207:2280" ph="edges...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}" />
+                <marker date="1499544515000" expanded="true" signature="2213:2280" ph="{...}" />
+                <marker date="1499544515000" expanded="true" signature="2221:2225" ph="node...node" />
+                <marker date="1499544515000" expanded="true" signature="2221:2273" ph="node...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}" />
+                <marker date="1499544515000" expanded="true" signature="2226:2273" ph="{...}" />
+                <marker date="1499544515000" expanded="true" signature="2294:2301" ph="allTags...allTags" />
+                <marker date="1499544515000" expanded="true" signature="2294:2419" ph="allTags...{&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}" />
+                <marker date="1499544515000" expanded="true" signature="2301:2316" ph="(...)" />
+                <marker date="1499544515000" expanded="true" signature="2302:2307" ph="first...first" />
+                <marker date="1499544515000" expanded="true" signature="2317:2419" ph="{...}" />
+                <marker date="1499544515000" expanded="true" signature="2324:2334" ph="totalCount...totalCount" />
+                <marker date="1499544515000" expanded="true" signature="2340:2345" ph="edges...edges" />
+                <marker date="1499544515000" expanded="true" signature="2340:2413" ph="edges...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}" />
+                <marker date="1499544515000" expanded="true" signature="2346:2413" ph="{...}" />
+                <marker date="1499544515000" expanded="true" signature="2354:2358" ph="node...node" />
+                <marker date="1499544515000" expanded="true" signature="2354:2406" ph="node...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}" />
+                <marker date="1499544515000" expanded="true" signature="2359:2406" ph="{...}" />
+                <marker date="1499544515000" expanded="true" signature="2783:2941" ph="fragment...{&#10;    &#9;&#9;&#9;children(first:$first) {&#10;    &#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;}" />
+                <marker date="1499544515000" expanded="true" signature="2795:2798" ph="Tag...Tag" />
+                <marker date="1499544515000" expanded="true" signature="2799:2941" ph="{...}" />
+                <marker date="1499544515000" expanded="true" signature="2800:2941" ph="{...}" />
+                <marker date="1499544515000" expanded="true" signature="2808:2816" ph="children...children" />
+                <marker date="1499544515000" expanded="true" signature="2808:2936" ph="children...{&#10;    &#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}" />
+                <marker date="1499544515000" expanded="true" signature="2816:2830" ph="(...)" />
+                <marker date="1499544515000" expanded="true" signature="2817:2822" ph="first...first" />
+                <marker date="1499544515000" expanded="true" signature="2831:2936" ph="{...}" />
+                <marker date="1499544515000" expanded="true" signature="2841:2851" ph="totalCount...totalCount" />
+                <marker date="1499544515000" expanded="true" signature="2857:2862" ph="edges...edges" />
+                <marker date="1499544515000" expanded="true" signature="2857:2930" ph="edges...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}" />
+                <marker date="1499544515000" expanded="true" signature="2863:2930" ph="{...}" />
+                <marker date="1499544515000" expanded="true" signature="2871:2875" ph="node...node" />
+                <marker date="1499544515000" expanded="true" signature="2871:2923" ph="node...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}" />
+                <marker date="1499544515000" expanded="true" signature="2876:2923" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.tsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/scripts/index.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tagBox.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/scripts/components/content/tagBox.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+              <folding>
+                <marker date="1499544504000" expanded="true" signature="836:957" ph="fragment...{&#10;&#9;&#9;&#9;&#9;rowId&#10;&#9;&#9;&#9;&#9;name&#10;&#9;&#9;&#9;&#9;description&#10;                questionTagXrefsByTagId {&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;}" />
+                <marker date="1499544504000" expanded="true" signature="848:851" ph="Tag...Tag" />
+                <marker date="1499544504000" expanded="true" signature="852:957" ph="{...}" />
+                <marker date="1499544504000" expanded="true" signature="858:863" ph="rowId...rowId" />
+                <marker date="1499544504000" expanded="true" signature="868:872" ph="name...name" />
+                <marker date="1499544504000" expanded="true" signature="877:888" ph="description...description" />
+                <marker date="1499544504000" expanded="true" signature="905:928" ph="questionTagXrefsByTagId...questionTagXrefsByTagId" />
+                <marker date="1499544504000" expanded="true" signature="905:952" ph="questionTagXrefsByTagId...{&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;}" />
+                <marker date="1499544504000" expanded="true" signature="929:952" ph="{...}" />
+                <marker date="1499544504000" expanded="true" signature="936:946" ph="totalCount...totalCount" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -223,8 +337,56 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Environment</find>
+      <find>mu</find>
+      <find>z</find>
+      <find>inse</find>
+      <find>u</find>
+      <find>ups</find>
+      <find>upse</find>
+      <find>upser</find>
+      <find>create</find>
+      <find>createAnswerVote</find>
+      <find>tagSu</find>
+      <find>tagSubcripti</find>
+      <find>upsert</find>
+      <find>test123</find>
+      <find>t1234</find>
+      <find>te1234</find>
+      <find>tes1234</find>
+      <find>test1234</find>
+      <find>1234</find>
+      <find>1234'</find>
+      <find>trigger</find>
+      <find>t</find>
+      <find>trigg</find>
+      <find>trig</find>
+      <find>pg_notify</find>
+      <find>TG_OP</find>
+      <find>pools</find>
+      <find>clean</find>
+      <find>sub</find>
+      <find>subtags</find>
+      <find>sub-tags</find>
     </findStrings>
+    <replaceStrings>
+      <replace>reactstrap</replace>
+      <replace>import Card from  'reactstrap/lib/Card';</replace>
+      <replace>pull-xs-right</replace>
+      <replace>float-right</replace>
+      <replace>tag_relations_xref</replace>
+      <replace>question_tag_xref</replace>
+      <replace>color=&quot;</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/source/</dir>
+      <dir>$PROJECT_DIR$/source</dir>
+      <dir>$PROJECT_DIR$/source/scripts</dir>
+      <dir>$PROJECT_DIR$/sql/src/public</dir>
+      <dir>$PROJECT_DIR$/sql/src</dir>
+      <dir>$PROJECT_DIR$/sql</dir>
+      <dir>$PROJECT_DIR$/../politbase-jobs</dir>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -232,77 +394,90 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.js" />
-        <option value="$PROJECT_DIR$/source/scripts/components/helpers/PlainLi.tsx" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegexesAndSelectionAndState.js" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/customFindWithRegexAndSelection.js" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/findWithRegex.js" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/customFindWithRegex.js" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils/MultiRegExp2.js" />
-        <option value="$PROJECT_DIR$/source/scripts/mutations/updateQuestion.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/MentionSuggestions/index.js" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStyles.css" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsEntryStyles.css" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsEntryContainerStyles.css" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/index.js" />
-        <option value="$PROJECT_DIR$/source/styles/partials/_tangle.scss" />
-        <option value="$PROJECT_DIR$/.babelrc" />
-        <option value="$PROJECT_DIR$/source/styles/index.scss" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/modifiers/addMention.js" />
-        <option value="$PROJECT_DIR$/source/scripts/components/app.tsx" />
-        <option value="$PROJECT_DIR$/misc/settings.js" />
-        <option value="$PROJECT_DIR$/misc/config/base.js" />
-        <option value="$PROJECT_DIR$/misc/config/dev.js" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/mentionSuggestionsStrategy.js" />
-        <option value="$PROJECT_DIR$/source/scripts/components/content/questionList.tsx" />
-        <option value="$PROJECT_DIR$/source/scripts/app.tsx" />
-        <option value="$PROJECT_DIR$/source/scripts/index.tsx" />
-        <option value="$PROJECT_DIR$/tsconfig.json" />
-        <option value="$PROJECT_DIR$/test.js" />
-        <option value="$PROJECT_DIR$/source/scripts/components/helpers/TextDecorator.tsx" />
-        <option value="$PROJECT_DIR$/source/scripts/components/content/createQuestion.tsx" />
-        <option value="$PROJECT_DIR$/source/scripts/components/content/modelList.tsx" />
-        <option value="$PROJECT_DIR$/source/scripts/components/content/questionBox.tsx" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/exchangeRates.json" />
-        <option value="$PROJECT_DIR$/node_modules/mathjs/lib/utils/string.js" />
-        <option value="$PROJECT_DIR$/source/scripts/components/content/createAnswer.tsx" />
-        <option value="$PROJECT_DIR$/source/scripts/components/content/question.tsx" />
-        <option value="$PROJECT_DIR$/source/scripts/components/content/answer.tsx" />
-        <option value="$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx" />
         <option value="$PROJECT_DIR$/source/scripts/components/content/answerList.tsx" />
-        <option value="$PROJECT_DIR$/misc/schema.graphql" />
-        <option value="$PROJECT_DIR$/source/styles/partials/_bootstrap.scss" />
-        <option value="$PROJECT_DIR$/source/styles/partials/_variables.scss" />
-        <option value="$PROJECT_DIR$/source/styles/partials/_content.scss" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/relayEdgesToNodeArray.ts" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/source/scripts/components/pages/homePage.tsx" />
-        <option value="$PROJECT_DIR$/source/scripts/lib/auth.ts" />
-        <option value="$PROJECT_DIR$/source/scripts/components/content/calculation.tsx" />
-        <option value="$PROJECT_DIR$/source/scripts/components/content/ReadOnlyEditor.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/createQuestion.tsx" />
         <option value="$PROJECT_DIR$/source/scripts/components/content/loginUser.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/registerUser.tsx" />
+        <option value="$PROJECT_DIR$/source/styles/components/questionBox.scss" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/answer.tsx" />
+        <option value="$PROJECT_DIR$/source/styles/components/question.scss" />
+        <option value="$PROJECT_DIR$/source/styles/components/answer.scss" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/question.tsx" />
+        <option value="$PROJECT_DIR$/source/styles/_mixins.scss" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/userBox.tsx" />
+        <option value="$PROJECT_DIR$/source/styles/components/userBox.scss" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/answerVote.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/lib/routerClickHelper.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/routeProvider.tsx" />
+        <option value="$PROJECT_DIR$/sql/src/public/question.sql" />
+        <option value="$PROJECT_DIR$/sql/upgrade-staging.diff.sql" />
+        <option value="$PROJECT_DIR$/sql/src/public/user.sql" />
         <option value="$PROJECT_DIR$/postgraph-server.js" />
-        <option value="$PROJECT_DIR$/update-schema.js" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/questionTagList.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/tagToken.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/questionBox.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/components/layout.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/app.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/lib/auth.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/components/pages/homePage.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/createAnswer.tsx" />
+        <option value="$PROJECT_DIR$/../politbase-jobs/library/library.js" />
+        <option value="$PROJECT_DIR$/../politbase-jobs/package.json" />
+        <option value="$PROJECT_DIR$/sql/src/public/!4_tables.sql" />
+        <option value="$PROJECT_DIR$/source/scripts/types/props.d.ts" />
+        <option value="$PROJECT_DIR$/source/styles/components/tagGrid.scss" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/tagGrid.tsx" />
+        <option value="$PROJECT_DIR$/source/styles/components/tagList.scss" />
+        <option value="$PROJECT_DIR$/source/styles/components/homepage.scss" />
+        <option value="$PROJECT_DIR$/sql/all.sql" />
+        <option value="$PROJECT_DIR$/source/scripts/mutations/createTagSubscription.ts" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/tag.tsx" />
+        <option value="$PROJECT_DIR$/../politbase-jobs/jobs.js" />
+        <option value="$PROJECT_DIR$/../politbase-jobs/importer.js" />
+        <option value="$PROJECT_DIR$/misc/settings.js" />
+        <option value="$PROJECT_DIR$/sql/src/public/tag.sql" />
+        <option value="$PROJECT_DIR$/sql/src/public/zz4_triggers.sql" />
+        <option value="$PROJECT_DIR$/../politbase-jobs/library/services.js" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/questionList.tsx" />
+        <option value="$PROJECT_DIR$/../politbase-jobs/subscriptionsHandler.js" />
+        <option value="$PROJECT_DIR$/../politbase-jobs/mailer.js" />
+        <option value="$PROJECT_DIR$/../politbase-jobs/library/config.js" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/tagBox.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/components/content/tagList.tsx" />
+        <option value="$PROJECT_DIR$/source/scripts/index.tsx" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>true</other-services-enabled>
+  </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NamedScopeManager">
+    <scope name="Not created sql files" pattern="!file[politbase-schema]:development.sql&amp;&amp;!file[politbase-schema]:production.sql&amp;&amp;!file[politbase-schema]:testing.sql" />
+  </component>
   <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/../politbase-jobs/node_modules" />
     <handled-path value="$PROJECT_DIR$/../politbase-schema/node_modules" />
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="Unnamed">
+    <include_path>
+      <path value="/opt/local/lib/php" />
+    </include_path>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="24" />
-    <option name="y" value="210" />
+    <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="773" />
   </component>
@@ -387,7 +562,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="politbase-schema" />
+              <option name="myItemId" value="politbase-jobs" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -397,21 +572,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="politbase-schema" />
+              <option name="myItemId" value="politbase-jobs" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
+              <option name="myItemId" value="library" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -422,10 +587,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -440,10 +601,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -462,10 +619,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -501,71 +654,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="politbase" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="content" />
+              <option name="myItemId" value="misc" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -575,38 +664,65 @@
   </component>
   <component name="PropertiesComponent">
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="nodejs_interpreter_path" value="/opt/local/bin/node" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../politbase-schema" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="GraphQL&#10;JavaScript&#10;JSON&#10;HTML" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="JavaScript&#10;HTML&#10;GraphQL&#10;JSON" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="js.eslint.eslintPackage" value="" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/source/scripts/lib" />
+      <recent name="$PROJECT_DIR$/source/scripts/mutations" />
       <recent name="$PROJECT_DIR$/source/scripts/components/content" />
-      <recent name="$PROJECT_DIR$/source/scripts/components/helpers" />
-      <recent name="$PROJECT_DIR$/source/scripts/components" />
+      <recent name="$PROJECT_DIR$/source/styles/components" />
+      <recent name="$PROJECT_DIR$/../politbase-jobs/library" />
+      <recent name="$PROJECT_DIR$/../politbase-jobs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/styles/components" />
+      <recent name="$PROJECT_DIR$/source/styles" />
+      <recent name="$PROJECT_DIR$/sql" />
+      <recent name="$PROJECT_DIR$/../politbase-schema/src/all" />
       <recent name="$PROJECT_DIR$/source/scripts/lib" />
-      <recent name="$PROJECT_DIR$/source/scripts" />
-      <recent name="$PROJECT_DIR$/source/scripts/components/content" />
-      <recent name="$PROJECT_DIR$/vendor" />
-      <recent name="$PROJECT_DIR$/source/scripts/lib/draft-js-model-plugin/utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.test.js">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Node.js Remote Debug.inspect-brk=5858">
     <configuration default="false" name="scratch_4.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.js" working-dir="$PROJECT_DIR$">
       <method />
     </configuration>
     <configuration default="false" name="test.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="test.js" working-dir="$PROJECT_DIR$">
+      <method />
+    </configuration>
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
@@ -669,12 +785,12 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <configuration default="false" name="debug-brk=5858" type="NodeJSRemoteDebug" factoryName="Node.js Remote Debug">
+    <configuration default="false" name="inspect-brk=5858" type="NodeJSRemoteDebug" factoryName="Node.js Remote Debug">
       <node-js-remote-debug />
       <method />
     </configuration>
     <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Node.js Remote Debug.debug-brk=5858" />
+      <item index="0" class="java.lang.String" itemvalue="Node.js Remote Debug.inspect-brk=5858" />
       <item index="1" class="java.lang.String" itemvalue="Node.js.scratch_4.js" />
       <item index="2" class="java.lang.String" itemvalue="Node.js.test.js" />
     </list>
@@ -718,50 +834,65 @@
       <workItem from="1488047069466" duration="210000" />
       <workItem from="1488047439282" duration="19997000" />
       <workItem from="1489485359247" duration="2341000" />
+      <workItem from="1489844821189" duration="2582000" />
+      <workItem from="1490429539251" duration="3340000" />
+      <workItem from="1491293547766" duration="44470000" />
+      <workItem from="1493578550835" duration="41910000" />
+      <workItem from="1494179559488" duration="2953000" />
+      <workItem from="1494575172172" duration="9507000" />
+      <workItem from="1496313362017" duration="3686000" />
+      <workItem from="1497165981433" duration="7550000" />
+      <workItem from="1497345411561" duration="15470000" />
+      <workItem from="1497447705448" duration="3017000" />
+      <workItem from="1497682457991" duration="10193000" />
+      <workItem from="1497812860064" duration="7760000" />
+      <workItem from="1499334660601" duration="12290000" />
+      <workItem from="1499889445767" duration="1322000" />
+      <workItem from="1500634860055" duration="234000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="582238000" />
+    <option name="totallyTimeSpent" value="748522000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="24" y="210" width="1280" height="773" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22132471" sideWeight="0.4879121" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32791728" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1987076" sideWeight="0.4879121" order="3" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32791728" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19709209" sideWeight="0.51208794" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24336283" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15339233" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18578352" sideWeight="0.50769234" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16519174" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32791728" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15339233" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32791728" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18578352" sideWeight="0.50769234" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1987076" sideWeight="0.4879121" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32791728" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19224556" sideWeight="0.4879121" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32791728" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19709209" sideWeight="0.51208794" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24336283" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16519174" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -816,8 +947,13 @@
           <line>406</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/../politbase-jobs/jobs.js</url>
+          <line>6</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="87" />
+      <option name="time" value="91" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="NodeJSConfigurationType">
@@ -827,120 +963,70 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="29" column="19" lean-forward="false" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/modelList.tsx" />
-    <entry file="file://$PROJECT_DIR$/node_modules/mobx/lib/mobx.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5100">
-          <caret line="340" column="17" lean-forward="false" selection-start-line="340" selection-start-column="17" selection-end-line="340" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/helpers/TextDecorator.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/questionList.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="48" lean-forward="false" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/exchangeRates.json">
+    <entry file="file://$PROJECT_DIR$/../politbase-jobs/library/cleanup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="12" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mathjs/lib/utils/string.js">
+    <entry file="file://$PROJECT_DIR$/../politbase-jobs/library/library.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mathjs/lib/expression/node/Node.js">
+    <entry file="file://$PROJECT_DIR$/../politbase-jobs/library/i18n.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="310" column="45" lean-forward="false" selection-start-line="310" selection-start-column="45" selection-end-line="310" selection-end-column="45" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/userBox.tsx">
+    <entry file="file://$PROJECT_DIR$/misc/config/base.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="15" lean-forward="false" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/createQuestion.tsx">
+    <entry file="file://$PROJECT_DIR$/sql/src/public/!2_types.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="115" column="102" lean-forward="false" selection-start-line="115" selection-start-column="94" selection-end-line="115" selection-end-column="102" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/createAnswer.tsx">
+    <entry file="file://$PROJECT_DIR$/sql/src/public/!3_domains.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/answer.tsx">
+    <entry file="file://$PROJECT_DIR$/sql/src/public/!1_base.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/questionBox.tsx">
+    <entry file="file://$PROJECT_DIR$/sql/src/public/!4_tables.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-532">
-          <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+        <state relative-caret-position="334">
+          <caret line="143" column="1" lean-forward="false" selection-start-line="143" selection-start-column="1" selection-end-line="143" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/myEditor.tsx">
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/react-relay/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="236" column="29" lean-forward="false" selection-start-line="236" selection-start-column="29" selection-end-line="236" selection-end-column="29" />
+        <state relative-caret-position="180">
+          <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/types/props.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="113" column="18" lean-forward="false" selection-start-line="113" selection-start-column="18" selection-end-line="113" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/answerList.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="41" column="4" lean-forward="false" selection-start-line="41" selection-start-column="4" selection-end-line="47" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql.schema.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="109" column="21" lean-forward="false" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql.config.json">
+    <entry file="file://$PROJECT_DIR$/misc/schema.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -949,321 +1035,452 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/misc/schema.graphql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="422">
+          <caret line="2499" column="10" lean-forward="false" selection-start-line="2499" selection-start-column="2" selection-end-line="2499" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/misc/utils/babel-relay-plugin.js">
+    <entry file="file://$PROJECT_DIR$/source/scripts/types/schema.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="208">
+          <caret line="427" column="12" lean-forward="false" selection-start-line="427" selection-start-column="4" selection-end-line="427" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/misc/graphql-server.js">
+    <entry file="file://$PROJECT_DIR$/source/scripts/types/props.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/misc/schema.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="3515" column="9" lean-forward="false" selection-start-line="3515" selection-start-column="9" selection-end-line="3515" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/styles/partials/_bootstrap.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="493" column="46" lean-forward="false" selection-start-line="493" selection-start-column="33" selection-end-line="493" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/styles/partials/_variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="78" lean-forward="false" selection-start-line="0" selection-start-column="78" selection-end-line="0" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/relayNodeArray.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/styles/partials/_content.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1545">
-          <caret line="103" column="38" lean-forward="false" selection-start-line="103" selection-start-column="38" selection-end-line="103" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/app.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/layout.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="83" column="13" lean-forward="false" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
-          <folding>
-            <marker date="1487277139000" expanded="true" signature="2247:2329" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="2259:2264" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="2265:2329" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="2274:2285" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="2274:2324" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="2286:2324" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="2293:2298" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="2307:2315" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="2495:2554" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="2501:2554" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="2503:2508" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="2503:2552" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="2509:2552" ph="{...}" />
-          </folding>
+        <state relative-caret-position="383">
+          <caret line="127" column="30" lean-forward="false" selection-start-line="127" selection-start-column="30" selection-end-line="127" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/routeProvider.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-          <folding />
+        <state relative-caret-position="105">
+          <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../politbase-schema/package.json">
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/tagGrid.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="345">
+          <caret line="31" column="44" lean-forward="false" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../politbase-schema/testing.sql">
+    <entry file="file://$PROJECT_DIR$/source/styles/components/tagGrid.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="45">
+          <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="48" column="35" lean-forward="false" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/misc/utils/createGraphQLSchema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/misc/utils/clean.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../politbase-schema/utils/try.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/react-relay/index.d.ts">
+    <entry file="file://$PROJECT_DIR$/source/styles/components/tagList.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/components/pages/homePage.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165">
-          <caret line="33" column="65" lean-forward="false" selection-start-line="33" selection-start-column="65" selection-end-line="33" selection-end-column="65" />
+        <state relative-caret-position="945">
+          <caret line="69" column="38" lean-forward="false" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/lib/auth.ts">
+    <entry file="file://$PROJECT_DIR$/source/styles/components/homepage.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="67" column="62" lean-forward="false" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
-          <folding />
+        <state relative-caret-position="270">
+          <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/mathjs/index.d.ts">
+    <entry file="file://$PROJECT_DIR$/source/styles/components/questionBox.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18480">
-          <caret line="1235" column="8" lean-forward="false" selection-start-line="1235" selection-start-column="8" selection-end-line="1235" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="570">
+          <caret line="38" column="17" lean-forward="false" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/all.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10158">
+          <caret line="569" column="0" lean-forward="true" selection-start-line="569" selection-start-column="0" selection-end-line="569" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/src/public/question.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/src/public/question_tag.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/src/public/question_vote.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/src/public/answer_vote.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/js/bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300450">
+          <caret line="132" column="4202" lean-forward="false" selection-start-line="132" selection-start-column="4202" selection-end-line="132" selection-end-column="4202" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/question.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="60" column="91" lean-forward="false" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/mutations/createTagSubscription.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../politbase-jobs/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="29" lean-forward="false" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../politbase-jobs/node_modules/massive/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1755">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/tag.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="151" lean-forward="false" selection-start-line="27" selection-start-column="151" selection-end-line="27" selection-end-column="151" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/scripts/components/content/calculation.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="11" selection-end-column="1" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/ReadOnlyEditor.tsx">
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/authorProfile.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6180">
-          <caret line="412" column="21" lean-forward="false" selection-start-line="412" selection-start-column="21" selection-end-line="412" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.es6.d.ts">
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/answerVote.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202575">
-          <caret line="13518" column="4" lean-forward="false" selection-start-line="13518" selection-start-column="4" selection-end-line="13518" selection-end-column="4" />
-          <folding />
+        <state relative-caret-position="120">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="19" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/loginUser.tsx">
+    <entry file="file://$PROJECT_DIR$/misc/settings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="28" lean-forward="false" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="189">
+          <caret line="47" column="18" lean-forward="true" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/postgraph-server.js">
+    <entry file="file://$PROJECT_DIR$/misc/graphql-server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/layout.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/src/public/zz4_triggers.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/src/public/tag.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="111" column="61" lean-forward="false" selection-start-line="111" selection-start-column="61" selection-end-line="111" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../politbase-jobs/library/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../politbase-jobs/importer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="10" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../politbase-jobs/jobs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/update-schema.js">
+    <entry file="file://$PROJECT_DIR$/../politbase-jobs/subscriptionsHandler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+        <state relative-caret-position="510">
+          <caret line="34" column="42" lean-forward="false" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/draft-js/index.d.ts">
+    <entry file="file://$PROJECT_DIR$/../politbase-jobs/mailer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10260">
-          <caret line="687" column="23" lean-forward="false" selection-start-line="687" selection-start-column="23" selection-end-line="687" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mathjs/lib/type/unit/Unit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="7" lean-forward="false" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/question.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="670">
-          <caret line="88" column="16" lean-forward="false" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
+        <state relative-caret-position="810">
+          <caret line="54" column="79" lean-forward="false" selection-start-line="54" selection-start-column="79" selection-end-line="54" selection-end-column="79" />
           <folding>
-            <marker date="1487845431000" expanded="true" signature="4027:4299" ph="{...}" />
-            <marker date="1487845431000" expanded="true" signature="4039:4047" ph="{...}" />
-            <marker date="1487845431000" expanded="true" signature="4048:4299" ph="{...}" />
-            <marker date="1487845431000" expanded="true" signature="4161:4166" ph="{...}" />
-            <marker date="1487845431000" expanded="true" signature="4171:4176" ph="{...}" />
-            <marker date="1487845431000" expanded="true" signature="4181:4192" ph="{...}" />
-            <marker date="1487845431000" expanded="true" signature="4197:4209" ph="{...}" />
-            <marker date="1487845431000" expanded="true" signature="4197:4254" ph="{...}" />
-            <marker date="1487845431000" expanded="true" signature="4210:4254" ph="{...}" />
-            <marker date="1487845431000" expanded="true" signature="4454:4529" ph="{...}" />
-            <marker date="1487845431000" expanded="true" signature="4460:4529" ph="{...}" />
-            <marker date="1487845431000" expanded="true" signature="4462:4477" ph="{...}" />
-            <marker date="1487845431000" expanded="true" signature="4462:4527" ph="{...}" />
-            <marker date="1487845431000" expanded="true" signature="4490:4527" ph="{...}" />
+            <marker date="1499362609000" expanded="true" signature="1163:1195" ph="..." />
+            <marker date="1499362609000" expanded="true" signature="5999:6031" ph="..." />
+            <marker date="1499362609000" expanded="true" signature="7492:8111" ph="..." />
+            <marker date="1499362609000" expanded="true" signature="7854:8075" ph="..." />
+            <marker date="1499362609000" expanded="true" signature="7882:7994" ph="..." />
+            <marker date="1499362609000" expanded="false" signature="7904:7942" ph="..." />
+            <marker date="1499362609000" expanded="false" signature="7969:7975" ph=" " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/tag.tsx">
+    <entry file="file://$PROJECT_DIR$/../politbase-jobs/library/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="61" column="44" lean-forward="false" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/questionList.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="45" column="16" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+          <folding>
+            <marker date="1499361417000" expanded="true" signature="1802:2210" ph="fragment...{&#10;    &#9;&#9;&#9;searchQuestions(search: $query, first: 20) @include(if: $queryIsTruthy) {&#10;    &#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;rowId ## for ordering&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;    &#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;allQuestions(last: 20, orderBy: PRIMARY_KEY_DESC) {&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;}" />
+            <marker date="1499361417000" expanded="true" signature="1814:1819" ph="Query...Query" />
+            <marker date="1499361417000" expanded="true" signature="1820:2210" ph="{...}" />
+            <marker date="1499361417000" expanded="true" signature="1829:1844" ph="searchQuestions...searchQuestions" />
+            <marker date="1499361417000" expanded="true" signature="1829:2042" ph="searchQuestions...{&#10;    &#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;rowId ## for ordering&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;    &#9;&#9;&#9;}" />
+            <marker date="1499361417000" expanded="true" signature="1844:1871" ph="(...)" />
+            <marker date="1499361417000" expanded="true" signature="1845:1851" ph="search...search" />
+            <marker date="1499361417000" expanded="true" signature="1861:1866" ph="first...first" />
+            <marker date="1499361417000" expanded="true" signature="1880:1900" ph="(...)" />
+            <marker date="1499361417000" expanded="true" signature="1881:1883" ph="if...if" />
+            <marker date="1499361417000" expanded="true" signature="1901:2042" ph="{...}" />
+            <marker date="1499361417000" expanded="true" signature="1911:1921" ph="totalCount...totalCount" />
+            <marker date="1499361417000" expanded="true" signature="1927:1932" ph="edges...edges" />
+            <marker date="1499361417000" expanded="true" signature="1927:2033" ph="edges...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;rowId ## for ordering&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}" />
+            <marker date="1499361417000" expanded="true" signature="1933:2033" ph="{...}" />
+            <marker date="1499361417000" expanded="true" signature="1941:1945" ph="node...node" />
+            <marker date="1499361417000" expanded="true" signature="1941:2026" ph="node...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;rowId ## for ordering&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}" />
+            <marker date="1499361417000" expanded="true" signature="1946:2026" ph="{...}" />
+            <marker date="1499361417000" expanded="true" signature="1955:1960" ph="rowId...rowId" />
+            <marker date="1499361417000" expanded="true" signature="2047:2059" ph="allQuestions...allQuestions" />
+            <marker date="1499361417000" expanded="true" signature="2047:2205" ph="allQuestions...{&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}" />
+            <marker date="1499361417000" expanded="true" signature="2059:2097" ph="(...)" />
+            <marker date="1499361417000" expanded="true" signature="2060:2065" ph="first...first" />
+            <marker date="1499361417000" expanded="true" signature="2071:2078" ph="orderBy...orderBy" />
+            <marker date="1499361417000" expanded="true" signature="2098:2205" ph="{...}" />
+            <marker date="1499361417000" expanded="true" signature="2105:2115" ph="totalCount...totalCount" />
+            <marker date="1499361417000" expanded="true" signature="2121:2126" ph="edges...edges" />
+            <marker date="1499361417000" expanded="true" signature="2121:2199" ph="edges...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}" />
+            <marker date="1499361417000" expanded="true" signature="2127:2199" ph="{...}" />
+            <marker date="1499361417000" expanded="true" signature="2135:2139" ph="node...node" />
+            <marker date="1499361417000" expanded="true" signature="2135:2192" ph="node...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}" />
+            <marker date="1499361417000" expanded="true" signature="2140:2192" ph="{...}" />
+            <marker date="1499361417000" expanded="true" signature="2690:3375" ph="fragment...{&#10;                    searchQuestions(search: $query, first: 20) @include(if: $queryIsTruthy) {&#10;                        totalCount&#10;                        edges {&#10;                            node {&#10;                                rowId ## for ordering&#10;                                ${QuestionBox.getFragment('store')}&#10;                            }&#10;                        }&#10;                    }&#10;&#9;&#9;&#9;&#9;&#9;allQuestions(first: 20) {&#10;                        totalCount&#10;                        edges {&#10;                            node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;                            }&#10;                        }&#10;                    }&#10;                }" />
+            <marker date="1499361417000" expanded="true" signature="2702:2705" ph="Tag...Tag" />
+            <marker date="1499361417000" expanded="true" signature="2706:3375" ph="{...}" />
+            <marker date="1499361417000" expanded="true" signature="2728:2743" ph="searchQuestions...searchQuestions" />
+            <marker date="1499361417000" expanded="true" signature="2728:3102" ph="searchQuestions...{&#10;                        totalCount&#10;                        edges {&#10;                            node {&#10;                                rowId ## for ordering&#10;                                ${QuestionBox.getFragment('store')}&#10;                            }&#10;                        }&#10;                    }" />
+            <marker date="1499361417000" expanded="true" signature="2743:2770" ph="(...)" />
+            <marker date="1499361417000" expanded="true" signature="2744:2750" ph="search...search" />
+            <marker date="1499361417000" expanded="true" signature="2760:2765" ph="first...first" />
+            <marker date="1499361417000" expanded="true" signature="2779:2799" ph="(...)" />
+            <marker date="1499361417000" expanded="true" signature="2780:2782" ph="if...if" />
+            <marker date="1499361417000" expanded="true" signature="2800:3102" ph="{...}" />
+            <marker date="1499361417000" expanded="true" signature="2826:2836" ph="totalCount...totalCount" />
+            <marker date="1499361417000" expanded="true" signature="2861:2866" ph="edges...edges" />
+            <marker date="1499361417000" expanded="true" signature="2861:3080" ph="edges...{&#10;                            node {&#10;                                rowId ## for ordering&#10;                                ${QuestionBox.getFragment('store')}&#10;                            }&#10;                        }" />
+            <marker date="1499361417000" expanded="true" signature="2867:3080" ph="{...}" />
+            <marker date="1499361417000" expanded="true" signature="2897:2901" ph="node...node" />
+            <marker date="1499361417000" expanded="true" signature="2897:3054" ph="node...{&#10;                                rowId ## for ordering&#10;                                ${QuestionBox.getFragment('store')}&#10;                            }" />
+            <marker date="1499361417000" expanded="true" signature="2902:3054" ph="{...}" />
+            <marker date="1499361417000" expanded="true" signature="2936:2941" ph="rowId...rowId" />
+            <marker date="1499361417000" expanded="true" signature="3108:3120" ph="allQuestions...allQuestions" />
+            <marker date="1499361417000" expanded="true" signature="3108:3357" ph="allQuestions...{&#10;                        totalCount&#10;                        edges {&#10;                            node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;                            }&#10;                        }&#10;                    }" />
+            <marker date="1499361417000" expanded="true" signature="3120:3131" ph="(...)" />
+            <marker date="1499361417000" expanded="true" signature="3121:3126" ph="first...first" />
+            <marker date="1499361417000" expanded="true" signature="3132:3357" ph="{...}" />
+            <marker date="1499361417000" expanded="true" signature="3158:3168" ph="totalCount...totalCount" />
+            <marker date="1499361417000" expanded="true" signature="3193:3198" ph="edges...edges" />
+            <marker date="1499361417000" expanded="true" signature="3193:3335" ph="edges...{&#10;                            node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;                            }&#10;                        }" />
+            <marker date="1499361417000" expanded="true" signature="3199:3335" ph="{...}" />
+            <marker date="1499361417000" expanded="true" signature="3229:3233" ph="node...node" />
+            <marker date="1499361417000" expanded="true" signature="3229:3309" ph="node...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${QuestionBox.getFragment('store')}&#10;                            }" />
+            <marker date="1499361417000" expanded="true" signature="3234:3309" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/tagBox.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding>
+            <marker date="1499544504000" expanded="true" signature="836:957" ph="fragment...{&#10;&#9;&#9;&#9;&#9;rowId&#10;&#9;&#9;&#9;&#9;name&#10;&#9;&#9;&#9;&#9;description&#10;                questionTagXrefsByTagId {&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;}" />
+            <marker date="1499544504000" expanded="true" signature="848:851" ph="Tag...Tag" />
+            <marker date="1499544504000" expanded="true" signature="852:957" ph="{...}" />
+            <marker date="1499544504000" expanded="true" signature="858:863" ph="rowId...rowId" />
+            <marker date="1499544504000" expanded="true" signature="868:872" ph="name...name" />
+            <marker date="1499544504000" expanded="true" signature="877:888" ph="description...description" />
+            <marker date="1499544504000" expanded="true" signature="905:928" ph="questionTagXrefsByTagId...questionTagXrefsByTagId" />
+            <marker date="1499544504000" expanded="true" signature="905:952" ph="questionTagXrefsByTagId...{&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;}" />
+            <marker date="1499544504000" expanded="true" signature="929:952" ph="{...}" />
+            <marker date="1499544504000" expanded="true" signature="936:946" ph="totalCount...totalCount" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/tagList.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="98" column="29" lean-forward="false" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+          <folding>
+            <marker date="1499544515000" expanded="true" signature="2083:2424" ph="fragment...{&#10;    &#9;&#9;&#9;searchTags(search: $query, first: $first) @include(if: $queryIsTruthy) {&#10;    &#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;    &#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;allTags(first: $first) {&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;}" />
+            <marker date="1499544515000" expanded="true" signature="2095:2100" ph="Query...Query" />
+            <marker date="1499544515000" expanded="true" signature="2101:2424" ph="{...}" />
+            <marker date="1499544515000" expanded="true" signature="2110:2120" ph="searchTags...searchTags" />
+            <marker date="1499544515000" expanded="true" signature="2110:2289" ph="searchTags...{&#10;    &#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;    &#9;&#9;&#9;}" />
+            <marker date="1499544515000" expanded="true" signature="2120:2151" ph="(...)" />
+            <marker date="1499544515000" expanded="true" signature="2121:2127" ph="search...search" />
+            <marker date="1499544515000" expanded="true" signature="2137:2142" ph="first...first" />
+            <marker date="1499544515000" expanded="true" signature="2160:2180" ph="(...)" />
+            <marker date="1499544515000" expanded="true" signature="2161:2163" ph="if...if" />
+            <marker date="1499544515000" expanded="true" signature="2181:2289" ph="{...}" />
+            <marker date="1499544515000" expanded="true" signature="2191:2201" ph="totalCount...totalCount" />
+            <marker date="1499544515000" expanded="true" signature="2207:2212" ph="edges...edges" />
+            <marker date="1499544515000" expanded="true" signature="2207:2280" ph="edges...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}" />
+            <marker date="1499544515000" expanded="true" signature="2213:2280" ph="{...}" />
+            <marker date="1499544515000" expanded="true" signature="2221:2225" ph="node...node" />
+            <marker date="1499544515000" expanded="true" signature="2221:2273" ph="node...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}" />
+            <marker date="1499544515000" expanded="true" signature="2226:2273" ph="{...}" />
+            <marker date="1499544515000" expanded="true" signature="2294:2301" ph="allTags...allTags" />
+            <marker date="1499544515000" expanded="true" signature="2294:2419" ph="allTags...{&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}" />
+            <marker date="1499544515000" expanded="true" signature="2301:2316" ph="(...)" />
+            <marker date="1499544515000" expanded="true" signature="2302:2307" ph="first...first" />
+            <marker date="1499544515000" expanded="true" signature="2317:2419" ph="{...}" />
+            <marker date="1499544515000" expanded="true" signature="2324:2334" ph="totalCount...totalCount" />
+            <marker date="1499544515000" expanded="true" signature="2340:2345" ph="edges...edges" />
+            <marker date="1499544515000" expanded="true" signature="2340:2413" ph="edges...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}" />
+            <marker date="1499544515000" expanded="true" signature="2346:2413" ph="{...}" />
+            <marker date="1499544515000" expanded="true" signature="2354:2358" ph="node...node" />
+            <marker date="1499544515000" expanded="true" signature="2354:2406" ph="node...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}" />
+            <marker date="1499544515000" expanded="true" signature="2359:2406" ph="{...}" />
+            <marker date="1499544515000" expanded="true" signature="2783:2941" ph="fragment...{&#10;    &#9;&#9;&#9;children(first:$first) {&#10;    &#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;}" />
+            <marker date="1499544515000" expanded="true" signature="2795:2798" ph="Tag...Tag" />
+            <marker date="1499544515000" expanded="true" signature="2799:2941" ph="{...}" />
+            <marker date="1499544515000" expanded="true" signature="2800:2941" ph="{...}" />
+            <marker date="1499544515000" expanded="true" signature="2808:2816" ph="children...children" />
+            <marker date="1499544515000" expanded="true" signature="2808:2936" ph="children...{&#10;    &#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}" />
+            <marker date="1499544515000" expanded="true" signature="2816:2830" ph="(...)" />
+            <marker date="1499544515000" expanded="true" signature="2817:2822" ph="first...first" />
+            <marker date="1499544515000" expanded="true" signature="2831:2936" ph="{...}" />
+            <marker date="1499544515000" expanded="true" signature="2841:2851" ph="totalCount...totalCount" />
+            <marker date="1499544515000" expanded="true" signature="2857:2862" ph="edges...edges" />
+            <marker date="1499544515000" expanded="true" signature="2857:2930" ph="edges...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}" />
+            <marker date="1499544515000" expanded="true" signature="2863:2930" ph="{...}" />
+            <marker date="1499544515000" expanded="true" signature="2871:2875" ph="node...node" />
+            <marker date="1499544515000" expanded="true" signature="2871:2923" ph="node...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;${TagBox.getFragment('store')}&#10;&#9;&#9;&#9;&#9;&#9;&#9;}" />
+            <marker date="1499544515000" expanded="true" signature="2876:2923" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/misc/template.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1487277139000" expanded="true" signature="736:841" ph="fragment...{&#10;&#9;&#9;&#9;&#9;name&#10;&#9;&#9;&#9;&#9;description&#10;                questionTagsByTag {&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;}" />
-            <marker date="1487277139000" expanded="true" signature="748:751" ph="Tag...Tag" />
-            <marker date="1487277139000" expanded="true" signature="752:841" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="758:762" ph="name...name" />
-            <marker date="1487277139000" expanded="true" signature="767:778" ph="description...description" />
-            <marker date="1487277139000" expanded="true" signature="795:812" ph="questionTagsByTag...questionTagsByTag" />
-            <marker date="1487277139000" expanded="true" signature="795:836" ph="questionTagsByTag...{&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;}" />
-            <marker date="1487277139000" expanded="true" signature="813:836" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="820:830" ph="totalCount...totalCount" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/scripts/components/content/user.tsx">
+    <entry file="file://$PROJECT_DIR$/source/scripts/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="16" column="18" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="16" selection-end-column="18" />
+        <state relative-caret-position="210">
+          <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding>
-            <marker date="1487277139000" expanded="true" signature="857:1013" ph="fragment...{&#10;&#9;&#9;&#9;&#9;username&#10;&#9;&#9;&#9;&#9;questionsByAuthor(first:50) {&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;id&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;title&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;}" />
-            <marker date="1487277139000" expanded="true" signature="869:873" ph="User...User" />
-            <marker date="1487277139000" expanded="true" signature="874:1013" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="880:888" ph="username...username" />
-            <marker date="1487277139000" expanded="true" signature="893:910" ph="questionsByAuthor...questionsByAuthor" />
-            <marker date="1487277139000" expanded="true" signature="893:1008" ph="questionsByAuthor...{&#10;&#9;&#9;&#9;&#9;&#9;totalCount&#10;&#9;&#9;&#9;&#9;&#9;edges {&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;id&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;title&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;}" />
-            <marker date="1487277139000" expanded="true" signature="910:920" ph="(...)" />
-            <marker date="1487277139000" expanded="true" signature="911:916" ph="first...first" />
-            <marker date="1487277139000" expanded="true" signature="921:1008" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="928:938" ph="totalCount...totalCount" />
-            <marker date="1487277139000" expanded="true" signature="944:949" ph="edges...edges" />
-            <marker date="1487277139000" expanded="true" signature="944:1002" ph="edges...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;node {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;id&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;title&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#9;&#9;}" />
-            <marker date="1487277139000" expanded="true" signature="950:1002" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="958:962" ph="node...node" />
-            <marker date="1487277139000" expanded="true" signature="958:995" ph="node...{&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;id&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;title&#10;&#9;&#9;&#9;&#9;&#9;&#9;}" />
-            <marker date="1487277139000" expanded="true" signature="963:995" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="972:974" ph="id...id" />
-            <marker date="1487277139000" expanded="true" signature="982:987" ph="title...title" />
-            <marker date="1487277139000" expanded="true" signature="1182:1265" ph="query...{ userByUsername(username: $username) { ${Component.getFragment('store')} } }" />
-            <marker date="1487277139000" expanded="true" signature="1188:1265" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="1190:1204" ph="userByUsername...userByUsername" />
-            <marker date="1487277139000" expanded="true" signature="1190:1263" ph="userByUsername...{ ${Component.getFragment('store')} }" />
-            <marker date="1487277139000" expanded="true" signature="1204:1225" ph="(...)" />
-            <marker date="1487277139000" expanded="true" signature="1205:1213" ph="username...username" />
-            <marker date="1487277139000" expanded="true" signature="1226:1263" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="1424:1483" ph="query...{ currentUser { ${Component.getFragment('store')} } }" />
-            <marker date="1487277139000" expanded="true" signature="1430:1483" ph="{...}" />
-            <marker date="1487277139000" expanded="true" signature="1432:1443" ph="currentUser...currentUser" />
-            <marker date="1487277139000" expanded="true" signature="1432:1481" ph="currentUser...{ ${Component.getFragment('store')} }" />
-            <marker date="1487277139000" expanded="true" signature="1444:1481" ph="{...}" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <last-edited>Not created sql files</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+          <order>
+            <scope name="Not created sql files" />
+          </order>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

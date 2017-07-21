@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Component} from 'react';
 import DevTools from 'mobx-react-devtools';
-import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'reactstrap';
 
 //import Content from './content';
 import * as Relay from 'react-relay';

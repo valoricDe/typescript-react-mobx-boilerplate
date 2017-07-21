@@ -24,14 +24,14 @@ declare global {
 			location?: any
 		}
 
-		interface IProps extends IRelayProps, IMobxStateProps, IRouterProps {
+		interface IProps /*extends IRelayProps, IMobxStateProps, IRouterProps*/ {
 		}
 
 		interface IAppStateProps {
 			questionList: IQuestionListStateProps
 		}
 
-		interface IAppProps extends IProps {
+		interface IAppProps extends IProps, IRouterProps {
 			store: IQuery
 			_state: IAppStateProps
 		}
@@ -59,7 +59,7 @@ declare global {
 
 		interface IQuestionProps extends IProps {
 			store: IQuestion
-			user: IQuery
+			//user: IQuery
 		}
 
 		interface ICreateQuestionProps extends IProps {
@@ -79,6 +79,7 @@ declare global {
 
 		interface IAnswerVoteProps extends IProps {
 			store: IAnswer
+			questionId: number
 		}
 
 		interface ICreateAnswerProps extends IProps {
@@ -108,7 +109,8 @@ declare global {
 
 		interface IUserProps extends IProps {
 			store: IUser
-			className: string
+			details?: boolean
+			className?: string
 		}
 
 		interface IHomePageProps extends IProps {
@@ -123,7 +125,7 @@ declare global {
 		}
 
 		interface ITagListProps extends IProps {
-			store: IQuery
+			store: IQuery|ITag
 		}
 
 		interface IQuestionTagListProps extends IProps {

@@ -2,15 +2,32 @@ import * as React from 'react';
 import { Component } from 'react';
 import DevTools from 'mobx-react-devtools';
 import * as Relay from 'react-relay';
-import Navbar from 'react-bootstrap/lib/Navbar';
-import Nav from 'react-bootstrap/lib/Nav';
-import NavItem from 'react-bootstrap/lib/NavItem';
-import NavDropdown from 'react-bootstrap/lib/NavDropdown';
-import MenuItem from 'react-bootstrap/lib/MenuItem';
+import Navbar from 'reactstrap/lib/Navbar';
+import Nav from 'reactstrap/lib/Nav';
+import NavDropdown from 'reactstrap/lib/NavDropdown';
 import PlainLi from "./helpers/PlainLi";
 import Auth from '../lib/auth';
+import NavbarToggler from "reactstrap/lib/NavbarToggler";
+import NavbarBrand from "reactstrap/lib/NavbarBrand";
+import Collapse from "reactstrap/lib/Collapse";
+import NavLink from "reactstrap/lib/NavLink";
+import DropdownMenu from "reactstrap/lib/DropdownMenu";
+import DropdownItem from "reactstrap/lib/DropdownItem";
+import NavItem from "reactstrap/lib/NavItem";
+import DropdownToggle from "reactstrap/lib/DropdownToggle";
+import {observable, action} from "mobx";
+import {observer} from "mobx-react";
+import {routerClickHelper} from "../lib/routerClickHelper";
 
+import "../../styles/components/layout.scss";
+
+
+
+@observer
 class AppClass extends Component<Props.IAppProps, void> {
+
+	@observable navBarOpen = false;
+	@observable navBarDropDownOpen = false;
 
 	private renderDevTools(): JSX.Element | null {
 		/*if (process.env.NODE_ENV !== 'production') {
@@ -19,48 +36,52 @@ class AppClass extends Component<Props.IAppProps, void> {
 		return null;
 	};
 
+
+	@action toggleNavBar = () => {
+		this.navBarOpen = !this.navBarOpen;
+	};
+
+	@action toggleNavBarDropDown = () => {
+		this.navBarDropDownOpen = !this.navBarDropDownOpen;
+	};
+
 	public render(): JSX.Element {
 		Auth.setCurrentUser(this.props.store.currentUser);
 
-		const href = (target) => {
-			return {onClick: (event) => {
-				event.preventDefault();
-				event.stopPropagation();
-				this.props.router.push(target);
-				return false;
-			}, href: target, key: target};
-		};
+		const href = (to) => routerClickHelper(to, null, this.props.router);
 
 		return (
 				<div className='wrapper'>
 					{this.renderDevTools()}
-					<Navbar staticTop collapseOnSelect>
-						<Navbar.Header>
-							<Navbar.Brand>
-								<a href="/home">PolitBase</a>
-							</Navbar.Brand>
-							<Navbar.Toggle />
-						</Navbar.Header>
-						<Navbar.Collapse>
-							<Nav pullRight>
-								<NavItem {...href('/questions/add')}>Ask Question</NavItem>
-								<NavItem {...href('/questions')}>Questions</NavItem>
+					<Navbar color="faded" light toggleable>
+						<NavbarToggler right onClick={this.toggleNavBar} />
+						<NavbarBrand href="/">politbase</NavbarBrand>
+						<Collapse navbar isOpen={this.navBarOpen}>
+							<Nav className="ml-auto" navbar>
+								<NavLink {...href('/home')}>Tour</NavLink>
+								<NavItem><NavLink {...href('/questions/add')}>Ask Question</NavLink></NavItem>
+								<NavItem><NavLink {...href('/questions')}>Questions</NavLink></NavItem>
+								<NavItem><NavLink {...href('/tags')}>Tags</NavLink></NavItem>
 								{!this.props.store.currentUser ?
 									[
-										<NavItem {...href('/register')} className="highlight left">Register</NavItem>,
-										<PlainLi className="divider" key="divider"><p> / </p></PlainLi>,
-										<NavItem {...href('/login')} className="highlight right">Log in</NavItem>
+										<NavItem key="register"><NavLink {...href('/register')}>Register</NavLink></NavItem>,
+										<NavItem key="divider" className="layout-divider"> / </NavItem>,
+										<NavItem key="login"><NavLink {...href('/login')}>Log in</NavLink></NavItem>
 									] :
-									<NavDropdown title={'User: '+this.props.store.currentUser.username} id="userDropdown">
-										<MenuItem {...href('/user')}>User profile</MenuItem>
-										<MenuItem divider />
-										<MenuItem {...href('/logout')}>Logout</MenuItem>
+									<NavDropdown isOpen={this.navBarDropDownOpen} toggle={this.toggleNavBarDropDown}>
+										<DropdownToggle nav caret>
+											{'User: '+this.props.store.currentUser.username}
+										</DropdownToggle>
+										<DropdownMenu>
+											<DropdownItem {...href('/user')}>User profile</DropdownItem>
+											<DropdownItem divider />
+											<DropdownItem {...href('/logout')}>Logout</DropdownItem>
+										</DropdownMenu>
 									</NavDropdown>
 								}
 							</Nav>
-						</Navbar.Collapse>
+						</Collapse>
 					</Navbar>
-
 					<div className="content">{this.props.children}</div>
 				</div>
 		);

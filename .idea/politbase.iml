@@ -4,16 +4,26 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="politbase-jobs" />
     <orderEntry type="module-library">
-      <library name="PHP Runtime" type="php">
+      <library name="PHP" type="php">
         <CLASSES>
-          <root url="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard" />
+          <root url="file:///opt/local/lib/php" />
         </CLASSES>
         <SOURCES>
-          <root url="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard" />
+          <root url="file:///opt/local/lib/php" />
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module" module-name="politbase-schema" />
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar:///opt/local/lib/php/pear/install-pear-nozlib.phar/" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar:///opt/local/lib/php/pear/install-pear-nozlib.phar/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

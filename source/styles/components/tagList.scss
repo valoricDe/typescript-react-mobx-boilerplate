@@ -1,0 +1,27 @@
+@import '../variables';
+@import '../mixins';
+
+.tagList {
+	&-list {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+
+		margin: 0 (-$card-spacer-x);
+		padding: $card-spacer-y/2 $card-spacer-x/2;
+
+		> * {
+			box-sizing: border-box;
+			min-width: 50em;
+			max-width: 100em;
+			flex-basis: auto; /* default value */
+			flex-grow: 1;
+			margin: $card-spacer-y/2 $card-spacer-x/2;
+			hyphens: auto;
+
+			p {
+				@include multiline-ellipsis(1.2em, 2, $card-spacer-x/2);
+			}
+		}
+	}
+}

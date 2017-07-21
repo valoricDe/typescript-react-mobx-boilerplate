@@ -2,7 +2,7 @@ import * as React from 'react';
 import IndexRoute from 'react-router/lib/IndexRoute';
 import Route from 'react-router/lib/Route';
 
-const Auth = require('./lib/auth');
+import Auth from './lib/auth';
 import App, {AppQueries} from "./components/layout";
 import QuestionList from "./components/content/questionList";
 import HomePage from "./components/pages/homePage";
@@ -13,13 +13,16 @@ import User from "./components/content/user";
 import {UserQueries} from "./components/content/user";
 import Component = React.Component;
 import {CurrentUserQueries} from "./components/content/user";
-import {QuestionQueries, default as Question} from "./components/content/question";
+import Question, {QuestionQueries} from "./components/content/question";
 import CreateAnswer from "./components/content/createAnswer";
+import TagList from "./components/content/tagList";
+import Tag, {TagQueries} from "./components/content/tag";
 
 const queries = AppQueries.queries;
 const userQueries = UserQueries.queries;
 const currentUserQueries = CurrentUserQueries.queries;
 const questionQueries = QuestionQueries.queries;
+const tagQueries = TagQueries.queries;
 
 // function requireAuth(prevState, nextState, replace) {
 function requireAuth(nextState, replace) {
@@ -66,10 +69,12 @@ export default ({environment}) => (
 		render={({ props }) => {document.body.className = props ? 'auto' : 'wait'; return props ? <App {...props} /> : undefined} }>
 		<RelayIndexRoute component={QuestionList} queries={queries} onEnter={requireAuthToHomepage} />
 		<RelayRoute path="home" component={HomePage} queries={queries} />
-		<RelayRoute path="questions" component={QuestionList} queries={queries} onEnter={requireAuth} />
+		<RelayRoute path="questions" component={QuestionList} queries={queries} />
 		<RelayRoute path="questions/add" component={CreateQuestion} queries={queries} onEnter={requireAuth} />
-		<RelayRoute path="questions/:id" component={Question} queries={questionQueries} onEnter={requireAuth} />
+		<RelayRoute path="questions/:id" component={Question} queries={questionQueries} />
 		<RelayRoute path="questions/:id/addAnswer" component={CreateAnswer} queries={queries} onEnter={requireAuth} />
+		<RelayRoute path="tags" component={TagList} queries={queries} />
+		<RelayRoute path="tags/:id" component={Tag} queries={tagQueries} />
 		<RelayRoute path="register" component={RegisterUser} />
 		<RelayRoute path="login" component={LoginUser} onEnter={verifySession} />
 		<RelayRoute path="logout" onEnter={logout} />

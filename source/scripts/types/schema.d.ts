@@ -34,28 +34,30 @@ declare namespace GQL {
     pgpKeyId: string;
     searchAnswers: ISearchAnswersConnection;
     searchQuestions: ISearchQuestionsConnection;
+    searchQuestionsStrict: ISearchQuestionsStrictConnection;
     searchTags: ISearchTagsConnection;
-    tagsByParent: ITagsByParentConnection;
     allAnswers: IAnswersConnection;
     answer: IAnswer;
     answerByRowId: IAnswer;
     allAnswerVotes: IAnswerVotesConnection;
     answerVote: IAnswerVote;
     answerVoteByUserAndQuestionAndAnswer: IAnswerVote;
+    allExampleMessages: IExampleMessagesConnection;
+    exampleMessage: IExampleMessage;
+    exampleMessageByRowId: IExampleMessage;
     allQuestions: IQuestionsConnection;
     question: IQuestion;
     questionByRowId: IQuestion;
     allQuestionModels: IQuestionModelsConnection;
-    allQuestionTags: IQuestionTagsConnection;
+    allQuestionTagXrefs: IQuestionTagXrefsConnection;
     allQuestionVotes: IQuestionVotesConnection;
     questionVote: IQuestionVote;
     questionVoteByUserAndQuestion: IQuestionVote;
     allTags: ITagsConnection;
     tag: ITag;
     tagByRowId: ITag;
-    allTagRelations: ITagRelationsConnection;
-    tagRelation: ITagRelation;
-    tagRelationByTag1: ITagRelation;
+    allTagRelationsXrefs: ITagRelationsXrefsConnection;
+    allTagSubscriptions: ITagSubscriptionsConnection;
     allUsers: IUsersConnection;
     user: IUser;
     userByRowId: IUser;
@@ -67,12 +69,12 @@ declare namespace GQL {
   /*
     description: An object with a globally unique `ID`.
   */
-  type Node = IQuery | IUser | IQuestion | IAnswer | IAnswerVote | IQuestionVote | ITag | ITagRelation;
+  type Node = IQuery | IUser | IQuestion | IAnswer | IAnswerVote | IQuestionVote | ITag | IExampleMessage;
 
   /*
     description: An object with a globally unique `ID`.
   */
-  interface INode extends IQuery, IUser, IQuestion, IAnswer, IAnswerVote, IQuestionVote, ITag, ITagRelation {
+  interface INode extends IQuery, IUser, IQuestion, IAnswer, IAnswerVote, IQuestionVote, ITag, IExampleMessage {
     __typename: string;
     id: string;
   }
@@ -93,6 +95,7 @@ declare namespace GQL {
     answersByAuthor: IAnswersConnection;
     answerVotesByUser: IAnswerVotesConnection;
     questionVotesByUser: IQuestionVotesConnection;
+    tagSubscriptionsByUserId: ITagSubscriptionsConnection;
   }
 
   /*
@@ -158,8 +161,8 @@ declare namespace GQL {
     answersByQuestion: IAnswersConnection;
     answerVotesByQuestion: IAnswerVotesConnection;
     questionVotesByQuestion: IQuestionVotesConnection;
-    questionTagsByQuestion: IQuestionTagsConnection;
-    questionModelsByQuestionid: IQuestionModelsConnection;
+    questionTagXrefsByQuestionId: IQuestionTagXrefsConnection;
+    questionModelsByQuestionId: IQuestionModelsConnection;
   }
 
   /*
@@ -366,47 +369,47 @@ declare namespace GQL {
   }
 
   /*
-    description: Methods to use when ordering `QuestionTag`.
+    description: Methods to use when ordering `QuestionTagXref`.
   */
-  type IQuestionTagsOrderByEnum = "NATURAL" | "QUESTION_ASC" | "QUESTION_DESC" | "TAG_ASC" | "TAG_DESC";
+  type IQuestionTagXrefsOrderByEnum = "NATURAL" | "QUESTION_ID_ASC" | "QUESTION_ID_DESC" | "TAG_ID_ASC" | "TAG_ID_DESC";
 
   /*
-    description: A condition to be used against `QuestionTag` object types. All fields are tested for equality and combined with a logical ‘and.’
+    description: A condition to be used against `QuestionTagXref` object types. All fields are tested for equality and combined with a logical ‘and.’
   */
-  interface IQuestionTagCondition {
-    question?: number;
-    tag?: number;
+  interface IQuestionTagXrefCondition {
+    questionId?: number;
+    tagId?: number;
   }
 
   /*
-    description: A connection to a list of `QuestionTag` values.
+    description: A connection to a list of `QuestionTagXref` values.
   */
-  interface IQuestionTagsConnection {
+  interface IQuestionTagXrefsConnection {
     __typename: string;
     pageInfo: IPageInfo;
     totalCount: number;
-    edges: Array<IQuestionTagsEdge>;
-    nodes: Array<IQuestionTag>;
+    edges: Array<IQuestionTagXrefsEdge>;
+    nodes: Array<IQuestionTagXref>;
   }
 
   /*
-    description: A `QuestionTag` edge in the connection.
+    description: A `QuestionTagXref` edge in the connection.
   */
-  interface IQuestionTagsEdge {
+  interface IQuestionTagXrefsEdge {
     __typename: string;
     cursor: any;
-    node: IQuestionTag;
+    node: IQuestionTagXref;
   }
 
   /*
     description: null
   */
-  interface IQuestionTag {
+  interface IQuestionTagXref {
     __typename: string;
-    question: number;
-    tag: number;
-    questionByQuestion: IQuestion;
-    tagByTag: ITag;
+    questionId: number;
+    tagId: number;
+    questionByQuestionId: IQuestion;
+    tagByTagId: ITag;
   }
 
   /*
@@ -419,17 +422,111 @@ declare namespace GQL {
     name: string;
     description: string;
     parent: number;
+    body: any;
+    created: any;
+    allQuestions: ITagAllQuestionsConnection;
+    children: ITagChildrenConnection;
+    identifier: string;
+    searchQuestions: ITagSearchQuestionsConnection;
+    tagSubscription: ITagSubscription;
     tagByParent: ITag;
     tagsByParent: ITagsConnection;
-    questionTagsByTag: IQuestionTagsConnection;
-    tagRelationsByTag1: ITagRelationsConnection;
-    tagRelationsByTag2: ITagRelationsConnection;
+    questionTagXrefsByTagId: IQuestionTagXrefsConnection;
+    tagSubscriptionsByTagId: ITagSubscriptionsConnection;
+  }
+
+  /*
+    description: Methods to use when ordering `Question`.
+  */
+  type ITagAllQuestionsOrderByEnum = "NATURAL";
+
+  /*
+    description: A connection to a list of `Question` values.
+  */
+  interface ITagAllQuestionsConnection {
+    __typename: string;
+    pageInfo: IPageInfo;
+    totalCount: number;
+    edges: Array<ITagAllQuestionsEdge>;
+    nodes: Array<IQuestion>;
+  }
+
+  /*
+    description: A `Question` edge in the connection.
+  */
+  interface ITagAllQuestionsEdge {
+    __typename: string;
+    cursor: any;
+    node: IQuestion;
   }
 
   /*
     description: Methods to use when ordering `Tag`.
   */
-  type ITagsOrderByEnum = "PRIMARY_KEY_ASC" | "PRIMARY_KEY_DESC" | "NATURAL" | "ID_ASC" | "ID_DESC" | "NAME_ASC" | "NAME_DESC" | "DESCRIPTION_ASC" | "DESCRIPTION_DESC" | "PARENT_ASC" | "PARENT_DESC";
+  type ITagChildrenOrderByEnum = "NATURAL";
+
+  /*
+    description: A connection to a list of `Tag` values.
+  */
+  interface ITagChildrenConnection {
+    __typename: string;
+    pageInfo: IPageInfo;
+    totalCount: number;
+    edges: Array<ITagChildrenEdge>;
+    nodes: Array<ITag>;
+  }
+
+  /*
+    description: A `Tag` edge in the connection.
+  */
+  interface ITagChildrenEdge {
+    __typename: string;
+    cursor: any;
+    node: ITag;
+  }
+
+  /*
+    description: Methods to use when ordering `Question`.
+  */
+  type ITagSearchQuestionsOrderByEnum = "NATURAL";
+
+  /*
+    description: A connection to a list of `Question` values.
+  */
+  interface ITagSearchQuestionsConnection {
+    __typename: string;
+    pageInfo: IPageInfo;
+    totalCount: number;
+    edges: Array<ITagSearchQuestionsEdge>;
+    nodes: Array<IQuestion>;
+  }
+
+  /*
+    description: A `Question` edge in the connection.
+  */
+  interface ITagSearchQuestionsEdge {
+    __typename: string;
+    cursor: any;
+    node: IQuestion;
+  }
+
+  /*
+    description: null
+  */
+  interface ITagSubscription {
+    __typename: string;
+    tagId: number;
+    userId: number;
+    questions: boolean;
+    subTags: boolean;
+    tagByTagId: ITag;
+    userByUserId: IUser;
+  }
+
+  /*
+    description: Methods to use when ordering `Tag`.
+  */
+  type ITagsOrderByEnum = "PRIMARY_KEY_ASC" | "PRIMARY_KEY_DESC" | "NATURAL" | "ID_ASC" | "ID_DESC" | "NAME_ASC" | "NAME_DESC" | "DESCRIPTION_ASC" | "DESCRIPTION_DESC" | "PARENT_ASC" | "PARENT_DESC" | "BODY_ASC" | "BODY_DESC" | "CREATED_ASC" | "CREATED_DESC";
 
   /*
     description: A condition to be used against `Tag` object types. All fields are tested for equality and combined with a logical ‘and.’
@@ -439,6 +536,8 @@ declare namespace GQL {
     name?: string;
     description?: string;
     parent?: number;
+    body?: any;
+    created?: any;
   }
 
   /*
@@ -462,67 +561,50 @@ declare namespace GQL {
   }
 
   /*
-    description: Methods to use when ordering `TagRelation`.
+    description: Methods to use when ordering `TagSubscription`.
   */
-  type ITagRelationsOrderByEnum = "PRIMARY_KEY_ASC" | "PRIMARY_KEY_DESC" | "NATURAL" | "TAG1_ASC" | "TAG1_DESC" | "LINK_TYPE_ASC" | "LINK_TYPE_DESC" | "TAG2_ASC" | "TAG2_DESC";
+  type ITagSubscriptionsOrderByEnum = "NATURAL" | "TAG_ID_ASC" | "TAG_ID_DESC" | "USER_ID_ASC" | "USER_ID_DESC" | "QUESTIONS_ASC" | "QUESTIONS_DESC" | "SUB_TAGS_ASC" | "SUB_TAGS_DESC";
 
   /*
-    description: A condition to be used against `TagRelation` object types. All fields are tested for equality and combined with a logical ‘and.’
+    description: A condition to be used against `TagSubscription` object types. All fields are tested for equality and combined with a logical ‘and.’
   */
-  interface ITagRelationCondition {
-    tag1?: number;
-    linkType?: ILinkTypeEnum;
-    tag2?: number;
+  interface ITagSubscriptionCondition {
+    tagId?: number;
+    userId?: number;
+    questions?: boolean;
+    subTags?: boolean;
   }
 
   /*
-    description: null
+    description: A connection to a list of `TagSubscription` values.
   */
-  type ILinkTypeEnum = "RELATES_TO";
-
-  /*
-    description: A connection to a list of `TagRelation` values.
-  */
-  interface ITagRelationsConnection {
+  interface ITagSubscriptionsConnection {
     __typename: string;
     pageInfo: IPageInfo;
     totalCount: number;
-    edges: Array<ITagRelationsEdge>;
-    nodes: Array<ITagRelation>;
+    edges: Array<ITagSubscriptionsEdge>;
+    nodes: Array<ITagSubscription>;
   }
 
   /*
-    description: A `TagRelation` edge in the connection.
+    description: A `TagSubscription` edge in the connection.
   */
-  interface ITagRelationsEdge {
+  interface ITagSubscriptionsEdge {
     __typename: string;
     cursor: any;
-    node: ITagRelation;
-  }
-
-  /*
-    description: null
-  */
-  interface ITagRelation {
-    __typename: string;
-    id: string;
-    tag1: number;
-    linkType: ILinkTypeEnum;
-    tag2: number;
-    tagByTag1: ITag;
-    tagByTag2: ITag;
+    node: ITagSubscription;
   }
 
   /*
     description: Methods to use when ordering `QuestionModel`.
   */
-  type IQuestionModelsOrderByEnum = "NATURAL" | "QUESTIONID_ASC" | "QUESTIONID_DESC" | "NAME_ASC" | "NAME_DESC" | "VALUE_ASC" | "VALUE_DESC" | "SOURCE_ASC" | "SOURCE_DESC" | "MIN_ASC" | "MIN_DESC" | "MAX_ASC" | "MAX_DESC" | "STEP_ASC" | "STEP_DESC";
+  type IQuestionModelsOrderByEnum = "NATURAL" | "QUESTION_ID_ASC" | "QUESTION_ID_DESC" | "NAME_ASC" | "NAME_DESC" | "VALUE_ASC" | "VALUE_DESC" | "SOURCE_ASC" | "SOURCE_DESC" | "MIN_ASC" | "MIN_DESC" | "MAX_ASC" | "MAX_DESC" | "STEP_ASC" | "STEP_DESC";
 
   /*
     description: A condition to be used against `QuestionModel` object types. All fields are tested for equality and combined with a logical ‘and.’
   */
   interface IQuestionModelCondition {
-    questionid?: number;
+    questionId?: number;
     name?: string;
     value?: string;
     source?: string;
@@ -556,14 +638,14 @@ declare namespace GQL {
   */
   interface IQuestionModel {
     __typename: string;
-    questionid: number;
+    questionId: number;
     name: string;
     value: string;
     source: string;
     min: number;
     max: number;
     step: number;
-    questionByQuestionid: IQuestion;
+    questionByQuestionId: IQuestion;
   }
 
   /*
@@ -617,6 +699,31 @@ declare namespace GQL {
   }
 
   /*
+    description: Methods to use when ordering `Question`.
+  */
+  type ISearchQuestionsStrictOrderByEnum = "NATURAL";
+
+  /*
+    description: A connection to a list of `Question` values.
+  */
+  interface ISearchQuestionsStrictConnection {
+    __typename: string;
+    pageInfo: IPageInfo;
+    totalCount: number;
+    edges: Array<ISearchQuestionsStrictEdge>;
+    nodes: Array<IQuestion>;
+  }
+
+  /*
+    description: A `Question` edge in the connection.
+  */
+  interface ISearchQuestionsStrictEdge {
+    __typename: string;
+    cursor: any;
+    node: IQuestion;
+  }
+
+  /*
     description: Methods to use when ordering `Tag`.
   */
   type ISearchTagsOrderByEnum = "NATURAL";
@@ -642,28 +749,93 @@ declare namespace GQL {
   }
 
   /*
-    description: Methods to use when ordering `Tag`.
+    description: Methods to use when ordering `ExampleMessage`.
   */
-  type ITagsByParentOrderByEnum = "NATURAL";
+  type IExampleMessagesOrderByEnum = "PRIMARY_KEY_ASC" | "PRIMARY_KEY_DESC" | "NATURAL" | "ID_ASC" | "ID_DESC";
 
   /*
-    description: A connection to a list of `Tag` values.
+    description: A condition to be used against `ExampleMessage` object types. All fields are tested for equality and combined with a logical ‘and.’
   */
-  interface ITagsByParentConnection {
-    __typename: string;
-    pageInfo: IPageInfo;
-    totalCount: number;
-    edges: Array<ITagsByParentEdge>;
-    nodes: Array<ITag>;
+  interface IExampleMessageCondition {
+    rowId?: number;
   }
 
   /*
-    description: A `Tag` edge in the connection.
+    description: A connection to a list of `ExampleMessage` values.
   */
-  interface ITagsByParentEdge {
+  interface IExampleMessagesConnection {
+    __typename: string;
+    pageInfo: IPageInfo;
+    totalCount: number;
+    edges: Array<IExampleMessagesEdge>;
+    nodes: Array<IExampleMessage>;
+  }
+
+  /*
+    description: A `ExampleMessage` edge in the connection.
+  */
+  interface IExampleMessagesEdge {
     __typename: string;
     cursor: any;
-    node: ITag;
+    node: IExampleMessage;
+  }
+
+  /*
+    description: null
+  */
+  interface IExampleMessage {
+    __typename: string;
+    id: string;
+    rowId: number;
+  }
+
+  /*
+    description: Methods to use when ordering `TagRelationsXref`.
+  */
+  type ITagRelationsXrefsOrderByEnum = "NATURAL" | "TAG1_ID_ASC" | "TAG1_ID_DESC" | "LINK_TYPE_ASC" | "LINK_TYPE_DESC" | "TAG2_ID_ASC" | "TAG2_ID_DESC";
+
+  /*
+    description: A condition to be used against `TagRelationsXref` object types. All fields are tested for equality and combined with a logical ‘and.’
+  */
+  interface ITagRelationsXrefCondition {
+    tag1Id?: number;
+    linkType?: ILinkTypeEnum;
+    tag2Id?: number;
+  }
+
+  /*
+    description: null
+  */
+  type ILinkTypeEnum = "RELATES_TO";
+
+  /*
+    description: A connection to a list of `TagRelationsXref` values.
+  */
+  interface ITagRelationsXrefsConnection {
+    __typename: string;
+    pageInfo: IPageInfo;
+    totalCount: number;
+    edges: Array<ITagRelationsXrefsEdge>;
+    nodes: Array<ITagRelationsXref>;
+  }
+
+  /*
+    description: A `TagRelationsXref` edge in the connection.
+  */
+  interface ITagRelationsXrefsEdge {
+    __typename: string;
+    cursor: any;
+    node: ITagRelationsXref;
+  }
+
+  /*
+    description: null
+  */
+  interface ITagRelationsXref {
+    __typename: string;
+    tag1Id: number;
+    linkType: ILinkTypeEnum;
+    tag2Id: number;
   }
 
   /*
@@ -715,6 +887,7 @@ declare namespace GQL {
     genRandomUuid: IGenRandomUuidPayload;
     registerUser: IRegisterUserPayload;
     upsertAnswerVoteByQuestionAndAnswer: IUpsertAnswerVoteByQuestionAndAnswerPayload;
+    upsertTagSubscription: IUpsertTagSubscriptionPayload;
     upsertTest: IUpsertTestPayload;
     createAnswer: ICreateAnswerPayload;
     updateAnswer: IUpdateAnswerPayload;
@@ -726,13 +899,18 @@ declare namespace GQL {
     updateAnswerVoteByUserAndQuestionAndAnswer: IUpdateAnswerVotePayload;
     deleteAnswerVote: IDeleteAnswerVotePayload;
     deleteAnswerVoteByUserAndQuestionAndAnswer: IDeleteAnswerVotePayload;
+    createExampleMessage: ICreateExampleMessagePayload;
+    updateExampleMessage: IUpdateExampleMessagePayload;
+    updateExampleMessageByRowId: IUpdateExampleMessagePayload;
+    deleteExampleMessage: IDeleteExampleMessagePayload;
+    deleteExampleMessageByRowId: IDeleteExampleMessagePayload;
     createQuestion: ICreateQuestionPayload;
     updateQuestion: IUpdateQuestionPayload;
     updateQuestionByRowId: IUpdateQuestionPayload;
     deleteQuestion: IDeleteQuestionPayload;
     deleteQuestionByRowId: IDeleteQuestionPayload;
     createQuestionModel: ICreateQuestionModelPayload;
-    createQuestionTag: ICreateQuestionTagPayload;
+    createQuestionTagXref: ICreateQuestionTagXrefPayload;
     createQuestionVote: ICreateQuestionVotePayload;
     updateQuestionVote: IUpdateQuestionVotePayload;
     updateQuestionVoteByUserAndQuestion: IUpdateQuestionVotePayload;
@@ -743,11 +921,8 @@ declare namespace GQL {
     updateTagByRowId: IUpdateTagPayload;
     deleteTag: IDeleteTagPayload;
     deleteTagByRowId: IDeleteTagPayload;
-    createTagRelation: ICreateTagRelationPayload;
-    updateTagRelation: IUpdateTagRelationPayload;
-    updateTagRelationByTag1: IUpdateTagRelationPayload;
-    deleteTagRelation: IDeleteTagRelationPayload;
-    deleteTagRelationByTag1: IDeleteTagRelationPayload;
+    createTagRelationsXref: ICreateTagRelationsXrefPayload;
+    createTagSubscription: ICreateTagSubscriptionPayload;
     createUser: ICreateUserPayload;
     updateUser: IUpdateUserPayload;
     updateUserByRowId: IUpdateUserPayload;
@@ -783,7 +958,6 @@ declare namespace GQL {
   interface IAnswerAnswerVotePayload {
     __typename: string;
     clientMutationId: string;
-    string: string;
     query: IQuery;
   }
 
@@ -804,7 +978,6 @@ declare namespace GQL {
   interface IAnswerAnswerVoteCountPayload {
     __typename: string;
     clientMutationId: string;
-    string: string;
     query: IQuery;
   }
 
@@ -929,6 +1102,28 @@ declare namespace GQL {
     answerEdge: IAnswersEdge;
     questionByQuestion: IQuestion;
     userByAuthor: IUser;
+    query: IQuery;
+  }
+
+  /*
+    description: All input for the `upsertTagSubscription` mutation.
+  */
+  interface IUpsertTagSubscriptionInput {
+    clientMutationId?: string;
+    tagId?: number;
+    questions?: boolean;
+    subTags?: boolean;
+  }
+
+  /*
+    description: The output of our `upsertTagSubscription` mutation.
+  */
+  interface IUpsertTagSubscriptionPayload {
+    __typename: string;
+    clientMutationId: string;
+    tag: ITag;
+    tagEdge: ITagsEdge;
+    tagByParent: ITag;
     query: IQuery;
   }
 
@@ -1153,6 +1348,94 @@ declare namespace GQL {
   }
 
   /*
+    description: All input for the `createExampleMessage` mutation.
+  */
+  interface ICreateExampleMessageInput {
+    clientMutationId?: string;
+    exampleMessage: IExampleMessageInput;
+  }
+
+  /*
+    description: null
+  */
+  interface IExampleMessageInput {
+    rowId?: number;
+  }
+
+  /*
+    description: The output of our `createExampleMessage` mutation.
+  */
+  interface ICreateExampleMessagePayload {
+    __typename: string;
+    clientMutationId: string;
+    exampleMessage: IExampleMessage;
+    exampleMessageEdge: IExampleMessagesEdge;
+    query: IQuery;
+  }
+
+  /*
+    description: All input for the `updateExampleMessage` mutation.
+  */
+  interface IUpdateExampleMessageInput {
+    clientMutationId?: string;
+    id: string;
+    exampleMessagePatch: IExampleMessagePatch;
+  }
+
+  /*
+    description: Represents an update to a `ExampleMessage`. Fields that are set will be updated.
+  */
+  interface IExampleMessagePatch {
+    rowId?: number;
+  }
+
+  /*
+    description: The output of our `updateExampleMessage` mutation.
+  */
+  interface IUpdateExampleMessagePayload {
+    __typename: string;
+    clientMutationId: string;
+    exampleMessage: IExampleMessage;
+    query: IQuery;
+  }
+
+  /*
+    description: All input for the `updateExampleMessageByRowId` mutation.
+  */
+  interface IUpdateExampleMessageByRowIdInput {
+    clientMutationId?: string;
+    rowId: number;
+    exampleMessagePatch: IExampleMessagePatch;
+  }
+
+  /*
+    description: All input for the `deleteExampleMessage` mutation.
+  */
+  interface IDeleteExampleMessageInput {
+    clientMutationId?: string;
+    id: string;
+  }
+
+  /*
+    description: The output of our `deleteExampleMessage` mutation.
+  */
+  interface IDeleteExampleMessagePayload {
+    __typename: string;
+    clientMutationId: string;
+    exampleMessage: IExampleMessage;
+    deletedExampleMessageId: string;
+    query: IQuery;
+  }
+
+  /*
+    description: All input for the `deleteExampleMessageByRowId` mutation.
+  */
+  interface IDeleteExampleMessageByRowIdInput {
+    clientMutationId?: string;
+    rowId: number;
+  }
+
+  /*
     description: All input for the `createQuestion` mutation.
   */
   interface ICreateQuestionInput {
@@ -1261,7 +1544,7 @@ declare namespace GQL {
     description: null
   */
   interface IQuestionModelInput {
-    questionid?: number;
+    questionId?: number;
     name?: string;
     value?: string;
     source?: string;
@@ -1278,36 +1561,36 @@ declare namespace GQL {
     clientMutationId: string;
     questionModel: IQuestionModel;
     questionModelEdge: IQuestionModelsEdge;
-    questionByQuestionid: IQuestion;
+    questionByQuestionId: IQuestion;
     query: IQuery;
   }
 
   /*
-    description: All input for the `createQuestionTag` mutation.
+    description: All input for the `createQuestionTagXref` mutation.
   */
-  interface ICreateQuestionTagInput {
+  interface ICreateQuestionTagXrefInput {
     clientMutationId?: string;
-    questionTag: IQuestionTagInput;
+    questionTagXref: IQuestionTagXrefInput;
   }
 
   /*
     description: null
   */
-  interface IQuestionTagInput {
-    question?: number;
-    tag?: number;
+  interface IQuestionTagXrefInput {
+    questionId?: number;
+    tagId?: number;
   }
 
   /*
-    description: The output of our `createQuestionTag` mutation.
+    description: The output of our `createQuestionTagXref` mutation.
   */
-  interface ICreateQuestionTagPayload {
+  interface ICreateQuestionTagXrefPayload {
     __typename: string;
     clientMutationId: string;
-    questionTag: IQuestionTag;
-    questionTagEdge: IQuestionTagsEdge;
-    questionByQuestion: IQuestion;
-    tagByTag: ITag;
+    questionTagXref: IQuestionTagXref;
+    questionTagXrefEdge: IQuestionTagXrefsEdge;
+    questionByQuestionId: IQuestion;
+    tagByTagId: ITag;
     query: IQuery;
   }
 
@@ -1426,9 +1709,11 @@ declare namespace GQL {
   */
   interface ITagInput {
     rowId?: number;
-    name?: string;
+    name: string;
     description?: string;
     parent?: number;
+    body?: any;
+    created?: any;
   }
 
   /*
@@ -1460,6 +1745,8 @@ declare namespace GQL {
     name?: string;
     description?: string;
     parent?: number;
+    body?: any;
+    created?: any;
   }
 
   /*
@@ -1511,101 +1798,62 @@ declare namespace GQL {
   }
 
   /*
-    description: All input for the `createTagRelation` mutation.
+    description: All input for the `createTagRelationsXref` mutation.
   */
-  interface ICreateTagRelationInput {
+  interface ICreateTagRelationsXrefInput {
     clientMutationId?: string;
-    tagRelation: ITagRelationInput;
+    tagRelationsXref: ITagRelationsXrefInput;
   }
 
   /*
     description: null
   */
-  interface ITagRelationInput {
-    tag1: number;
+  interface ITagRelationsXrefInput {
+    tag1Id: number;
     linkType?: ILinkTypeEnum;
-    tag2?: number;
+    tag2Id?: number;
   }
 
   /*
-    description: The output of our `createTagRelation` mutation.
+    description: The output of our `createTagRelationsXref` mutation.
   */
-  interface ICreateTagRelationPayload {
+  interface ICreateTagRelationsXrefPayload {
     __typename: string;
     clientMutationId: string;
-    tagRelation: ITagRelation;
-    tagRelationEdge: ITagRelationsEdge;
-    tagByTag1: ITag;
-    tagByTag2: ITag;
+    tagRelationsXref: ITagRelationsXref;
+    tagRelationsXrefEdge: ITagRelationsXrefsEdge;
     query: IQuery;
   }
 
   /*
-    description: All input for the `updateTagRelation` mutation.
+    description: All input for the `createTagSubscription` mutation.
   */
-  interface IUpdateTagRelationInput {
+  interface ICreateTagSubscriptionInput {
     clientMutationId?: string;
-    id: string;
-    tagRelationPatch: ITagRelationPatch;
+    tagSubscription: ITagSubscriptionInput;
   }
 
   /*
-    description: Represents an update to a `TagRelation`. Fields that are set will be updated.
+    description: null
   */
-  interface ITagRelationPatch {
-    tag1?: number;
-    linkType?: ILinkTypeEnum;
-    tag2?: number;
+  interface ITagSubscriptionInput {
+    tagId?: number;
+    userId?: number;
+    questions?: boolean;
+    subTags?: boolean;
   }
 
   /*
-    description: The output of our `updateTagRelation` mutation.
+    description: The output of our `createTagSubscription` mutation.
   */
-  interface IUpdateTagRelationPayload {
+  interface ICreateTagSubscriptionPayload {
     __typename: string;
     clientMutationId: string;
-    tagRelation: ITagRelation;
-    tagByTag1: ITag;
-    tagByTag2: ITag;
+    tagSubscription: ITagSubscription;
+    tagSubscriptionEdge: ITagSubscriptionsEdge;
+    tagByTagId: ITag;
+    userByUserId: IUser;
     query: IQuery;
-  }
-
-  /*
-    description: All input for the `updateTagRelationByTag1` mutation.
-  */
-  interface IUpdateTagRelationByTag1Input {
-    clientMutationId?: string;
-    tag1: number;
-    tagRelationPatch: ITagRelationPatch;
-  }
-
-  /*
-    description: All input for the `deleteTagRelation` mutation.
-  */
-  interface IDeleteTagRelationInput {
-    clientMutationId?: string;
-    id: string;
-  }
-
-  /*
-    description: The output of our `deleteTagRelation` mutation.
-  */
-  interface IDeleteTagRelationPayload {
-    __typename: string;
-    clientMutationId: string;
-    tagRelation: ITagRelation;
-    deletedTagRelationId: string;
-    tagByTag1: ITag;
-    tagByTag2: ITag;
-    query: IQuery;
-  }
-
-  /*
-    description: All input for the `deleteTagRelationByTag1` mutation.
-  */
-  interface IDeleteTagRelationByTag1Input {
-    clientMutationId?: string;
-    tag1: number;
   }
 
   /*

@@ -1,0 +1,63 @@
+@import '../variables';
+@import '../mixins';
+
+.questionBox {
+	margin-bottom: $card-deck-margin;
+
+	&-content {
+		@include flexStretchNthChild(1, $card-spacer-x, $card-spacer-y)
+	}
+
+	&-header {
+		z-index: $zindex-card-header;
+
+		&:after {
+			content: "";
+			display:block;
+			width: 100%;
+			height: 0;
+			box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
+		}
+	}
+
+	&-detailBoxes {
+		display: flex;
+
+		@include rem-margin(-0.3rem, -$card-spacer-x/4);
+
+		> * {
+			@include rem-margin(0, $card-spacer-x/4);
+			padding: 0.3rem 0.5rem;
+			//margin: 0 $card-spacer-x/4;
+		}
+	}
+
+	&-block {
+	}
+
+	&-description {
+		@include multiline-ellipsis(1.2em, 2, $card-spacer-x/2);
+
+		hyphens: auto;
+	}
+
+	&-user {
+		color: darken($blue, 10%);
+		background: #fbfbff;// rgba($blue, 0.03);
+	}
+
+	&-views {
+		color: darken($orange, 10%);
+		background: #fffcfa;// rgba($orange, 0.05);
+	}
+
+	&-answers {
+		color: darken($green, 10%);
+		background: #fafffa;// rgba($green, 0.05);
+	}
+
+	&-answers-none {
+		color: darken($red, 10%);
+		background: #fffafa;// rgba($red, 0.05);
+	}
+}

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {RichUtils, Modifier, EditorState, SelectionState, convertToRaw, Entity, convertFromRaw, ContentState, convertFromHTML} from 'draft-js';
-import Button from "react-bootstrap/lib/Button";
-import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
-import ButtonToolbar from "react-bootstrap/lib/ButtonToolbar";
+import Button from "reactstrap/lib/Button";
+import ButtonGroup from "reactstrap/lib/ButtonGroup";
+import ButtonToolbar from "reactstrap/lib/ButtonToolbar";
 const Editor = require('draft-js-plugins-editor').default;
 const createHashtagPlugin = require('draft-js-hashtag-plugin').default;
 import 'draft-js-hashtag-plugin/lib/plugin.css';
@@ -117,7 +117,7 @@ export class ReadOnlyEditor extends React.Component<any, any> {
 			const contentStateJSON = JSON.parse(props.children);
 			contentState = convertFromRaw(contentStateJSON);
 			contentState = new ContentState(contentState);
-			this.calculations = true;
+			this.calculations = this.props.showCalculations;
 		}
 		catch(e) {
 			console.log('ReadOnly constructor', e);
@@ -341,12 +341,12 @@ export class ReadOnlyEditor extends React.Component<any, any> {
 
 		console.log("does rerender", this.scope, this.state.models.map((v) => math.format(v.get('node'), 5)).toArray());
 
-		const editorContainerStyle = {width: this.state.models.length ? '70%': '70%'};
+		const editorContainerStyle = {width: this.state.models.length && this.calculations ? '70%': '100%'};
 		const modelsContainerStyle = {maxWidth: '400px', overflow: 'auto', display: this.state.models.length ? 'block' : 'block', paddingLeft: '6px', borderLeft: '1px solid #ccc'};
 		const modelsContainerHeadlineStyle = {margin: '0'};
 
 		return (
-			<div>
+			<div className={this.props.className ? this.props.className : ''}>
 				<div className={"editorPanels"+(this.readOnly ? ' noselect': '')} style={{height: 'auto'}}>
 					<div style={editorContainerStyle}>
 						<Editor

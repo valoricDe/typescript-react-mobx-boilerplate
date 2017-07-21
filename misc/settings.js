@@ -46,7 +46,7 @@ const postgresServer = {
 	host: 'localhost',
 	port: '5432',
 	user: 'admin',
-	password: '1234',
+	password: 'test1234',
 	db: 'admin',
 };
 

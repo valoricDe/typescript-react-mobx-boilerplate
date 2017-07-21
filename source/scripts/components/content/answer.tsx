@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { Component } from 'react';
 import * as Relay from 'react-relay';
-import Panel from 'react-bootstrap/lib/Panel';
+import Card from 'reactstrap/lib/Card';
 import UserBox from "./userBox";
-import AnswerVote from "./answerVote"; import {ReadOnlyEditor} from "./ReadOnlyEditor";
+import AnswerVote from "./answerVote";
+import {ReadOnlyEditor} from "./ReadOnlyEditor";
+
+import '../../../styles/components/answer.scss';
 
 class AnswerClass extends Component<Props.IAnswerProps, void> {
 	public render(): JSX.Element {
@@ -17,13 +20,13 @@ class AnswerClass extends Component<Props.IAnswerProps, void> {
 
 		return (
 			<div style={style}>
-				<Panel>
+				<Card block className="answer-content">
 					<AnswerVote store={this.props.store} questionId={this.props.questionId} />
-					<UserBox store={item.userByAuthor} className="pull-right"/>
 					<ReadOnlyEditor onChange={() => {}}>
 						{item.text}
 					</ReadOnlyEditor>
-				</Panel>
+					<UserBox store={item.userByAuthor} />
+				</Card>
 			</div>
 		);
 	}

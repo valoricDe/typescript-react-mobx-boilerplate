@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {RichUtils, Modifier, EditorState, SelectionState, convertToRaw, Entity} from 'draft-js';
-import Button from "react-bootstrap/lib/Button";
-import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
-import ButtonToolbar from "react-bootstrap/lib/ButtonToolbar";
+import Button from "reactstrap/lib/Button";
+import ButtonGroup from "reactstrap/lib/ButtonGroup";
+import ButtonToolbar from "reactstrap/lib/ButtonToolbar";
 const Editor = require('draft-js-plugins-editor').default;
 const createHashtagPlugin = require('draft-js-hashtag-plugin').default;
 import 'draft-js-hashtag-plugin/lib/plugin.css';

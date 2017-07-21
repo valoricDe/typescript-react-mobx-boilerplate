@@ -1,8 +1,12 @@
-@import 'partials/mixins';
-@import 'partials/variables';
-@import 'partials/content';
-@import 'partials/bootstrap';
-@import 'partials/tangle';
+@import 'mixins';
+@import 'variables';
+@import 'bootstrap';
+@import 'content';
+@import 'tangle';
+
+html {
+	font-size: $font-size-base-pixel;
+}
 
 div > h1:first-child {
 	margin-top: 0;
@@ -15,6 +19,7 @@ body > div,
 	min-height: 100%;
 	margin: 0;
 	width: 100%;
+	min-width: 320px;
 }
 
 .wrapper {
@@ -65,7 +70,7 @@ body.wait {
 }
 
 .mentionSuggestionsPortal {
-	background-color: $decrement-background;
+	//background-color: $decrement-background;
 	padding: 1px;
 	min-height: 10px;
 	min-width: 10px;
@@ -77,8 +82,8 @@ body.wait {
 }
 
 .calculation-headline {
-	@extend small;
-	color: $gray-light;
+	/*@extend small;
+	color: $gray-light;*/
 }
 
 .editorPanels {

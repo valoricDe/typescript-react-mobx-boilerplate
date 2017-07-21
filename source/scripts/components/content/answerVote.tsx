@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { Component } from 'react';
 import * as Relay from 'react-relay';
-import { ButtonToolbar, Button } from 'react-bootstrap';
+import { ButtonToolbar, Button } from 'reactstrap';
 import AnswerVoteMutation from "../../mutations/createAnswerVote";
-import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
-import Glyphicon from 'react-bootstrap/lib/Glyphicon';
+import ButtonGroup from 'reactstrap/lib/ButtonGroup';
 import IRouterComponent = Components.IRouterComponent;
 
 class AnswerVoteComponent extends Component<Props.IAnswerVoteProps, void> {
@@ -41,12 +40,12 @@ class AnswerVoteComponent extends Component<Props.IAnswerVoteProps, void> {
 		const item = this.getVoteDefaults();
 		return (
 			<div className="content__voteBox">
-				<ButtonGroup vertical block>
-					<Button onClick={() => this.vote(+1)} active={item.value > 0}><Glyphicon glyph="chevron-up" /></Button>
+				<ButtonGroup vertical>
+					<Button onClick={() => this.vote(+1)} active={item.value > 0}>⇧</Button>
 					<Button onClick={() => this.vote(0)}>{this.props.store.vote ? this.props.store.vote : 0}</Button>
-					<Button onClick={() => this.vote(-1)} active={item.value < 0}><Glyphicon glyph="chevron-down" /></Button>
+					<Button onClick={() => this.vote(-1)} active={item.value < 0}>⇩</Button>
 				</ButtonGroup>
-				<a onClick={this.subscribe} style={{color: item.subscribe ? "" : "inherit", textDecoration: "none"}} className="content__subscribe"><Glyphicon glyph="star" /></a>
+				<a onClick={this.subscribe} style={{color: item.subscribe ? "" : "inherit", textDecoration: "none"}} className="content__subscribe">★</a>
 			</div>
 		);
 	}

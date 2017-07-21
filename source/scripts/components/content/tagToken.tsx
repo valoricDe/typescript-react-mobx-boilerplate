@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Component } from 'react';
 import * as Relay from 'react-relay';
-import { Overlay, Popover, OverlayTrigger} from 'react-bootstrap';
+import { Popover} from 'reactstrap';
 
 class TagTokenComponent extends Component<Props.ITagProps, void> {
 	getDetails = () => {
@@ -12,7 +12,7 @@ class TagTokenComponent extends Component<Props.ITagProps, void> {
 	public render(): JSX.Element {
 		const store = this.props.store;
 
-		const popover = <Popover id="popover-contained" title={"Tag: "+store.name}>
+		/*const popover = <Popover id="popover-contained" title={"Tag: "+store.name}>
 			{this.props.relay.pendingVariables && this.props.relay.pendingVariables.hasOwnProperty('details')?
 				<p>Loading details</p>:
 				<div>
@@ -20,12 +20,12 @@ class TagTokenComponent extends Component<Props.ITagProps, void> {
 					<p>This tag has been used in {store.questionTagsByTag ? store.questionTagsByTag.totalCount : 'no'} question(s) yet.</p>
 				</div>
 			}
-		</Popover>;
+		</Popover>;*/
 
 		return (
-			<OverlayTrigger trigger="click" placement="right" overlay={popover}>
+			//<OverlayTrigger trigger="click" placement="right" overlay={popover}>
 				<span onClick={this.getDetails} className="token token-selected">{store.name}</span>
-			</OverlayTrigger>
+			//</OverlayTrigger>
 		);
 	}
 }
@@ -41,7 +41,7 @@ const TagToken = Relay.createContainer(TagTokenComponent, {
             fragment on Tag {
                 name
                 description @include(if: $details)
-                questionTagsByTag @include(if: $details) {
+                questionTagXrefsByTagId @include(if: $details) {
                     totalCount
                 }
             }`,

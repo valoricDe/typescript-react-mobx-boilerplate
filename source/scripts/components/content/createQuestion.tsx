@@ -5,7 +5,7 @@ import {observer} from "mobx-react";
 import {observable} from "mobx";
 import Formsy from 'formsy-react';
 import { Input, Row } from 'formsy-react-components';
-import { ButtonToolbar, Button } from 'react-bootstrap';
+import { ButtonToolbar, Button } from 'reactstrap';
 import CreateQuestionMutation from "../../mutations/createQuestion";
 import {Typeahead} from 'react-bootstrap-typeahead';
 import {EditorState, convertToRaw, CompositeDecorator} from 'draft-js';
@@ -130,9 +130,9 @@ class CreateQuestionComponent extends Component<Props.ICreateQuestionProps, void
 							}
 						</Row>
 
-						<ButtonToolbar className="content__panelButtonToolbar pull-right" key="buttonToolbar">
-							<Button bsStyle="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>
-							<Button onClick={this.cancel} bsStyle="danger" key="cancel">Cancel</Button>
+						<ButtonToolbar className="content__panelButtonToolbar float-right" key="buttonToolbar">
+							<Button color="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>
+							<Button onClick={this.cancel} color="danger" key="cancel">Cancel</Button>
 						</ButtonToolbar>
 					</fieldset>
 				</Formsy.Form>

@@ -3,7 +3,6 @@ import {Component} from 'react';
 import * as Relay from 'react-relay';
 import {Input} from "formsy-react-components";
 import Formsy from 'formsy-react';
-import Clearfix from "react-bootstrap/lib/Clearfix";
 import Answer from "./answer";
 import Link from "react-router/lib/Link";
 
@@ -22,14 +21,13 @@ class AnswersListClass extends Component<Props.IAnswerListProps, void> {
 		return (
 			<div>
 				<h2 className="page-header">{querySearch ? 'Answers with "'+query+'" in title or description' : 'Answers'}</h2>
-				<Formsy.Form className="col-md-4 input-group pull-right" onValidSubmit={(item) => this.props.relay.setVariables({query: item.query})}>
+				<Formsy.Form className="col-md-4 input-group float-right" onValidSubmit={(item) => this.props.relay.setVariables({query: item.query})}>
 					<Input label="Search for: " name="query" value="" layout="elementOnly" />
 					<span className="input-group-btn">
 						<input type="submit" className="btn btn-default btn-group" name="submit_search" value="Search" />
 					</span>
 				</Formsy.Form>
 				<p>This question has {answers.totalCount} answer(s).</p>
-				<Clearfix />
 				<p>&nbsp;</p>
 				{ items }
 				<Link to={"/questions/"+questionId+"/addAnswer"}>Add your own Answer</Link>

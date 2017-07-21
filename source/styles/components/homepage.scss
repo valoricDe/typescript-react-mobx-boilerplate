@@ -1,0 +1,22 @@
+@import '../variables';
+@import '../mixins';
+
+.homepage {
+	&-grid {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+
+		margin: 0 (-$card-spacer-x);
+		padding: $card-spacer-y/2 $card-spacer-x/2;
+
+		> * {
+			text-align: center;
+			flex: 1 1 auto;
+			min-width: 85px;
+			max-width: 200px;
+			margin: $card-spacer-y/2 $card-spacer-x/2;
+			hyphens: auto;
+		}
+	}
+}

@@ -4,10 +4,10 @@ import {observer} from "mobx-react";
 import {observable} from "mobx";
 import Formsy from 'formsy-react';
 import { Input, Textarea } from 'formsy-react-components';
-import { ButtonToolbar, Button, Modal } from 'react-bootstrap';
+import { ButtonToolbar, Button, Modal } from 'reactstrap';
 import RegisterUserMutation from "../../mutations/registerUser";
 
-const Auth = require('../../lib/auth');
+import Auth from '../../lib/auth';
 
 export class RegisterUserState {
 	@observable show = false;
@@ -43,10 +43,10 @@ export default class RegisterUser extends Component<Props.IRegisterUserProps, vo
 					<Input label="Email" value={item.email} placeholder={item.email} required name="email" validations={{matchRegexp: /\S+/}} validationError="Title field is required" />
 					<Input label="Password" value={item.password} placeholder={item.password} required type="password" name="password" validations={{matchRegexp: /\S+/}} validationError="Title field is required" />
 					<div className="row">
-						<div className="col-sm-9 pull-right">
+						<div className="col-sm-9 float-right">
 							<ButtonToolbar>
-								<Button bsStyle="primary" type="submit" disabled={!this.isValidInput} >Save</Button>
-								<Button onClick={this.close} bsStyle="danger">Cancel</Button>
+								<Button color="primary" type="submit" disabled={!this.isValidInput} >Save</Button>
+								<Button onClick={this.close} color="danger">Cancel</Button>
 							</ButtonToolbar>
 						</div>
 					</div>

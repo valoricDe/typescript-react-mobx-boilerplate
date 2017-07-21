@@ -6,7 +6,7 @@ import Router from 'react-router/lib/Router';
 import browserHistory from 'react-router/lib/browserHistory'
 import useRelayRouter from 'react-router-relay';
 
-const Auth = require('./lib/auth');
+import Auth from './lib/auth';
 import routeProvider from './routeProvider';
 
 const RelayRouter: any = Router;

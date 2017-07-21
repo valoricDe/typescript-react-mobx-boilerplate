@@ -5,11 +5,16 @@ import {observer} from "mobx-react";
 import {observable} from "mobx";
 import Formsy from 'formsy-react';
 import { Input, Textarea } from 'formsy-react-components';
-import { Panel, ButtonToolbar, Button } from 'react-bootstrap';
+import { Card, ButtonToolbar, Button } from 'reactstrap';
 import UpdateQuestionMutation from '../../mutations/updateQuestion'
 import UserBox from "./userBox";
 import Link from "react-router/lib/Link";
-import QuestionTagList from "./questionTagList"; import {ReadOnlyEditor} from "./ReadOnlyEditor";
+import QuestionTagList from "./questionTagList";
+import {ReadOnlyEditor} from "./ReadOnlyEditor";
+import CardHeader from "reactstrap/lib/CardHeader";
+import CardBlock from "reactstrap/lib/CardBlock";
+
+import '../../../styles/components/questionBox.scss';
 
 @observer
 class QuestionBoxClass extends Component<Props.IQuestionProps, void> {
@@ -45,51 +50,29 @@ class QuestionBoxClass extends Component<Props.IQuestionProps, void> {
 			<div style={style}>
 				<Formsy.Form onValidSubmit={(item) => this.save(item)} onValid={() => this.isValidInput = true} onInvalid={() => this.isValidInput = false}>
 					<fieldset>
-				<Panel
-					   header={
-							[<ButtonToolbar className="content__panelButtonToolbar pull-right" key="buttonToolbar">
-							{this.props.user.currentUserId === store.userByAuthor.rowId ? (!this.isEditing ?
-								<Button onClick={this.edit} bsStyle="primary">Edit</Button> :
-								[<Button bsStyle="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>, <Button onClick={this.cancel} bsStyle="danger" key="cancel">Cancel</Button>])
-								: null
-							}
-							</ButtonToolbar>,
-							<Link to={"/questions/"+questionId} key="title"><h2 role="presentation" className="content__panelTitle">{store.title}</h2></Link>]
-					   }
-				>
-					<UserBox store={store.userByAuthor} details={false} className="pull-right"/>
-					<p className="pull-right">&nbsp;</p>
-					<Button bsStyle={store.answersByQuestion.totalCount > 0 ? "warning" : "warning"} className="pull-right" style={{"textAlign": "center", padding: "15px"}} title={"This question has "+Math.floor((Math.random() * 100) + 1)+" views."}>
-						<small>Views</small>
-						<p>{Math.floor((Math.random() * 100) + 1)}</p>
-					</Button>
-					<p className="pull-right">&nbsp;</p>
-					<Button bsStyle={store.answersByQuestion.totalCount > 0 ? "success" : "warning"} className="pull-right" style={{"textAlign": "center", padding: "15px"}} title={"This question has "+store.answersByQuestion.totalCount+" answers."}>
-						<small>Answers</small>
-						<p>{store.answersByQuestion.totalCount}</p>
-					</Button>
-
-					{!this.isEditing ?
-						null :
-						<Input label="Title" value={store.title} placeholder={store.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
-					}
-					{!this.isEditing ?
-						<ReadOnlyEditor onChange={() => {}}>
+				<Card className="questionBox">
+					<CardHeader className="questionBox-content questionBox-header">
+						<Link to={"/questions/"+questionId}><h2 role="presentation" className="content__panelTitle">{store.title}</h2></Link>
+						<QuestionTagList store={store} />
+					</CardHeader>
+					<CardBlock className="questionBox-content">
+						<ReadOnlyEditor onChange={() => {}} showCalculations={false} className="questionBox-description">
 							{store.description}
-						</ReadOnlyEditor> :
-						<Textarea
-							label="Description"
-							name="description"
-							value={store.description}
-							validationError="Description field is required"
-							placeholder="This field requires 10 characters."
-							help="This is some help text for the textarea."
-							required
-						/>
+						</ReadOnlyEditor>
 
-					}
-					<QuestionTagList store={store} />
-				</Panel>
+						<div className="questionBox-detailBoxes">
+							<UserBox store={store.userByAuthor} details={false} className="questionBox-user" />
+							<Button className="questionBox-views" title={"This question has "+Math.floor((Math.random() * 100) + 1)+" views."}>
+								<small>Views</small>
+								<p>{Math.floor((Math.random() * 100) + 1)}</p>
+							</Button>
+							<Button className={"questionBox-answers"+(store.answersByQuestion.totalCount ? '' : '-none' )} color={store.answersByQuestion.totalCount > 0 ? "success" : "warning"} title={"This question has "+store.answersByQuestion.totalCount+" answers."}>
+								<small>Answers</small>
+								<p>{store.answersByQuestion.totalCount}</p>
+							</Button>
+						</div>
+					</CardBlock>
+				</Card>
 			</fieldset>
 			</Formsy.Form>
 			</div>
@@ -103,16 +86,14 @@ const QuestionBox = Relay.createContainer(QuestionBoxClass, {
 		// This template string will be parsed by babel-relay-plugin.
 		store: () => Relay.QL`
 			fragment on Question {
-				${UpdateQuestionMutation.getFragment('store')}
-				${QuestionTagList.getFragment('store')}
 				rowId
 				title
 				description
 				vote
-				questionTagsByQuestion(first: 20) {
+                questionTagXrefsByQuestionId(first: 20) {
 					edges {
                         node {
-                            tagByTag {
+                            tagByTagId {
                                 name
                             }
                         }	
@@ -125,11 +106,13 @@ const QuestionBox = Relay.createContainer(QuestionBoxClass, {
 				answersByQuestion {
 					totalCount
 				}
+                ${UpdateQuestionMutation.getFragment('store')}
+                ${QuestionTagList.getFragment('store')}
 			}`,
-		user: () => Relay.QL`
+		/*user: () => Relay.QL`
             fragment on Query {
                 currentUserId
-            }`,
+            }`,*/
 	},
 });
 

@@ -1,0 +1,12 @@
+@import '../variables';
+@import '../mixins';
+
+.userBox {
+	text-align: center;
+	margin: 0;
+	padding: $card-spacer-y $card-spacer-x;
+
+	p {
+		margin: 0;
+	}
+}

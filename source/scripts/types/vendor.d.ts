@@ -46,62 +46,6 @@ declare module "react-relay/lib/RelayRootContainer" {
 	export = Relay.RootContainer;
 }
 
-declare module "react-bootstrap/lib/Navbar" {
-	import {Navbar} from "react-bootstrap";
-	export = Navbar;
-}
-
-declare module "react-bootstrap/lib/Nav" {
-	import {Nav} from "react-bootstrap";
-	export = Nav;
-}
-
-declare module "react-bootstrap/lib/NavItem" {
-	import {NavItem} from "react-bootstrap";
-	export = NavItem;
-}
-
-declare module "react-bootstrap/lib/Panel" {
-	import {Panel} from "react-bootstrap";
-	export = Panel;
-}
-
-declare module "react-bootstrap/lib/Button" {
-	import {Button} from "react-bootstrap";
-	export = Button;
-}
-
-declare module "react-bootstrap/lib/ButtonGroup" {
-	import {ButtonGroup} from "react-bootstrap";
-	export = ButtonGroup;
-}
-
-declare module "react-bootstrap/lib/ButtonToolbar" {
-	import {ButtonToolbar} from "react-bootstrap";
-	export = ButtonToolbar;
-}
-
-declare module "react-bootstrap/lib/NavDropdown" {
-	import {NavDropdown} from "react-bootstrap";
-	export = NavDropdown;
-}
-
-declare module "react-bootstrap/lib/MenuItem" {
-	import {MenuItem} from "react-bootstrap";
-	export = MenuItem;
-}
-
-declare module "react-bootstrap/lib/Clearfix" {
-	import {Clearfix} from "react-bootstrap";
-	export = Clearfix;
-}
-
-declare module "react-bootstrap/lib/Glyphicon" {
-	import {Glyphicon} from "react-bootstrap";
-	export = Glyphicon;
-}
-
-
 declare module 'react-bootstrap-typeahead' {
 	import * as React = require('react')
 	interface TypeaheadProps extends React.HTMLProps<Typeahead> {

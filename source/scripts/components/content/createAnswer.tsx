@@ -5,7 +5,7 @@ import {observer} from "mobx-react";
 import {observable} from "mobx";
 import Formsy from 'formsy-react';
 import { Input, Textarea } from 'formsy-react-components';
-import { Panel, ButtonToolbar, Button, Modal } from 'react-bootstrap';
+import { ButtonToolbar, Button, Modal } from 'reactstrap';
 import CreateAnswerMutation from "../../mutations/createAnswer";
 import {EditorState, convertToRaw} from "draft-js";
 import {MyEditor} from "./myEditor";
@@ -44,9 +44,9 @@ class CreateAnswerComponent extends Component<Props.ICreateAnswerProps, void> {
 				<Formsy.Form ref="form" onValidSubmit={(item) => this.save(item)} onValid={() => this.isValidInput = true} onInvalid={() => this.isValidInput = false}>
 					<fieldset>
 						<MyEditor onChange={this.onChange} editorState={this.editorState} readOnly={false} />
-						<ButtonToolbar className="content__panelButtonToolbar pull-right" key="buttonToolbar">
-							<Button bsStyle="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>
-							<Button onClick={this.cancel} bsStyle="danger" key="cancel">Cancel</Button>
+						<ButtonToolbar className="content__panelButtonToolbar float-right" key="buttonToolbar">
+							<Button color="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>
+							<Button onClick={this.cancel} color="danger" key="cancel">Cancel</Button>
 						</ButtonToolbar>
 					</fieldset>
 				</Formsy.Form>

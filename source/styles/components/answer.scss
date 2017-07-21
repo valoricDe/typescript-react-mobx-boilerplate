@@ -1,0 +1,10 @@
+@import '../variables';
+@import '../mixins';
+
+.answer {
+	margin-bottom: $card-deck-margin;
+
+	&-content {
+		@include flexStretchNthChild(2, $card-spacer-x, $card-spacer-y)
+	}
+}

@@ -1,0 +1,15 @@
+@import '../variables';
+@import '../mixins';
+
+.question {
+	margin-bottom: $card-deck-margin;
+
+	&-header {
+		@include flexStretchNthChild(1, $card-spacer-x, $card-spacer-y);
+		align-items: center;
+	}
+
+	&-content {
+		@include flexStretchNthChild(1, $card-spacer-x, $card-spacer-y);
+	}
+}

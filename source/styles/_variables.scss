@@ -1,4 +1,11 @@
-@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+$border-radius:          .15rem;
+$border-radius-lg:       .25rem;
+$border-radius-sm:       .10rem;
+
+$card-body-padding: 10px;
+
+$card-spacer-x: 0.5rem;
+$card-spacer-y: 0.35rem;
 
 $font: 'normal 15px/1.5 "Source Sans Pro", sans-serif';
 $color-1: #fafafa;
@@ -6,7 +13,19 @@ $color-2: #333;
 $increment-background: #6496c8;
 $decrement-background: #c86464;
 
-$btn-success-color:              $gray-dark;
+$contentPadding-x: 1rem;
+$contentPadding-y: 1rem;
+
+$minPageWidth: 22rem;
+$minCardWidth: $minPageWidth - ($contentPadding-x * 2);
+
+$zindex-card-header:  800 !default;
+
+$font-size-base-pixel: 14px;
+
+@import "../../node_modules/bootstrap/scss/variables";
+
+/*$btn-success-color:              $gray-dark;
 $btn-success-bg:                 rgba($brand-success, 0.3);
 $btn-success-border:             lighten($btn-success-bg, 5%);
 
@@ -20,4 +39,4 @@ $btn-warning-border:             lighten($btn-warning-bg, 5%);
 
 $btn-danger-color:               $gray-dark;
 $btn-danger-bg:                  rgba($brand-danger, 0.3);
-$btn-danger-border:              lighten($btn-danger-bg, 5%);
+$btn-danger-border:              lighten($btn-danger-bg, 5%);*/

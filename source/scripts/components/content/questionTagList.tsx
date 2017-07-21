@@ -9,7 +9,7 @@ class QuestionTagListClass extends Component<Props.IQuestionTagListProps, void> 
 		const store = this.props.store;
 		return (
 			<div className="bootstrap-tokenizer">
-				{store.questionTagsByQuestion.edges.length ? store.questionTagsByQuestion.edges.map((e, idx) => <TagToken store={e.node.tagByTag} key={idx} />) : "No tags assigned!"}
+				{store.questionTagXrefsByQuestionId.edges.length ? store.questionTagXrefsByQuestionId.edges.map((e, idx) => <TagToken store={e.node.tagByTagId} key={idx} />) : "No tags assigned!"}
 			</div>
 		);
 	};
@@ -22,10 +22,10 @@ const QuestionTagList = Relay.createContainer(QuestionTagListClass, {
 		store: (vars) => {
 			return Relay.QL`
                 fragment on Question {
-                    questionTagsByQuestion(first: 20) {
+                    questionTagXrefsByQuestionId(first: 20) {
                         edges {
                             node {
-                                tagByTag {
+                                tagByTagId {
                                     ${TagToken.getFragment('store')}
                                 }
                             }

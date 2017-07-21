@@ -585,6 +585,89 @@
               "deprecationReason": null
             },
             {
+              "name": "searchQuestionsStrict",
+              "description": "Reads and enables paginatation through a set of `Question`.",
+              "args": [
+                {
+                  "name": "orderBy",
+                  "description": "The method to use when ordering `Question`.",
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "SearchQuestionsStrictOrderBy",
+                    "ofType": null
+                  },
+                  "defaultValue": "NATURAL"
+                },
+                {
+                  "name": "before",
+                  "description": "Read all values in the set before (above) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "after",
+                  "description": "Read all values in the set after (below) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "first",
+                  "description": "Only read the first `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "last",
+                  "description": "Only read the last `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "offset",
+                  "description": "Skip the first `n` values from our `after` cursor, an alternative to cursor based pagination. May not be used with `last`.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "search",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SearchQuestionsStrictConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "searchTags",
               "description": "Reads and enables paginatation through a set of `Tag`.",
               "args": [
@@ -662,89 +745,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "SearchTagsConnection",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tagsByParent",
-              "description": "Reads and enables paginatation through a set of `Tag`.",
-              "args": [
-                {
-                  "name": "orderBy",
-                  "description": "The method to use when ordering `Tag`.",
-                  "type": {
-                    "kind": "ENUM",
-                    "name": "TagsByParentOrderBy",
-                    "ofType": null
-                  },
-                  "defaultValue": "NATURAL"
-                },
-                {
-                  "name": "before",
-                  "description": "Read all values in the set before (above) this cursor.",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Cursor",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "after",
-                  "description": "Read all values in the set after (below) this cursor.",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Cursor",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "first",
-                  "description": "Only read the first `n` values of the set.",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "last",
-                  "description": "Only read the last `n` values of the set.",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "offset",
-                  "description": "Skip the first `n` values from our `after` cursor, an alternative to cursor based pagination. May not be used with `last`.",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "parent",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "TagsByParentConnection",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -1053,6 +1053,143 @@
               "deprecationReason": null
             },
             {
+              "name": "allExampleMessages",
+              "description": "Reads and enables paginatation through a set of `ExampleMessage`.",
+              "args": [
+                {
+                  "name": "orderBy",
+                  "description": "The method to use when ordering `ExampleMessage`.",
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "ExampleMessagesOrderBy",
+                    "ofType": null
+                  },
+                  "defaultValue": "PRIMARY_KEY_ASC"
+                },
+                {
+                  "name": "before",
+                  "description": "Read all values in the set before (above) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "after",
+                  "description": "Read all values in the set after (below) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "first",
+                  "description": "Only read the first `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "last",
+                  "description": "Only read the last `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "offset",
+                  "description": "Skip the first `n` values from our `after` cursor, an alternative to cursor based pagination. May not be used with `last`.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "condition",
+                  "description": "A condition to be used in determining which values should be returned by the collection.",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ExampleMessageCondition",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExampleMessagesConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "exampleMessage",
+              "description": "Reads a single `ExampleMessage` using its globally unique `ID`.",
+              "args": [
+                {
+                  "name": "id",
+                  "description": "The globally unique `ID` to be used in selecting a single `ExampleMessage`.",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExampleMessage",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "exampleMessageByRowId",
+              "description": null,
+              "args": [
+                {
+                  "name": "rowId",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExampleMessage",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "allQuestions",
               "description": "Reads and enables paginatation through a set of `Question`.",
               "args": [
@@ -1273,15 +1410,15 @@
               "deprecationReason": null
             },
             {
-              "name": "allQuestionTags",
-              "description": "Reads and enables paginatation through a set of `QuestionTag`.",
+              "name": "allQuestionTagXrefs",
+              "description": "Reads and enables paginatation through a set of `QuestionTagXref`.",
               "args": [
                 {
                   "name": "orderBy",
-                  "description": "The method to use when ordering `QuestionTag`.",
+                  "description": "The method to use when ordering `QuestionTagXref`.",
                   "type": {
                     "kind": "ENUM",
-                    "name": "QuestionTagsOrderBy",
+                    "name": "QuestionTagXrefsOrderBy",
                     "ofType": null
                   },
                   "defaultValue": "NATURAL"
@@ -1341,7 +1478,7 @@
                   "description": "A condition to be used in determining which values should be returned by the collection.",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "QuestionTagCondition",
+                    "name": "QuestionTagXrefCondition",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1349,7 +1486,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "QuestionTagsConnection",
+                "name": "QuestionTagXrefsConnection",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -1644,18 +1781,18 @@
               "deprecationReason": null
             },
             {
-              "name": "allTagRelations",
-              "description": "Reads and enables paginatation through a set of `TagRelation`.",
+              "name": "allTagRelationsXrefs",
+              "description": "Reads and enables paginatation through a set of `TagRelationsXref`.",
               "args": [
                 {
                   "name": "orderBy",
-                  "description": "The method to use when ordering `TagRelation`.",
+                  "description": "The method to use when ordering `TagRelationsXref`.",
                   "type": {
                     "kind": "ENUM",
-                    "name": "TagRelationsOrderBy",
+                    "name": "TagRelationsXrefsOrderBy",
                     "ofType": null
                   },
-                  "defaultValue": "PRIMARY_KEY_ASC"
+                  "defaultValue": "NATURAL"
                 },
                 {
                   "name": "before",
@@ -1712,7 +1849,7 @@
                   "description": "A condition to be used in determining which values should be returned by the collection.",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "TagRelationCondition",
+                    "name": "TagRelationsXrefCondition",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1720,61 +1857,90 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "TagRelationsConnection",
+                "name": "TagRelationsXrefsConnection",
                 "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "tagRelation",
-              "description": "Reads a single `TagRelation` using its globally unique `ID`.",
+              "name": "allTagSubscriptions",
+              "description": "Reads and enables paginatation through a set of `TagSubscription`.",
               "args": [
                 {
-                  "name": "id",
-                  "description": "The globally unique `ID` to be used in selecting a single `TagRelation`.",
+                  "name": "orderBy",
+                  "description": "The method to use when ordering `TagSubscription`.",
                   "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "ID",
-                      "ofType": null
-                    }
+                    "kind": "ENUM",
+                    "name": "TagSubscriptionsOrderBy",
+                    "ofType": null
+                  },
+                  "defaultValue": "NATURAL"
+                },
+                {
+                  "name": "before",
+                  "description": "Read all values in the set before (above) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "after",
+                  "description": "Read all values in the set after (below) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "first",
+                  "description": "Only read the first `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "last",
+                  "description": "Only read the last `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "offset",
+                  "description": "Skip the first `n` values from our `after` cursor, an alternative to cursor based pagination. May not be used with `last`.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "condition",
+                  "description": "A condition to be used in determining which values should be returned by the collection.",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "TagSubscriptionCondition",
+                    "ofType": null
                   },
                   "defaultValue": null
                 }
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "TagRelation",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tagRelationByTag1",
-              "description": null,
-              "args": [
-                {
-                  "name": "tag1",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Int",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "TagRelation",
+                "name": "TagSubscriptionsConnection",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -2051,7 +2217,7 @@
             },
             {
               "kind": "OBJECT",
-              "name": "TagRelation",
+              "name": "ExampleMessage",
               "ofType": null
             }
           ]
@@ -2500,6 +2666,89 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "QuestionVotesConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tagSubscriptionsByUserId",
+              "description": "Reads and enables paginatation through a set of `TagSubscription`.",
+              "args": [
+                {
+                  "name": "orderBy",
+                  "description": "The method to use when ordering `TagSubscription`.",
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "TagSubscriptionsOrderBy",
+                    "ofType": null
+                  },
+                  "defaultValue": "NATURAL"
+                },
+                {
+                  "name": "before",
+                  "description": "Read all values in the set before (above) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "after",
+                  "description": "Read all values in the set after (below) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "first",
+                  "description": "Only read the first `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "last",
+                  "description": "Only read the last `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "offset",
+                  "description": "Skip the first `n` values from our `after` cursor, an alternative to cursor based pagination. May not be used with `last`.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "condition",
+                  "description": "A condition to be used in determining which values should be returned by the collection.",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "TagSubscriptionCondition",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "TagSubscriptionsConnection",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -3391,15 +3640,15 @@
               "deprecationReason": null
             },
             {
-              "name": "questionTagsByQuestion",
-              "description": "Reads and enables paginatation through a set of `QuestionTag`.",
+              "name": "questionTagXrefsByQuestionId",
+              "description": "Reads and enables paginatation through a set of `QuestionTagXref`.",
               "args": [
                 {
                   "name": "orderBy",
-                  "description": "The method to use when ordering `QuestionTag`.",
+                  "description": "The method to use when ordering `QuestionTagXref`.",
                   "type": {
                     "kind": "ENUM",
-                    "name": "QuestionTagsOrderBy",
+                    "name": "QuestionTagXrefsOrderBy",
                     "ofType": null
                   },
                   "defaultValue": "NATURAL"
@@ -3459,7 +3708,7 @@
                   "description": "A condition to be used in determining which values should be returned by the collection.",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "QuestionTagCondition",
+                    "name": "QuestionTagXrefCondition",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -3467,14 +3716,14 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "QuestionTagsConnection",
+                "name": "QuestionTagXrefsConnection",
                 "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "questionModelsByQuestionid",
+              "name": "questionModelsByQuestionId",
               "description": "Reads and enables paginatation through a set of `QuestionModel`.",
               "args": [
                 {
@@ -5056,8 +5305,8 @@
         },
         {
           "kind": "ENUM",
-          "name": "QuestionTagsOrderBy",
-          "description": "Methods to use when ordering `QuestionTag`.",
+          "name": "QuestionTagXrefsOrderBy",
+          "description": "Methods to use when ordering `QuestionTagXref`.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -5069,25 +5318,25 @@
               "deprecationReason": null
             },
             {
-              "name": "QUESTION_ASC",
+              "name": "QUESTION_ID_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "QUESTION_DESC",
+              "name": "QUESTION_ID_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "TAG_ASC",
+              "name": "TAG_ID_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "TAG_DESC",
+              "name": "TAG_ID_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -5097,13 +5346,13 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "QuestionTagCondition",
-          "description": "A condition to be used against `QuestionTag` object types. All fields are tested for equality and combined with a logical ‘and.’",
+          "name": "QuestionTagXrefCondition",
+          "description": "A condition to be used against `QuestionTagXref` object types. All fields are tested for equality and combined with a logical ‘and.’",
           "fields": null,
           "inputFields": [
             {
-              "name": "question",
-              "description": "Checks for equality with the object’s `question` field.",
+              "name": "questionId",
+              "description": "Checks for equality with the object’s `questionId` field.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
@@ -5112,8 +5361,8 @@
               "defaultValue": null
             },
             {
-              "name": "tag",
-              "description": "Checks for equality with the object’s `tag` field.",
+              "name": "tagId",
+              "description": "Checks for equality with the object’s `tagId` field.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
@@ -5128,8 +5377,8 @@
         },
         {
           "kind": "OBJECT",
-          "name": "QuestionTagsConnection",
-          "description": "A connection to a list of `QuestionTag` values.",
+          "name": "QuestionTagXrefsConnection",
+          "description": "A connection to a list of `QuestionTagXref` values.",
           "fields": [
             {
               "name": "pageInfo",
@@ -5149,7 +5398,7 @@
             },
             {
               "name": "totalCount",
-              "description": "The count of *all* `QuestionTag` you could get from the connection.",
+              "description": "The count of *all* `QuestionTagXref` you could get from the connection.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -5161,14 +5410,14 @@
             },
             {
               "name": "edges",
-              "description": "A list of edges which contains the `QuestionTag` and cursor to aid in pagination.",
+              "description": "A list of edges which contains the `QuestionTagXref` and cursor to aid in pagination.",
               "args": [],
               "type": {
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "QuestionTagsEdge",
+                  "name": "QuestionTagXrefsEdge",
                   "ofType": null
                 }
               },
@@ -5177,7 +5426,7 @@
             },
             {
               "name": "nodes",
-              "description": "A list of `QuestionTag` objects.",
+              "description": "A list of `QuestionTagXref` objects.",
               "args": [],
               "type": {
                 "kind": "LIST",
@@ -5187,7 +5436,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "QuestionTag",
+                    "name": "QuestionTagXref",
                     "ofType": null
                   }
                 }
@@ -5203,8 +5452,8 @@
         },
         {
           "kind": "OBJECT",
-          "name": "QuestionTagsEdge",
-          "description": "A `QuestionTag` edge in the connection.",
+          "name": "QuestionTagXrefsEdge",
+          "description": "A `QuestionTagXref` edge in the connection.",
           "fields": [
             {
               "name": "cursor",
@@ -5220,14 +5469,14 @@
             },
             {
               "name": "node",
-              "description": "The `QuestionTag` at the end of the edge.",
+              "description": "The `QuestionTagXref` at the end of the edge.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "QuestionTag",
+                  "name": "QuestionTagXref",
                   "ofType": null
                 }
               },
@@ -5242,11 +5491,11 @@
         },
         {
           "kind": "OBJECT",
-          "name": "QuestionTag",
+          "name": "QuestionTagXref",
           "description": null,
           "fields": [
             {
-              "name": "question",
+              "name": "questionId",
               "description": null,
               "args": [],
               "type": {
@@ -5258,7 +5507,7 @@
               "deprecationReason": null
             },
             {
-              "name": "tag",
+              "name": "tagId",
               "description": null,
               "args": [],
               "type": {
@@ -5270,8 +5519,8 @@
               "deprecationReason": null
             },
             {
-              "name": "questionByQuestion",
-              "description": "Reads a single `Question` that is related to this `QuestionTag`.",
+              "name": "questionByQuestionId",
+              "description": "Reads a single `Question` that is related to this `QuestionTagXref`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -5282,8 +5531,8 @@
               "deprecationReason": null
             },
             {
-              "name": "tagByTag",
-              "description": "Reads a single `Tag` that is related to this `QuestionTag`.",
+              "name": "tagByTagId",
+              "description": "Reads a single `Tag` that is related to this `QuestionTagXref`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -5341,9 +5590,13 @@
               "description": null,
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -5367,6 +5620,283 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "body",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Json",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "created",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Datetime",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "allQuestions",
+              "description": "Reads and enables paginatation through a set of `Question`.",
+              "args": [
+                {
+                  "name": "orderBy",
+                  "description": "The method to use when ordering `Question`.",
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "TagAllQuestionsOrderBy",
+                    "ofType": null
+                  },
+                  "defaultValue": "NATURAL"
+                },
+                {
+                  "name": "before",
+                  "description": "Read all values in the set before (above) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "after",
+                  "description": "Read all values in the set after (below) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "first",
+                  "description": "Only read the first `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "last",
+                  "description": "Only read the last `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "offset",
+                  "description": "Skip the first `n` values from our `after` cursor, an alternative to cursor based pagination. May not be used with `last`.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "TagAllQuestionsConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "children",
+              "description": "Reads and enables paginatation through a set of `Tag`.",
+              "args": [
+                {
+                  "name": "orderBy",
+                  "description": "The method to use when ordering `Tag`.",
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "TagChildrenOrderBy",
+                    "ofType": null
+                  },
+                  "defaultValue": "NATURAL"
+                },
+                {
+                  "name": "before",
+                  "description": "Read all values in the set before (above) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "after",
+                  "description": "Read all values in the set after (below) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "first",
+                  "description": "Only read the first `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "last",
+                  "description": "Only read the last `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "offset",
+                  "description": "Skip the first `n` values from our `after` cursor, an alternative to cursor based pagination. May not be used with `last`.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "TagChildrenConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "identifier",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "searchQuestions",
+              "description": "Reads and enables paginatation through a set of `Question`.",
+              "args": [
+                {
+                  "name": "orderBy",
+                  "description": "The method to use when ordering `Question`.",
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "TagSearchQuestionsOrderBy",
+                    "ofType": null
+                  },
+                  "defaultValue": "NATURAL"
+                },
+                {
+                  "name": "before",
+                  "description": "Read all values in the set before (above) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "after",
+                  "description": "Read all values in the set after (below) this cursor.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Cursor",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "first",
+                  "description": "Only read the first `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "last",
+                  "description": "Only read the last `n` values of the set.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "offset",
+                  "description": "Skip the first `n` values from our `after` cursor, an alternative to cursor based pagination. May not be used with `last`.",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "search",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "TagSearchQuestionsConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tagSubscription",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "TagSubscription",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -5468,15 +5998,15 @@
               "deprecationReason": null
             },
             {
-              "name": "questionTagsByTag",
-              "description": "Reads and enables paginatation through a set of `QuestionTag`.",
+              "name": "questionTagXrefsByTagId",
+              "description": "Reads and enables paginatation through a set of `QuestionTagXref`.",
               "args": [
                 {
                   "name": "orderBy",
-                  "description": "The method to use when ordering `QuestionTag`.",
+                  "description": "The method to use when ordering `QuestionTagXref`.",
                   "type": {
                     "kind": "ENUM",
-                    "name": "QuestionTagsOrderBy",
+                    "name": "QuestionTagXrefsOrderBy",
                     "ofType": null
                   },
                   "defaultValue": "NATURAL"
@@ -5536,7 +6066,7 @@
                   "description": "A condition to be used in determining which values should be returned by the collection.",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "QuestionTagCondition",
+                    "name": "QuestionTagXrefCondition",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5544,25 +6074,25 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "QuestionTagsConnection",
+                "name": "QuestionTagXrefsConnection",
                 "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "tagRelationsByTag1",
-              "description": "Reads and enables paginatation through a set of `TagRelation`.",
+              "name": "tagSubscriptionsByTagId",
+              "description": "Reads and enables paginatation through a set of `TagSubscription`.",
               "args": [
                 {
                   "name": "orderBy",
-                  "description": "The method to use when ordering `TagRelation`.",
+                  "description": "The method to use when ordering `TagSubscription`.",
                   "type": {
                     "kind": "ENUM",
-                    "name": "TagRelationsOrderBy",
+                    "name": "TagSubscriptionsOrderBy",
                     "ofType": null
                   },
-                  "defaultValue": "PRIMARY_KEY_ASC"
+                  "defaultValue": "NATURAL"
                 },
                 {
                   "name": "before",
@@ -5619,7 +6149,7 @@
                   "description": "A condition to be used in determining which values should be returned by the collection.",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "TagRelationCondition",
+                    "name": "TagSubscriptionCondition",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5627,90 +6157,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "TagRelationsConnection",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tagRelationsByTag2",
-              "description": "Reads and enables paginatation through a set of `TagRelation`.",
-              "args": [
-                {
-                  "name": "orderBy",
-                  "description": "The method to use when ordering `TagRelation`.",
-                  "type": {
-                    "kind": "ENUM",
-                    "name": "TagRelationsOrderBy",
-                    "ofType": null
-                  },
-                  "defaultValue": "PRIMARY_KEY_ASC"
-                },
-                {
-                  "name": "before",
-                  "description": "Read all values in the set before (above) this cursor.",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Cursor",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "after",
-                  "description": "Read all values in the set after (below) this cursor.",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Cursor",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "first",
-                  "description": "Only read the first `n` values of the set.",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "last",
-                  "description": "Only read the last `n` values of the set.",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "offset",
-                  "description": "Skip the first `n` values from our `after` cursor, an alternative to cursor based pagination. May not be used with `last`.",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "condition",
-                  "description": "A condition to be used in determining which values should be returned by the collection.",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "TagRelationCondition",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "TagRelationsConnection",
+                "name": "TagSubscriptionsConnection",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -5725,6 +6172,476 @@
               "ofType": null
             }
           ],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Json",
+          "description": "A JavaScript object encoded in the JSON format as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "TagAllQuestionsOrderBy",
+          "description": "Methods to use when ordering `Question`.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NATURAL",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TagAllQuestionsConnection",
+          "description": "A connection to a list of `Question` values.",
+          "fields": [
+            {
+              "name": "pageInfo",
+              "description": "Information to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalCount",
+              "description": "The count of *all* `Question` you could get from the connection.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "edges",
+              "description": "A list of edges which contains the `Question` and cursor to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TagAllQuestionsEdge",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nodes",
+              "description": "A list of `Question` objects.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Question",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TagAllQuestionsEdge",
+          "description": "A `Question` edge in the connection.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "A cursor for use in pagination.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Cursor",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The `Question` at the end of the edge.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Question",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "TagChildrenOrderBy",
+          "description": "Methods to use when ordering `Tag`.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NATURAL",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TagChildrenConnection",
+          "description": "A connection to a list of `Tag` values.",
+          "fields": [
+            {
+              "name": "pageInfo",
+              "description": "Information to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalCount",
+              "description": "The count of *all* `Tag` you could get from the connection.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "edges",
+              "description": "A list of edges which contains the `Tag` and cursor to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TagChildrenEdge",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nodes",
+              "description": "A list of `Tag` objects.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Tag",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TagChildrenEdge",
+          "description": "A `Tag` edge in the connection.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "A cursor for use in pagination.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Cursor",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The `Tag` at the end of the edge.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Tag",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "TagSearchQuestionsOrderBy",
+          "description": "Methods to use when ordering `Question`.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NATURAL",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TagSearchQuestionsConnection",
+          "description": "A connection to a list of `Question` values.",
+          "fields": [
+            {
+              "name": "pageInfo",
+              "description": "Information to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalCount",
+              "description": "The count of *all* `Question` you could get from the connection.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "edges",
+              "description": "A list of edges which contains the `Question` and cursor to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TagSearchQuestionsEdge",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nodes",
+              "description": "A list of `Question` objects.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Question",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TagSearchQuestionsEdge",
+          "description": "A `Question` edge in the connection.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "A cursor for use in pagination.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Cursor",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The `Question` at the end of the edge.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Question",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TagSubscription",
+          "description": null,
+          "fields": [
+            {
+              "name": "tagId",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userId",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "questions",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "subTags",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tagByTagId",
+              "description": "Reads a single `Tag` that is related to this `TagSubscription`.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Tag",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userByUserId",
+              "description": "Reads a single `User` that is related to this `TagSubscription`.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -5801,6 +6718,30 @@
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "BODY_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "BODY_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CREATED_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CREATED_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -5847,6 +6788,26 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "body",
+              "description": "Checks for equality with the object’s `body` field.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Json",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "created",
+              "description": "Checks for equality with the object’s `created` field.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Datetime",
                 "ofType": null
               },
               "defaultValue": null
@@ -5972,24 +6933,12 @@
         },
         {
           "kind": "ENUM",
-          "name": "TagRelationsOrderBy",
-          "description": "Methods to use when ordering `TagRelation`.",
+          "name": "TagSubscriptionsOrderBy",
+          "description": "Methods to use when ordering `TagSubscription`.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
-            {
-              "name": "PRIMARY_KEY_ASC",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "PRIMARY_KEY_DESC",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
             {
               "name": "NATURAL",
               "description": null,
@@ -5997,37 +6946,49 @@
               "deprecationReason": null
             },
             {
-              "name": "TAG1_ASC",
+              "name": "TAG_ID_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "TAG1_DESC",
+              "name": "TAG_ID_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "LINK_TYPE_ASC",
+              "name": "USER_ID_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "LINK_TYPE_DESC",
+              "name": "USER_ID_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "TAG2_ASC",
+              "name": "QUESTIONS_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "TAG2_DESC",
+              "name": "QUESTIONS_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUB_TAGS_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUB_TAGS_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6037,13 +6998,13 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "TagRelationCondition",
-          "description": "A condition to be used against `TagRelation` object types. All fields are tested for equality and combined with a logical ‘and.’",
+          "name": "TagSubscriptionCondition",
+          "description": "A condition to be used against `TagSubscription` object types. All fields are tested for equality and combined with a logical ‘and.’",
           "fields": null,
           "inputFields": [
             {
-              "name": "tag1",
-              "description": "Checks for equality with the object’s `tag1` field.",
+              "name": "tagId",
+              "description": "Checks for equality with the object’s `tagId` field.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
@@ -6052,21 +7013,31 @@
               "defaultValue": null
             },
             {
-              "name": "linkType",
-              "description": "Checks for equality with the object’s `linkType` field.",
+              "name": "userId",
+              "description": "Checks for equality with the object’s `userId` field.",
               "type": {
-                "kind": "ENUM",
-                "name": "LinkType",
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               },
               "defaultValue": null
             },
             {
-              "name": "tag2",
-              "description": "Checks for equality with the object’s `tag2` field.",
+              "name": "questions",
+              "description": "Checks for equality with the object’s `questions` field.",
               "type": {
                 "kind": "SCALAR",
-                "name": "Int",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "subTags",
+              "description": "Checks for equality with the object’s `subTags` field.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               },
               "defaultValue": null
@@ -6077,26 +7048,9 @@
           "possibleTypes": null
         },
         {
-          "kind": "ENUM",
-          "name": "LinkType",
-          "description": null,
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [
-            {
-              "name": "RELATES_TO",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
           "kind": "OBJECT",
-          "name": "TagRelationsConnection",
-          "description": "A connection to a list of `TagRelation` values.",
+          "name": "TagSubscriptionsConnection",
+          "description": "A connection to a list of `TagSubscription` values.",
           "fields": [
             {
               "name": "pageInfo",
@@ -6116,7 +7070,7 @@
             },
             {
               "name": "totalCount",
-              "description": "The count of *all* `TagRelation` you could get from the connection.",
+              "description": "The count of *all* `TagSubscription` you could get from the connection.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -6128,14 +7082,14 @@
             },
             {
               "name": "edges",
-              "description": "A list of edges which contains the `TagRelation` and cursor to aid in pagination.",
+              "description": "A list of edges which contains the `TagSubscription` and cursor to aid in pagination.",
               "args": [],
               "type": {
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "TagRelationsEdge",
+                  "name": "TagSubscriptionsEdge",
                   "ofType": null
                 }
               },
@@ -6144,7 +7098,7 @@
             },
             {
               "name": "nodes",
-              "description": "A list of `TagRelation` objects.",
+              "description": "A list of `TagSubscription` objects.",
               "args": [],
               "type": {
                 "kind": "LIST",
@@ -6154,7 +7108,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "TagRelation",
+                    "name": "TagSubscription",
                     "ofType": null
                   }
                 }
@@ -6170,8 +7124,8 @@
         },
         {
           "kind": "OBJECT",
-          "name": "TagRelationsEdge",
-          "description": "A `TagRelation` edge in the connection.",
+          "name": "TagSubscriptionsEdge",
+          "description": "A `TagSubscription` edge in the connection.",
           "fields": [
             {
               "name": "cursor",
@@ -6187,14 +7141,14 @@
             },
             {
               "name": "node",
-              "description": "The `TagRelation` at the end of the edge.",
+              "description": "The `TagSubscription` at the end of the edge.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "TagRelation",
+                  "name": "TagSubscription",
                   "ofType": null
                 }
               },
@@ -6204,103 +7158,6 @@
           ],
           "inputFields": null,
           "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "TagRelation",
-          "description": null,
-          "fields": [
-            {
-              "name": "id",
-              "description": "A globally unique identifier. Can be used in various places throughout the system to identify this single value.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tag1",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "linkType",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "ENUM",
-                "name": "LinkType",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tag2",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tagByTag1",
-              "description": "Reads a single `Tag` that is related to this `TagRelation`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Tag",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tagByTag2",
-              "description": "Reads a single `Tag` that is related to this `TagRelation`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Tag",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [
-            {
-              "kind": "INTERFACE",
-              "name": "Node",
-              "ofType": null
-            }
-          ],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -6319,13 +7176,13 @@
               "deprecationReason": null
             },
             {
-              "name": "QUESTIONID_ASC",
+              "name": "QUESTION_ID_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "QUESTIONID_DESC",
+              "name": "QUESTION_ID_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6412,8 +7269,8 @@
           "fields": null,
           "inputFields": [
             {
-              "name": "questionid",
-              "description": "Checks for equality with the object’s `questionid` field.",
+              "name": "questionId",
+              "description": "Checks for equality with the object’s `questionId` field.",
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
@@ -6616,7 +7473,7 @@
           "description": null,
           "fields": [
             {
-              "name": "questionid",
+              "name": "questionId",
               "description": null,
               "args": [],
               "type": {
@@ -6704,7 +7561,7 @@
               "deprecationReason": null
             },
             {
-              "name": "questionByQuestionid",
+              "name": "questionByQuestionId",
               "description": "Reads a single `Question` that is related to this `QuestionModel`.",
               "args": [],
               "type": {
@@ -6969,6 +7826,129 @@
         },
         {
           "kind": "ENUM",
+          "name": "SearchQuestionsStrictOrderBy",
+          "description": "Methods to use when ordering `Question`.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NATURAL",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SearchQuestionsStrictConnection",
+          "description": "A connection to a list of `Question` values.",
+          "fields": [
+            {
+              "name": "pageInfo",
+              "description": "Information to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalCount",
+              "description": "The count of *all* `Question` you could get from the connection.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "edges",
+              "description": "A list of edges which contains the `Question` and cursor to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "SearchQuestionsStrictEdge",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nodes",
+              "description": "A list of `Question` objects.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Question",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SearchQuestionsStrictEdge",
+          "description": "A `Question` edge in the connection.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "A cursor for use in pagination.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Cursor",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The `Question` at the end of the edge.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Question",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
           "name": "SearchTagsOrderBy",
           "description": "Methods to use when ordering `Tag`.",
           "fields": null,
@@ -7092,14 +8072,38 @@
         },
         {
           "kind": "ENUM",
-          "name": "TagsByParentOrderBy",
-          "description": "Methods to use when ordering `Tag`.",
+          "name": "ExampleMessagesOrderBy",
+          "description": "Methods to use when ordering `ExampleMessage`.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
+              "name": "PRIMARY_KEY_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PRIMARY_KEY_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "NATURAL",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ID_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ID_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -7108,9 +8112,30 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "ExampleMessageCondition",
+          "description": "A condition to be used against `ExampleMessage` object types. All fields are tested for equality and combined with a logical ‘and.’",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "rowId",
+              "description": "Checks for equality with the object’s `rowId` field.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
-          "name": "TagsByParentConnection",
-          "description": "A connection to a list of `Tag` values.",
+          "name": "ExampleMessagesConnection",
+          "description": "A connection to a list of `ExampleMessage` values.",
           "fields": [
             {
               "name": "pageInfo",
@@ -7130,7 +8155,7 @@
             },
             {
               "name": "totalCount",
-              "description": "The count of *all* `Tag` you could get from the connection.",
+              "description": "The count of *all* `ExampleMessage` you could get from the connection.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -7142,14 +8167,14 @@
             },
             {
               "name": "edges",
-              "description": "A list of edges which contains the `Tag` and cursor to aid in pagination.",
+              "description": "A list of edges which contains the `ExampleMessage` and cursor to aid in pagination.",
               "args": [],
               "type": {
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "TagsByParentEdge",
+                  "name": "ExampleMessagesEdge",
                   "ofType": null
                 }
               },
@@ -7158,15 +8183,19 @@
             },
             {
               "name": "nodes",
-              "description": "A list of `Tag` objects.",
+              "description": "A list of `ExampleMessage` objects.",
               "args": [],
               "type": {
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Tag",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ExampleMessage",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -7180,8 +8209,8 @@
         },
         {
           "kind": "OBJECT",
-          "name": "TagsByParentEdge",
-          "description": "A `Tag` edge in the connection.",
+          "name": "ExampleMessagesEdge",
+          "description": "A `ExampleMessage` edge in the connection.",
           "fields": [
             {
               "name": "cursor",
@@ -7197,11 +8226,340 @@
             },
             {
               "name": "node",
-              "description": "The `Tag` at the end of the edge.",
+              "description": "The `ExampleMessage` at the end of the edge.",
               "args": [],
               "type": {
-                "kind": "OBJECT",
-                "name": "Tag",
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "ExampleMessage",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ExampleMessage",
+          "description": null,
+          "fields": [
+            {
+              "name": "id",
+              "description": "A globally unique identifier. Can be used in various places throughout the system to identify this single value.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "rowId",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Node",
+              "ofType": null
+            }
+          ],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "TagRelationsXrefsOrderBy",
+          "description": "Methods to use when ordering `TagRelationsXref`.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "NATURAL",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TAG1_ID_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TAG1_ID_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "LINK_TYPE_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "LINK_TYPE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TAG2_ID_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TAG2_ID_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "TagRelationsXrefCondition",
+          "description": "A condition to be used against `TagRelationsXref` object types. All fields are tested for equality and combined with a logical ‘and.’",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "tag1Id",
+              "description": "Checks for equality with the object’s `tag1Id` field.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "linkType",
+              "description": "Checks for equality with the object’s `linkType` field.",
+              "type": {
+                "kind": "ENUM",
+                "name": "LinkType",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "tag2Id",
+              "description": "Checks for equality with the object’s `tag2Id` field.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "LinkType",
+          "description": null,
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "RELATES_TO",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TagRelationsXrefsConnection",
+          "description": "A connection to a list of `TagRelationsXref` values.",
+          "fields": [
+            {
+              "name": "pageInfo",
+              "description": "Information to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalCount",
+              "description": "The count of *all* `TagRelationsXref` you could get from the connection.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "edges",
+              "description": "A list of edges which contains the `TagRelationsXref` and cursor to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TagRelationsXrefsEdge",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nodes",
+              "description": "A list of `TagRelationsXref` objects.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TagRelationsXref",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TagRelationsXrefsEdge",
+          "description": "A `TagRelationsXref` edge in the connection.",
+          "fields": [
+            {
+              "name": "cursor",
+              "description": "A cursor for use in pagination.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Cursor",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": "The `TagRelationsXref` at the end of the edge.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TagRelationsXref",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "TagRelationsXref",
+          "description": null,
+          "fields": [
+            {
+              "name": "tag1Id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "linkType",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "LinkType",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tag2Id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -7699,6 +9057,33 @@
               "deprecationReason": null
             },
             {
+              "name": "upsertTagSubscription",
+              "description": null,
+              "args": [
+                {
+                  "name": "input",
+                  "description": "The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpsertTagSubscriptionInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpsertTagSubscriptionPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "upsertTest",
               "description": null,
               "args": [
@@ -7996,6 +9381,141 @@
               "deprecationReason": null
             },
             {
+              "name": "createExampleMessage",
+              "description": "Creates a single `ExampleMessage`.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": "The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateExampleMessageInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateExampleMessagePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateExampleMessage",
+              "description": "Updates a single `ExampleMessage` using its globally unique id and a patch.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": "The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateExampleMessageInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateExampleMessagePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateExampleMessageByRowId",
+              "description": "Updates a single `ExampleMessage` using a unique key and a patch.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": "The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "UpdateExampleMessageByRowIdInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateExampleMessagePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deleteExampleMessage",
+              "description": "Deletes a single `ExampleMessage` using its globally unique id.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": "The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteExampleMessageInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteExampleMessagePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deleteExampleMessageByRowId",
+              "description": "Deletes a single `ExampleMessage` using a unique key.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": "The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "DeleteExampleMessageByRowIdInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "DeleteExampleMessagePayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "createQuestion",
               "description": "Creates a single `Question`.",
               "args": [
@@ -8158,8 +9678,8 @@
               "deprecationReason": null
             },
             {
-              "name": "createQuestionTag",
-              "description": "Creates a single `QuestionTag`.",
+              "name": "createQuestionTagXref",
+              "description": "Creates a single `QuestionTagXref`.",
               "args": [
                 {
                   "name": "input",
@@ -8169,7 +9689,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "CreateQuestionTagInput",
+                      "name": "CreateQuestionTagXrefInput",
                       "ofType": null
                     }
                   },
@@ -8178,7 +9698,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "CreateQuestionTagPayload",
+                "name": "CreateQuestionTagXrefPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -8455,8 +9975,8 @@
               "deprecationReason": null
             },
             {
-              "name": "createTagRelation",
-              "description": "Creates a single `TagRelation`.",
+              "name": "createTagRelationsXref",
+              "description": "Creates a single `TagRelationsXref`.",
               "args": [
                 {
                   "name": "input",
@@ -8466,7 +9986,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "CreateTagRelationInput",
+                      "name": "CreateTagRelationsXrefInput",
                       "ofType": null
                     }
                   },
@@ -8475,15 +9995,15 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "CreateTagRelationPayload",
+                "name": "CreateTagRelationsXrefPayload",
                 "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "updateTagRelation",
-              "description": "Updates a single `TagRelation` using its globally unique id and a patch.",
+              "name": "createTagSubscription",
+              "description": "Creates a single `TagSubscription`.",
               "args": [
                 {
                   "name": "input",
@@ -8493,7 +10013,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "UpdateTagRelationInput",
+                      "name": "CreateTagSubscriptionInput",
                       "ofType": null
                     }
                   },
@@ -8502,88 +10022,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "UpdateTagRelationPayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "updateTagRelationByTag1",
-              "description": "Updates a single `TagRelation` using a unique key and a patch.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": "The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.",
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "UpdateTagRelationByTag1Input",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "UpdateTagRelationPayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "deleteTagRelation",
-              "description": "Deletes a single `TagRelation` using its globally unique id.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": "The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.",
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "DeleteTagRelationInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "DeleteTagRelationPayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "deleteTagRelationByTag1",
-              "description": "Deletes a single `TagRelation` using a unique key.",
-              "args": [
-                {
-                  "name": "input",
-                  "description": "The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.",
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "DeleteTagRelationByTag1Input",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "DeleteTagRelationPayload",
+                "name": "CreateTagSubscriptionPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -8916,18 +10355,6 @@
               "deprecationReason": null
             },
             {
-              "name": "string",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "query",
               "description": "Our root query field type. Allows us to run any query from our mutation payload.",
               "args": [],
@@ -9014,18 +10441,6 @@
             {
               "name": "clientMutationId",
               "description": "The exact same `clientMutationId` that was provided in the mutation input, unchanged and unused. May be used by a client to track mutations.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "string",
-              "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -9759,6 +11174,139 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "query",
+              "description": "Our root query field type. Allows us to run any query from our mutation payload.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Query",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpsertTagSubscriptionInput",
+          "description": "All input for the `upsertTagSubscription` mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "clientMutationId",
+              "description": "An arbitrary string value with no semantic meaning. Will be included in the payload verbatim. May be used to track mutations by the client.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "tagId",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "questions",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "subTags",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpsertTagSubscriptionPayload",
+          "description": "The output of our `upsertTagSubscription` mutation.",
+          "fields": [
+            {
+              "name": "clientMutationId",
+              "description": "The exact same `clientMutationId` that was provided in the mutation input, unchanged and unused. May be used by a client to track mutations.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tag",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Tag",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tagEdge",
+              "description": "An edge for the type. May be used by Relay 1.",
+              "args": [
+                {
+                  "name": "orderBy",
+                  "description": "The method to use when ordering `Tag`.",
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "TagsOrderBy",
+                    "ofType": null
+                  },
+                  "defaultValue": "PRIMARY_KEY_ASC"
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "TagsEdge",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tagByParent",
+              "description": "Reads a single `Tag` that is related to this `Tag`.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Tag",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -11071,6 +12619,427 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "CreateExampleMessageInput",
+          "description": "All input for the `createExampleMessage` mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "clientMutationId",
+              "description": "An arbitrary string value with no semantic meaning. Will be included in the payload verbatim. May be used to track mutations by the client.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exampleMessage",
+              "description": "The `ExampleMessage` to be created by this mutation.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ExampleMessageInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ExampleMessageInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "rowId",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateExampleMessagePayload",
+          "description": "The output of our `createExampleMessage` mutation.",
+          "fields": [
+            {
+              "name": "clientMutationId",
+              "description": "The exact same `clientMutationId` that was provided in the mutation input, unchanged and unused. May be used by a client to track mutations.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "exampleMessage",
+              "description": "The `ExampleMessage` that was created by this mutation.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExampleMessage",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "exampleMessageEdge",
+              "description": "An edge for our `ExampleMessage`. May be used by Relay 1.",
+              "args": [
+                {
+                  "name": "orderBy",
+                  "description": "The method to use when ordering `ExampleMessage`.",
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "ExampleMessagesOrderBy",
+                    "ofType": null
+                  },
+                  "defaultValue": "PRIMARY_KEY_ASC"
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExampleMessagesEdge",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "query",
+              "description": "Our root query field type. Allows us to run any query from our mutation payload.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Query",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateExampleMessageInput",
+          "description": "All input for the `updateExampleMessage` mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "clientMutationId",
+              "description": "An arbitrary string value with no semantic meaning. Will be included in the payload verbatim. May be used to track mutations by the client.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "id",
+              "description": "The globally unique `ID` which will identify a single `ExampleMessage` to be updated.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exampleMessagePatch",
+              "description": "An object where the defined keys will be set on the `ExampleMessage` identified by our globally unique `ID`.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ExampleMessagePatch",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ExampleMessagePatch",
+          "description": "Represents an update to a `ExampleMessage`. Fields that are set will be updated.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "rowId",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateExampleMessagePayload",
+          "description": "The output of our `updateExampleMessage` mutation.",
+          "fields": [
+            {
+              "name": "clientMutationId",
+              "description": "The exact same `clientMutationId` that was provided in the mutation input, unchanged and unused. May be used by a client to track mutations.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "exampleMessage",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExampleMessage",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "query",
+              "description": "Our root query field type. Allows us to run any query from our mutation payload.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Query",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateExampleMessageByRowIdInput",
+          "description": "All input for the `updateExampleMessageByRowId` mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "clientMutationId",
+              "description": "An arbitrary string value with no semantic meaning. Will be included in the payload verbatim. May be used to track mutations by the client.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "rowId",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exampleMessagePatch",
+              "description": "An object where the defined keys will be set on the `ExampleMessage` identified by our unique key.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ExampleMessagePatch",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "DeleteExampleMessageInput",
+          "description": "All input for the `deleteExampleMessage` mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "clientMutationId",
+              "description": "An arbitrary string value with no semantic meaning. Will be included in the payload verbatim. May be used to track mutations by the client.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "id",
+              "description": "The globally unique `ID` which will identify a single `ExampleMessage` to be deleted.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "DeleteExampleMessagePayload",
+          "description": "The output of our `deleteExampleMessage` mutation.",
+          "fields": [
+            {
+              "name": "clientMutationId",
+              "description": "The exact same `clientMutationId` that was provided in the mutation input, unchanged and unused. May be used by a client to track mutations.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "exampleMessage",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ExampleMessage",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deletedExampleMessageId",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "query",
+              "description": "Our root query field type. Allows us to run any query from our mutation payload.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Query",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "DeleteExampleMessageByRowIdInput",
+          "description": "All input for the `deleteExampleMessageByRowId` mutation.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "clientMutationId",
+              "description": "An arbitrary string value with no semantic meaning. Will be included in the payload verbatim. May be used to track mutations by the client.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "rowId",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "CreateQuestionInput",
           "description": "All input for the `createQuestion` mutation.",
           "fields": null,
@@ -11640,7 +13609,7 @@
           "fields": null,
           "inputFields": [
             {
-              "name": "questionid",
+              "name": "questionId",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -11767,7 +13736,7 @@
               "deprecationReason": null
             },
             {
-              "name": "questionByQuestionid",
+              "name": "questionByQuestionId",
               "description": "Reads a single `Question` that is related to this `QuestionModel`.",
               "args": [],
               "type": {
@@ -11798,8 +13767,8 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "CreateQuestionTagInput",
-          "description": "All input for the `createQuestionTag` mutation.",
+          "name": "CreateQuestionTagXrefInput",
+          "description": "All input for the `createQuestionTagXref` mutation.",
           "fields": null,
           "inputFields": [
             {
@@ -11813,14 +13782,14 @@
               "defaultValue": null
             },
             {
-              "name": "questionTag",
-              "description": "The `QuestionTag` to be created by this mutation.",
+              "name": "questionTagXref",
+              "description": "The `QuestionTagXref` to be created by this mutation.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "QuestionTagInput",
+                  "name": "QuestionTagXrefInput",
                   "ofType": null
                 }
               },
@@ -11833,12 +13802,12 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "QuestionTagInput",
+          "name": "QuestionTagXrefInput",
           "description": null,
           "fields": null,
           "inputFields": [
             {
-              "name": "question",
+              "name": "questionId",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -11848,7 +13817,7 @@
               "defaultValue": null
             },
             {
-              "name": "tag",
+              "name": "tagId",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -11864,8 +13833,8 @@
         },
         {
           "kind": "OBJECT",
-          "name": "CreateQuestionTagPayload",
-          "description": "The output of our `createQuestionTag` mutation.",
+          "name": "CreateQuestionTagXrefPayload",
+          "description": "The output of our `createQuestionTagXref` mutation.",
           "fields": [
             {
               "name": "clientMutationId",
@@ -11880,27 +13849,27 @@
               "deprecationReason": null
             },
             {
-              "name": "questionTag",
-              "description": "The `QuestionTag` that was created by this mutation.",
+              "name": "questionTagXref",
+              "description": "The `QuestionTagXref` that was created by this mutation.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "QuestionTag",
+                "name": "QuestionTagXref",
                 "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "questionTagEdge",
-              "description": "An edge for our `QuestionTag`. May be used by Relay 1.",
+              "name": "questionTagXrefEdge",
+              "description": "An edge for our `QuestionTagXref`. May be used by Relay 1.",
               "args": [
                 {
                   "name": "orderBy",
-                  "description": "The method to use when ordering `QuestionTag`.",
+                  "description": "The method to use when ordering `QuestionTagXref`.",
                   "type": {
                     "kind": "ENUM",
-                    "name": "QuestionTagsOrderBy",
+                    "name": "QuestionTagXrefsOrderBy",
                     "ofType": null
                   },
                   "defaultValue": "NATURAL"
@@ -11908,15 +13877,15 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "QuestionTagsEdge",
+                "name": "QuestionTagXrefsEdge",
                 "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "questionByQuestion",
-              "description": "Reads a single `Question` that is related to this `QuestionTag`.",
+              "name": "questionByQuestionId",
+              "description": "Reads a single `Question` that is related to this `QuestionTagXref`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -11927,8 +13896,8 @@
               "deprecationReason": null
             },
             {
-              "name": "tagByTag",
-              "description": "Reads a single `Tag` that is related to this `QuestionTag`.",
+              "name": "tagByTagId",
+              "description": "Reads a single `Tag` that is related to this `QuestionTagXref`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -12600,9 +14569,13 @@
               "name": "name",
               "description": null,
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },
@@ -12622,6 +14595,26 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "body",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Json",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "created",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Datetime",
                 "ofType": null
               },
               "defaultValue": null
@@ -12804,6 +14797,26 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "body",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Json",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "created",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Datetime",
                 "ofType": null
               },
               "defaultValue": null
@@ -13064,8 +15077,8 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "CreateTagRelationInput",
-          "description": "All input for the `createTagRelation` mutation.",
+          "name": "CreateTagRelationsXrefInput",
+          "description": "All input for the `createTagRelationsXref` mutation.",
           "fields": null,
           "inputFields": [
             {
@@ -13079,14 +15092,14 @@
               "defaultValue": null
             },
             {
-              "name": "tagRelation",
-              "description": "The `TagRelation` to be created by this mutation.",
+              "name": "tagRelationsXref",
+              "description": "The `TagRelationsXref` to be created by this mutation.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "TagRelationInput",
+                  "name": "TagRelationsXrefInput",
                   "ofType": null
                 }
               },
@@ -13099,12 +15112,12 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "TagRelationInput",
+          "name": "TagRelationsXrefInput",
           "description": null,
           "fields": null,
           "inputFields": [
             {
-              "name": "tag1",
+              "name": "tag1Id",
               "description": null,
               "type": {
                 "kind": "NON_NULL",
@@ -13128,7 +15141,7 @@
               "defaultValue": null
             },
             {
-              "name": "tag2",
+              "name": "tag2Id",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -13144,8 +15157,8 @@
         },
         {
           "kind": "OBJECT",
-          "name": "CreateTagRelationPayload",
-          "description": "The output of our `createTagRelation` mutation.",
+          "name": "CreateTagRelationsXrefPayload",
+          "description": "The output of our `createTagRelationsXref` mutation.",
           "fields": [
             {
               "name": "clientMutationId",
@@ -13160,59 +15173,35 @@
               "deprecationReason": null
             },
             {
-              "name": "tagRelation",
-              "description": "The `TagRelation` that was created by this mutation.",
+              "name": "tagRelationsXref",
+              "description": "The `TagRelationsXref` that was created by this mutation.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "TagRelation",
+                "name": "TagRelationsXref",
                 "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "tagRelationEdge",
-              "description": "An edge for our `TagRelation`. May be used by Relay 1.",
+              "name": "tagRelationsXrefEdge",
+              "description": "An edge for our `TagRelationsXref`. May be used by Relay 1.",
               "args": [
                 {
                   "name": "orderBy",
-                  "description": "The method to use when ordering `TagRelation`.",
+                  "description": "The method to use when ordering `TagRelationsXref`.",
                   "type": {
                     "kind": "ENUM",
-                    "name": "TagRelationsOrderBy",
+                    "name": "TagRelationsXrefsOrderBy",
                     "ofType": null
                   },
-                  "defaultValue": "PRIMARY_KEY_ASC"
+                  "defaultValue": "NATURAL"
                 }
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "TagRelationsEdge",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tagByTag1",
-              "description": "Reads a single `Tag` that is related to this `TagRelation`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Tag",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tagByTag2",
-              "description": "Reads a single `Tag` that is related to this `TagRelation`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Tag",
+                "name": "TagRelationsXrefsEdge",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -13238,8 +15227,8 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UpdateTagRelationInput",
-          "description": "All input for the `updateTagRelation` mutation.",
+          "name": "CreateTagSubscriptionInput",
+          "description": "All input for the `createTagSubscription` mutation.",
           "fields": null,
           "inputFields": [
             {
@@ -13253,28 +15242,14 @@
               "defaultValue": null
             },
             {
-              "name": "id",
-              "description": "The globally unique `ID` which will identify a single `TagRelation` to be updated.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "tagRelationPatch",
-              "description": "An object where the defined keys will be set on the `TagRelation` identified by our globally unique `ID`.",
+              "name": "tagSubscription",
+              "description": "The `TagSubscription` to be created by this mutation.",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "TagRelationPatch",
+                  "name": "TagSubscriptionInput",
                   "ofType": null
                 }
               },
@@ -13287,12 +15262,12 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "TagRelationPatch",
-          "description": "Represents an update to a `TagRelation`. Fields that are set will be updated.",
+          "name": "TagSubscriptionInput",
+          "description": null,
           "fields": null,
           "inputFields": [
             {
-              "name": "tag1",
+              "name": "tagId",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -13302,21 +15277,31 @@
               "defaultValue": null
             },
             {
-              "name": "linkType",
+              "name": "userId",
               "description": null,
               "type": {
-                "kind": "ENUM",
-                "name": "LinkType",
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               },
               "defaultValue": null
             },
             {
-              "name": "tag2",
+              "name": "questions",
               "description": null,
               "type": {
                 "kind": "SCALAR",
-                "name": "Int",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "subTags",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               },
               "defaultValue": null
@@ -13328,8 +15313,8 @@
         },
         {
           "kind": "OBJECT",
-          "name": "UpdateTagRelationPayload",
-          "description": "The output of our `updateTagRelation` mutation.",
+          "name": "CreateTagSubscriptionPayload",
+          "description": "The output of our `createTagSubscription` mutation.",
           "fields": [
             {
               "name": "clientMutationId",
@@ -13344,20 +15329,43 @@
               "deprecationReason": null
             },
             {
-              "name": "tagRelation",
-              "description": null,
+              "name": "tagSubscription",
+              "description": "The `TagSubscription` that was created by this mutation.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "TagRelation",
+                "name": "TagSubscription",
                 "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "tagByTag1",
-              "description": "Reads a single `Tag` that is related to this `TagRelation`.",
+              "name": "tagSubscriptionEdge",
+              "description": "An edge for our `TagSubscription`. May be used by Relay 1.",
+              "args": [
+                {
+                  "name": "orderBy",
+                  "description": "The method to use when ordering `TagSubscription`.",
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "TagSubscriptionsOrderBy",
+                    "ofType": null
+                  },
+                  "defaultValue": "NATURAL"
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "TagSubscriptionsEdge",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "tagByTagId",
+              "description": "Reads a single `Tag` that is related to this `TagSubscription`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -13368,12 +15376,12 @@
               "deprecationReason": null
             },
             {
-              "name": "tagByTag2",
-              "description": "Reads a single `Tag` that is related to this `TagRelation`.",
+              "name": "userByUserId",
+              "description": "Reads a single `User` that is related to this `TagSubscription`.",
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "Tag",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -13394,208 +15402,6 @@
           ],
           "inputFields": null,
           "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "UpdateTagRelationByTag1Input",
-          "description": "All input for the `updateTagRelationByTag1` mutation.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "clientMutationId",
-              "description": "An arbitrary string value with no semantic meaning. Will be included in the payload verbatim. May be used to track mutations by the client.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "tag1",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "tagRelationPatch",
-              "description": "An object where the defined keys will be set on the `TagRelation` identified by our unique key.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "TagRelationPatch",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "DeleteTagRelationInput",
-          "description": "All input for the `deleteTagRelation` mutation.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "clientMutationId",
-              "description": "An arbitrary string value with no semantic meaning. Will be included in the payload verbatim. May be used to track mutations by the client.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "id",
-              "description": "The globally unique `ID` which will identify a single `TagRelation` to be deleted.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "DeleteTagRelationPayload",
-          "description": "The output of our `deleteTagRelation` mutation.",
-          "fields": [
-            {
-              "name": "clientMutationId",
-              "description": "The exact same `clientMutationId` that was provided in the mutation input, unchanged and unused. May be used by a client to track mutations.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tagRelation",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "TagRelation",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "deletedTagRelationId",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tagByTag1",
-              "description": "Reads a single `Tag` that is related to this `TagRelation`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Tag",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "tagByTag2",
-              "description": "Reads a single `Tag` that is related to this `TagRelation`.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Tag",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "query",
-              "description": "Our root query field type. Allows us to run any query from our mutation payload.",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Query",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "DeleteTagRelationByTag1Input",
-          "description": "All input for the `deleteTagRelationByTag1` mutation.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "clientMutationId",
-              "description": "An arbitrary string value with no semantic meaning. Will be included in the payload verbatim. May be used to track mutations by the client.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "tag1",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },

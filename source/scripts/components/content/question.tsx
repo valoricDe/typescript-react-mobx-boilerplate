@@ -5,17 +5,19 @@ import {observer} from "mobx-react";
 import {observable} from "mobx";
 import Formsy from 'formsy-react';
 import { Input, Textarea } from 'formsy-react-components';
-import { Panel, ButtonToolbar, Button } from 'react-bootstrap';
+import { Card, ButtonToolbar, Button } from 'reactstrap';
 import UpdateQuestionMutation from '../../mutations/updateQuestion'
 import UserBox from "./userBox";
 import AnswersList from "./answerList";
-import Link from "react-router/lib/Link";
 import QuestionTagList from "./questionTagList";
-import TextDecorator from "../helpers/TextDecorator";
 import {findWithRegex} from '../../lib/customFindWithRegex';
-import yaml from 'js-yaml';
 import {Map} from 'immutable';
-import Calculation from "./calculation"; import {ReadOnlyEditor} from "./ReadOnlyEditor";
+import {ReadOnlyEditor} from "./ReadOnlyEditor";
+import CardHeader from "reactstrap/lib/CardHeader";
+import Link from "react-router/lib/Link";
+import CardBlock from "reactstrap/lib/CardBlock";
+
+import '../../../styles/components/question.scss';
 
 @observer
 class QuestionClass extends Component<Props.IQuestionProps, void> {
@@ -46,56 +48,49 @@ class QuestionClass extends Component<Props.IQuestionProps, void> {
 		if (this.props.relay.hasOptimisticUpdate(this.props.store)) {
 			style['border'] = '1px solid red';
 		}
-
 		const titleFieldStyles = {"paddingRight":"16px","lineHeight":"56px","fontSize":"20px","position":"relative","textOverflow":"ellipsis","whiteSpace":"nowrap","overflow":"hidden","color":"rgba(0, 0, 0, 0.4)"};
+
 
 		return (
 			<div style={style}>
-				<Panel
-					   header={
-							[<ButtonToolbar className="content__panelButtonToolbar pull-right" key="buttonToolbar">
+				<Card>
+					<CardHeader className="question-header">
+						<Link to={"/questions/"+questionId}><h2 role="presentation" className="content__panelTitle">{item.title}</h2></Link>
+						<ButtonToolbar className="full">
 							{!this.isEditing ?
-								<Button onClick={this.edit} bsStyle="primary">Edit</Button> :
-								[<Button bsStyle="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>, <Button onClick={this.cancel} bsStyle="danger" key="cancel">Cancel</Button>]
+								<Button onClick={this.edit} color="primary">Edit</Button> :
+								[<Button color="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>, <Button onClick={this.cancel} color="danger" key="cancel">Cancel</Button>]
 							}
-							</ButtonToolbar>,
-							<Link to={"/questions/"+questionId} key="title"><h2 role="presentation" className="content__panelTitle">{item.title}</h2></Link>]
-					   }
-					   footer="Test Footer"
-				>
-					<Formsy.Form onValidSubmit={(item) => this.save(item)} onValid={() => this.isValidInput = true} onInvalid={() => this.isValidInput = false}>
-						<fieldset>
-						<UserBox store={item.userByAuthor} details={false} className="pull-right" />
+						</ButtonToolbar>
+					</CardHeader>
+					<CardBlock>
 						{!this.isEditing ?
-							null :
-							<Input label="Title" value={item.title} placeholder={item.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
+							<div className="question-content">
+								<div>
+									<ReadOnlyEditor onChange={() => {}}>
+										{item.description}
+									</ReadOnlyEditor>
+									<QuestionTagList store={store} />
+								</div>
+								<UserBox store={item.userByAuthor} details={false} />
+							</div>
+							:
+							<Formsy.Form onValidSubmit={(item) => this.save(item)} onValid={() => this.isValidInput = true} onInvalid={() => this.isValidInput = false}>
+								<Input label="Title" value={item.title} placeholder={item.title} required name="title" validations={{matchRegexp: /\S+/}} style={titleFieldStyles} validationError="Title field is required" />
+								<Textarea
+									label="Description"
+									name="description"
+									value={item.description}
+									validationError="Description field is required"
+									placeholder="This field requires 10 characters."
+									help="This is some help text for the textarea."
+									required
+								/>
+							</Formsy.Form>
 						}
-						{!this.isEditing ?
-							/*
-							 decorator={{
-							 strategy: (text, callback) => findWithRegex(text, callback, /(###\[(\{.+?})]###)/g, 2, 1),
-							 component: Calculation
-							 }}
-							 decoratorProps={text => { return {mention: Map(JSON.parse(text)), models: this.models, updateModels: (models) => this.models}; }}
-							 */
-							<ReadOnlyEditor onChange={() => {}}>
-								{item.description}
-							</ReadOnlyEditor> :
-							<Textarea
-								label="Description"
-								name="description"
-								value={item.description}
-								validationError="Description field is required"
-								placeholder="This field requires 10 characters."
-								help="This is some help text for the textarea."
-								required
-							/>
-						}
-						<QuestionTagList store={store} />
-						</fieldset>
-					</Formsy.Form>
-					<AnswersList store={this.props.store}/>
-				</Panel>
+						<AnswersList store={this.props.store}/>
+					</CardBlock>
+				</Card>
 			</div>
 		);
 	}

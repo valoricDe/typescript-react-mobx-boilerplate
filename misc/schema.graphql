@@ -56,7 +56,6 @@ type AnswerAnswerVoteCountPayload {
   # The exact same `clientMutationId` that was provided in the mutation input,
   # unchanged and unused. May be used by a client to track mutations.
   clientMutationId: String
-  string: String
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -77,7 +76,6 @@ type AnswerAnswerVotePayload {
   # The exact same `clientMutationId` that was provided in the mutation input,
   # unchanged and unused. May be used by a client to track mutations.
   clientMutationId: String
-  string: String
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -341,6 +339,35 @@ type CreateAnswerVotePayload {
   query: Query
 }
 
+# All input for the `createExampleMessage` mutation.
+input CreateExampleMessageInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The `ExampleMessage` to be created by this mutation.
+  exampleMessage: ExampleMessageInput!
+}
+
+# The output of our `createExampleMessage` mutation.
+type CreateExampleMessagePayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+
+  # The `ExampleMessage` that was created by this mutation.
+  exampleMessage: ExampleMessage
+
+  # An edge for our `ExampleMessage`. May be used by Relay 1.
+  exampleMessageEdge(
+    # The method to use when ordering `ExampleMessage`.
+    orderBy: ExampleMessagesOrderBy = PRIMARY_KEY_ASC
+  ): ExampleMessagesEdge
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
 # All input for the `createQuestion` mutation.
 input CreateQuestionInput {
   # An arbitrary string value with no semantic meaning. Will be included in the
@@ -377,7 +404,7 @@ type CreateQuestionModelPayload {
   ): QuestionModelsEdge
 
   # Reads a single `Question` that is related to this `QuestionModel`.
-  questionByQuestionid: Question
+  questionByQuestionId: Question
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -405,36 +432,36 @@ type CreateQuestionPayload {
   query: Query
 }
 
-# All input for the `createQuestionTag` mutation.
-input CreateQuestionTagInput {
+# All input for the `createQuestionTagXref` mutation.
+input CreateQuestionTagXrefInput {
   # An arbitrary string value with no semantic meaning. Will be included in the
   # payload verbatim. May be used to track mutations by the client.
   clientMutationId: String
 
-  # The `QuestionTag` to be created by this mutation.
-  questionTag: QuestionTagInput!
+  # The `QuestionTagXref` to be created by this mutation.
+  questionTagXref: QuestionTagXrefInput!
 }
 
-# The output of our `createQuestionTag` mutation.
-type CreateQuestionTagPayload {
+# The output of our `createQuestionTagXref` mutation.
+type CreateQuestionTagXrefPayload {
   # The exact same `clientMutationId` that was provided in the mutation input,
   # unchanged and unused. May be used by a client to track mutations.
   clientMutationId: String
 
-  # The `QuestionTag` that was created by this mutation.
-  questionTag: QuestionTag
+  # The `QuestionTagXref` that was created by this mutation.
+  questionTagXref: QuestionTagXref
 
-  # An edge for our `QuestionTag`. May be used by Relay 1.
-  questionTagEdge(
-    # The method to use when ordering `QuestionTag`.
-    orderBy: QuestionTagsOrderBy = NATURAL
-  ): QuestionTagsEdge
+  # An edge for our `QuestionTagXref`. May be used by Relay 1.
+  questionTagXrefEdge(
+    # The method to use when ordering `QuestionTagXref`.
+    orderBy: QuestionTagXrefsOrderBy = NATURAL
+  ): QuestionTagXrefsEdge
 
-  # Reads a single `Question` that is related to this `QuestionTag`.
-  questionByQuestion: Question
+  # Reads a single `Question` that is related to this `QuestionTagXref`.
+  questionByQuestionId: Question
 
-  # Reads a single `Tag` that is related to this `QuestionTag`.
-  tagByTag: Tag
+  # Reads a single `Tag` that is related to this `QuestionTagXref`.
+  tagByTagId: Tag
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -538,36 +565,65 @@ type CreateTagPayload {
   query: Query
 }
 
-# All input for the `createTagRelation` mutation.
-input CreateTagRelationInput {
+# All input for the `createTagRelationsXref` mutation.
+input CreateTagRelationsXrefInput {
   # An arbitrary string value with no semantic meaning. Will be included in the
   # payload verbatim. May be used to track mutations by the client.
   clientMutationId: String
 
-  # The `TagRelation` to be created by this mutation.
-  tagRelation: TagRelationInput!
+  # The `TagRelationsXref` to be created by this mutation.
+  tagRelationsXref: TagRelationsXrefInput!
 }
 
-# The output of our `createTagRelation` mutation.
-type CreateTagRelationPayload {
+# The output of our `createTagRelationsXref` mutation.
+type CreateTagRelationsXrefPayload {
   # The exact same `clientMutationId` that was provided in the mutation input,
   # unchanged and unused. May be used by a client to track mutations.
   clientMutationId: String
 
-  # The `TagRelation` that was created by this mutation.
-  tagRelation: TagRelation
+  # The `TagRelationsXref` that was created by this mutation.
+  tagRelationsXref: TagRelationsXref
 
-  # An edge for our `TagRelation`. May be used by Relay 1.
-  tagRelationEdge(
-    # The method to use when ordering `TagRelation`.
-    orderBy: TagRelationsOrderBy = PRIMARY_KEY_ASC
-  ): TagRelationsEdge
+  # An edge for our `TagRelationsXref`. May be used by Relay 1.
+  tagRelationsXrefEdge(
+    # The method to use when ordering `TagRelationsXref`.
+    orderBy: TagRelationsXrefsOrderBy = NATURAL
+  ): TagRelationsXrefsEdge
 
-  # Reads a single `Tag` that is related to this `TagRelation`.
-  tagByTag1: Tag
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
 
-  # Reads a single `Tag` that is related to this `TagRelation`.
-  tagByTag2: Tag
+# All input for the `createTagSubscription` mutation.
+input CreateTagSubscriptionInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The `TagSubscription` to be created by this mutation.
+  tagSubscription: TagSubscriptionInput!
+}
+
+# The output of our `createTagSubscription` mutation.
+type CreateTagSubscriptionPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+
+  # The `TagSubscription` that was created by this mutation.
+  tagSubscription: TagSubscription
+
+  # An edge for our `TagSubscription`. May be used by Relay 1.
+  tagSubscriptionEdge(
+    # The method to use when ordering `TagSubscription`.
+    orderBy: TagSubscriptionsOrderBy = NATURAL
+  ): TagSubscriptionsEdge
+
+  # Reads a single `Tag` that is related to this `TagSubscription`.
+  tagByTagId: Tag
+
+  # Reads a single `User` that is related to this `TagSubscription`.
+  userByUserId: User
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -686,6 +742,36 @@ type DeleteAnswerVotePayload {
   query: Query
 }
 
+# All input for the `deleteExampleMessageByRowId` mutation.
+input DeleteExampleMessageByRowIdInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  rowId: Int!
+}
+
+# All input for the `deleteExampleMessage` mutation.
+input DeleteExampleMessageInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `ExampleMessage` to be deleted.
+  id: ID!
+}
+
+# The output of our `deleteExampleMessage` mutation.
+type DeleteExampleMessagePayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  exampleMessage: ExampleMessage
+  deletedExampleMessageId: ID
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
 # All input for the `deleteQuestionByRowId` mutation.
 input DeleteQuestionByRowIdInput {
   # An arbitrary string value with no semantic meaning. Will be included in the
@@ -789,42 +875,6 @@ type DeleteTagPayload {
   query: Query
 }
 
-# All input for the `deleteTagRelationByTag1` mutation.
-input DeleteTagRelationByTag1Input {
-  # An arbitrary string value with no semantic meaning. Will be included in the
-  # payload verbatim. May be used to track mutations by the client.
-  clientMutationId: String
-  tag1: Int!
-}
-
-# All input for the `deleteTagRelation` mutation.
-input DeleteTagRelationInput {
-  # An arbitrary string value with no semantic meaning. Will be included in the
-  # payload verbatim. May be used to track mutations by the client.
-  clientMutationId: String
-
-  # The globally unique `ID` which will identify a single `TagRelation` to be deleted.
-  id: ID!
-}
-
-# The output of our `deleteTagRelation` mutation.
-type DeleteTagRelationPayload {
-  # The exact same `clientMutationId` that was provided in the mutation input,
-  # unchanged and unused. May be used by a client to track mutations.
-  clientMutationId: String
-  tagRelation: TagRelation
-  deletedTagRelationId: ID
-
-  # Reads a single `Tag` that is related to this `TagRelation`.
-  tagByTag1: Tag
-
-  # Reads a single `Tag` that is related to this `TagRelation`.
-  tagByTag2: Tag
-
-  # Our root query field type. Allows us to run any query from our mutation payload.
-  query: Query
-}
-
 # All input for the `deleteUserByRowId` mutation.
 input DeleteUserByRowIdInput {
   # An arbitrary string value with no semantic meaning. Will be included in the
@@ -863,6 +913,61 @@ type DeleteUserPayload {
   query: Query
 }
 
+type ExampleMessage implements Node {
+  # A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  id: ID!
+  rowId: Int!
+}
+
+# A condition to be used against `ExampleMessage` object types. All fields are
+# tested for equality and combined with a logical ‘and.’
+input ExampleMessageCondition {
+  # Checks for equality with the object’s `rowId` field.
+  rowId: Int
+}
+
+input ExampleMessageInput {
+  rowId: Int
+}
+
+# Represents an update to a `ExampleMessage`. Fields that are set will be updated.
+input ExampleMessagePatch {
+  rowId: Int
+}
+
+# A connection to a list of `ExampleMessage` values.
+type ExampleMessagesConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `ExampleMessage` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `ExampleMessage` and cursor to aid in pagination.
+  edges: [ExampleMessagesEdge]
+
+  # A list of `ExampleMessage` objects.
+  nodes: [ExampleMessage!]
+}
+
+# A `ExampleMessage` edge in the connection.
+type ExampleMessagesEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `ExampleMessage` at the end of the edge.
+  node: ExampleMessage!
+}
+
+# Methods to use when ordering `ExampleMessage`.
+enum ExampleMessagesOrderBy {
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  NATURAL
+  ID_ASC
+  ID_DESC
+}
+
 # All input for the `genRandomBytes` mutation.
 input GenRandomBytesInput {
   # An arbitrary string value with no semantic meaning. Will be included in the
@@ -899,6 +1004,9 @@ type GenRandomUuidPayload {
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
 }
+
+# A JavaScript object encoded in the JSON format as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+scalar Json
 
 # A JSON Web Token defined by [RFC 7519](https://tools.ietf.org/html/rfc7519)
 # which securely represents claims between two parties.
@@ -942,6 +1050,10 @@ type Mutation {
     # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     input: UpsertAnswerVoteByQuestionAndAnswerInput!
   ): UpsertAnswerVoteByQuestionAndAnswerPayload
+  upsertTagSubscription(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpsertTagSubscriptionInput!
+  ): UpsertTagSubscriptionPayload
   upsertTest(
     # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     input: UpsertTestInput!
@@ -1007,6 +1119,36 @@ type Mutation {
     input: DeleteAnswerVoteByUserAndQuestionAndAnswerInput!
   ): DeleteAnswerVotePayload
 
+  # Creates a single `ExampleMessage`.
+  createExampleMessage(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: CreateExampleMessageInput!
+  ): CreateExampleMessagePayload
+
+  # Updates a single `ExampleMessage` using its globally unique id and a patch.
+  updateExampleMessage(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateExampleMessageInput!
+  ): UpdateExampleMessagePayload
+
+  # Updates a single `ExampleMessage` using a unique key and a patch.
+  updateExampleMessageByRowId(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: UpdateExampleMessageByRowIdInput!
+  ): UpdateExampleMessagePayload
+
+  # Deletes a single `ExampleMessage` using its globally unique id.
+  deleteExampleMessage(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteExampleMessageInput!
+  ): DeleteExampleMessagePayload
+
+  # Deletes a single `ExampleMessage` using a unique key.
+  deleteExampleMessageByRowId(
+    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    input: DeleteExampleMessageByRowIdInput!
+  ): DeleteExampleMessagePayload
+
   # Creates a single `Question`.
   createQuestion(
     # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -1043,11 +1185,11 @@ type Mutation {
     input: CreateQuestionModelInput!
   ): CreateQuestionModelPayload
 
-  # Creates a single `QuestionTag`.
-  createQuestionTag(
+  # Creates a single `QuestionTagXref`.
+  createQuestionTagXref(
     # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    input: CreateQuestionTagInput!
-  ): CreateQuestionTagPayload
+    input: CreateQuestionTagXrefInput!
+  ): CreateQuestionTagXrefPayload
 
   # Creates a single `QuestionVote`.
   createQuestionVote(
@@ -1109,35 +1251,17 @@ type Mutation {
     input: DeleteTagByRowIdInput!
   ): DeleteTagPayload
 
-  # Creates a single `TagRelation`.
-  createTagRelation(
+  # Creates a single `TagRelationsXref`.
+  createTagRelationsXref(
     # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    input: CreateTagRelationInput!
-  ): CreateTagRelationPayload
+    input: CreateTagRelationsXrefInput!
+  ): CreateTagRelationsXrefPayload
 
-  # Updates a single `TagRelation` using its globally unique id and a patch.
-  updateTagRelation(
+  # Creates a single `TagSubscription`.
+  createTagSubscription(
     # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    input: UpdateTagRelationInput!
-  ): UpdateTagRelationPayload
-
-  # Updates a single `TagRelation` using a unique key and a patch.
-  updateTagRelationByTag1(
-    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    input: UpdateTagRelationByTag1Input!
-  ): UpdateTagRelationPayload
-
-  # Deletes a single `TagRelation` using its globally unique id.
-  deleteTagRelation(
-    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    input: DeleteTagRelationInput!
-  ): DeleteTagRelationPayload
-
-  # Deletes a single `TagRelation` using a unique key.
-  deleteTagRelationByTag1(
-    # The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    input: DeleteTagRelationByTag1Input!
-  ): DeleteTagRelationPayload
+    input: CreateTagSubscriptionInput!
+  ): CreateTagSubscriptionPayload
 
   # Creates a single `User`.
   createUser(
@@ -1271,6 +1395,29 @@ type Query implements Node {
     search: String
   ): SearchQuestionsConnection
 
+  # Reads and enables paginatation through a set of `Question`.
+  searchQuestionsStrict(
+    # The method to use when ordering `Question`.
+    orderBy: SearchQuestionsStrictOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+    search: String
+  ): SearchQuestionsStrictConnection
+
   # Reads and enables paginatation through a set of `Tag`.
   searchTags(
     # The method to use when ordering `Tag`.
@@ -1293,29 +1440,6 @@ type Query implements Node {
     offset: Int
     search: String
   ): SearchTagsConnection
-
-  # Reads and enables paginatation through a set of `Tag`.
-  tagsByParent(
-    # The method to use when ordering `Tag`.
-    orderBy: TagsByParentOrderBy = NATURAL
-
-    # Read all values in the set before (above) this cursor.
-    before: Cursor
-
-    # Read all values in the set after (below) this cursor.
-    after: Cursor
-
-    # Only read the first `n` values of the set.
-    first: Int
-
-    # Only read the last `n` values of the set.
-    last: Int
-
-    # Skip the first `n` values from our `after` cursor, an alternative to cursor
-    # based pagination. May not be used with `last`.
-    offset: Int
-    parent: Int
-  ): TagsByParentConnection
 
   # Reads and enables paginatation through a set of `Answer`.
   allAnswers(
@@ -1381,6 +1505,38 @@ type Query implements Node {
   ): AnswerVote
   answerVoteByUserAndQuestionAndAnswer(user: Int!, question: Int!, answer: Int!): AnswerVote
 
+  # Reads and enables paginatation through a set of `ExampleMessage`.
+  allExampleMessages(
+    # The method to use when ordering `ExampleMessage`.
+    orderBy: ExampleMessagesOrderBy = PRIMARY_KEY_ASC
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: ExampleMessageCondition
+  ): ExampleMessagesConnection
+
+  # Reads a single `ExampleMessage` using its globally unique `ID`.
+  exampleMessage(
+    # The globally unique `ID` to be used in selecting a single `ExampleMessage`.
+    id: ID!
+  ): ExampleMessage
+  exampleMessageByRowId(rowId: Int!): ExampleMessage
+
   # Reads and enables paginatation through a set of `Question`.
   allQuestions(
     # The method to use when ordering `Question`.
@@ -1438,10 +1594,10 @@ type Query implements Node {
     condition: QuestionModelCondition
   ): QuestionModelsConnection
 
-  # Reads and enables paginatation through a set of `QuestionTag`.
-  allQuestionTags(
-    # The method to use when ordering `QuestionTag`.
-    orderBy: QuestionTagsOrderBy = NATURAL
+  # Reads and enables paginatation through a set of `QuestionTagXref`.
+  allQuestionTagXrefs(
+    # The method to use when ordering `QuestionTagXref`.
+    orderBy: QuestionTagXrefsOrderBy = NATURAL
 
     # Read all values in the set before (above) this cursor.
     before: Cursor
@@ -1460,8 +1616,8 @@ type Query implements Node {
     offset: Int
 
     # A condition to be used in determining which values should be returned by the collection.
-    condition: QuestionTagCondition
-  ): QuestionTagsConnection
+    condition: QuestionTagXrefCondition
+  ): QuestionTagXrefsConnection
 
   # Reads and enables paginatation through a set of `QuestionVote`.
   allQuestionVotes(
@@ -1527,10 +1683,10 @@ type Query implements Node {
   ): Tag
   tagByRowId(rowId: Int!): Tag
 
-  # Reads and enables paginatation through a set of `TagRelation`.
-  allTagRelations(
-    # The method to use when ordering `TagRelation`.
-    orderBy: TagRelationsOrderBy = PRIMARY_KEY_ASC
+  # Reads and enables paginatation through a set of `TagRelationsXref`.
+  allTagRelationsXrefs(
+    # The method to use when ordering `TagRelationsXref`.
+    orderBy: TagRelationsXrefsOrderBy = NATURAL
 
     # Read all values in the set before (above) this cursor.
     before: Cursor
@@ -1549,15 +1705,33 @@ type Query implements Node {
     offset: Int
 
     # A condition to be used in determining which values should be returned by the collection.
-    condition: TagRelationCondition
-  ): TagRelationsConnection
+    condition: TagRelationsXrefCondition
+  ): TagRelationsXrefsConnection
 
-  # Reads a single `TagRelation` using its globally unique `ID`.
-  tagRelation(
-    # The globally unique `ID` to be used in selecting a single `TagRelation`.
-    id: ID!
-  ): TagRelation
-  tagRelationByTag1(tag1: Int!): TagRelation
+  # Reads and enables paginatation through a set of `TagSubscription`.
+  allTagSubscriptions(
+    # The method to use when ordering `TagSubscription`.
+    orderBy: TagSubscriptionsOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: TagSubscriptionCondition
+  ): TagSubscriptionsConnection
 
   # Reads and enables paginatation through a set of `User`.
   allUsers(
@@ -1732,10 +1906,10 @@ type Question implements Node {
     condition: QuestionVoteCondition
   ): QuestionVotesConnection
 
-  # Reads and enables paginatation through a set of `QuestionTag`.
-  questionTagsByQuestion(
-    # The method to use when ordering `QuestionTag`.
-    orderBy: QuestionTagsOrderBy = NATURAL
+  # Reads and enables paginatation through a set of `QuestionTagXref`.
+  questionTagXrefsByQuestionId(
+    # The method to use when ordering `QuestionTagXref`.
+    orderBy: QuestionTagXrefsOrderBy = NATURAL
 
     # Read all values in the set before (above) this cursor.
     before: Cursor
@@ -1754,11 +1928,11 @@ type Question implements Node {
     offset: Int
 
     # A condition to be used in determining which values should be returned by the collection.
-    condition: QuestionTagCondition
-  ): QuestionTagsConnection
+    condition: QuestionTagXrefCondition
+  ): QuestionTagXrefsConnection
 
   # Reads and enables paginatation through a set of `QuestionModel`.
-  questionModelsByQuestionid(
+  questionModelsByQuestionId(
     # The method to use when ordering `QuestionModel`.
     orderBy: QuestionModelsOrderBy = NATURAL
 
@@ -1865,7 +2039,7 @@ input QuestionInput {
 }
 
 type QuestionModel {
-  questionid: Int!
+  questionId: Int!
   name: String
   value: String
   source: String
@@ -1874,14 +2048,14 @@ type QuestionModel {
   step: Float
 
   # Reads a single `Question` that is related to this `QuestionModel`.
-  questionByQuestionid: Question
+  questionByQuestionId: Question
 }
 
 # A condition to be used against `QuestionModel` object types. All fields are
 # tested for equality and combined with a logical ‘and.’
 input QuestionModelCondition {
-  # Checks for equality with the object’s `questionid` field.
-  questionid: Int
+  # Checks for equality with the object’s `questionId` field.
+  questionId: Int
 
   # Checks for equality with the object’s `name` field.
   name: String
@@ -1903,7 +2077,7 @@ input QuestionModelCondition {
 }
 
 input QuestionModelInput {
-  questionid: Int
+  questionId: Int
   name: String
   value: String
   source: String
@@ -1939,8 +2113,8 @@ type QuestionModelsEdge {
 # Methods to use when ordering `QuestionModel`.
 enum QuestionModelsOrderBy {
   NATURAL
-  QUESTIONID_ASC
-  QUESTIONID_DESC
+  QUESTION_ID_ASC
+  QUESTION_ID_DESC
   NAME_ASC
   NAME_DESC
   VALUE_ASC
@@ -2002,63 +2176,63 @@ enum QuestionsOrderBy {
   AUTHOR_DESC
 }
 
-type QuestionTag {
-  question: Int
-  tag: Int
+type QuestionTagXref {
+  questionId: Int
+  tagId: Int
 
-  # Reads a single `Question` that is related to this `QuestionTag`.
-  questionByQuestion: Question
+  # Reads a single `Question` that is related to this `QuestionTagXref`.
+  questionByQuestionId: Question
 
-  # Reads a single `Tag` that is related to this `QuestionTag`.
-  tagByTag: Tag
+  # Reads a single `Tag` that is related to this `QuestionTagXref`.
+  tagByTagId: Tag
 }
 
-# A condition to be used against `QuestionTag` object types. All fields are tested
-# for equality and combined with a logical ‘and.’
-input QuestionTagCondition {
-  # Checks for equality with the object’s `question` field.
-  question: Int
+# A condition to be used against `QuestionTagXref` object types. All fields are
+# tested for equality and combined with a logical ‘and.’
+input QuestionTagXrefCondition {
+  # Checks for equality with the object’s `questionId` field.
+  questionId: Int
 
-  # Checks for equality with the object’s `tag` field.
-  tag: Int
+  # Checks for equality with the object’s `tagId` field.
+  tagId: Int
 }
 
-input QuestionTagInput {
-  question: Int
-  tag: Int
+input QuestionTagXrefInput {
+  questionId: Int
+  tagId: Int
 }
 
-# A connection to a list of `QuestionTag` values.
-type QuestionTagsConnection {
+# A connection to a list of `QuestionTagXref` values.
+type QuestionTagXrefsConnection {
   # Information to aid in pagination.
   pageInfo: PageInfo!
 
-  # The count of *all* `QuestionTag` you could get from the connection.
+  # The count of *all* `QuestionTagXref` you could get from the connection.
   totalCount: Int
 
-  # A list of edges which contains the `QuestionTag` and cursor to aid in pagination.
-  edges: [QuestionTagsEdge]
+  # A list of edges which contains the `QuestionTagXref` and cursor to aid in pagination.
+  edges: [QuestionTagXrefsEdge]
 
-  # A list of `QuestionTag` objects.
-  nodes: [QuestionTag!]
+  # A list of `QuestionTagXref` objects.
+  nodes: [QuestionTagXref!]
 }
 
-# A `QuestionTag` edge in the connection.
-type QuestionTagsEdge {
+# A `QuestionTagXref` edge in the connection.
+type QuestionTagXrefsEdge {
   # A cursor for use in pagination.
   cursor: Cursor
 
-  # The `QuestionTag` at the end of the edge.
-  node: QuestionTag!
+  # The `QuestionTagXref` at the end of the edge.
+  node: QuestionTagXref!
 }
 
-# Methods to use when ordering `QuestionTag`.
-enum QuestionTagsOrderBy {
+# Methods to use when ordering `QuestionTagXref`.
+enum QuestionTagXrefsOrderBy {
   NATURAL
-  QUESTION_ASC
-  QUESTION_DESC
-  TAG_ASC
-  TAG_DESC
+  QUESTION_ID_ASC
+  QUESTION_ID_DESC
+  TAG_ID_ASC
+  TAG_ID_DESC
 }
 
 type QuestionVote implements Node {
@@ -2233,6 +2407,35 @@ enum SearchQuestionsOrderBy {
   NATURAL
 }
 
+# A connection to a list of `Question` values.
+type SearchQuestionsStrictConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `Question` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `Question` and cursor to aid in pagination.
+  edges: [SearchQuestionsStrictEdge]
+
+  # A list of `Question` objects.
+  nodes: [Question]
+}
+
+# A `Question` edge in the connection.
+type SearchQuestionsStrictEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `Question` at the end of the edge.
+  node: Question
+}
+
+# Methods to use when ordering `Question`.
+enum SearchQuestionsStrictOrderBy {
+  NATURAL
+}
+
 # A connection to a list of `Tag` values.
 type SearchTagsConnection {
   # Information to aid in pagination.
@@ -2266,9 +2469,80 @@ type Tag implements Node {
   # A globally unique identifier. Can be used in various places throughout the system to identify this single value.
   id: ID!
   rowId: Int!
-  name: String
+  name: String!
   description: String
   parent: Int
+  body: Json
+  created: Datetime
+
+  # Reads and enables paginatation through a set of `Question`.
+  allQuestions(
+    # The method to use when ordering `Question`.
+    orderBy: TagAllQuestionsOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+  ): TagAllQuestionsConnection
+
+  # Reads and enables paginatation through a set of `Tag`.
+  children(
+    # The method to use when ordering `Tag`.
+    orderBy: TagChildrenOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+  ): TagChildrenConnection
+  identifier: String
+
+  # Reads and enables paginatation through a set of `Question`.
+  searchQuestions(
+    # The method to use when ordering `Question`.
+    orderBy: TagSearchQuestionsOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+    search: String
+  ): TagSearchQuestionsConnection
+  tagSubscription: TagSubscription
 
   # Reads a single `Tag` that is related to this `Tag`.
   tagByParent: Tag
@@ -2298,10 +2572,10 @@ type Tag implements Node {
     condition: TagCondition
   ): TagsConnection
 
-  # Reads and enables paginatation through a set of `QuestionTag`.
-  questionTagsByTag(
-    # The method to use when ordering `QuestionTag`.
-    orderBy: QuestionTagsOrderBy = NATURAL
+  # Reads and enables paginatation through a set of `QuestionTagXref`.
+  questionTagXrefsByTagId(
+    # The method to use when ordering `QuestionTagXref`.
+    orderBy: QuestionTagXrefsOrderBy = NATURAL
 
     # Read all values in the set before (above) this cursor.
     before: Cursor
@@ -2320,38 +2594,13 @@ type Tag implements Node {
     offset: Int
 
     # A condition to be used in determining which values should be returned by the collection.
-    condition: QuestionTagCondition
-  ): QuestionTagsConnection
+    condition: QuestionTagXrefCondition
+  ): QuestionTagXrefsConnection
 
-  # Reads and enables paginatation through a set of `TagRelation`.
-  tagRelationsByTag1(
-    # The method to use when ordering `TagRelation`.
-    orderBy: TagRelationsOrderBy = PRIMARY_KEY_ASC
-
-    # Read all values in the set before (above) this cursor.
-    before: Cursor
-
-    # Read all values in the set after (below) this cursor.
-    after: Cursor
-
-    # Only read the first `n` values of the set.
-    first: Int
-
-    # Only read the last `n` values of the set.
-    last: Int
-
-    # Skip the first `n` values from our `after` cursor, an alternative to cursor
-    # based pagination. May not be used with `last`.
-    offset: Int
-
-    # A condition to be used in determining which values should be returned by the collection.
-    condition: TagRelationCondition
-  ): TagRelationsConnection
-
-  # Reads and enables paginatation through a set of `TagRelation`.
-  tagRelationsByTag2(
-    # The method to use when ordering `TagRelation`.
-    orderBy: TagRelationsOrderBy = PRIMARY_KEY_ASC
+  # Reads and enables paginatation through a set of `TagSubscription`.
+  tagSubscriptionsByTagId(
+    # The method to use when ordering `TagSubscription`.
+    orderBy: TagSubscriptionsOrderBy = NATURAL
 
     # Read all values in the set before (above) this cursor.
     before: Cursor
@@ -2370,8 +2619,66 @@ type Tag implements Node {
     offset: Int
 
     # A condition to be used in determining which values should be returned by the collection.
-    condition: TagRelationCondition
-  ): TagRelationsConnection
+    condition: TagSubscriptionCondition
+  ): TagSubscriptionsConnection
+}
+
+# A connection to a list of `Question` values.
+type TagAllQuestionsConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `Question` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `Question` and cursor to aid in pagination.
+  edges: [TagAllQuestionsEdge]
+
+  # A list of `Question` objects.
+  nodes: [Question]
+}
+
+# A `Question` edge in the connection.
+type TagAllQuestionsEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `Question` at the end of the edge.
+  node: Question
+}
+
+# Methods to use when ordering `Question`.
+enum TagAllQuestionsOrderBy {
+  NATURAL
+}
+
+# A connection to a list of `Tag` values.
+type TagChildrenConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `Tag` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `Tag` and cursor to aid in pagination.
+  edges: [TagChildrenEdge]
+
+  # A list of `Tag` objects.
+  nodes: [Tag]
+}
+
+# A `Tag` edge in the connection.
+type TagChildrenEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `Tag` at the end of the edge.
+  node: Tag
+}
+
+# Methods to use when ordering `Tag`.
+enum TagChildrenOrderBy {
+  NATURAL
 }
 
 # A condition to be used against `Tag` object types. All fields are tested for equality and combined with a logical ‘and.’
@@ -2387,13 +2694,21 @@ input TagCondition {
 
   # Checks for equality with the object’s `parent` field.
   parent: Int
+
+  # Checks for equality with the object’s `body` field.
+  body: Json
+
+  # Checks for equality with the object’s `created` field.
+  created: Datetime
 }
 
 input TagInput {
   rowId: Int
-  name: String
+  name: String!
   description: String
   parent: Int
+  body: Json
+  created: Datetime
 }
 
 # Represents an update to a `Tag`. Fields that are set will be updated.
@@ -2402,112 +2717,68 @@ input TagPatch {
   name: String
   description: String
   parent: Int
+  body: Json
+  created: Datetime
 }
 
-type TagRelation implements Node {
-  # A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  id: ID!
-  tag1: Int!
+type TagRelationsXref {
+  tag1Id: Int!
   linkType: LinkType
-  tag2: Int
-
-  # Reads a single `Tag` that is related to this `TagRelation`.
-  tagByTag1: Tag
-
-  # Reads a single `Tag` that is related to this `TagRelation`.
-  tagByTag2: Tag
+  tag2Id: Int
 }
 
-# A condition to be used against `TagRelation` object types. All fields are tested
-# for equality and combined with a logical ‘and.’
-input TagRelationCondition {
-  # Checks for equality with the object’s `tag1` field.
-  tag1: Int
+# A condition to be used against `TagRelationsXref` object types. All fields are
+# tested for equality and combined with a logical ‘and.’
+input TagRelationsXrefCondition {
+  # Checks for equality with the object’s `tag1Id` field.
+  tag1Id: Int
 
   # Checks for equality with the object’s `linkType` field.
   linkType: LinkType
 
-  # Checks for equality with the object’s `tag2` field.
-  tag2: Int
+  # Checks for equality with the object’s `tag2Id` field.
+  tag2Id: Int
 }
 
-input TagRelationInput {
-  tag1: Int!
+input TagRelationsXrefInput {
+  tag1Id: Int!
   linkType: LinkType
-  tag2: Int
+  tag2Id: Int
 }
 
-# Represents an update to a `TagRelation`. Fields that are set will be updated.
-input TagRelationPatch {
-  tag1: Int
-  linkType: LinkType
-  tag2: Int
-}
-
-# A connection to a list of `TagRelation` values.
-type TagRelationsConnection {
+# A connection to a list of `TagRelationsXref` values.
+type TagRelationsXrefsConnection {
   # Information to aid in pagination.
   pageInfo: PageInfo!
 
-  # The count of *all* `TagRelation` you could get from the connection.
+  # The count of *all* `TagRelationsXref` you could get from the connection.
   totalCount: Int
 
-  # A list of edges which contains the `TagRelation` and cursor to aid in pagination.
-  edges: [TagRelationsEdge]
+  # A list of edges which contains the `TagRelationsXref` and cursor to aid in pagination.
+  edges: [TagRelationsXrefsEdge]
 
-  # A list of `TagRelation` objects.
-  nodes: [TagRelation!]
+  # A list of `TagRelationsXref` objects.
+  nodes: [TagRelationsXref!]
 }
 
-# A `TagRelation` edge in the connection.
-type TagRelationsEdge {
+# A `TagRelationsXref` edge in the connection.
+type TagRelationsXrefsEdge {
   # A cursor for use in pagination.
   cursor: Cursor
 
-  # The `TagRelation` at the end of the edge.
-  node: TagRelation!
+  # The `TagRelationsXref` at the end of the edge.
+  node: TagRelationsXref!
 }
 
-# Methods to use when ordering `TagRelation`.
-enum TagRelationsOrderBy {
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
+# Methods to use when ordering `TagRelationsXref`.
+enum TagRelationsXrefsOrderBy {
   NATURAL
-  TAG1_ASC
-  TAG1_DESC
+  TAG1_ID_ASC
+  TAG1_ID_DESC
   LINK_TYPE_ASC
   LINK_TYPE_DESC
-  TAG2_ASC
-  TAG2_DESC
-}
-
-# A connection to a list of `Tag` values.
-type TagsByParentConnection {
-  # Information to aid in pagination.
-  pageInfo: PageInfo!
-
-  # The count of *all* `Tag` you could get from the connection.
-  totalCount: Int
-
-  # A list of edges which contains the `Tag` and cursor to aid in pagination.
-  edges: [TagsByParentEdge]
-
-  # A list of `Tag` objects.
-  nodes: [Tag]
-}
-
-# A `Tag` edge in the connection.
-type TagsByParentEdge {
-  # A cursor for use in pagination.
-  cursor: Cursor
-
-  # The `Tag` at the end of the edge.
-  node: Tag
-}
-
-# Methods to use when ordering `Tag`.
-enum TagsByParentOrderBy {
-  NATURAL
+  TAG2_ID_ASC
+  TAG2_ID_DESC
 }
 
 # A connection to a list of `Tag` values.
@@ -2523,6 +2794,35 @@ type TagsConnection {
 
   # A list of `Tag` objects.
   nodes: [Tag!]
+}
+
+# A connection to a list of `Question` values.
+type TagSearchQuestionsConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `Question` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `Question` and cursor to aid in pagination.
+  edges: [TagSearchQuestionsEdge]
+
+  # A list of `Question` objects.
+  nodes: [Question]
+}
+
+# A `Question` edge in the connection.
+type TagSearchQuestionsEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `Question` at the end of the edge.
+  node: Question
+}
+
+# Methods to use when ordering `Question`.
+enum TagSearchQuestionsOrderBy {
+  NATURAL
 }
 
 # A `Tag` edge in the connection.
@@ -2547,6 +2847,83 @@ enum TagsOrderBy {
   DESCRIPTION_DESC
   PARENT_ASC
   PARENT_DESC
+  BODY_ASC
+  BODY_DESC
+  CREATED_ASC
+  CREATED_DESC
+}
+
+type TagSubscription {
+  tagId: Int
+  userId: Int
+  questions: Boolean!
+  subTags: Boolean!
+
+  # Reads a single `Tag` that is related to this `TagSubscription`.
+  tagByTagId: Tag
+
+  # Reads a single `User` that is related to this `TagSubscription`.
+  userByUserId: User
+}
+
+# A condition to be used against `TagSubscription` object types. All fields are
+# tested for equality and combined with a logical ‘and.’
+input TagSubscriptionCondition {
+  # Checks for equality with the object’s `tagId` field.
+  tagId: Int
+
+  # Checks for equality with the object’s `userId` field.
+  userId: Int
+
+  # Checks for equality with the object’s `questions` field.
+  questions: Boolean
+
+  # Checks for equality with the object’s `subTags` field.
+  subTags: Boolean
+}
+
+input TagSubscriptionInput {
+  tagId: Int
+  userId: Int
+  questions: Boolean
+  subTags: Boolean
+}
+
+# A connection to a list of `TagSubscription` values.
+type TagSubscriptionsConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # The count of *all* `TagSubscription` you could get from the connection.
+  totalCount: Int
+
+  # A list of edges which contains the `TagSubscription` and cursor to aid in pagination.
+  edges: [TagSubscriptionsEdge]
+
+  # A list of `TagSubscription` objects.
+  nodes: [TagSubscription!]
+}
+
+# A `TagSubscription` edge in the connection.
+type TagSubscriptionsEdge {
+  # A cursor for use in pagination.
+  cursor: Cursor
+
+  # The `TagSubscription` at the end of the edge.
+  node: TagSubscription!
+}
+
+# Methods to use when ordering `TagSubscription`.
+enum TagSubscriptionsOrderBy {
+  NATURAL
+  TAG_ID_ASC
+  TAG_ID_DESC
+  USER_ID_ASC
+  USER_ID_DESC
+  QUESTIONS_ASC
+  QUESTIONS_DESC
+  SUB_TAGS_ASC
+  SUB_TAGS_DESC
 }
 
 # All input for the `updateAnswerByRowId` mutation.
@@ -2631,6 +3008,41 @@ type UpdateAnswerVotePayload {
 
   # Reads a single `Answer` that is related to this `AnswerVote`.
   answerByAnswer: Answer
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `updateExampleMessageByRowId` mutation.
+input UpdateExampleMessageByRowIdInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  rowId: Int!
+
+  # An object where the defined keys will be set on the `ExampleMessage` identified by our unique key.
+  exampleMessagePatch: ExampleMessagePatch!
+}
+
+# All input for the `updateExampleMessage` mutation.
+input UpdateExampleMessageInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+
+  # The globally unique `ID` which will identify a single `ExampleMessage` to be updated.
+  id: ID!
+
+  # An object where the defined keys will be set on the `ExampleMessage` identified by our globally unique `ID`.
+  exampleMessagePatch: ExampleMessagePatch!
+}
+
+# The output of our `updateExampleMessage` mutation.
+type UpdateExampleMessagePayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  exampleMessage: ExampleMessage
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -2754,47 +3166,6 @@ type UpdateTagPayload {
   query: Query
 }
 
-# All input for the `updateTagRelationByTag1` mutation.
-input UpdateTagRelationByTag1Input {
-  # An arbitrary string value with no semantic meaning. Will be included in the
-  # payload verbatim. May be used to track mutations by the client.
-  clientMutationId: String
-  tag1: Int!
-
-  # An object where the defined keys will be set on the `TagRelation` identified by our unique key.
-  tagRelationPatch: TagRelationPatch!
-}
-
-# All input for the `updateTagRelation` mutation.
-input UpdateTagRelationInput {
-  # An arbitrary string value with no semantic meaning. Will be included in the
-  # payload verbatim. May be used to track mutations by the client.
-  clientMutationId: String
-
-  # The globally unique `ID` which will identify a single `TagRelation` to be updated.
-  id: ID!
-
-  # An object where the defined keys will be set on the `TagRelation` identified by our globally unique `ID`.
-  tagRelationPatch: TagRelationPatch!
-}
-
-# The output of our `updateTagRelation` mutation.
-type UpdateTagRelationPayload {
-  # The exact same `clientMutationId` that was provided in the mutation input,
-  # unchanged and unused. May be used by a client to track mutations.
-  clientMutationId: String
-  tagRelation: TagRelation
-
-  # Reads a single `Tag` that is related to this `TagRelation`.
-  tagByTag1: Tag
-
-  # Reads a single `Tag` that is related to this `TagRelation`.
-  tagByTag2: Tag
-
-  # Our root query field type. Allows us to run any query from our mutation payload.
-  query: Query
-}
-
 # All input for the `updateUserByRowId` mutation.
 input UpdateUserByRowIdInput {
   # An arbitrary string value with no semantic meaning. Will be included in the
@@ -2870,6 +3241,36 @@ type UpsertAnswerVoteByQuestionAndAnswerPayload {
 
   # Reads a single `User` that is related to this `Answer`.
   userByAuthor: User
+
+  # Our root query field type. Allows us to run any query from our mutation payload.
+  query: Query
+}
+
+# All input for the `upsertTagSubscription` mutation.
+input UpsertTagSubscriptionInput {
+  # An arbitrary string value with no semantic meaning. Will be included in the
+  # payload verbatim. May be used to track mutations by the client.
+  clientMutationId: String
+  tagId: Int
+  questions: Boolean
+  subTags: Boolean
+}
+
+# The output of our `upsertTagSubscription` mutation.
+type UpsertTagSubscriptionPayload {
+  # The exact same `clientMutationId` that was provided in the mutation input,
+  # unchanged and unused. May be used by a client to track mutations.
+  clientMutationId: String
+  tag: Tag
+
+  # An edge for the type. May be used by Relay 1.
+  tagEdge(
+    # The method to use when ordering `Tag`.
+    orderBy: TagsOrderBy = PRIMARY_KEY_ASC
+  ): TagsEdge
+
+  # Reads a single `Tag` that is related to this `Tag`.
+  tagByParent: Tag
 
   # Our root query field type. Allows us to run any query from our mutation payload.
   query: Query
@@ -3006,6 +3407,31 @@ type User implements Node {
     # A condition to be used in determining which values should be returned by the collection.
     condition: QuestionVoteCondition
   ): QuestionVotesConnection
+
+  # Reads and enables paginatation through a set of `TagSubscription`.
+  tagSubscriptionsByUserId(
+    # The method to use when ordering `TagSubscription`.
+    orderBy: TagSubscriptionsOrderBy = NATURAL
+
+    # Read all values in the set before (above) this cursor.
+    before: Cursor
+
+    # Read all values in the set after (below) this cursor.
+    after: Cursor
+
+    # Only read the first `n` values of the set.
+    first: Int
+
+    # Only read the last `n` values of the set.
+    last: Int
+
+    # Skip the first `n` values from our `after` cursor, an alternative to cursor
+    # based pagination. May not be used with `last`.
+    offset: Int
+
+    # A condition to be used in determining which values should be returned by the collection.
+    condition: TagSubscriptionCondition
+  ): TagSubscriptionsConnection
 }
 
 # A condition to be used against `User` object types. All fields are tested for equality and combined with a logical ‘and.’

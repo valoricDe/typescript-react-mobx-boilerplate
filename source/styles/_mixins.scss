@@ -1,0 +1,101 @@
+@import "variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+@mixin button($background, $color: #fff) {
+	background-color: $background;
+	color: $color;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover {
+		background-color: darken($background, 10%);
+	}
+
+	&:active {
+		background-color: darken($background, 20%);
+	}
+}
+
+@mixin multiline-ellipsis($line-height: 1.2em, $lines: 2, $space: 0em) {
+	/* hide text if it more than N lines  */
+	overflow: hidden;
+	/* for set '...' in absolute position */
+	position: relative;
+	/* use this value to count block height */
+	line-height: $line-height;
+	max-height: $line-height * $lines;
+	/* fix problem when last visible word doesn't adjoin right side  */
+	text-align: justify;
+	/* place for '...' */
+	margin-right: calc(-0em + #{$space});
+	padding-right: 1em;
+
+	* {
+		display: inline !important;
+	}
+
+	/* create the ... */
+	&:before {
+		/* points in the end */
+		content: '...';
+		/* absolute position */
+		position: absolute;
+		/* set position to right bottom corner of block */
+		right: 0;
+		bottom: 0;
+	}
+	/* hide ... if we have text, which is less than or equal to max lines */
+	&:after {
+		/* points in the end */
+		content: '';
+		/* absolute position */
+		position: absolute;
+		/* set position to right bottom corner of text */
+		right: 0;
+		/* set width and height */
+		width: 1em;
+		height: $line-height * $lines;
+		margin-top: 0.2em;
+		/* bg color = bg color under block */
+		background: white;
+	}
+}
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+/// @see https://css-tricks.com/snippets/sass/strip-unit-function/
+@function strip-unit($number) {
+	@if type-of($number) == 'number' and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+
+	@return $number;
+}
+
+@mixin rem-margin($tb, $lr) {
+	margin: round($font-size-base-pixel * strip-unit($tb)) round($font-size-base-pixel * strip-unit($lr));
+}
+
+@mixin flexStretchNthChild($nth-child, $spacer-x, $spacer-y) {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+
+	> *:nth-child(#{$nth-child}) {
+		min-width: $minCardWidth;
+		flex: 1;
+	}
+
+	padding: $spacer-y/2 $spacer-x/2;
+
+	> * {
+		margin: $spacer-y/2 $spacer-x/2;
+	}
+
+	> *.full {
+		margin: 0;
+	}
+}

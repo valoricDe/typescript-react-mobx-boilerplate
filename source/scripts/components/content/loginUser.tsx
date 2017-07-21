@@ -5,9 +5,9 @@ import {observer} from "mobx-react";
 import {observable} from "mobx";
 import Formsy from 'formsy-react';
 import { Input, Textarea } from 'formsy-react-components';
-import { ButtonToolbar, Button, Modal, Alert } from 'react-bootstrap';
+import { ButtonToolbar, Button, Modal, Alert } from 'reactstrap';
 
-const Auth = require('../../lib/auth');
+import Auth from '../../lib/auth';
 import LoginUserMutation from "../../mutations/loginUser";
 
 export class LoginUserState {
@@ -66,7 +66,7 @@ export default class LoginUser extends Component<Props.ILoginUserProps, void> {
 		return (
 			<div style={style}>
 				{this.loginError === LoginError.MALFORMED_JWT ?
-					<Alert bsStyle="danger">
+					<Alert color="danger">
 						<h4>Oh snap! You got one of the following errors!</h4>
 						<ul>
 							<li>Your login credentials were wrong</li>
@@ -77,9 +77,9 @@ export default class LoginUser extends Component<Props.ILoginUserProps, void> {
 					<fieldset>
 						<Input label="Email" value={item.email} placeholder={item.email} required name="email" validations={{matchRegexp: /\S+/}} validationError="Title field is required" />
 						<Input label="Password" value={item.password} placeholder={item.password} required type="password" name="password" validations={{matchRegexp: /\S+/}} validationError="Title field is required" />
-						<ButtonToolbar className="content__panelButtonToolbar pull-right" key="buttonToolbar">
-							<Button bsStyle="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>
-							<Button onClick={this.close} bsStyle="danger" key="cancel">Cancel</Button>
+						<ButtonToolbar className="content__panelButtonToolbar float-right" key="buttonToolbar">
+							<Button color="primary" type="submit" disabled={!this.isValidInput} key="save">Save</Button>
+							<Button onClick={this.close} color="danger" key="cancel">Cancel</Button>
 						</ButtonToolbar>
 
 					</fieldset>
